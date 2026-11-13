@@ -1,1 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7e9">
+  <meta name="description" content="Personal tours and travel planning in the Netherlands.">
+  <title>Holland Way Tours — Postcards from the Netherlands</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fff7e9;
+      --white: #fffdf8;
+      --ink: #20221e;
+      --muted: #67695f;
+      --coral: #f2674a;
+      --blue: #83d7df;
+      --yellow: #f5cf63;
+      --green: #739b6d;
+      --line: #e7decf;
+      --sans: "DM Sans", Arial, sans-serif;
+      --display: "Fraunces", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(rgba(32,34,30,.035) .7px, transparent .7px) 0 0 / 8px 8px,
+        var(--cream);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1160px, calc(100% - 42px));
+      margin: 0 auto;
+    }
+
+    .top-contact {
+      padding: 9px 0;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: .68rem;
+    }
+
+    .top-contact-inner,
+    .top-contact-info,
+    .top-contact-social {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-contact-inner { justify-content: space-between; }
+    .top-contact-info, .top-contact-social { flex-wrap: wrap; }
+    .top-contact a { color: var(--yellow); }
+
+    .top-contact a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .announcement {
+      padding: 8px 12px;
+      background: var(--yellow);
+      color: var(--ink);
+      text-align: center;
+      font-size: .72rem;
+      letter-spacing: .04em;
+    }
+
+    .announcement a {
+      margin-left: 5px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,247,233,.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .logo-icon {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border-radius: 50% 50% 48% 42%;
+      background: var(--coral);
+      color: white;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      transform: rotate(-8deg);
+    }
+
+    .logo-name span { display: block; color: var(--coral); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #4d4e45;
+      font-size: .77rem;
+      font-weight: 700;
+    }
+
+    nav a:not(.button):hover { color: var(--coral); }
+
+    .nav-contact {
+      display: grid;
+      gap: 2px;
+      padding: 7px 10px;
+      border-left: 2px solid var(--coral);
+      font-size: .63rem;
+      line-height: 1.4;
+    }
+
+    .nav-contact strong {
+      margin-top: 3px;
+      color: var(--coral);
+    }
+
+    .nav-contact a { overflow-wrap: anywhere; }
+
+    .language-select {
+      padding: 7px 5px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 45px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-size: .8rem;
+      font-weight: 800;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px) rotate(-1deg); }
+    .button-coral { border-color: var(--coral); background: var(--coral); }
+    .button-light { border-color: var(--ink); background: transparent; color: var(--ink); }
+    .button-light:hover { background: var(--ink); color: white; }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 1.15rem;
+    }
+
+    .hero {
+      position: relative;
+      padding: 55px 0 70px;
+      overflow: hidden;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-copy { position: relative; z-index: 1; }
+
+    .scribble-label {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px dashed var(--coral);
+      border-radius: 999px;
+      color: #b34230;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+
+    h1, h2, h3 { font-family: var(--display); }
+
+    .hero h1 {
+      max-width: 650px;
+      margin: 19px 0 16px;
+      font-size: clamp(3.4rem, 7vw, 6.05rem);
+      font-weight: 600;
+      line-height: .96;
+      letter-spacing: -.065em;
+    }
+
+    .hero h1 em {
+      position: relative;
+      color: var(--coral);
+      font-weight: 500;
+    }
+
+    .hero h1 em::after {
+      position: absolute;
+      right: 4%;
+      bottom: 2px;
+      left: 2%;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+      content: "";
+      z-index: -1;
+      transform: rotate(-2deg);
+    }
+
+    .hero-copy > p {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+
+    .hero-small-note {
+      margin-top: 19px;
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    .hero-art { position: relative; min-height: 475px; }
+
+    .hero-photo {
+      position: absolute;
+      inset: 12px 25px 20px;
+      overflow: hidden;
+      border: 9px solid var(--white);
+      border-radius: 48% 48% 8px 8px;
+      box-shadow: 0 15px 45px rgba(73,54,32,.15);
+      transform: rotate(2deg);
+    }
+
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-photo::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(24,25,20,.2), transparent 45%);
+      content: "";
+    }
+
+    .postcard {
+      position: absolute;
+      z-index: 2;
+      right: 1px;
+      bottom: 33px;
+      width: 170px;
+      padding: 14px;
+      border: 1px solid #e5dccb;
+      background: #fffdf8;
+      box-shadow: 3px 5px 0 rgba(32,34,30,.14);
+      transform: rotate(7deg);
+    }
+
+    .postcard img { width: 100%; height: 95px; object-fit: cover; }
+
+    .postcard p {
+      margin: 7px 0 0;
+      font-family: var(--display);
+      font-size: .88rem;
+      line-height: 1.2;
+    }
+
+    .sun-doodle {
+      position: absolute;
+      top: 0;
+      right: 5px;
+      color: var(--coral);
+      font-size: 4rem;
+      transform: rotate(20deg);
+    }
+
+    .hero-sticker {
+      position: absolute;
+      top: 59px;
+      left: 0;
+      z-index: 2;
+      display: grid;
+      width: 95px;
+      height: 95px;
+      place-items: center;
+      padding: 12px;
+      border-radius: 50%;
+      background: var(--yellow);
+      font-family: var(--display);
+      font-size: .88rem;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-12deg);
+    }
+
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--yellow);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      gap: 27px;
+      padding: 10px 0;
+      font-family: var(--display);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .ticker-track span::after {
+      margin-left: 27px;
+      color: var(--coral);
+      content: "✳";
+    }
+
+    .section { padding: 83px 0; }
+    .section-white { background: var(--white); }
+    .section-blue { background: #dff3ef; }
+
+    .section-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .section-intro > div { max-width: 680px; }
+
+    .kicker {
+      color: #b34d39;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-intro h2,
+    .about-copy h2,
+    .faq-copy h2 {
+      margin: 8px 0 0;
+      font-size: clamp(2.3rem, 4.7vw, 4.05rem);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -.05em;
+    }
+
+    .section-intro p {
+      max-width: 410px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .planner-section { padding: 65px 0 40px; }
+
+    .planner {
+      display: grid;
+      grid-template-columns: .73fr 1.27fr;
+      overflow: hidden;
+      border: 1px solid var(--ink);
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 6px 7px 0 var(--ink);
+    }
+
+    .planner-side {
+      padding: clamp(24px, 4vw, 41px);
+      background: var(--coral);
+      color: white;
+    }
+
+    .planner-side .kicker { color: #ffe5a8; }
+    .planner-side h2 { margin: 12px 0; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1; }
+    .planner-side p { color: rgba(255,255,255,.88); font-size: .85rem; }
+    .planner-side .promise { margin-top: 25px; font-size: .72rem; font-weight: 700; }
+    .planner-form { padding: clamp(20px, 4vw, 37px); }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 8px;
+      margin-bottom: 21px;
+    }
+
+    .progress-step {
+      padding: 8px 5px;
+      border: 1px dashed var(--line);
+      border-radius: 7px;
+      color: #8c8b80;
+      font-size: .68rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .progress-step.active,
+    .progress-step.complete {
+      border-color: var(--green);
+      background: #e6f2df;
+      color: #436140;
+    }
+
+    .form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1/-1; }
+    .field label { font-size: .74rem; font-weight: 800; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 11px;
+      border: 1px solid #d9d2c7;
+      border-radius: 7px;
+      outline: none;
+      background: #fffdf8;
+      color: var(--ink);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(115,155,109,.12);
+    }
+
+    .field textarea { min-height: 88px; resize: vertical; }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button-plain {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button-plain:hover { background: var(--cream); }
+    .form-note { color: var(--muted); font-size: .7rem; }
+    .form-note a { text-decoration: underline; }
+
+    .summary {
+      padding: 17px;
+      border: 1px dashed var(--green);
+      border-radius: 8px;
+      background: #f3f8ee;
+    }
+
+    .summary h3 { margin: 0 0 11px; font-size: 1.35rem; }
+    .summary p { margin: 6px 0; overflow-wrap: anywhere; font-size: .78rem; }
+    .summary strong { color: #436140; }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(35px, 7vw, 80px);
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      min-height: 415px;
+      border: 8px solid var(--white);
+      border-radius: 10px;
+      background: url("https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85") center/cover;
+      box-shadow: 5px 6px 0 var(--blue);
+      transform: rotate(-2deg);
+    }
+
+    .about-image-label {
+      position: absolute;
+      right: -18px;
+      bottom: 25px;
+      padding: 10px 13px;
+      background: var(--yellow);
+      font-family: var(--display);
+      font-size: .83rem;
+      transform: rotate(4deg);
+    }
+
+    .about-copy > p { color: var(--muted); font-size: .89rem; }
+
+    .about-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .about-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .about-list li::before { margin-right: 7px; color: var(--coral); content: "✳"; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      gap: 12px;
+    }
+
+    .service-card {
+      min-height: 185px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      transition: transform .2s;
+    }
+
+    .service-card:hover { transform: translateY(-4px) rotate(-1deg); }
+    .service-icon { color: var(--coral); font-family: var(--display); font-size: 1.6rem; }
+    .service-card h3 { margin: 10px 0 7px; font-size: 1.08rem; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .75rem; }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+
+    .destination-card {
+      position: relative;
+      padding: 9px 9px 16px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 3px 4px 0 rgba(32,34,30,.1);
+      transition: transform .22s;
+    }
+
+    .destination-card:nth-child(3n+1) { transform: rotate(-1.4deg); }
+    .destination-card:nth-child(3n+2) { transform: rotate(1deg); }
+    .destination-card:nth-child(3n) { transform: rotate(-.4deg); }
+    .destination-card:hover { z-index: 2; transform: translateY(-6px) rotate(0); }
+
+    .destination-image { position: relative; height: 215px; overflow: hidden; background: #d9ddd2; }
+    .destination-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+    .destination-card:hover .destination-image img { transform: scale(1.05); }
+
+    .destination-label {
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      padding: 5px 8px;
+      background: var(--yellow);
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .destination-content { padding: 13px 7px 0; }
+    .destination-meta { color: #b34d39; font-size: .63rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .destination-content h3 { margin: 5px 0; font-size: 1.35rem; line-height: 1.1; }
+    .destination-content p { min-height: 39px; margin: 0; color: var(--muted); font-size: .75rem; }
+
+    .destination-link {
+      display: inline-block;
+      margin-top: 11px;
+      color: #a3412e;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+
+    .step-card {
+      padding: 20px;
+      border: 1px dashed #b7c9ae;
+      border-radius: 10px;
+      background: rgba(255,255,255,.55);
+    }
+
+    .step-no { color: var(--green); font-family: var(--display); font-size: 1.8rem; }
+    .step-card h3 { margin: 8px 0 5px; font-size: 1.05rem; }
+    .step-card p { margin: 0; color: var(--muted); font-size: .76rem; }
+
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+
+    .review-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--white);
+    }
+
+    .stars { color: #d89728; letter-spacing: 2px; }
+    .review-card blockquote { margin: 13px 0; font-family: var(--display); font-size: 1.05rem; line-height: 1.4; }
+    .review-card strong { color: var(--muted); font-size: .7rem; }
+    .review-note { color: var(--muted); font-size: .72rem; text-align: center; }
+
+    .faq-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; }
+    .faq-copy p { color: var(--muted); font-size: .84rem; }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-list details { padding: 16px 0; border-bottom: 1px solid var(--line); }
+
+    .faq-list summary {
+      position: relative;
+      padding-right: 28px;
+      cursor: pointer;
+      font-size: .83rem;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .faq-list summary::-webkit-details-marker { display: none; }
+
+    .faq-list summary::after {
+      position: absolute;
+      right: 0;
+      color: var(--coral);
+      content: "+";
+      font-size: 1.2rem;
+    }
+
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { margin: 10px 0 0; color: var(--muted); font-size: .78rem; }
+
+    .closing {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0;
+      background: var(--blue);
+      text-align: center;
+    }
+
+    .closing::before,
+    .closing::after {
+      position: absolute;
+      color: rgba(32,34,30,.14);
+      font-size: 8rem;
+      line-height: 1;
+      content: "✳";
+    }
+
+    .closing::before { top: -25px; left: 5%; transform: rotate(-15deg); }
+    .closing::after { right: 5%; bottom: -50px; transform: rotate(20deg); }
+    .closing .container { position: relative; z-index: 1; }
+    .closing h2 { max-width: 760px; margin: 8px auto; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; }
+    .closing p { max-width: 480px; margin: 12px auto 23px; color: #414b43; font-size: .86rem; }
+    .closing-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; }
+
+    footer {
+      padding: 42px 0 18px;
+      background: var(--ink);
+      color: rgba(255,255,255,.7);
+      font-size: .76rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 38px;
+      padding-bottom: 25px;
+    }
+
+    footer .logo { color: white; }
+    footer .logo-name span { color: var(--yellow); }
+    footer p { max-width: 350px; }
+    footer h4 { margin: 0 0 11px; color: white; font-size: .81rem; }
+    footer a:not(.logo) { display: block; width: fit-content; margin: 7px 0; }
+    footer a:hover { color: var(--yellow); }
+    footer .social-heading { margin-top: 22px; }
+
+    footer .social-links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    footer .social-links a {
+      display: inline-block;
+      width: auto;
+      margin: 0;
+      padding: 7px 10px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      font-size: .7rem;
+    }
+
+    .footer-bottom {
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,.17);
+      font-size: .68rem;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 980px) {
+      .menu-toggle { display: grid; place-items: center; margin-left: auto; }
+
+      nav {
+        position: fixed;
+        inset: 76px 0 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 24px;
+        overflow-y: auto;
+        background: var(--cream);
+      }
+
+      nav.open { display: flex; }
+
+      nav > a:not(.button) {
+        display: block;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav .button { margin-top: 15px; }
+      .nav-contact { padding: 12px 0; border-left: 0; border-bottom: 1px solid var(--line); font-size: .8rem; }
+      .language-select { width: fit-content; margin-top: 14px; }
+      .service-grid { grid-template-columns: repeat(3,1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 30px, 1160px); }
+
+      .top-contact-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .top-contact-info, .top-contact-social { gap: 8px 13px; }
+      .header-inner { min-height: 68px; }
+      nav { inset-block-start: 68px; }
+      .hero { padding: 45px 0 55px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 18px; }
+      .hero h1 { font-size: clamp(3.3rem, 14vw, 5.2rem); }
+      .hero-art { min-height: 370px; }
+      .hero-photo { inset: 9px 25px 17px; }
+      .hero-sticker { top: 35px; width: 78px; height: 78px; font-size: .75rem; }
+      .section { padding: 65px 0; }
+      .section-intro { display: block; margin-bottom: 25px; }
+      .section-intro p { margin-top: 12px; }
+      .planner-section { padding-top: 45px; }
+      .planner { grid-template-columns: 1fr; }
+      .planner-side { padding-bottom: 24px; }
+      .planner-side .promise { margin-top: 12px; }
+      .about-layout { grid-template-columns: 1fr; gap: 30px; }
+      .about-image { min-height: 325px; }
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+      .destination-grid { grid-template-columns: repeat(2,1fr); gap: 16px; }
+      .destination-image { height: 170px; }
+      .destination-card:nth-child(n) { transform: none; }
+      .destination-content h3 { font-size: 1.12rem; }
+      .destination-content p { min-height: 0; font-size: .7rem; }
+      .steps-grid { grid-template-columns: repeat(2,1fr); }
+      .review-grid { grid-template-columns: 1fr; }
+      .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 460px) {
+      .announcement { font-size: .65rem; }
+      .logo { font-size: .78rem; }
+      .hero-actions .button { width: 100%; }
+      .hero-art { min-height: 315px; }
+      .postcard { width: 135px; right: 0; }
+      .postcard img { height: 75px; }
+      .sun-doodle { font-size: 3rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .form-actions .button { flex: 1; padding-inline: 9px; font-size: .72rem; }
+      .progress-step { font-size: .61rem; }
+      .about-list { grid-template-columns: 1fr; }
+      .service-grid, .destination-grid, .steps-grid, .footer-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; }
+      .destination-image { height: 220px; }
+      .footer-grid > div:first-child { grid-column: auto; }
+      .closing-actions .button { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+
+    html[dir="rtl"] body {
+      text-align: right;
+      font-family: Arial, sans-serif;
+    }
+
+    html[dir="rtl"] .top-contact-inner,
+    html[dir="rtl"] .hero-actions,
+    html[dir="rtl"] .closing-actions {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .hero h1,
+    html[dir="rtl"] h1,
+    html[dir="rtl"] h2,
+    html[dir="rtl"] h3 {
+      letter-spacing: 0;
+    }
+
+    html[dir="rtl"] .about-list li::before {
+      margin-right: 0;
+      margin-left: 7px;
+    }
+
+    html[dir="rtl"] .destination-label {
+      right: 9px;
+      left: auto;
+    }
+
+    html[dir="rtl"] .faq-list summary {
+      padding-right: 0;
+      padding-left: 28px;
+    }
+
+    html[dir="rtl"] .faq-list summary::after {
+      right: auto;
+      left: 0;
+    }
+
+    html[dir="rtl"] .form-actions {
+      flex-direction: row-reverse;
+    }
+
+    html[dir="rtl"] .hero-photo {
+      transform: rotate(-2deg);
+    }
+
+    html[dir="rtl"] .hero-sticker {
+      right: 0;
+      left: auto;
+    }
+
+    html[dir="rtl"] .postcard {
+      right: auto;
+      left: 1px;
+    }
+
+    html[dir="rtl"] .nav-contact {
+      border-right: 2px solid var(--coral);
+      border-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-contact">
+    <div class="container top-contact-inner">
+      <div class="top-contact-info">
+        <span>Address: Okshom 272, Hoofddorp, Netherlands</span>
+        <a href="mailto:husam48726@gmail.con">Email: husam48726@gmail.con</a>
+        <a href="tel:+31681110006">Phone: +31 6 8111 0006</a>
+      </div>
+      <div class="top-contact-social" aria-label="Follow us">
+        <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://facebook.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://tiktok.com/@YOUR_USERNAME" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="announcement">
+    A little planning goes a long way.
+    <a href="#booking">Tell us what you have in mind →</a>
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="Holland Way Tours home">
+        <span class="logo-icon">H</span>
+        <span class="logo-name">HOLLAND<span>WAY TOURS</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#about">Our way</a>
+        <a href="#services">What we do</a>
+        <a href="#destinations">Postcards</a>
+        <a href="#steps">How it works</a>
+        <a href="#faq">Questions</a>
+        <a class="button button-coral" href="#booking">Plan a trip ↗</a>
+
+        <select class="language-select" id="language-select" aria-label="Choose language">
+          <option value="en">English</option>
+          <option value="nl">Nederlands</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="ar">العربية</option>
+        </select>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="scribble-label">A travel scrapbook, not a checklist</span>
+          <h1>Collect a few<br><em>good days.</em></h1>
+          <p>A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.</p>
+          <div class="hero-actions">
+            <a class="button button-coral" href="#booking">Tell us your idea ✳</a>
+            <a class="button button-light" href="#destinations">Flip through places</a>
+          </div>
+          <div class="hero-small-note">Personal planning · Private travel · Room to explore</div>
+        </div>
+
+        <div class="hero-art">
+          <div class="sun-doodle" aria-hidden="true">☼</div>
+          <div class="hero-sticker">Take the<br>scenic route</div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=90" alt="Amsterdam canal houses">
+          </div>
+          <div class="postcard">
+            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=500&q=80" alt="Colorful flowers in the Netherlands">
+            <p>Wish you were here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="ticker-track">
+        <span>CANALS</span><span>VILLAGE STREETS</span><span>FLOWER FIELDS</span>
+        <span>LONG LUNCHES</span><span>SMALL MUSEUMS</span><span>COUNTRYSIDE</span>
+        <span>CANALS</span><span>VILLAGE STREETS</span><span>FLOWER FIELDS</span>
+      </div>
+    </div>
+
+    <section class="planner-section" id="booking">
+      <div class="container">
+        <div class="planner">
+          <div class="planner-side">
+            <span class="kicker">Your note to us</span>
+            <h2>Where should we begin?</h2>
+            <p>A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.</p>
+            <div class="promise">Just an enquiry. Nothing is confirmed until you agree to the details.</div>
+          </div>
+
+          <div class="planner-form">
+            <div class="progress" aria-label="Enquiry progress">
+              <div class="progress-step active" data-step="1">01 The idea</div>
+              <div class="progress-step" data-step="2">02 Your details</div>
+              <div class="progress-step" data-step="3">03 Review</div>
+            </div>
+
+            <form id="trip-form">
+              <section class="form-panel" data-panel="1">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="destination">What would you like to see?</label>
+                    <select id="destination" name="destination" required>
+                      <option value="">Pick a place</option>
+                      <option>Amsterdam</option>
+                      <option>Giethoorn</option>
+                      <option>Utrecht</option>
+                      <option>Delft</option>
+                      <option>Keukenhof</option>
+                      <option>Maastricht</option>
+                      <option>Haarlem</option>
+                      <option>Leiden</option>
+                      <option>The Hague &amp; Rotterdam</option>
+                      <option>Volendam &amp; Marken</option>
+                      <option>Efteling</option>
+                      <option>The Netherlands — multi-day</option>
+                      <option>Somewhere else / custom route</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="date">When are you thinking?</label>
+                    <input id="date" name="date" type="date" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="travellers">Who’s coming along?</label>
+                    <select id="travellers" name="travellers">
+                      <option>1</option><option>2</option><option>3</option>
+                      <option>4</option><option>5</option><option>6+</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="service">What kind of help?</label>
+                    <select id="service" name="service">
+                      <option>Private tour</option>
+                      <option>Private driver</option>
+                      <option>Tour guide</option>
+                      <option>Complete travel program</option>
+                      <option>Hotel assistance</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="notes">Anything you’re especially into?</label>
+                    <textarea id="notes" name="notes" placeholder="Interests, pickup point, special requests, or questions."></textarea>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <span></span>
+                  <button class="button button-coral" type="button" data-next>Add your details →</button>
+                </div>
+              </section>
+
+              <section class="form-panel" data-panel="2" hidden>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="name">What should we call you?</label>
+                    <input id="name" name="name" autocomplete="name" required>
+                  </div>
+                  <div class="field">
+                    <label for="phone">Phone / WhatsApp</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                  </div>
+                  <div class="field full">
+                    <label for="email">Email (optional)</label>
+                    <input id="email" name="email" type="email" autocomplete="email">
+                  </div>
+                </div>
+
+                <p class="form-note">
+                  We’ll use your details to reply to this enquiry.
+                  Add your real <a href="privacy.html">Privacy Policy</a> before publishing.
+                </p>
+
+                <div class="form-actions">
+                  <button class="button button-plain" type="button" data-back>← Back</button>
+                  <button class="button button-coral" type="button" data-next>Check my note →</button>
+                </div>
+              </section>
+
+              <section class="form-panel" data-panel="3" hidden>
+                <div class="summary" id="summary" aria-live="polite"></div>
+                <p class="form-note">This is an enquiry, not a confirmed booking. We’ll talk through the details with you.</p>
+                <div class="form-actions">
+                  <button class="button button-plain" type="button" data-back>← Back</button>
+                  <button class="button button-coral" type="submit">Send it on WhatsApp ↗</button>
+                </div>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-layout">
+        <div class="about-image" role="img" aria-label="Amsterdam canal on a sunny afternoon">
+          <span class="about-image-label">Leave room for detours.</span>
+        </div>
+
+        <div class="about-copy">
+          <span class="kicker">A little less rush</span>
+          <h2>Make space for the good bits.</h2>
+          <p>Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.</p>
+          <ul class="about-list">
+            <li>Ideas based on your interests</li>
+            <li>Help with practical details</li>
+            <li>Options for couples and groups</li>
+            <li>Plans that can be discussed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="services">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker">A few ways we can help</span>
+            <h2>Think of us as your travel sidekick.</h2>
+          </div>
+          <p>Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card"><span class="service-icon">✳ 01</span><h3>Private driver</h3><p>Ask about transport for your route and schedule.</p></article>
+          <article class="service-card"><span class="service-icon">✳ 02</span><h3>Tour guide</h3><p>Discuss a guided visit and local insight.</p></article>
+          <article class="service-card"><span class="service-icon">✳ 03</span><h3>A custom route</h3><p>Talk through places that fit the time you have.</p></article>
+          <article class="service-card"><span class="service-icon">✳ 04</span><h3>Hotel help</h3><p>Ask for help comparing accommodation options.</p></article>
+          <article class="service-card"><span class="service-icon">✳ 05</span><h3>Group travel</h3><p>Discuss arrangements for your whole crew.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-blue" id="destinations">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker">Little postcards from Holland</span>
+            <h2>Pick a page to start with.</h2>
+          </div>
+          <p>These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.</p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Amsterdam canal and historic buildings" loading="lazy">
+              <span class="destination-label">City days</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CANALS · HISTORY</div>
+              <h3>Amsterdam</h3>
+              <p>Wander canals, historic streets, and city landmarks.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Dutch village scenery" loading="lazy">
+              <span class="destination-label">Slow living</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">WATERWAYS · VILLAGE</div>
+              <h3>Giethoorn</h3>
+              <p>Quiet waterways, old houses, and village scenery.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=60%2Cwidth=375%2Cheight=375%2Cdpr=2/tour_img/2ab3026d27b9cd0977e074549e1e0ba359cd6d9f635de018600a1fbeb8c9f3c9.jpg" alt="Historic canal in a Dutch city" loading="lazy">
+              <span class="destination-label">City wandering</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CANALS · CULTURE</div>
+              <h3>Utrecht</h3>
+              <p>Explore the old center and distinctive canal wharves.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://www.leshuttle.com/media-library/media/leshuttle/articles/netherlands/delft%20hidden%20gem/0-hero_delft-hidden-gem_ad-977857126.jpg?width=1536&height=824&rmode=crop&format=webp&quality=60&v=202504111444" alt="Historic buildings in Delft" loading="lazy">
+              <span class="destination-label">Old town</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">HISTORY · ARCHITECTURE</div>
+              <h3>Delft</h3>
+              <p>Take in historic streets and classic Dutch character.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://cdn.getyourguide.com/image/format=avif%2Cfit=cover%2Cgravity=auto%2Cquality=60/dam/iStock-1556245500-HEADER%20MOBILE.jpg" alt="Flowers in the Netherlands" loading="lazy">
+              <span class="destination-label">Seasonal color</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">GARDENS · FLOWERS</div>
+              <h3>Keukenhof</h3>
+              <p>Ask about seasonal flower displays and visit details.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://merk.anwb.nl/transform/f39ca7ce-25c2-49c1-86a4-be442d894b83/Maastricht-water-jpg" alt="Historic waterfront in Maastricht" loading="lazy">
+              <span class="destination-label">A southern mood</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CULTURE · HISTORY</div>
+              <h3>Maastricht</h3>
+              <p>Discover a historic center and distinctive southern atmosphere.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Street in Haarlem" loading="lazy">
+              <span class="destination-label">Easy exploring</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CITY · CULTURE</div>
+              <h3>Haarlem</h3>
+              <p>Explore the historic center, local culture, and nearby sights.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Canal in Leiden" loading="lazy">
+              <span class="destination-label">Canal corners</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">UNIVERSITY · MUSEUMS</div>
+              <h3>Leiden</h3>
+              <p>Spend time around the canals, old university, and museums.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://res.klook.com/image/upload/w_500,h_313,c_fill,q_85/activities/m0ycjtewv5jwjhzuvpgf.jpg" alt="Dutch windmills in the countryside" loading="lazy">
+              <span class="destination-label">Postcard Holland</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">VILLAGES · COUNTRYSIDE</div>
+              <h3>Volendam, Marken &amp; windmills</h3>
+              <p>Traditional villages, open countryside, and classic windmills.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://visitrotterdam.com/assets/images/rotterdam-hero.webp" alt="Modern skyline in Rotterdam" loading="lazy">
+              <span class="destination-label"> city moods</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CITY · ARCHITECTURE</div>
+              <h3>Rotterdam</h3>
+              <p>Pair historic sights with bold modern architecture.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://www.traveltomtom.net/images/nieuwe_indeling/artikels/netherlands/efteling_hotel/Efteling_entrance_1.jpg" alt="Entrance to Efteling theme park" loading="lazy">
+              <span class="destination-label">Family day out</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">FAMILY · THEME PARK</div>
+              <h3>Efteling</h3>
+              <p>Ask about arrangements for a fun day at the park.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.ad.nl/ZGlvLzIwMTA3MzA2OC9mb2N1cy1hbmQtZmlsbC8wLjUvMC41LzEyMDAvNjc1/mall-of-the-netherlands-is-geopend" alt="Westfield Mall of the Netherlands" loading="lazy">
+              <span class="destination-label">A shopping stop</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">SHOPPING · DINING</div>
+              <h3>Westfield Mall of the Netherlands</h3>
+              <p>Plan a shopping or dining stop in Leidschendam, near The Hague.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://cdn.audleytravel.com/5234/3740/79/15985279-the-hague-skyline-netherlands.jpg" alt="The Hague skyline" loading="lazy">
+              <span class="destination-label">City by the sea</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">HISTORY · CULTURE</div>
+              <h3>The Hague</h3>
+              <p>Discover museums, landmarks, cafés, and Scheveningen beach.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Colorful flowers in the Netherlands" loading="lazy">
+              <span class="destination-label">Your own idea</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">FOOD · SHOPPING · LEISURE</div>
+              <h3>A day at your own pace</h3>
+              <p>Tell us what you love and discuss places that suit you.</p>
+              <a class="destination-link" href="#booking">Ask about this place ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker">No big formalities</span>
+            <h2>A few messages, then a plan.</h2>
+          </div>
+          <p>We’ll talk through the details before confirming anything, so you can see whether it feels right.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-no">01</span><h3>Send your idea</h3><p>Share your preferred dates, group size, and interests.</p></article>
+          <article class="step-card"><span class="step-no">02</span><h3>Have a chat</h3><p>We’ll follow up to learn more and answer questions.</p></article>
+          <article class="step-card"><span class="step-no">03</span><h3>Get the details</h3><p>Discuss the proposed arrangements, inclusions, and price.</p></article>
+          <article class="step-card"><span class="step-no">04</span><h3>Choose what works</h3><p>Confirm only if you’re happy with the final details.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="reviews">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker">Notes from the road</span>
+            <h2>Let real guests tell the story.</h2>
+          </div>
+          <p>Only publish genuine guest reviews, with permission from the people who wrote them.</p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card"><div class="stars">★★★★★</div><blockquote>“Add a genuine review here after getting the guest’s permission.”</blockquote><strong>Replace with guest name</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><blockquote>“Use the guest’s actual words; don’t invent a testimonial.”</blockquote><strong>Replace with guest name</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><blockquote>“You can link to your public review profile instead.”</blockquote><strong>Replace with guest name</strong></article>
+        </div>
+        <p class="review-note">These are placeholders, not real testimonials. Replace or remove this section before publishing.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-layout">
+        <div class="faq-copy">
+          <span class="kicker">The practical bits</span>
+          <h2>A few things worth knowing.</h2>
+          <p>Have another question? Reach out and ask us directly.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Does sending an enquiry confirm my booking?</summary>
+            <p>No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.</p>
+          </details>
+          <details>
+            <summary>How much does a tour cost?</summary>
+            <p>Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.</p>
+          </details>
+          <details>
+            <summary>What does the price include?</summary>
+            <p>Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.</p>
+          </details>
+          <details>
+            <summary>Can I suggest my own route?</summary>
+            <p>Yes. Include your idea in the enquiry and we’ll discuss what may be possible.</p>
+          </details>
+          <details>
+            <summary>What’s the cancellation policy?</summary>
+            <p>Cancellation and change terms depend on the service. Ask which terms apply before confirming.</p>
+          </details>
+          <details>
+            <summary>Can I request accessibility or child-friendly arrangements?</summary>
+            <p>Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="contact">
+      <div class="container">
+        <span class="kicker">Your turn to make a postcard</span>
+        <h2>Tell us what you’d love to remember.</h2>
+        <p>Share your travel idea. We’ll talk through the possibilities, availability, and price.</p>
+        <div class="closing-actions">
+          <a class="button" href="#booking">Start with a message ✳</a>
+          <a class="button button-light" href="mailto:husam48726@gmail.con">Email us</a>
+          <a class="button button-light" href="tel:+31681110006">Call +31 6 8111 0006</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#home">
+            <span class="logo-icon">H</span>
+            <span class="logo-name">HOLLAND<span>WAY TOURS</span></span>
+          </a>
+          <p>Private tours and personal travel planning for discovering the Netherlands your way.</p>
+          <p><strong>Address:</strong><br>Okshom 272, Hoofddorp, Netherlands</p>
+          <p><strong>Email:</strong><br><a href="mailto:husam48726@gmail.con">husam48726@gmail.con</a></p>
+          <p><strong>Phone:</strong><br><a href="tel:+31681110006">+31 6 8111 0006</a></p>
+        </div>
+
+        <div>
+          <h4>Flip through</h4>
+          <a href="#about">Our way</a>
+          <a href="#services">What we do</a>
+          <a href="#destinations">Postcards</a>
+          <a href="#steps">How it works</a>
+        </div>
+
+        <div>
+          <h4>Say hello</h4>
+          <a href="#booking">Plan a trip</a>
+          <a href="mailto:husam48726@gmail.con">Email us</a>
+          <a href="tel:+31681110006">Call us</a>
+          <a href="privacy.html">Privacy policy</a>
+          <a href="terms.html">Terms and conditions</a>
+
+          <h4 class="social-heading">Follow us</h4>
+          <div class="social-links">
+            <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://facebook.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://tiktok.com/@YOUR_USERNAME" target="_blank" rel="noopener noreferrer">TikTok</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> Holland Way Tours. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "31681110006";
+
+    const translations = {
+      en: {},
+
+      nl: {
+        "Our way": "Onze aanpak",
+        "What we do": "Wat we doen",
+        "Postcards": "Bestemmingen",
+        "How it works": "Zo werkt het",
+        "Questions": "Vragen",
+        "Plan a trip ↗": "Plan een reis ↗",
+        "A travel scrapbook, not a checklist": "Een reisdagboek, geen checklist",
+        "Collect a few": "Verzamel een paar",
+        "good days.": "mooie dagen.",
+        "A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.": "Een rustige ochtend aan de gracht. Een dorp om doorheen te dwalen. Een lange lunch zonder haast. We maken jouw reis door Nederland persoonlijk.",
+        "Tell us your idea ✳": "Vertel ons je idee ✳",
+        "Flip through places": "Bekijk bestemmingen",
+        "Take the": "Neem de",
+        "scenic route": "mooie route",
+        "Wish you were here.": "Was je hier maar.",
+        "Personal planning · Private travel · Room to explore": "Persoonlijke planning · Privéreizen · Ruimte om te ontdekken",
+        "CANALS": "GRACHTEN",
+        "VILLAGE STREETS": "DORPSSTRATEN",
+        "FLOWER FIELDS": "BLOEMENVELDEN",
+        "LONG LUNCHES": "LANGE LUNCHES",
+        "SMALL MUSEUMS": "KLEINE MUSEA",
+        "COUNTRYSIDE": "PLATTELAND",
+        "Your note to us": "Jouw bericht aan ons",
+        "Where should we begin?": "Waar zullen we beginnen?",
+        "A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.": "Een paar gegevens zijn genoeg. We nemen contact met je op via WhatsApp om je idee, beschikbaarheid en prijzen te bespreken.",
+        "Just an enquiry. Nothing is confirmed until you agree to the details.": "Dit is alleen een aanvraag. Er is niets bevestigd totdat je akkoord gaat met de details.",
+        "01 The idea": "01 Het idee",
+        "02 Your details": "02 Jouw gegevens",
+        "03 Review": "03 Controleren",
+        "What would you like to see?": "Wat wil je graag zien?",
+        "Pick a place": "Kies een bestemming",
+        "When are you thinking?": "Wanneer wil je gaan?",
+        "Who’s coming along?": "Met hoeveel personen?",
+        "What kind of help?": "Welke hulp zoek je?",
+        "Private tour": "Privétour",
+        "Private driver": "Privéchauffeur",
+        "Tour guide": "Gids",
+        "Complete travel program": "Compleet reisprogramma",
+        "Hotel assistance": "Hulp bij hotels",
+        "Anything you’re especially into?": "Zijn er speciale interesses?",
+        "Interests, pickup point, special requests, or questions.": "Interesses, ophaalpunt, speciale wensen of vragen.",
+        "Add your details →": "Vul je gegevens in →",
+        "What should we call you?": "Hoe mogen we je noemen?",
+        "Phone / WhatsApp": "Telefoon / WhatsApp",
+        "Email (optional)": "E-mail (optioneel)",
+        "We’ll use your details to reply to this enquiry.": "We gebruiken je gegevens om op deze aanvraag te reageren.",
+        "Privacy Policy": "Privacybeleid",
+        "before publishing.": "toe voordat je publiceert.",
+        "← Back": "← Terug",
+        "Check my note →": "Controleer mijn bericht →",
+        "Your travel note": "Jouw reisbericht",
+        "Send it on WhatsApp ↗": "Verstuur via WhatsApp ↗",
+        "This is an enquiry, not a confirmed booking. We’ll talk through the details with you.": "Dit is een aanvraag en geen bevestigde boeking. We bespreken de details met je.",
+        "A little less rush": "Een beetje minder haast",
+        "Make space for the good bits.": "Maak ruimte voor de mooie momenten.",
+        "Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.": "Niet elk mooi reismoment draait om een beroemde bezienswaardigheid. Vertel ons wat je leuk vindt en hoe je graag reist; dan bespreken we mogelijke routes en praktische zaken.",
+        "Ideas based on your interests": "Ideeën op basis van jouw interesses",
+        "Help with practical details": "Hulp met praktische zaken",
+        "Options for couples and groups": "Mogelijkheden voor stellen en groepen",
+        "Plans that can be discussed": "Plannen om samen te bespreken",
+        "A few ways we can help": "Waar we je mee kunnen helpen",
+        "Think of us as your travel sidekick.": "Zie ons als je reisgenoot.",
+        "Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.": "Vertel ons welke hulp je nodig hebt. We bespreken de mogelijkheden, beschikbaarheid en kosten voordat je beslist.",
+        "Ask about transport for your route and schedule.": "Vraag naar vervoer voor jouw route en planning.",
+        "Discuss a guided visit and local insight.": "Bespreek een rondleiding en lokale tips.",
+        "A custom route": "Een route op maat",
+        "Talk through places that fit the time you have.": "Bespreek bestemmingen die passen bij jouw beschikbare tijd.",
+        "Hotel help": "Hulp bij hotels",
+        "Ask for help comparing accommodation options.": "Vraag hulp bij het vergelijken van accommodaties.",
+        "Group travel": "Groepsreizen",
+        "Discuss arrangements for your whole crew.": "Bespreek de mogelijkheden voor je hele groep.",
+        "Little postcards from Holland": "Ansichtkaarten uit Nederland",
+        "Pick a page to start with.": "Kies waar je wilt beginnen.",
+        "These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.": "Dit zijn ideeën om mee te beginnen, geen vaste tourpakketten. Vraag ons naar routes, beschikbaarheid, inbegrepen diensten en prijzen.",
+        "City days": "Stadsdagen",
+        "Slow living": "Rustig aan",
+        "City wandering": "Stad ontdekken",
+        "Old town": "Oude stad",
+        "Seasonal color": "Seizoenskleuren",
+        "A southern mood": "Zuidelijke sfeer",
+        "Easy exploring": "Ontspannen ontdekken",
+        "Canal corners": "Grachten en hoekjes",
+        "Postcard Holland": "Holland op een ansichtkaart",
+        "Two city moods": "Twee steden",
+        "Family day out": "Gezinsdagje uit",
+        "Your own idea": "Jouw eigen idee",
+        "A shopping stop": "Een winkeluitje",
+        "City by the sea": "Stad aan zee",
+        "CANALS · HISTORY": "GRACHTEN · GESCHIEDENIS",
+        "WATERWAYS · VILLAGE": "WATERWEGEN · DORP",
+        "CANALS · CULTURE": "GRACHTEN · CULTUUR",
+        "HISTORY · ARCHITECTURE": "GESCHIEDENIS · ARCHITECTUUR",
+        "GARDENS · FLOWERS": "TUINEN · BLOEMEN",
+        "CULTURE · HISTORY": "CULTUUR · GESCHIEDENIS",
+        "CITY · CULTURE": "STAD · CULTUUR",
+        "UNIVERSITY · MUSEUMS": "UNIVERSITEIT · MUSEA",
+        "VILLAGES · COUNTRYSIDE": "DORPEN · PLATTELAND",
+        "CITY · ARCHITECTURE": "STAD · ARCHITECTUUR",
+        "FAMILY · THEME PARK": "FAMILIE · PRETPARK",
+        "FOOD · SHOPPING · LEISURE": "ETEN · WINKELEN · VRIJE TIJD",
+        "SHOPPING · DINING": "WINKELEN · ETEN",
+        "HISTORY · CULTURE": "GESCHIEDENIS · CULTUUR",
+        "Amsterdam": "Amsterdam",
+        "Giethoorn": "Giethoorn",
+        "Utrecht": "Utrecht",
+        "Delft": "Delft",
+        "Keukenhof": "Keukenhof",
+        "Maastricht": "Maastricht",
+        "Haarlem": "Haarlem",
+        "Leiden": "Leiden",
+        "The Hague & Rotterdam": "Den Haag & Rotterdam",
+        "Volendam, Marken & windmills": "Volendam, Marken & windmolens",
+        "Efteling": "Efteling",
+        "Westfield Mall of the Netherlands": "Westfield Mall of the Netherlands",
+        "Wander canals, historic streets, and city landmarks.": "Wandel langs grachten, historische straten en bezienswaardigheden.",
+        "Quiet waterways, old houses, and village scenery.": "Rustige waterwegen, oude huizen en dorpsgezichten.",
+        "Explore the old center and distinctive canal wharves.": "Ontdek het oude centrum en de karakteristieke werfkelders.",
+        "Take in historic streets and classic Dutch character.": "Ontdek historische straten en typisch Nederlandse charme.",
+        "Ask about seasonal flower displays and visit details.": "Vraag naar seizoensbloemen en praktische informatie voor je bezoek.",
+        "Discover a historic center and distinctive southern atmosphere.": "Ontdek een historisch centrum en de bijzondere zuidelijke sfeer.",
+        "Explore the historic center, local culture, and nearby sights.": "Ontdek het historische centrum, de lokale cultuur en bezienswaardigheden in de buurt.",
+        "Spend time around the canals, old university, and museums.": "Verken de grachten, de oude universiteit en de musea.",
+        "Traditional villages, open countryside, and classic windmills.": "Traditionele dorpen, open landschap en klassieke windmolens.",
+        "Pair historic sights with bold modern architecture.": "Combineer historische bezienswaardigheden met opvallende moderne architectuur.",
+        "Ask about arrangements for a fun day at the park.": "Vraag naar de mogelijkheden voor een leuke dag in het park.",
+        "Tell us what you love and discuss places that suit you.": "Vertel ons wat je leuk vindt en bespreek bestemmingen die bij je passen.",
+        "Plan a shopping or dining stop in Leidschendam, near The Hague.": "Plan een winkel- of eetstop in Leidschendam, vlak bij Den Haag.",
+        "Discover museums, landmarks, cafés, and Scheveningen beach.": "Ontdek musea, bezienswaardigheden, cafés en het strand van Scheveningen.",
+        "Ask about this place ↗": "Vraag naar deze bestemming ↗",
+        "No big formalities": "Geen ingewikkelde formaliteiten",
+        "A few messages, then a plan.": "Een paar berichten en dan een plan.",
+        "We’ll talk through the details before confirming anything, so you can see whether it feels right.": "We bespreken de details voordat iets wordt bevestigd, zodat je kunt bepalen of het bij je past.",
+        "Send your idea": "Stuur je idee",
+        "Share your preferred dates, group size, and interests.": "Deel je gewenste data, groepsgrootte en interesses.",
+        "Have a chat": "Praat met ons",
+        "We’ll follow up to learn more and answer questions.": "We nemen contact op om meer te weten te komen en vragen te beantwoorden.",
+        "Get the details": "Ontvang de details",
+        "Discuss the proposed arrangements, inclusions, and price.": "Bespreek de voorgestelde afspraken, inbegrepen diensten en prijs.",
+        "Choose what works": "Kies wat bij je past",
+        "Confirm only if you’re happy with the final details.": "Bevestig alleen als je tevreden bent met de uiteindelijke details.",
+        "Notes from the road": "Notities van onderweg",
+        "Let real guests tell the story.": "Laat echte gasten hun verhaal vertellen.",
+        "Only publish genuine guest reviews, with permission from the people who wrote them.": "Publiceer alleen echte beoordelingen en vraag toestemming aan de schrijvers.",
+        "Add a genuine review here after getting the guest’s permission.": "Voeg hier een echte beoordeling toe nadat je toestemming hebt gekregen.",
+        "Use the guest’s actual words; don’t invent a testimonial.": "Gebruik de echte woorden van de gast; verzin geen aanbeveling.",
+        "You can link to your public review profile instead.": "Je kunt ook linken naar je openbare beoordelingsprofiel.",
+        "Replace with guest name": "Vervang door de naam van de gast",
+        "These are placeholders, not real testimonials. Replace or remove this section before publishing.": "Dit zijn tijdelijke teksten, geen echte beoordelingen. Vervang of verwijder deze sectie voordat je publiceert.",
+        "The practical bits": "Praktische informatie",
+        "A few things worth knowing.": "Goed om te weten.",
+        "Have another question? Reach out and ask us directly.": "Heb je nog een vraag? Neem rechtstreeks contact met ons op.",
+        "Does sending an enquiry confirm my booking?": "Is mijn boeking bevestigd als ik een aanvraag verstuur?",
+        "No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.": "Nee. Je verstuurt alleen een aanvraag. We bespreken beschikbaarheid, afspraken en prijzen. Je boeking is pas bevestigd nadat je akkoord bent gegaan met de definitieve details.",
+        "How much does a tour cost?": "Wat kost een tour?",
+        "Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.": "De prijs hangt af van de dienst, datum, groepsgrootte en route. Neem contact met ons op voor een prijsopgave.",
+        "What does the price include?": "Wat is bij de prijs inbegrepen?",
+        "Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.": "Wat is inbegrepen, hangt af van de afspraken. Vraag vóór bevestiging schriftelijk naar de diensten, het vervoer, eventuele kosten en uitzonderingen.",
+        "Can I suggest my own route?": "Kan ik mijn eigen route voorstellen?",
+        "Yes. Include your idea in the enquiry and we’ll discuss what may be possible.": "Ja. Zet je idee in de aanvraag en we bespreken de mogelijkheden.",
+        "What’s the cancellation policy?": "Wat is het annuleringsbeleid?",
+        "Cancellation and change terms depend on the service. Ask which terms apply before confirming.": "De annulerings- en wijzigingsvoorwaarden hangen af van de dienst. Vraag welke voorwaarden gelden voordat je bevestigt.",
+        "Can I request accessibility or child-friendly arrangements?": "Kan ik vragen om toegankelijke of kindvriendelijke voorzieningen?",
+        "Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.": "Vermeld toegankelijkheidswensen of behoeften voor kinderen in je aanvraag. We bespreken wat geregeld kan worden.",
+        "Your turn to make a postcard": "Tijd om jouw ansichtkaart te maken",
+        "Tell us what you’d love to remember.": "Vertel ons wat je graag wilt onthouden.",
+        "Share your travel idea. We’ll talk through the possibilities, availability, and price.": "Deel je reisidee. We bespreken de mogelijkheden, beschikbaarheid en prijs.",
+        "Start with a message ✳": "Begin met een bericht ✳",
+        "Email us": "E-mail ons",
+        "Call us": "Bel ons",
+        "Call +31 6 8111 0006": "Bel +31 6 8111 0006",
+        "Private tours and personal travel planning for discovering the Netherlands your way.": "Privétours en persoonlijke reisplanning om Nederland op jouw manier te ontdekken.",
+        "Address:": "Adres:",
+        "Email:": "E-mail:",
+        "Phone:": "Telefoon:",
+        "Flip through": "Ontdek",
+        "Say hello": "Neem contact op",
+        "Follow us": "Volg ons",
+        "Privacy policy": "Privacybeleid",
+        "Terms and conditions": "Algemene voorwaarden",
+        "English": "Engels",
+        "Nederlands": "Nederlands",
+        "Deutsch": "Duits",
+        "Français": "Frans",
+        "العربية": "Arabisch",
+        "Tell us what you have in mind →": "Vertel ons wat je in gedachten hebt →",
+        "Address: Okshom 272, Hoofddorp, Netherlands": "Adres: Okshom 272, Hoofddorp, Nederland",
+        "Holland Way Tours enquiry": "Aanvraag voor Holland Way Tours",
+        "Destination:": "Bestemming:",
+        "Date:": "Datum:",
+        "Travellers:": "Reizigers:",
+        "Service:": "Dienst:",
+        "Notes:": "Opmerkingen:",
+        "Name:": "Naam:",
+        "Phone:": "Telefoon:",
+        "Email:": "E-mail:",
+        "—": "—"
+      },
+
+      de: {
+        "Our way": "Unser Ansatz",
+        "What we do": "Unser Angebot",
+        "Postcards": "Reiseziele",
+        "How it works": "So funktioniert’s",
+        "Questions": "Fragen",
+        "Plan a trip ↗": "Reise planen ↗",
+        "A travel scrapbook, not a checklist": "Ein Reisetagebuch statt einer Checkliste",
+        "Collect a few": "Sammle ein paar",
+        "good days.": "schöne Tage.",
+        "A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.": "Ein ruhiger Morgen an der Gracht. Ein Dorf zum Entdecken. Ein langes Mittagessen ohne Eile. Wir gestalten deine Niederlandereise ganz persönlich.",
+        "Tell us your idea ✳": "Erzähl uns von deiner Idee ✳",
+        "Flip through places": "Reiseziele entdecken",
+        "Take the": "Nimm die",
+        "scenic route": "schöne Route",
+        "Wish you were here.": "Wünsch, du wärst hier.",
+        "Personal planning · Private travel · Room to explore": "Persönliche Planung · Private Reisen · Raum zum Entdecken",
+        "CANALS": "KANÄLE",
+        "VILLAGE STREETS": "DORFSTRASSEN",
+        "FLOWER FIELDS": "BLUMENFELDER",
+        "LONG LUNCHES": "LANGE MITTAGESSEN",
+        "SMALL MUSEUMS": "KLEINE MUSEEN",
+        "COUNTRYSIDE": "LANDSCHAFT",
+        "Your note to us": "Deine Nachricht an uns",
+        "Where should we begin?": "Wo sollen wir anfangen?",
+        "A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.": "Ein paar Angaben genügen. Wir melden uns über WhatsApp, um deine Idee, die Verfügbarkeit und die Preise zu besprechen.",
+        "Just an enquiry. Nothing is confirmed until you agree to the details.": "Dies ist zunächst eine Anfrage. Bestätigt wird erst, wenn du den Details zustimmst.",
+        "01 The idea": "01 Deine Idee",
+        "02 Your details": "02 Deine Angaben",
+        "03 Review": "03 Übersicht",
+        "What would you like to see?": "Was möchtest du sehen?",
+        "Pick a place": "Reiseziel auswählen",
+        "When are you thinking?": "Wann möchtest du reisen?",
+        "Who’s coming along?": "Wie viele Personen reisen mit?",
+        "What kind of help?": "Welche Unterstützung brauchst du?",
+        "Private tour": "Private Tour",
+        "Private driver": "Privatfahrer",
+        "Tour guide": "Reiseleitung",
+        "Complete travel program": "Komplettes Reiseprogramm",
+        "Hotel assistance": "Unterstützung bei Hotels",
+        "Anything you’re especially into?": "Hast du besondere Interessen?",
+        "Interests, pickup point, special requests, or questions.": "Interessen, Abholort, besondere Wünsche oder Fragen.",
+        "Add your details →": "Deine Angaben hinzufügen →",
+        "What should we call you?": "Wie dürfen wir dich nennen?",
+        "Phone / WhatsApp": "Telefon / WhatsApp",
+        "Email (optional)": "E-Mail (optional)",
+        "We’ll use your details to reply to this enquiry.": "Wir verwenden deine Angaben, um auf diese Anfrage zu antworten.",
+        "Privacy Policy": "Datenschutzerklärung",
+        "before publishing.": "vor der Veröffentlichung hinzufügen.",
+        "← Back": "← Zurück",
+        "Check my note →": "Nachricht überprüfen →",
+        "Your travel note": "Deine Reisenachricht",
+        "Send it on WhatsApp ↗": "Über WhatsApp senden ↗",
+        "This is an enquiry, not a confirmed booking. We’ll talk through the details with you.": "Dies ist eine Anfrage und keine bestätigte Buchung. Wir besprechen die Details mit dir.",
+        "A little less rush": "Ein bisschen weniger Eile",
+        "Make space for the good bits.": "Lass Platz für die schönen Momente.",
+        "Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.": "Nicht jeder schöne Reisemoment dreht sich um eine berühmte Sehenswürdigkeit. Erzähl uns, was dir gefällt und wie du gern reist. Gemeinsam besprechen wir mögliche Routen und praktische Details.",
+        "Ideas based on your interests": "Ideen nach deinen Interessen",
+        "Help with practical details": "Hilfe bei praktischen Details",
+        "Options for couples and groups": "Angebote für Paare und Gruppen",
+        "Plans that can be discussed": "Individuell besprechbare Pläne",
+        "A few ways we can help": "So können wir helfen",
+        "Think of us as your travel sidekick.": "Wir sind gern dein Reisebegleiter.",
+        "Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.": "Erzähl uns, welche Unterstützung du brauchst. Wir besprechen Möglichkeiten, Verfügbarkeit und Kosten, bevor du dich entscheidest.",
+        "Ask about transport for your route and schedule.": "Frag nach Transport für deine Route und deinen Zeitplan.",
+        "Discuss a guided visit and local insight.": "Besprich eine Führung und lokale Tipps.",
+        "A custom route": "Individuelle Route",
+        "Talk through places that fit the time you have.": "Besprich Orte, die zu deiner verfügbaren Zeit passen.",
+        "Hotel help": "Hilfe bei Hotels",
+        "Ask for help comparing accommodation options.": "Frag nach Hilfe beim Vergleichen von Unterkünften.",
+        "Group travel": "Gruppenreisen",
+        "Discuss arrangements for your whole crew.": "Besprich Möglichkeiten für deine gesamte Gruppe.",
+        "Little postcards from Holland": "Kleine Postkarten aus Holland",
+        "Pick a page to start with.": "Such dir einen Anfang aus.",
+        "These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.": "Das sind erste Ideen, keine festen Tourpakete. Frag uns nach Routen, Verfügbarkeit, Leistungen und Preisen.",
+        "City days": "Stadttage",
+        "Slow living": "Entspannt unterwegs",
+        "City wandering": "Stadt entdecken",
+        "Old town": "Altstadt",
+        "Seasonal color": "Saisonale Farben",
+        "A southern mood": "Südliches Flair",
+        "Easy exploring": "Entspannt entdecken",
+        "Canal corners": "Kanalecken",
+        "Postcard Holland": "Holland wie auf einer Postkarte",
+        "Two city moods": "Zwei Städte",
+        "Family day out": "Familientag",
+        "Your own idea": "Deine eigene Idee",
+        "A shopping stop": "Ein Einkaufsstopp",
+        "City by the sea": "Stadt am Meer",
+        "CANALS · HISTORY": "KANÄLE · GESCHICHTE",
+        "WATERWAYS · VILLAGE": "WASSERWEGE · DORF",
+        "CANALS · CULTURE": "KANÄLE · KULTUR",
+        "HISTORY · ARCHITECTURE": "GESCHICHTE · ARCHITEKTUR",
+        "GARDENS · FLOWERS": "GÄRTEN · BLUMEN",
+        "CULTURE · HISTORY": "KULTUR · GESCHICHTE",
+        "CITY · CULTURE": "STADT · KULTUR",
+        "UNIVERSITY · MUSEUMS": "UNIVERSITÄT · MUSEEN",
+        "VILLAGES · COUNTRYSIDE": "DÖRFER · LANDSCHAFT",
+        "CITY · ARCHITECTURE": "STADT · ARCHITEKTUR",
+        "FAMILY · THEME PARK": "FAMILIE · FREIZEITPARK",
+        "FOOD · SHOPPING · LEISURE": "ESSEN · SHOPPING · FREIZEIT",
+        "SHOPPING · DINING": "SHOPPING · ESSEN",
+        "HISTORY · CULTURE": "GESCHICHTE · KULTUR",
+        "Wander canals, historic streets, and city landmarks.": "Erkunde Grachten, historische Straßen und Sehenswürdigkeiten.",
+        "Quiet waterways, old houses, and village scenery.": "Ruhige Wasserwege, alte Häuser und Dorfidylle.",
+        "Explore the old center and distinctive canal wharves.": "Entdecke die Altstadt und die besonderen Grachtenkai-Anlagen.",
+        "Take in historic streets and classic Dutch character.": "Entdecke historische Straßen und typisch niederländischen Charme.",
+        "Ask about seasonal flower displays and visit details.": "Frag nach saisonalen Blumen und Informationen zum Besuch.",
+        "Discover a historic center and distinctive southern atmosphere.": "Entdecke eine historische Altstadt und das besondere südliche Flair.",
+        "Explore the historic center, local culture, and nearby sights.": "Entdecke die Altstadt, die lokale Kultur und Sehenswürdigkeiten in der Nähe.",
+        "Spend time around the canals, old university, and museums.": "Erkunde die Grachten, die alte Universität und die Museen.",
+        "Traditional villages, open countryside, and classic windmills.": "Traditionelle Dörfer, offene Landschaft und klassische Windmühlen.",
+        "Pair historic sights with bold modern architecture.": "Verbinde historische Sehenswürdigkeiten mit markanter moderner Architektur.",
+        "Ask about arrangements for a fun day at the park.": "Frag nach Möglichkeiten für einen schönen Tag im Park.",
+        "Tell us what you love and discuss places that suit you.": "Erzähl uns, was dir gefällt, und besprich passende Orte.",
+        "Plan a shopping or dining stop in Leidschendam, near The Hague.": "Plane einen Einkaufs- oder Essensstopp in Leidschendam bei Den Haag.",
+        "Discover museums, landmarks, cafés, and Scheveningen beach.": "Entdecke Museen, Sehenswürdigkeiten, Cafés und den Strand von Scheveningen.",
+        "Ask about this place ↗": "Frag nach diesem Reiseziel ↗",
+        "No big formalities": "Ganz unkompliziert",
+        "A few messages, then a plan.": "Ein paar Nachrichten, dann steht der Plan.",
+        "We’ll talk through the details before confirming anything, so you can see whether it feels right.": "Wir besprechen die Details, bevor etwas bestätigt wird. So kannst du entscheiden, ob es für dich passt.",
+        "Send your idea": "Schick uns deine Idee",
+        "Share your preferred dates, group size, and interests.": "Teile deine Wunschtermine, Gruppengröße und Interessen mit.",
+        "Have a chat": "Lass uns sprechen",
+        "We’ll follow up to learn more and answer questions.": "Wir melden uns, um mehr zu erfahren und Fragen zu beantworten.",
+        "Get the details": "Erhalte die Details",
+        "Discuss the proposed arrangements, inclusions, and price.": "Besprich die geplanten Leistungen und den Preis.",
+        "Choose what works": "Wähle, was passt",
+        "Confirm only if you’re happy with the final details.": "Bestätige nur, wenn du mit den endgültigen Details zufrieden bist.",
+        "Notes from the road": "Notizen von unterwegs",
+        "Let real guests tell the story.": "Lass echte Gäste erzählen.",
+        "Only publish genuine guest reviews, with permission from the people who wrote them.": "Veröffentliche nur echte Bewertungen und hole die Zustimmung der Verfassenden ein.",
+        "Add a genuine review here after getting the guest’s permission.": "Füge hier nach Zustimmung des Gastes eine echte Bewertung ein.",
+        "Use the guest’s actual words; don’t invent a testimonial.": "Verwende die tatsächlichen Worte des Gastes und erfinde keine Empfehlung.",
+        "You can link to your public review profile instead.": "Du kannst stattdessen auf dein öffentliches Bewertungsprofil verlinken.",
+        "Replace with guest name": "Mit dem Namen des Gastes ersetzen",
+        "These are placeholders, not real testimonials. Replace or remove this section before publishing.": "Dies sind Platzhalter und keine echten Bewertungen. Ersetze oder entferne diesen Abschnitt vor der Veröffentlichung.",
+        "The practical bits": "Das Praktische",
+        "A few things worth knowing.": "Gut zu wissen.",
+        "Have another question? Reach out and ask us directly.": "Noch eine Frage? Kontaktiere uns direkt.",
+        "Does sending an enquiry confirm my booking?": "Ist meine Buchung nach einer Anfrage bestätigt?",
+        "No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.": "Nein. Du sendest eine Anfrage. Wir besprechen Verfügbarkeit, Leistungen und Preise. Deine Buchung ist erst bestätigt, wenn du den endgültigen Details zustimmst.",
+        "How much does a tour cost?": "Was kostet eine Tour?",
+        "Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.": "Der Preis hängt von Leistung, Datum, Gruppengröße und Route ab. Kontaktiere uns für ein Angebot.",
+        "What does the price include?": "Was ist im Preis enthalten?",
+        "Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.": "Die enthaltenen Leistungen hängen von der Vereinbarung ab. Lass dir Leistungen, Transport, Gebühren und Ausschlüsse vor der Bestätigung schriftlich geben.",
+        "Can I suggest my own route?": "Kann ich meine eigene Route vorschlagen?",
+        "Yes. Include your idea in the enquiry and we’ll discuss what may be possible.": "Ja. Schreib deine Idee in die Anfrage und wir besprechen die Möglichkeiten.",
+        "What’s the cancellation policy?": "Wie lauten die Stornierungsbedingungen?",
+        "Cancellation and change terms depend on the service. Ask which terms apply before confirming.": "Stornierungs- und Änderungsbedingungen hängen von der Leistung ab. Frag vor der Bestätigung nach den geltenden Bedingungen.",
+        "Can I request accessibility or child-friendly arrangements?": "Kann ich barrierefreie oder kinderfreundliche Angebote anfragen?",
+        "Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.": "Bitte erwähne Anforderungen zur Barrierefreiheit oder für Kinder in deiner Anfrage. Wir besprechen die Möglichkeiten.",
+        "Your turn to make a postcard": "Jetzt bist du dran",
+        "Tell us what you’d love to remember.": "Erzähl uns, woran du dich gern erinnern möchtest.",
+        "Share your travel idea. We’ll talk through the possibilities, availability, and price.": "Teile deine Reiseidee. Wir besprechen Möglichkeiten, Verfügbarkeit und Preis.",
+        "Start with a message ✳": "Schreib uns ✳",
+        "Email us": "E-Mail schreiben",
+        "Call us": "Anrufen",
+        "Call +31 6 8111 0006": "+31 6 8111 0006 anrufen",
+        "Private tours and personal travel planning for discovering the Netherlands your way.": "Private Touren und persönliche Reiseplanung, um die Niederlande auf deine Art zu entdecken.",
+        "Address:": "Adresse:",
+        "Email:": "E-Mail:",
+        "Phone:": "Telefon:",
+        "Flip through": "Entdecken",
+        "Say hello": "Kontakt",
+        "Follow us": "Folge uns",
+        "Privacy policy": "Datenschutzerklärung",
+        "Terms and conditions": "Allgemeine Geschäftsbedingungen",
+        "English": "Englisch",
+        "Nederlands": "Niederländisch",
+        "Deutsch": "Deutsch",
+        "Français": "Französisch",
+        "العربية": "Arabisch",
+        "Tell us what you have in mind →": "Erzähl uns von deiner Idee →",
+        "Address: Okshom 272, Hoofddorp, Netherlands": "Adresse: Okshom 272, Hoofddorp, Niederlande",
+        "Holland Way Tours enquiry": "Anfrage an Holland Way Tours",
+        "Destination:": "Reiseziel:",
+        "Date:": "Datum:",
+        "Travellers:": "Reisende:",
+        "Service:": "Leistung:",
+        "Notes:": "Notizen:",
+        "Name:": "Name:",
+        "Phone:": "Telefon:",
+        "Email:": "E-Mail:",
+        "—": "—"
+      },
+
+      fr: {
+        "Our way": "Notre approche",
+        "What we do": "Nos services",
+        "Postcards": "Destinations",
+        "How it works": "Comment ça marche",
+        "Questions": "Questions",
+        "Plan a trip ↗": "Planifier un voyage ↗",
+        "A travel scrapbook, not a checklist": "Un carnet de voyage, pas une liste à cocher",
+        "Collect a few": "Collectionnez quelques",
+        "good days.": "belles journées.",
+        "A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.": "Un matin paisible au bord d’un canal. Un village à explorer. Un long déjeuner sans se presser. Créons un voyage aux Pays-Bas qui vous ressemble.",
+        "Tell us your idea ✳": "Parlez-nous de votre idée ✳",
+        "Flip through places": "Découvrir les destinations",
+        "Take the": "Prenez la",
+        "scenic route": "route panoramique",
+        "Wish you were here.": "On aimerait que vous soyez ici.",
+        "Personal planning · Private travel · Room to explore": "Planification personnalisée · Voyages privés · Liberté d’explorer",
+        "CANALS": "CANAUX",
+        "VILLAGE STREETS": "RUES DE VILLAGE",
+        "FLOWER FIELDS": "CHAMPS DE FLEURS",
+        "LONG LUNCHES": "LONGS DÉJEUNERS",
+        "SMALL MUSEUMS": "PETITS MUSÉES",
+        "COUNTRYSIDE": "CAMPAGNE",
+        "Your note to us": "Votre message",
+        "Where should we begin?": "Par où commencer ?",
+        "A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.": "Quelques détails suffisent. Nous vous contacterons sur WhatsApp pour discuter de votre idée, des disponibilités et des tarifs.",
+        "Just an enquiry. Nothing is confirmed until you agree to the details.": "Il s’agit simplement d’une demande. Rien n’est confirmé avant votre accord sur les détails.",
+        "01 The idea": "01 Votre idée",
+        "02 Your details": "02 Vos coordonnées",
+        "03 Review": "03 Vérification",
+        "What would you like to see?": "Que souhaitez-vous découvrir ?",
+        "Pick a place": "Choisissez une destination",
+        "When are you thinking?": "Quand souhaitez-vous partir ?",
+        "Who’s coming along?": "Combien de voyageurs ?",
+        "What kind of help?": "De quel type d’aide avez-vous besoin ?",
+        "Private tour": "Visite privée",
+        "Private driver": "Chauffeur privé",
+        "Tour guide": "Guide touristique",
+        "Complete travel program": "Programme de voyage complet",
+        "Hotel assistance": "Aide pour l’hôtel",
+        "Anything you’re especially into?": "Avez-vous des intérêts particuliers ?",
+        "Interests, pickup point, special requests, or questions.": "Centres d’intérêt, lieu de prise en charge, demandes particulières ou questions.",
+        "Add your details →": "Ajouter vos coordonnées →",
+        "What should we call you?": "Comment souhaitez-vous être appelé(e) ?",
+        "Phone / WhatsApp": "Téléphone / WhatsApp",
+        "Email (optional)": "E-mail (facultatif)",
+        "We’ll use your details to reply to this enquiry.": "Nous utiliserons vos coordonnées pour répondre à cette demande.",
+        "Privacy Policy": "Politique de confidentialité",
+        "before publishing.": "avant de publier.",
+        "← Back": "← Retour",
+        "Check my note →": "Vérifier mon message →",
+        "Your travel note": "Votre demande de voyage",
+        "Send it on WhatsApp ↗": "Envoyer sur WhatsApp ↗",
+        "This is an enquiry, not a confirmed booking. We’ll talk through the details with you.": "Il s’agit d’une demande, et non d’une réservation confirmée. Nous discuterons des détails avec vous.",
+        "A little less rush": "Un peu moins de précipitation",
+        "Make space for the good bits.": "Faites de la place aux beaux moments.",
+        "Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.": "Les meilleurs moments ne viennent pas toujours des monuments célèbres. Dites-nous ce que vous aimez et comment vous aimez voyager ; nous discuterons des itinéraires et des aspects pratiques.",
+        "Ideas based on your interests": "Des idées selon vos intérêts",
+        "Help with practical details": "Aide pour les détails pratiques",
+        "Options for couples and groups": "Des options pour les couples et les groupes",
+        "Plans that can be discussed": "Des programmes à discuter ensemble",
+        "A few ways we can help": "Comment nous pouvons vous aider",
+        "Think of us as your travel sidekick.": "Considérez-nous comme votre compagnon de voyage.",
+        "Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.": "Dites-nous de quelle aide vous avez besoin. Nous discuterons des options, des disponibilités et des tarifs avant votre décision.",
+        "Ask about transport for your route and schedule.": "Renseignez-vous sur le transport adapté à votre itinéraire et à votre emploi du temps.",
+        "Discuss a guided visit and local insight.": "Discutez d’une visite guidée et de conseils locaux.",
+        "A custom route": "Un itinéraire sur mesure",
+        "Talk through places that fit the time you have.": "Parlons des lieux adaptés au temps dont vous disposez.",
+        "Hotel help": "Aide pour l’hôtel",
+        "Ask for help comparing accommodation options.": "Demandez de l’aide pour comparer les hébergements.",
+        "Group travel": "Voyage en groupe",
+        "Discuss arrangements for your whole crew.": "Discutez des options pour tout votre groupe.",
+        "Little postcards from Holland": "Petites cartes postales de Hollande",
+        "Pick a page to start with.": "Choisissez une première destination.",
+        "These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.": "Ce sont des idées de départ, pas des forfaits fixes. Contactez-nous pour les itinéraires, les disponibilités, les prestations et les tarifs.",
+        "City days": "Journées en ville",
+        "Slow living": "À un rythme tranquille",
+        "City wandering": "Balade en ville",
+        "Old town": "Vieille ville",
+        "Seasonal color": "Couleurs de saison",
+        "A southern mood": "Ambiance du sud",
+        "Easy exploring": "Découverte tranquille",
+        "Canal corners": "Coins de canaux",
+        "Postcard Holland": "La Hollande de carte postale",
+        "Two city moods": "Deux ambiances urbaines",
+        "Family day out": "Sortie en famille",
+        "Your own idea": "Votre idée",
+        "A shopping stop": "Une pause shopping",
+        "City by the sea": "Ville au bord de la mer",
+        "CANALS · HISTORY": "CANAUX · HISTOIRE",
+        "WATERWAYS · VILLAGE": "VOIES D’EAU · VILLAGE",
+        "CANALS · CULTURE": "CANAUX · CULTURE",
+        "HISTORY · ARCHITECTURE": "HISTOIRE · ARCHITECTURE",
+        "GARDENS · FLOWERS": "JARDINS · FLEURS",
+        "CULTURE · HISTORY": "CULTURE · HISTOIRE",
+        "CITY · CULTURE": "VILLE · CULTURE",
+        "UNIVERSITY · MUSEUMS": "UNIVERSITÉ · MUSÉES",
+        "VILLAGES · COUNTRYSIDE": "VILLAGES · CAMPAGNE",
+        "CITY · ARCHITECTURE": "VILLE · ARCHITECTURE",
+        "FAMILY · THEME PARK": "FAMILLE · PARC À THÈME",
+        "FOOD · SHOPPING · LEISURE": "GASTRONOMIE · SHOPPING · LOISIRS",
+        "SHOPPING · DINING": "SHOPPING · RESTAURATION",
+        "HISTORY · CULTURE": "HISTOIRE · CULTURE",
+        "Wander canals, historic streets, and city landmarks.": "Flânez le long des canaux, des rues historiques et des monuments.",
+        "Quiet waterways, old houses, and village scenery.": "Des voies d’eau paisibles, de vieilles maisons et des paysages de village.",
+        "Explore the old center and distinctive canal wharves.": "Découvrez le centre historique et les quais caractéristiques des canaux.",
+        "Take in historic streets and classic Dutch character.": "Découvrez des rues historiques et le charme typiquement néerlandais.",
+        "Ask about seasonal flower displays and visit details.": "Renseignez-vous sur les fleurs de saison et les détails de la visite.",
+        "Discover a historic center and distinctive southern atmosphere.": "Découvrez un centre historique et une atmosphère méridionale unique.",
+        "Explore the historic center, local culture, and nearby sights.": "Découvrez le centre historique, la culture locale et les environs.",
+        "Spend time around the canals, old university, and museums.": "Profitez des canaux, de l’ancienne université et des musées.",
+        "Traditional villages, open countryside, and classic windmills.": "Villages traditionnels, campagne ouverte et moulins classiques.",
+        "Pair historic sights with bold modern architecture.": "Associez les sites historiques à une architecture moderne audacieuse.",
+        "Ask about arrangements for a fun day at the park.": "Renseignez-vous sur les options pour passer une belle journée au parc.",
+        "Tell us what you love and discuss places that suit you.": "Dites-nous ce que vous aimez et discutons des lieux qui vous correspondent.",
+        "Plan a shopping or dining stop in Leidschendam, near The Hague.": "Prévoyez une pause shopping ou repas à Leidschendam, près de La Haye.",
+        "Discover museums, landmarks, cafés, and Scheveningen beach.": "Découvrez les musées, les monuments, les cafés et la plage de Scheveningen.",
+        "Ask about this place ↗": "En savoir plus sur cette destination ↗",
+        "No big formalities": "En toute simplicité",
+        "A few messages, then a plan.": "Quelques messages, puis un programme.",
+        "We’ll talk through the details before confirming anything, so you can see whether it feels right.": "Nous discuterons des détails avant toute confirmation, afin que vous puissiez décider si cela vous convient.",
+        "Send your idea": "Envoyez votre idée",
+        "Share your preferred dates, group size, and interests.": "Indiquez vos dates, la taille du groupe et vos centres d’intérêt.",
+        "Have a chat": "Échangeons",
+        "We’ll follow up to learn more and answer questions.": "Nous vous recontacterons pour en savoir plus et répondre à vos questions.",
+        "Get the details": "Recevez les détails",
+        "Discuss the proposed arrangements, inclusions, and price.": "Discutez des prestations proposées et du tarif.",
+        "Choose what works": "Choisissez ce qui vous convient",
+        "Confirm only if you’re happy with the final details.": "Confirmez uniquement si les détails vous conviennent.",
+        "Notes from the road": "Carnets de voyage",
+        "Let real guests tell the story.": "Laissez les vrais voyageurs raconter leur expérience.",
+        "Only publish genuine guest reviews, with permission from the people who wrote them.": "Publiez uniquement des avis authentiques, avec l’accord de leurs auteurs.",
+        "Add a genuine review here after getting the guest’s permission.": "Ajoutez ici un véritable avis après avoir obtenu l’autorisation du voyageur.",
+        "Use the guest’s actual words; don’t invent a testimonial.": "Utilisez les mots réels du voyageur ; n’inventez pas de témoignage.",
+        "You can link to your public review profile instead.": "Vous pouvez également créer un lien vers votre profil d’avis public.",
+        "Replace with guest name": "Remplacez par le nom du voyageur",
+        "These are placeholders, not real testimonials. Replace or remove this section before publishing.": "Ces textes sont des exemples, pas de vrais témoignages. Remplacez ou supprimez cette section avant publication.",
+        "The practical bits": "Informations pratiques",
+        "A few things worth knowing.": "Quelques informations utiles.",
+        "Have another question? Reach out and ask us directly.": "Une autre question ? Contactez-nous directement.",
+        "Does sending an enquiry confirm my booking?": "L’envoi d’une demande confirme-t-il ma réservation ?",
+        "No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.": "Non. Il s’agit d’une demande. Nous discuterons des disponibilités, des prestations et des tarifs. Votre réservation est confirmée uniquement après votre accord sur les détails finaux.",
+        "How much does a tour cost?": "Combien coûte une visite ?",
+        "Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.": "Le prix dépend du service, de la date, de la taille du groupe et de l’itinéraire. Contactez-nous pour obtenir un tarif.",
+        "What does the price include?": "Que comprend le prix ?",
+        "Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.": "Les prestations incluses dépendent de l’accord. Demandez par écrit les services, le transport, les frais et les exclusions avant de confirmer.",
+        "Can I suggest my own route?": "Puis-je proposer mon propre itinéraire ?",
+        "Yes. Include your idea in the enquiry and we’ll discuss what may be possible.": "Oui. Incluez votre idée dans votre demande et nous discuterons des possibilités.",
+        "What’s the cancellation policy?": "Quelle est la politique d’annulation ?",
+        "Cancellation and change terms depend on the service. Ask which terms apply before confirming.": "Les conditions d’annulation et de modification dépendent du service. Demandez les conditions applicables avant de confirmer.",
+        "Can I request accessibility or child-friendly arrangements?": "Puis-je demander des aménagements accessibles ou adaptés aux enfants ?",
+        "Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.": "Veuillez mentionner vos besoins d’accessibilité ou ceux des enfants dans votre demande. Nous discuterons des options possibles.",
+        "Your turn to make a postcard": "À vous de créer votre carte postale",
+        "Tell us what you’d love to remember.": "Dites-nous ce dont vous aimeriez vous souvenir.",
+        "Share your travel idea. We’ll talk through the possibilities, availability, and price.": "Partagez votre idée de voyage. Nous discuterons des possibilités, des disponibilités et du tarif.",
+        "Start with a message ✳": "Commençons par un message ✳",
+        "Email us": "Envoyez-nous un e-mail",
+        "Call us": "Appelez-nous",
+        "Call +31 6 8111 0006": "Appelez le +31 6 8111 0006",
+        "Private tours and personal travel planning for discovering the Netherlands your way.": "Visites privées et organisation personnalisée pour découvrir les Pays-Bas à votre façon.",
+        "Address:": "Adresse :",
+        "Email:": "E-mail :",
+        "Phone:": "Téléphone :",
+        "Flip through": "Découvrir",
+        "Say hello": "Contact",
+        "Follow us": "Suivez-nous",
+        "Privacy policy": "Politique de confidentialité",
+        "Terms and conditions": "Conditions générales",
+        "English": "Anglais",
+        "Nederlands": "Néerlandais",
+        "Deutsch": "Allemand",
+        "Français": "Français",
+        "العربية": "Arabe",
+        "Tell us what you have in mind →": "Parlez-nous de votre idée →",
+        "Address: Okshom 272, Hoofddorp, Netherlands": "Adresse : Okshom 272, Hoofddorp, Pays-Bas",
+        "Holland Way Tours enquiry": "Demande pour Holland Way Tours",
+        "Destination:": "Destination :",
+        "Date:": "Date :",
+        "Travellers:": "Voyageurs :",
+        "Service:": "Service :",
+        "Notes:": "Notes :",
+        "Name:": "Nom :",
+        "Phone:": "Téléphone :",
+        "Email:": "E-mail :",
+        "—": "—"
+      },
+
+      ar: {
+        "Our way": "نهجنا",
+        "What we do": "خدماتنا",
+        "Postcards": "وجهاتنا",
+        "How it works": "كيف نعمل",
+        "Questions": "الأسئلة",
+        "Plan a trip ↗": "خطّط لرحلتك ↗",
+        "A travel scrapbook, not a checklist": "دفتر ذكريات سفر، لا قائمة مهام",
+        "Collect a few": "اجمع بعض",
+        "good days.": "الأيام الجميلة.",
+        "A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.": "صباح هادئ على القناة، وقرية تستحق التجوّل، وغداء طويل بلا استعجال. لنجعل رحلتك إلى هولندا على ذوقك.",
+        "Tell us your idea ✳": "أخبرنا بفكرتك ✳",
+        "Flip through places": "تصفّح الوجهات",
+        "Take the": "اسلك",
+        "scenic route": "الطريق الأجمل",
+        "Wish you were here.": "ليتك هنا.",
+        "Personal planning · Private travel · Room to explore": "تخطيط شخصي · رحلات خاصة · مساحة للاستكشاف",
+        "CANALS": "القنوات",
+        "VILLAGE STREETS": "شوارع القرى",
+        "FLOWER FIELDS": "حقول الزهور",
+        "LONG LUNCHES": "وجبات غداء طويلة",
+        "SMALL MUSEUMS": "متاحف صغيرة",
+        "COUNTRYSIDE": "الريف",
+        "Your note to us": "رسالتك إلينا",
+        "Where should we begin?": "من أين نبدأ؟",
+        "A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.": "تكفينا بعض التفاصيل. سنتواصل معك عبر واتساب لمناقشة فكرتك والتوافر والأسعار.",
+        "Just an enquiry. Nothing is confirmed until you agree to the details.": "هذا مجرد استفسار. لا يتأكد أي شيء حتى توافق على التفاصيل.",
+        "01 The idea": "01 الفكرة",
+        "02 Your details": "02 بياناتك",
+        "03 Review": "03 المراجعة",
+        "What would you like to see?": "ما الأماكن التي ترغب في زيارتها؟",
+        "Pick a place": "اختر وجهة",
+        "When are you thinking?": "متى تخطط للرحلة؟",
+        "Who’s coming along?": "كم عدد المسافرين؟",
+        "What kind of help?": "ما نوع المساعدة التي تحتاجها؟",
+        "Private tour": "جولة خاصة",
+        "Private driver": "سائق خاص",
+        "Tour guide": "مرشد سياحي",
+        "Complete travel program": "برنامج سفر متكامل",
+        "Hotel assistance": "المساعدة في الفنادق",
+        "Anything you’re especially into?": "هل لديك اهتمامات خاصة؟",
+        "Interests, pickup point, special requests, or questions.": "اهتماماتك، ومكان الالتقاء، وأي طلبات خاصة أو أسئلة.",
+        "Add your details →": "أضف بياناتك →",
+        "What should we call you?": "ما الاسم الذي نستخدمه؟",
+        "Phone / WhatsApp": "الهاتف / واتساب",
+        "Email (optional)": "البريد الإلكتروني (اختياري)",
+        "We’ll use your details to reply to this enquiry.": "سنستخدم بياناتك للرد على هذا الاستفسار.",
+        "Privacy Policy": "سياسة الخصوصية",
+        "before publishing.": "قبل النشر.",
+        "← Back": "→ رجوع",
+        "Check my note →": "راجع رسالتك →",
+        "Your travel note": "طلب رحلتك",
+        "Send it on WhatsApp ↗": "أرسل عبر واتساب ↗",
+        "This is an enquiry, not a confirmed booking. We’ll talk through the details with you.": "هذا استفسار وليس حجزاً مؤكداً. سنناقش التفاصيل معك.",
+        "A little less rush": "على مهل أكثر",
+        "Make space for the good bits.": "اترك مساحة للحظات الجميلة.",
+        "Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.": "ليست كل لحظة جميلة مرتبطة بمعلم مشهور. أخبرنا بما تحب وكيف تفضل السفر، وسنناقش المسارات والترتيبات العملية الممكنة.",
+        "Ideas based on your interests": "أفكار تناسب اهتماماتك",
+        "Help with practical details": "مساعدة في التفاصيل العملية",
+        "Options for couples and groups": "خيارات للأزواج والمجموعات",
+        "Plans that can be discussed": "خطط قابلة للنقاش",
+        "A few ways we can help": "كيف يمكننا مساعدتك",
+        "Think of us as your travel sidekick.": "اعتبرنا رفيقك في الرحلة.",
+        "Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.": "أخبرنا بنوع المساعدة التي تحتاجها. سنناقش الترتيبات والتوافر والتكاليف قبل أن تقرر.",
+        "Ask about transport for your route and schedule.": "اسأل عن النقل المناسب لمسارك وجدولك.",
+        "Discuss a guided visit and local insight.": "ناقش إمكانية الزيارة مع مرشد ونصائح محلية.",
+        "A custom route": "مسار مخصص",
+        "Talk through places that fit the time you have.": "ناقش الأماكن التي تناسب الوقت المتاح لديك.",
+        "Hotel help": "المساعدة في الفنادق",
+        "Ask for help comparing accommodation options.": "اطلب المساعدة في مقارنة خيارات الإقامة.",
+        "Group travel": "رحلات جماعية",
+        "Discuss arrangements for your whole crew.": "ناقش الترتيبات المناسبة لمجموعتك.",
+        "Little postcards from Holland": "بطاقات صغيرة من هولندا",
+        "Pick a page to start with.": "اختر وجهة لتبدأ منها.",
+        "These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.": "هذه أفكار أولية وليست باقات جولات ثابتة. اسألنا عن المسارات والتوافر وما تتضمنه الرحلة والأسعار.",
+        "City days": "أيام في المدينة",
+        "Slow living": "حياة هادئة",
+        "City wandering": "جولة في المدينة",
+        "Old town": "البلدة القديمة",
+        "Seasonal color": "ألوان موسمية",
+        "A southern mood": "أجواء جنوبية",
+        "Easy exploring": "استكشاف مريح",
+        "Canal corners": "زوايا القنوات",
+        "Postcard Holland": "هولندا كالبطاقات البريدية",
+        "Two city moods": "أجواء مدينتين",
+        "Family day out": "يوم عائلي",
+        "Your own idea": "فكرتك الخاصة",
+        "A shopping stop": "محطة للتسوق",
+        "City by the sea": "مدينة على البحر",
+        "CANALS · HISTORY": "قنوات · تاريخ",
+        "WATERWAYS · VILLAGE": "ممرات مائية · قرية",
+        "CANALS · CULTURE": "قنوات · ثقافة",
+        "HISTORY · ARCHITECTURE": "تاريخ · عمارة",
+        "GARDENS · FLOWERS": "حدائق · زهور",
+        "CULTURE · HISTORY": "ثقافة · تاريخ",
+        "CITY · CULTURE": "مدينة · ثقافة",
+        "UNIVERSITY · MUSEUMS": "جامعة · متاحف",
+        "VILLAGES · COUNTRYSIDE": "قرى · ريف",
+        "CITY · ARCHITECTURE": "مدينة · عمارة",
+        "FAMILY · THEME PARK": "عائلة · مدينة ملاهٍ",
+        "FOOD · SHOPPING · LEISURE": "طعام · تسوق · ترفيه",
+        "SHOPPING · DINING": "تسوق · طعام",
+        "HISTORY · CULTURE": "تاريخ · ثقافة",
+        "Wander canals, historic streets, and city landmarks.": "تجوّل على القنوات وفي الشوارع التاريخية وبين معالم المدينة.",
+        "Quiet waterways, old houses, and village scenery.": "ممرات مائية هادئة ومنازل قديمة ومناظر قروية.",
+        "Explore the old center and distinctive canal wharves.": "استكشف المركز القديم والأرصفة المميزة على القنوات.",
+        "Take in historic streets and classic Dutch character.": "اكتشف الشوارع التاريخية والطابع الهولندي الأصيل.",
+        "Ask about seasonal flower displays and visit details.": "اسأل عن الزهور الموسمية وتفاصيل الزيارة.",
+        "Discover a historic center and distinctive southern atmosphere.": "اكتشف مركزاً تاريخياً وأجواء جنوبية مميزة.",
+        "Explore the historic center, local culture, and nearby sights.": "اكتشف المركز التاريخي والثقافة المحلية والمعالم القريبة.",
+        "Spend time around the canals, old university, and museums.": "استمتع بالقنوات والجامعة القديمة والمتاحف.",
+        "Traditional villages, open countryside, and classic windmills.": "قرى تقليدية وريف مفتوح وطواحين هواء كلاسيكية.",
+        "Pair historic sights with bold modern architecture.": "اجمع بين المعالم التاريخية والعمارة الحديثة الجريئة.",
+        "Ask about arrangements for a fun day at the park.": "اسأل عن ترتيبات يوم ممتع في الحديقة.",
+        "Tell us what you love and discuss places that suit you.": "أخبرنا بما تحب وناقش الأماكن التي تناسبك.",
+        "Plan a shopping or dining stop in Leidschendam, near The Hague.": "خطط لمحطة تسوق أو طعام في ليدسخيندام قرب لاهاي.",
+        "Discover museums, landmarks, cafés, and Scheveningen beach.": "اكتشف المتاحف والمعالم والمقاهي وشاطئ سخيفينينغن.",
+        "Ask about this place ↗": "اسأل عن هذه الوجهة ↗",
+        "No big formalities": "بكل بساطة",
+        "A few messages, then a plan.": "بعض الرسائل، ثم نضع الخطة.",
+        "We’ll talk through the details before confirming anything, so you can see whether it feels right.": "سنناقش التفاصيل قبل تأكيد أي شيء، لتقرر ما إذا كان مناسباً لك.",
+        "Send your idea": "أرسل فكرتك",
+        "Share your preferred dates, group size, and interests.": "أخبرنا بالتواريخ المفضلة وعدد المسافرين واهتماماتك.",
+        "Have a chat": "تحدث معنا",
+        "We’ll follow up to learn more and answer questions.": "سنتواصل معك لمعرفة المزيد والإجابة عن أسئلتك.",
+        "Get the details": "احصل على التفاصيل",
+        "Discuss the proposed arrangements, inclusions, and price.": "ناقش الترتيبات المقترحة وما تتضمنه الرحلة والسعر.",
+        "Choose what works": "اختر ما يناسبك",
+        "Confirm only if you’re happy with the final details.": "أكّد فقط إذا كنت راضياً عن التفاصيل النهائية.",
+        "Notes from the road": "ملاحظات من الطريق",
+        "Let real guests tell the story.": "دع الضيوف الحقيقيين يروون تجربتهم.",
+        "Only publish genuine guest reviews, with permission from the people who wrote them.": "انشر التقييمات الحقيقية فقط بعد الحصول على موافقة أصحابها.",
+        "Add a genuine review here after getting the guest’s permission.": "أضف تقييماً حقيقياً هنا بعد الحصول على موافقة الضيف.",
+        "Use the guest’s actual words; don’t invent a testimonial.": "استخدم كلمات الضيف الفعلية ولا تخترع شهادة.",
+        "You can link to your public review profile instead.": "يمكنك بدلاً من ذلك إضافة رابط إلى صفحة تقييماتك العامة.",
+        "Replace with guest name": "استبدل باسم الضيف",
+        "These are placeholders, not real testimonials. Replace or remove this section before publishing.": "هذه نصوص مؤقتة وليست تقييمات حقيقية. استبدل هذا القسم أو احذفه قبل النشر.",
+        "The practical bits": "معلومات عملية",
+        "A few things worth knowing.": "أمور يجدر بك معرفتها.",
+        "Have another question? Reach out and ask us directly.": "لديك سؤال آخر؟ تواصل معنا مباشرة.",
+        "Does sending an enquiry confirm my booking?": "هل إرسال الاستفسار يؤكد الحجز؟",
+        "No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.": "لا. إنه يرسل استفساراً فقط. سنناقش التوافر والترتيبات والأسعار. يتأكد حجزك بعد موافقتك على التفاصيل النهائية.",
+        "How much does a tour cost?": "كم تكلفة الجولة؟",
+        "Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.": "تعتمد الأسعار على الخدمة والتاريخ وعدد المسافرين والمسار. تواصل معنا لطلب السعر.",
+        "What does the price include?": "ماذا يشمل السعر؟",
+        "Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.": "يعتمد ما يشمله السعر على الترتيبات. اطلب كتابة الخدمات والنقل والرسوم والاستثناءات قبل التأكيد.",
+        "Can I suggest my own route?": "هل يمكنني اقتراح مساري الخاص؟",
+        "Yes. Include your idea in the enquiry and we’ll discuss what may be possible.": "نعم. اذكر فكرتك في الاستفسار وسنناقش الخيارات الممكنة.",
+        "What’s the cancellation policy?": "ما سياسة الإلغاء؟",
+        "Cancellation and change terms depend on the service. Ask which terms apply before confirming.": "تعتمد شروط الإلغاء والتغيير على الخدمة. اسأل عن الشروط قبل التأكيد.",
+        "Can I request accessibility or child-friendly arrangements?": "هل يمكن طلب ترتيبات مناسبة للأطفال أو لذوي الاحتياجات؟",
+        "Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.": "يرجى ذكر احتياجات سهولة الوصول أو احتياجات الأطفال في استفسارك. سنناقش ما يمكن ترتيبه.",
+        "Your turn to make a postcard": "حان دورك لصنع بطاقة سفر",
+        "Tell us what you’d love to remember.": "أخبرنا عن اللحظات التي تود أن تبقى في ذاكرتك.",
+        "Share your travel idea. We’ll talk through the possibilities, availability, and price.": "شاركنا فكرة رحلتك. سنناقش الخيارات والتوافر والسعر.",
+        "Start with a message ✳": "ابدأ برسالة ✳",
+        "Email us": "راسلنا",
+        "Call us": "اتصل بنا",
+        "Call +31 6 8111 0006": "اتصل على +31 6 8111 0006",
+        "Private tours and personal travel planning for discovering the Netherlands your way.": "جولات خاصة وتخطيط سفر شخصي لاكتشاف هولندا بطريقتك.",
+        "Address:": "العنوان:",
+        "Email:": "البريد الإلكتروني:",
+        "Phone:": "الهاتف:",
+        "Flip through": "تصفّح",
+        "Say hello": "تواصل معنا",
+        "Follow us": "تابعنا",
+        "Privacy policy": "سياسة الخصوصية",
+        "Terms and conditions": "الشروط والأحكام",
+        "English": "الإنجليزية",
+        "Nederlands": "الهولندية",
+        "Deutsch": "الألمانية",
+        "Français": "الفرنسية",
+        "العربية": "العربية",
+        "Tell us what you have in mind →": "أخبرنا بما تفكر فيه →",
+        "Address: Okshom 272, Hoofddorp, Netherlands": "العنوان: Okshom 272، هوفدورب، هولندا",
+        "Holland Way Tours enquiry": "استفسار إلى Holland Way Tours",
+        "Destination:": "الوجهة:",
+        "Date:": "التاريخ:",
+        "Travellers:": "المسافرون:",
+        "Service:": "الخدمة:",
+        "Notes:": "ملاحظات:",
+        "Name:": "الاسم:",
+        "Phone:": "الهاتف:",
+        "Email:": "البريد الإلكتروني:",
+        "—": "—"
+      }
+    };
+
+    const languageSelect = document.getElementById("language-select");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.getElementById("navigation");
+    const form = document.getElementById("trip-form");
+    const panels = [...form.querySelectorAll(".form-panel")];
+    const progressSteps = [...document.querySelectorAll(".progress-step")];
+
+    let currentStep = 1;
+    let currentLanguage = "en";
+
+    const originalText = new WeakMap();
+    const originalAttributes = new WeakMap();
+
+    function rememberText(node) {
+      if (!originalText.has(node)) originalText.set(node, node.nodeValue);
+      return originalText.get(node);
+    }
+
+    function translateTextNodes(root, dictionary) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach(node => {
+        const original = rememberText(node);
+        const trimmed = original.trim();
+
+        if (!trimmed) return;
+
+        const translated = dictionary[trimmed];
+
+        if (translated) {
+          const leading = original.match(/^\s*/)?.[0] || "";
+          const trailing = original.match(/\s*$/)?.[0] || "";
+          node.nodeValue = leading + translated + trailing;
+        } else if (currentLanguage === "en") {
+          node.nodeValue = original;
+        }
+      });
+    }
+
+    function translateAttributes(dictionary) {
+      const attributes = ["placeholder", "title", "alt", "aria-label"];
+
+      document.querySelectorAll("[placeholder], [title], [alt], [aria-label]").forEach(element => {
+        attributes.forEach(attribute => {
+          if (!element.hasAttribute(attribute)) return;
+
+          let saved = originalAttributes.get(element);
+          if (!saved) {
+            saved = {};
+            originalAttributes.set(element, saved);
+          }
+
+          if (!(attribute in saved)) saved[attribute] = element.getAttribute(attribute);
+
+          const original = saved[attribute];
+          const translated = dictionary[original];
+          element.setAttribute(attribute, translated || original);
+        });
+      });
+    }
+
+    function translateSelectOptions(dictionary) {
+      document.querySelectorAll("select option").forEach(option => {
+        if (!option.dataset.originalText) {
+          option.dataset.originalText = option.textContent;
+        }
+
+        const original = option.dataset.originalText;
+        option.textContent = dictionary[original.trim()] || original;
+      });
+    }
+
+    function getTranslated(text) {
+      return translations[currentLanguage]?.[text] || text;
+    }
+
+    function translatePage(language) {
+      currentLanguage = language;
+      const dictionary = translations[language] || {};
+
+      translateTextNodes(document.body, dictionary);
+      translateAttributes(dictionary);
+      translateSelectOptions(dictionary);
+
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+      updateSummary();
+    }
+
+    languageSelect.addEventListener("change", event => {
+      translatePage(event.target.value);
+    });
+
+    function addWhatsAppLinks() {
+      const baseUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
+      const topInfo = document.querySelector(".top-contact-info");
+
+      if (topInfo && !topInfo.querySelector(".whatsapp-contact")) {
+        const link = document.createElement("a");
+        link.className = "whatsapp-contact";
+        link.href = baseUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "WhatsApp";
+        topInfo.appendChild(link);
+      }
+
+      if (!navigation.querySelector(".whatsapp-contact")) {
+        const link = document.createElement("a");
+        link.className = "whatsapp-contact";
+        link.href = baseUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "WhatsApp";
+        navigation.appendChild(link);
+      }
+
+      const closingActions = document.querySelector(".closing-actions");
+      if (closingActions && !closingActions.querySelector(".whatsapp-contact")) {
+        const link = document.createElement("a");
+        link.className = "button button-light whatsapp-contact";
+        link.href = `${baseUrl}?text=${encodeURIComponent("Hello Holland Way Tours, I’d like to ask about a trip.")}`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Chat on WhatsApp ↗";
+        closingActions.appendChild(link);
+      }
+
+      const footer = document.querySelector(".footer-grid > div:last-child");
+      if (footer && !footer.querySelector(".whatsapp-contact")) {
+        const link = document.createElement("a");
+        link.className = "whatsapp-contact";
+        link.href = baseUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "WhatsApp";
+        footer.insertBefore(link, footer.querySelector(".social-heading"));
+      }
+    }
+
+    addWhatsAppLinks();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const dateInput = document.getElementById("date");
+    const today = new Date();
+    dateInput.min = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0")
+    ].join("-");
+
+    function showStep(step) {
+      currentStep = step;
+
+      panels.forEach(panel => {
+        panel.hidden = Number(panel.dataset.panel) !== step;
+      });
+
+      progressSteps.forEach(item => {
+        const stepNumber = Number(item.dataset.step);
+        item.classList.toggle("active", stepNumber === step);
+        item.classList.toggle("complete", stepNumber < step);
+      });
+
+      if (step === 3) updateSummary();
+    }
+
+    function validatePanel(step) {
+      const panel = panels.find(item => Number(item.dataset.panel) === step);
+
+      for (const field of panel.querySelectorAll("input, select, textarea")) {
+        if (!field.checkValidity()) {
+          field.reportValidity();
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    form.querySelectorAll("[data-next]").forEach(button => {
+      button.addEventListener("click", () => {
+        if (validatePanel(currentStep)) showStep(currentStep + 1);
+      });
+    });
+
+    form.querySelectorAll("[data-back]").forEach(button => {
+      button.addEventListener("click", () => showStep(currentStep - 1));
+    });
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[character]);
+    }
+
+    function updateSummary() {
+      const data = new FormData(form);
+      const values = [
+        ["Destination:", data.get("destination")],
+        ["Date:", data.get("date")],
+        ["Travellers:", data.get("travellers")],
+        ["Service:", data.get("service")],
+        ["Notes:", data.get("notes") || "—"],
+        ["Name:", data.get("name")],
+        ["Phone:", data.get("phone")],
+        ["Email:", data.get("email") || "—"]
+      ];
+
+      const summary = document.getElementById("summary");
+      summary.innerHTML =
+        `<h3>${escapeHTML(getTranslated("Your travel note"))}</h3>` +
+        values.map(([label, value]) =>
+          `<p><strong>${escapeHTML(getTranslated(label))}</strong> ${escapeHTML(value || "")}</p>`
+        ).join("");
+    }
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!validatePanel(2)) {
+        showStep(2);
+        return;
+      }
+
+      const data = new FormData(form);
+      const message = [
+        getTranslated("Holland Way Tours enquiry"),
+        `${getTranslated("Destination:")} ${data.get("destination")}`,
+        `${getTranslated("Date:")} ${data.get("date")}`,
+        `${getTranslated("Travellers:")} ${data.get("travellers")}`,
+        `${getTranslated("Service:")} ${data.get("service")}`,
+        `${getTranslated("Notes:")} ${data.get("notes") || "—"}`,
+        `${getTranslated("Name:")} ${data.get("name")}`,
+        `${getTranslated("Phone:")} ${data.get("phone")}`,
+        `${getTranslated("Email:")} ${data.get("email") || "—"}`
+      ].join("\n");
+
+      window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    });
+
+    translatePage("en");
+  </script>
+</body>
+</html>

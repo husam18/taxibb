@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7e9">
+  <meta name="description" content="Create your own Netherlands adventure with Holland Way Tours.">
+  <title>Holland Way Tours — Postcards from the Netherlands</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fff7e9;
+      --white: #fffdf8;
+      --ink: #20221e;
+      --muted: #67695f;
+      --coral: #f2674a;
+      --blue: #83d7df;
+      --yellow: #f5cf63;
+      --green: #739b6d;
+      --pink: #efb2a8;
+      --line: #e7decf;
+      --sans: "DM Sans", Arial, sans-serif;
+      --display: "Fraunces", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(rgba(32,34,30,.035) .7px, transparent .7px) 0 0 / 8px 8px,
+        var(--cream);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; display: block; }
+    [hidden] { display: none !important; }
+
+    .container {
+      width: min(1160px, calc(100% - 42px));
+      margin: 0 auto;
+    }
+
+    /* Top announcement */
+    .announcement {
+      padding: 8px 12px;
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      font-size: .72rem;
+      letter-spacing: .04em;
+    }
+
+    .announcement a {
+      color: var(--yellow);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,247,233,.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .logo-icon {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border-radius: 50% 50% 48% 42%;
+      background: var(--coral);
+      color: white;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      transform: rotate(-8deg);
+    }
+
+    .logo-name span { display: block; color: var(--coral); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #4d4e45;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    nav a:not(.button):hover { color: var(--coral); }
+
+    .language-select {
+      padding: 7px 5px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 45px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-size: .8rem;
+      font-weight: 800;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px) rotate(-1deg); }
+
+    .button-coral { border-color: var(--coral); background: var(--coral); }
+    .button-light { border-color: var(--ink); background: transparent; color: var(--ink); }
+    .button-light:hover { background: var(--ink); color: white; }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 1.15rem;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 55px 0 70px;
+      overflow: hidden;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-copy { position: relative; z-index: 1; }
+
+    .scribble-label {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px dashed var(--coral);
+      border-radius: 999px;
+      color: #b34230;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+
+    h1, h2, h3 { font-family: var(--display); }
+
+    .hero h1 {
+      max-width: 650px;
+      margin: 19px 0 16px;
+      font-size: clamp(3.4rem, 7vw, 6.05rem);
+      font-weight: 600;
+      line-height: .96;
+      letter-spacing: -.065em;
+    }
+
+    .hero h1 em {
+      position: relative;
+      color: var(--coral);
+      font-weight: 500;
+    }
+
+    .hero h1 em::after {
+      position: absolute;
+      right: 4%;
+      bottom: 2px;
+      left: 2%;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+      content: "";
+      z-index: -1;
+      transform: rotate(-2deg);
+    }
+
+    .hero-copy > p {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+
+    .hero-small-note {
+      margin-top: 19px;
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 475px;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 12px 25px 20px 25px;
+      overflow: hidden;
+      border: 9px solid var(--white);
+      border-radius: 48% 48% 8px 8px;
+      box-shadow: 0 15px 45px rgba(73,54,32,.15);
+      transform: rotate(2deg);
+    }
+
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-photo::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(24,25,20,.2), transparent 45%);
+      content: "";
+    }
+
+    .postcard {
+      position: absolute;
+      z-index: 2;
+      right: 1px;
+      bottom: 33px;
+      width: 170px;
+      padding: 14px;
+      border: 1px solid #e5dccb;
+      background: #fffdf8;
+      box-shadow: 3px 5px 0 rgba(32,34,30,.14);
+      transform: rotate(7deg);
+    }
+
+    .postcard img {
+      width: 100%;
+      height: 95px;
+      object-fit: cover;
+    }
+
+    .postcard p {
+      margin: 7px 0 0;
+      font-family: var(--display);
+      font-size: .88rem;
+      line-height: 1.2;
+    }
+
+    .sun-doodle {
+      position: absolute;
+      top: 0;
+      right: 5px;
+      color: var(--coral);
+      font-size: 4rem;
+      transform: rotate(20deg);
+    }
+
+    .hero-sticker {
+      position: absolute;
+      top: 59px;
+      left: 0;
+      z-index: 2;
+      display: grid;
+      width: 95px;
+      height: 95px;
+      place-items: center;
+      padding: 12px;
+      border-radius: 50%;
+      background: var(--yellow);
+      font-family: var(--display);
+      font-size: .88rem;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-12deg);
+    }
+
+    /* Small ticker */
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--yellow);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      gap: 27px;
+      padding: 10px 0;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .ticker-track span::after {
+      margin-left: 27px;
+      color: var(--coral);
+      content: "✳";
+    }
+
+    /* Sections */
+    .section { padding: 83px 0; }
+    .section-white { background: var(--white); }
+    .section-blue { background: #dff3ef; }
+
+    .section-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .section-intro > div { max-width: 680px; }
+
+    .kicker {
+      color: #b34d39;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-intro h2,
+    .about-copy h2,
+    .booking-copy h2,
+    .faq-copy h2 {
+      margin: 8px 0 0;
+      font-size: clamp(2.3rem, 4.7vw, 4.05rem);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -.05em;
+    }
+
+    .section-intro p {
+      max-width: 410px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    /* Trip planner */
+    .planner-section { padding: 65px 0 40px; }
+
+    .planner {
+      display: grid;
+      grid-template-columns: .73fr 1.27fr;
+      overflow: hidden;
+      border: 1px solid var(--ink);
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 6px 7px 0 var(--ink);
+    }
+
+    .planner-side {
+      padding: clamp(24px, 4vw, 41px);
+      background: var(--coral);
+      color: white;
+    }
+
+    .planner-side .kicker { color: #ffe5a8; }
+    .planner-side h2 { margin: 12px 0; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1; }
+    .planner-side p { color: rgba(255,255,255,.88); font-size: .85rem; }
+    .planner-side .promise { margin-top: 25px; font-size: .72rem; font-weight: 700; }
+
+    .planner-form { padding: clamp(20px, 4vw, 37px); }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 8px;
+      margin-bottom: 21px;
+    }
+
+    .progress-step {
+      padding: 8px 5px;
+      border: 1px dashed var(--line);
+      border-radius: 7px;
+      color: #8c8b80;
+      font-size: .68rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .progress-step.active,
+    .progress-step.complete {
+      border-color: var(--green);
+      background: #e6f2df;
+      color: #436140;
+    }
+
+    .form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1/-1; }
+
+    .field label { font-size: .74rem; font-weight: 800; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 11px;
+      border: 1px solid #d9d2c7;
+      border-radius: 7px;
+      outline: none;
+      background: #fffdf8;
+      color: var(--ink);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(115,155,109,.12);
+    }
+
+    .field textarea { min-height: 88px; resize: vertical; }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button-plain {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button-plain:hover { background: var(--cream); }
+
+    .form-note { color: var(--muted); font-size: .7rem; }
+    .form-note a { text-decoration: underline; }
+
+    .summary {
+      padding: 17px;
+      border: 1px dashed var(--green);
+      border-radius: 8px;
+      background: #f3f8ee;
+    }
+
+    .summary h3 { margin: 0 0 11px; font-size: 1.35rem; }
+    .summary p { margin: 6px 0; overflow-wrap: anywhere; font-size: .78rem; }
+    .summary strong { color: #436140; }
+
+    /* About */
+    .about-layout {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(35px, 7vw, 80px);
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      min-height: 415px;
+      border: 8px solid var(--white);
+      border-radius: 10px;
+      background: url("https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85") center/cover;
+      box-shadow: 5px 6px 0 var(--blue);
+      transform: rotate(-2deg);
+    }
+
+    .about-image-label {
+      position: absolute;
+      right: -18px;
+      bottom: 25px;
+      padding: 10px 13px;
+      background: var(--yellow);
+      font-family: var(--display);
+      font-size: .83rem;
+      transform: rotate(4deg);
+    }
+
+    .about-copy > p { color: var(--muted); font-size: .89rem; }
+
+    .about-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .about-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .about-list li::before { margin-right: 7px; color: var(--coral); content: "✳"; }
+
+    /* Services */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      gap: 12px;
+    }
+
+    .service-card {
+      min-height: 185px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      transition: transform .2s;
+    }
+
+    .service-card:hover { transform: translateY(-4px) rotate(-1deg); }
+    .service-icon { color: var(--coral); font-family: var(--display); font-size: 1.6rem; }
+    .service-card h3 { margin: 10px 0 7px; font-size: 1.08rem; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .75rem; }
+
+    /* Destination postcards */
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+
+    .destination-card {
+      position: relative;
+      padding: 9px 9px 16px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 3px 4px 0 rgba(32,34,30,.1);
+      transition: transform .22s;
+    }
+
+    .destination-card:nth-child(3n+1) { transform: rotate(-1.4deg); }
+    .destination-card:nth-child(3n+2) { transform: rotate(1deg); }
+    .destination-card:nth-child(3n) { transform: rotate(-.4deg); }
+    .destination-card:hover { z-index: 2; transform: translateY(-6px) rotate(0); }
+
+    .destination-image { position: relative; height: 215px; overflow: hidden; background: #d9ddd2; }
+    .destination-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+    .destination-card:hover .destination-image img { transform: scale(1.05); }
+
+    .destination-label {
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      padding: 5px 8px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .destination-content { padding: 13px 7px 0; }
+    .destination-meta { color: #b34d39; font-size: .63rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .destination-content h3 { margin: 5px 0; font-size: 1.35rem; line-height: 1.1; }
+    .destination-content p { min-height: 39px; margin: 0; color: var(--muted); font-size: .75rem; }
+
+    .destination-link {
+      display: inline-block;
+      margin-top: 11px;
+      color: #a3412e;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    /* Process */
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+
+    .step-card {
+      padding: 20px;
+      border: 1px dashed #b7c9ae;
+      border-radius: 10px;
+      background: rgba(255,255,255,.55);
+    }
+
+    .step-no { color: var(--green); font-family: var(--display); font-size: 1.8rem; }
+    .step-card h3 { margin: 8px 0 5px; font-size: 1.05rem; }
+    .step-card p { margin: 0; color: var(--muted); font-size: .76rem; }
+
+    /* Reviews */
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+
+    .review-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--white);
+    }
+
+    .stars { color: #d89728; letter-spacing: 2px; }
+    .review-card blockquote { margin: 13px 0; font-family: var(--display); font-size: 1.05rem; line-height: 1.4; }
+    .review-card strong { color: var(--muted); font-size: .7rem; }
+    .review-note { color: var(--muted); font-size: .72rem; text-align: center; }
+
+    /* FAQ */
+    .faq-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; }
+    .faq-copy p { color: var(--muted); font-size: .84rem; }
+    .faq-list { border-top: 1px solid var(--line); }
+
+    .faq-list details { padding: 16px 0; border-bottom: 1px solid var(--line); }
+
+    .faq-list summary {
+      position: relative;
+      padding-right: 28px;
+      cursor: pointer;
+      font-size: .83rem;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .faq-list summary::-webkit-details-marker { display: none; }
+
+    .faq-list summary::after {
+      position: absolute;
+      right: 0;
+      color: var(--coral);
+      content: "+";
+      font-size: 1.2rem;
+    }
+
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { margin: 10px 0 0; color: var(--muted); font-size: .78rem; }
+
+    /* End */
+    .closing {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0;
+      background: var(--blue);
+      text-align: center;
+    }
+
+    .closing::before,
+    .closing::after {
+      position: absolute;
+      color: rgba(32,34,30,.14);
+      font-size: 8rem;
+      line-height: 1;
+      content: "✳";
+    }
+
+    .closing::before { top: -25px; left: 5%; transform: rotate(-15deg); }
+    .closing::after { right: 5%; bottom: -50px; transform: rotate(20deg); }
+
+    .closing .container { position: relative; z-index: 1; }
+    .closing h2 { max-width: 760px; margin: 8px auto; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; }
+    .closing p { max-width: 480px; margin: 12px auto 23px; color: #414b43; font-size: .86rem; }
+    .closing-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; }
+
+    footer { padding: 42px 0 18px; background: var(--ink); color: rgba(255,255,255,.7); font-size: .76rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 38px; padding-bottom: 25px; }
+    footer .logo { color: white; }
+    footer .logo-name span { color: var(--yellow); }
+    footer p { max-width: 350px; }
+    footer h4 { margin: 0 0 11px; color: white; font-size: .81rem; }
+    footer a:not(.logo) { display: block; width: fit-content; margin: 7px 0; }
+    footer a:hover { color: var(--yellow); }
+    .footer-bottom { padding-top: 14px; border-top: 1px solid rgba(255,255,255,.17); font-size: .68rem; }
+
+    /* RTL */
+    html[dir="rtl"] body { text-align: right; }
+    html[dir="rtl"] .about-list li::before { margin-right: 0; margin-left: 7px; }
+    html[dir="rtl"] .destination-label { left: auto; right: 9px; }
+    html[dir="rtl"] .faq-list summary { padding-right: 0; padding-left: 28px; }
+    html[dir="rtl"] .faq-list summary::after { right: auto; left: 0; }
+
+    @media (max-width: 980px) {
+      nav { gap: 13px; }
+      nav > a:not(.button) { display: none; }
+      .menu-toggle { display: grid; place-items: center; margin-left: auto; }
+
+      nav {
+        position: fixed;
+        inset: 76px 0 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 24px;
+        background: var(--cream);
+      }
+
+      nav.open { display: flex; }
+      nav > a:not(.button) { display: block; padding: 13px 0; border-bottom: 1px solid var(--line); }
+      nav .button { margin-top: 15px; }
+      .language-select { width: fit-content; margin-top: 14px; }
+
+      .service-grid { grid-template-columns: repeat(3,1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 30px, 1160px); }
+      .header-inner { min-height: 68px; }
+      nav { inset-block-start: 68px; }
+
+      .hero { padding: 45px 0 55px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 18px; }
+      .hero h1 { font-size: clamp(3.3rem, 14vw, 5.2rem); }
+      .hero-art { min-height: 370px; }
+      .hero-photo { inset: 9px 25px 17px; }
+      .hero-sticker { top: 35px; width: 78px; height: 78px; font-size: .75rem; }
+
+      .section { padding: 65px 0; }
+      .section-intro { display: block; margin-bottom: 25px; }
+      .section-intro p { margin-top: 12px; }
+
+      .planner-section { padding-top: 45px; }
+      .planner { grid-template-columns: 1fr; }
+      .planner-side { padding-bottom: 24px; }
+      .planner-side .promise { margin-top: 12px; }
+
+      .about-layout { grid-template-columns: 1fr; gap: 30px; }
+      .about-image { min-height: 325px; }
+
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+      .destination-grid { grid-template-columns: repeat(2,1fr); gap: 16px; }
+      .destination-image { height: 170px; }
+      .destination-card:nth-child(n) { transform: none; }
+      .destination-content h3 { font-size: 1.12rem; }
+      .destination-content p { min-height: 0; font-size: .7rem; }
+
+      .steps-grid { grid-template-columns: repeat(2,1fr); }
+      .review-grid { grid-template-columns: 1fr; }
+      .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 460px) {
+      .announcement { font-size: .65rem; }
+      .logo { font-size: .78rem; }
+      .hero-actions .button { width: 100%; }
+      .hero-art { min-height: 315px; }
+      .postcard { width: 135px; right: 0; }
+      .postcard img { height: 75px; }
+      .sun-doodle { font-size: 3rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .form-actions .button { flex: 1; padding-inline: 9px; font-size: .72rem; }
+      .progress-step { font-size: .61rem; }
+      .about-list { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; }
+      .service-icon { float: right; }
+      .destination-grid { grid-template-columns: 1fr; }
+      .destination-image { height: 220px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > div:first-child { grid-column: auto; }
+      .closing-actions .button { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    <span data-i18n="announcement">A little planning goes a long way.</span>
+    <a href="#booking" data-i18n="announcementLink">Tell us what you have in mind →</a>
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="Holland Way Tours home">
+        <span class="logo-icon">H</span>
+        <span class="logo-name">HOLLAND<span>WAY TOURS</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#about" data-i18n="navAbout">Our way</a>
+        <a href="#services" data-i18n="navServices">What we do</a>
+        <a href="#destinations" data-i18n="navDestinations">Postcards</a>
+        <a href="#steps" data-i18n="navSteps">How it works</a>
+        <a href="#faq" data-i18n="navFaq">Questions</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <a class="button button-coral" href="#booking" data-i18n="navButton">Plan a trip ↗</a>
+        <select class="language-select" id="language-select" aria-label="Choose language">
+          <option value="en">EN</option>
+          <option value="nl">NL</option>
+          <option value="ar">AR</option>
+        </select>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="scribble-label" data-i18n="heroLabel">A travel scrapbook, not a checklist</span>
+          <h1 data-i18n="heroTitle">Collect a few<br><em>good days.</em></h1>
+          <p data-i18n="heroText">A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.</p>
+          <div class="hero-actions">
+            <a class="button button-coral" href="#booking" data-i18n="heroButton">Tell us your idea ✳</a>
+            <a class="button button-light" href="#destinations" data-i18n="heroLink">Flip through places</a>
+          </div>
+          <div class="hero-small-note" data-i18n="heroNote">Personal planning · Private travel · Room to explore</div>
+        </div>
+
+        <div class="hero-art">
+          <div class="sun-doodle" aria-hidden="true">☼</div>
+          <div class="hero-sticker" data-i18n="heroSticker">Take the<br>scenic route</div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=90" alt="Traditional Amsterdam canal houses">
+          </div>
+          <div class="postcard">
+            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=500&q=80" alt="Colorful flowers in a Dutch field">
+            <p data-i18n="postcardText">Wish you were here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Travel ideas">
+      <div class="ticker-track">
+        <span>CANALS</span><span>VILLAGE STREETS</span><span>FLOWER FIELDS</span><span>LONG LUNCHES</span><span>SMALL MUSEUMS</span><span>COUNTRYSIDE</span><span>CANALS</span><span>VILLAGE STREETS</span><span>FLOWER FIELDS</span>
+      </div>
+    </div>
+
+    <section class="planner-section" id="booking">
+      <div class="container">
+        <div class="planner">
+          <div class="planner-side">
+            <span class="kicker" data-i18n="plannerKicker">Your note to us</span>
+            <h2 data-i18n="plannerTitle">Where should we begin?</h2>
+            <p data-i18n="plannerText">A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.</p>
+            <div class="promise" data-i18n="plannerPromise">Just an enquiry. Nothing is confirmed until you agree to the details.</div>
+          </div>
+
+          <div class="planner-form">
+            <div class="progress" aria-label="Enquiry progress">
+              <div class="progress-step active" data-step="1"><span>01</span> <span data-i18n="stepTrip">The idea</span></div>
+              <div class="progress-step" data-step="2"><span>02</span> <span data-i18n="stepDetails">Your details</span></div>
+              <div class="progress-step" data-step="3"><span>03</span> <span data-i18n="stepReview">Review</span></div>
+            </div>
+
+            <form id="trip-form">
+              <section class="form-panel" data-panel="1">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="destination" data-i18n="destinationLabel">What would you like to see?</label>
+                    <select id="destination" name="destination" required>
+                      <option value="" data-i18n="destinationPlaceholder">Pick a place</option>
+                      <option>Amsterdam</option>
+                      <option>Giethoorn</option>
+                      <option>Utrecht</option>
+                      <option>Delft</option>
+                      <option>Keukenhof</option>
+                      <option>Maastricht</option>
+                      <option>Haarlem</option>
+                      <option>Leiden</option>
+                      <option>The Hague &amp; Rotterdam</option>
+                      <option>Volendam &amp; Marken</option>
+                      <option>Efteling</option>
+                      <option>The Netherlands — multi-day</option>
+                      <option>Somewhere else / custom route</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="date" data-i18n="dateLabel">When are you thinking?</label>
+                    <input id="date" name="date" type="date" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="travellers" data-i18n="travellersLabel">Who’s coming along?</label>
+                    <select id="travellers" name="travellers">
+                      <option>1</option><option>2</option><option>3</option>
+                      <option>4</option><option>5</option><option>6+</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="service" data-i18n="serviceLabel">What kind of help?</label>
+                    <select id="service" name="service">
+                      <option>Private tour</option>
+                      <option>Private driver</option>
+                      <option>Tour guide</option>
+                      <option>Complete travel program</option>
+                      <option>Hotel assistance</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="notes" data-i18n="notesLabel">Anything you’re especially into?</label>
+                    <textarea id="notes" name="notes" placeholder="Interests, pickup point, special requests, or questions."></textarea>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <span></span>
+                  <button class="button button-coral" type="button" data-next data-i18n="next">Add your details →</button>
+                </div>
+              </section>
+
+              <section class="form-panel" data-panel="2" hidden>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="name" data-i18n="nameLabel">What should we call you?</label>
+                    <input id="name" name="name" autocomplete="name" required>
+                  </div>
+                  <div class="field">
+                    <label for="phone" data-i18n="phoneLabel">Phone / WhatsApp</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                  </div>
+                  <div class="field full">
+                    <label for="email" data-i18n="emailLabel">Email (optional)</label>
+                    <input id="email" name="email" type="email" autocomplete="email">
+                  </div>
+                </div>
+
+                <p class="form-note">
+                  We’ll use your details to reply to this enquiry. Add your real
+                  <a href="privacy.html">Privacy Policy</a> before publishing.
+                </p>
+
+                <div class="form-actions">
+                  <button class="button button-plain" type="button" data-back data-i18n="back">← Back</button>
+                  <button class="button button-coral" type="button" data-next data-i18n="reviewButton">Check my note →</button>
+                </div>
+              </section>
+
+              <section class="form-panel" data-panel="3" hidden>
+                <div class="summary" id="summary" aria-live="polite"></div>
+                <p class="form-note" data-i18n="notConfirmed">This is an enquiry, not a confirmed booking. We’ll talk through the details with you.</p>
+                <div class="form-actions">
+                  <button class="button button-plain" type="button" data-back data-i18n="back">← Back</button>
+                  <button class="button button-coral" type="submit" data-i18n="sendWhatsApp">Send it on WhatsApp ↗</button>
+                </div>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-layout">
+        <div class="about-image" role="img" aria-label="Amsterdam canal on a sunny afternoon">
+          <span class="about-image-label" data-i18n="aboutImageTag">Leave room for detours.</span>
+        </div>
+
+        <div class="about-copy">
+          <span class="kicker" data-i18n="aboutKicker">A little less rush</span>
+          <h2 data-i18n="aboutTitle">Make space for the good bits.</h2>
+          <p data-i18n="aboutText">Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.</p>
+          <ul class="about-list">
+            <li data-i18n="aboutPoint1">Ideas based on your interests</li>
+            <li data-i18n="aboutPoint2">Help with practical details</li>
+            <li data-i18n="aboutPoint3">Options for couples and groups</li>
+            <li data-i18n="aboutPoint4">Plans that can be discussed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="services">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker" data-i18n="servicesKicker">A few ways we can help</span>
+            <h2 data-i18n="servicesTitle">Think of us as your travel sidekick.</h2>
+          </div>
+          <p data-i18n="servicesText">Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-icon">✳ 01</span>
+            <h3 data-i18n="driverTitle">Private driver</h3>
+            <p data-i18n="driverText">Ask about transport for your route and schedule.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">✳ 02</span>
+            <h3 data-i18n="guideTitle">Tour guide</h3>
+            <p data-i18n="guideText">Discuss a guided visit and local insight.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">✳ 03</span>
+            <h3 data-i18n="itineraryTitle">A custom route</h3>
+            <p data-i18n="itineraryText">Talk through places that fit the time you have.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">✳ 04</span>
+            <h3 data-i18n="hotelTitle">Hotel help</h3>
+            <p data-i18n="hotelText">Ask for help comparing accommodation options.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">✳ 05</span>
+            <h3 data-i18n="groupTitle">Group travel</h3>
+            <p data-i18n="groupText">Discuss arrangements for your whole crew.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-blue" id="destinations">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker" data-i18n="placesKicker">Little postcards from Holland</span>
+            <h2 data-i18n="placesTitle">Pick a page to start with.</h2>
+          </div>
+          <p data-i18n="placesText">These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.</p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Amsterdam canal and historic buildings" loading="lazy">
+              <span class="destination-label">City days</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CANALS · HISTORY</div>
+              <h3 data-i18n="tourAmsterdam">Amsterdam</h3>
+              <p data-i18n="tourAmsterdamText">Wander canals, historic streets, and city landmarks.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWMB9TDogQCPJBab7f6mjCRX4gCFGRIG-vACzpfbHl3Npz7l5faal4ByU&s=10" alt="Canal-side houses in Giethoorn" loading="lazy">
+              <span class="destination-label">Slow living</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">WATERWAYS · VILLAGE</div>
+              <h3 data-i18n="tourGiethoorn">Giethoorn</h3>
+              <p data-i18n="tourGiethoornText">Quiet waterways, old houses, and village scenery.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=60%2Cwidth=375%2Cheight=375%2Cdpr=2/tour_img/2ab3026d27b9cd0977e074549e1e0ba359cd6d9f635de018600a1fbeb8c9f3c9.jpg" alt="Historic canal in a Dutch city" loading="lazy">
+              <span class="destination-label">City wandering</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CANALS · CULTURE</div>
+              <h3 data-i18n="tourUtrecht">Utrecht</h3>
+              <p data-i18n="tourUtrechtText">Explore the old center and distinctive canal wharves.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://www.leshuttle.com/media-library/media/leshuttle/articles/netherlands/delft%20hidden%20gem/0-hero_delft-hidden-gem_ad-977857126.jpg?width=1536&height=824&rmode=crop&format=webp&quality=60&v=202504111444" alt="Historic buildings in Delft" loading="lazy">
+              <span class="destination-label">Old town</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">HISTORY · ARCHITECTURE</div>
+              <h3 data-i18n="tourDelft">Delft</h3>
+              <p data-i18n="tourDelftText">Take in historic streets and classic Dutch character.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://cdn.getyourguide.com/image/format=avif%2Cfit=cover%2Cgravity=auto%2Cquality=60/dam/iStock-1556245500-HEADER%20MOBILE.jpg" alt="Colorful flowers in the Netherlands" loading="lazy">
+              <span class="destination-label">Seasonal color</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">GARDENS · FLOWERS</div>
+              <h3 data-i18n="tourKeukenhof">Keukenhof</h3>
+              <p data-i18n="tourKeukenhofText">Ask about seasonal flower displays and visit details.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://merk.anwb.nl/transform/f39ca7ce-25c2-49c1-86a4-be442d894b83/Maastricht-water-jpg" alt="Historic waterfront in Maastricht" loading="lazy">
+              <span class="destination-label">A southern mood</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CULTURE · HISTORY</div>
+              <h3 data-i18n="tourMaastricht">Maastricht</h3>
+              <p data-i18n="tourMaastrichtText">Discover a historic center and distinctive southern atmosphere.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9apqBXkE6QsXGVspZlmEk0vuodzWPFdTpZe8u4V38W01PwYz8wZ5pUGaN&s=10" alt="Historic buildings and streets in Haarlem" loading="lazy">
+              <span class="destination-label">Easy exploring</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CITY · CULTURE</div>
+              <h3 data-i18n="tourHaarlem">Haarlem</h3>
+              <p data-i18n="tourHaarlemText">Explore the historic center, local culture, and nearby sights.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVisrz_MS2Dw09KGoSu0YlIn-BcuPyi0LkCnSHf1k-98zNrDMyZzCDreg&s=10" alt="Canal in Leiden" loading="lazy">
+              <span class="destination-label">Canal corners</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">UNIVERSITY · MUSEUMS</div>
+              <h3 data-i18n="tourLeiden">Leiden</h3>
+              <p data-i18n="tourLeidenText">Spend time around the canals, old university, and museums.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://res.klook.com/image/upload/w_500,h_313,c_fill,q_85/activities/m0ycjtewv5jwjhzuvpgf.jpg" alt="Dutch windmills in the countryside" loading="lazy">
+              <span class="destination-label">Postcard Holland</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">VILLAGES · COUNTRYSIDE</div>
+              <h3 data-i18n="tourVillages">Volendam, Marken &amp; windmills</h3>
+              <p data-i18n="tourVillagesText">Traditional villages, open countryside, and classic windmills.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://visitrotterdam.com/assets/images/rotterdam-hero.webp" alt="Modern skyline in Rotterdam" loading="lazy">
+              <span class="destination-label">Two city moods</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">CITY · ARCHITECTURE</div>
+              <h3 data-i18n="tourCities">The Hague &amp; Rotterdam</h3>
+              <p data-i18n="tourCitiesText">Pair historic sights with bold modern architecture.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://www.traveltomtom.net/images/nieuwe_indeling/artikels/netherlands/efteling_hotel/Efteling_entrance_1.jpg" alt="Entrance to Efteling theme park" loading="lazy">
+              <span class="destination-label">Family day out</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">FAMILY · THEME PARK</div>
+              <h3 data-i18n="tourEfteling">Efteling</h3>
+              <p data-i18n="tourEftelingText">Ask about arrangements for a fun day at the park.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Colorful tulips in the Netherlands" loading="lazy">
+              <span class="destination-label">Your own idea</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">FOOD · SHOPPING · LEISURE</div>
+              <h3 data-i18n="tourLeisure">A day at your own pace</h3>
+              <p data-i18n="tourLeisureText">Tell us what you love and discuss places that suit you.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Westfield_Mall_of_the_Netherlands.jpg"
+                alt="Westfield Mall of the Netherlands in Leidschendam"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=900&q=85';"
+              >
+              <span class="destination-label">A shopping stop</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">SHOPPING · DINING</div>
+              <h3>Westfield Mall of the Netherlands</h3>
+              <p>Plan a shopping or dining stop in Leidschendam, near The Hague.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image">
+              <img src="https://cdn.audleytravel.com/5234/3740/79/15985279-the-hague-skyline-netherlands.jpg" alt="The Hague skyline and historic architecture" loading="lazy">
+              <span class="destination-label">City by the sea</span>
+            </div>
+            <div class="destination-content">
+              <div class="destination-meta">HISTORY · CULTURE</div>
+              <h3>The Hague</h3>
+              <p>Discover museums, landmarks, cafés, and Scheveningen beach.</p>
+              <a class="destination-link" href="#booking" data-i18n="enquire">Ask about this place ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker" data-i18n="stepsKicker">No big formalities</span>
+            <h2 data-i18n="stepsTitle">A few messages, then a plan.</h2>
+          </div>
+          <p data-i18n="stepsText">We’ll talk through the details before confirming anything, so you can see whether it feels right.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-no">01</span>
+            <h3 data-i18n="step1Title">Send your idea</h3>
+            <p data-i18n="step1Text">Share your preferred dates, group size, and interests.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-no">02</span>
+            <h3 data-i18n="step2Title">Have a chat</h3>
+            <p data-i18n="step2Text">We’ll follow up to learn more and answer questions.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-no">03</span>
+            <h3 data-i18n="step3Title">Get the details</h3>
+            <p data-i18n="step3Text">Discuss the proposed arrangements, inclusions, and price.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-no">04</span>
+            <h3 data-i18n="step4Title">Choose what works</h3>
+            <p data-i18n="step4Text">Confirm only if you’re happy with the final details.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="reviews">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="kicker" data-i18n="reviewsKicker">Notes from the road</span>
+            <h2 data-i18n="reviewsTitle">Let real guests tell the story.</h2>
+          </div>
+          <p data-i18n="reviewsText">Only publish genuine guest reviews, with permission from the people who wrote them.</p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote data-i18n="review1">“Add a genuine review here after getting the guest’s permission.”</blockquote>
+            <strong data-i18n="reviewName">Replace with guest name</strong>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote data-i18n="review2">“Use the guest’s actual words; don’t invent a testimonial.”</blockquote>
+            <strong data-i18n="reviewName">Replace with guest name</strong>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote data-i18n="review3">“You can link to your public review profile instead.”</blockquote>
+            <strong data-i18n="reviewName">Replace with guest name</strong>
+          </article>
+        </div>
+        <p class="review-note" data-i18n="reviewNote">These are placeholders, not real testimonials. Replace or remove this section before publishing.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-layout">
+        <div class="faq-copy">
+          <span class="kicker" data-i18n="faqKicker">The practical bits</span>
+          <h2 data-i18n="faqTitle">A few things worth knowing.</h2>
+          <p data-i18n="faqText">Have another question? Reach out and ask us directly.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="faq1Q">Does sending an enquiry confirm my booking?</summary>
+            <p data-i18n="faq1A">No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq2Q">How much does a tour cost?</summary>
+            <p data-i18n="faq2A">Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq3Q">What does the price include?</summary>
+            <p data-i18n="faq3A">Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq4Q">Can I suggest my own route?</summary>
+            <p data-i18n="faq4A">Yes. Include your idea in the enquiry and we’ll discuss what may be possible.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq5Q">What’s the cancellation policy?</summary>
+            <p data-i18n="faq5A">Cancellation and change terms depend on the service. Ask which terms apply before confirming.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq6Q">Can I request accessibility or child-friendly arrangements?</summary>
+            <p data-i18n="faq6A">Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="contact">
+      <div class="container">
+        <span class="kicker" data-i18n="closingKicker">Your turn to make a postcard</span>
+        <h2 data-i18n="closingTitle">Tell us what you’d love to remember.</h2>
+        <p data-i18n="closingText">Share your travel idea. We’ll talk through the possibilities, availability, and price.</p>
+        <div class="closing-actions">
+          <a class="button" href="#booking" data-i18n="closingButton">Start with a message ✳</a>
+          <a class="button button-light" href="mailto:husam48726@gmail.con">Email us</a>
+          <a class="button button-light" href="tel:+31681110006">Call 06 8111 0006</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#home">
+            <span class="logo-icon">H</span>
+            <span class="logo-name">HOLLAND<span>WAY TOURS</span></span>
+          </a>
+          <p data-i18n="footerText">Private tours and personal travel planning for discovering the Netherlands your way.</p>
+          <p>Okshom 272, Hoofddorp</p>
+          <a href="mailto:husam48726@gmail.con">husam48726@gmail.con</a>
+          <a href="tel:+31681110006">06 8111 0006</a>
+        </div>
+
+        <div>
+          <h4 data-i18n="footerExplore">Flip through</h4>
+          <a href="#about" data-i18n="navAbout">Our way</a>
+          <a href="#services" data-i18n="navServices">What we do</a>
+          <a href="#destinations" data-i18n="navDestinations">Postcards</a>
+          <a href="#steps" data-i18n="navSteps">How it works</a>
+        </div>
+
+        <div>
+          <h4 data-i18n="footerContact">Say hello</h4>
+          <a href="#booking" data-i18n="footerPlan">Plan a trip</a>
+          <a href="mailto:husam48726@gmail.con">Email us</a>
+          <a href="tel:+31681110006">Call us</a>
+          <a href="privacy.html" data-i18n="privacy">Privacy policy</a>
+          <a href="terms.html" data-i18n="terms">Terms and conditions</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© <span id="year"></span> Holland Way Tours. <span data-i18n="rights">All rights reserved.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "31681110006";
+
+    const translations = {
+      en: {
+        announcement:"A little planning goes a long way.",
+        announcementLink:"Tell us what you have in mind →",
+        navAbout:"Our way", navServices:"What we do", navDestinations:"Postcards",
+        navSteps:"How it works", navFaq:"Questions", navContact:"Contact", navButton:"Plan a trip ↗",
+        heroLabel:"A travel scrapbook, not a checklist",
+        heroTitle:"Collect a few<br><em>good days.</em>",
+        heroText:"A quiet canal morning. A village worth wandering. A long lunch with nowhere else to be. Let’s make your Netherlands trip feel like yours.",
+        heroButton:"Tell us your idea ✳", heroLink:"Flip through places",
+        heroNote:"Personal planning · Private travel · Room to explore",
+        heroSticker:"Take the<br>scenic route", postcardText:"Wish you were here.",
+        plannerKicker:"Your note to us", plannerTitle:"Where should we begin?",
+        plannerText:"A few details are plenty. We’ll follow up on WhatsApp to talk through your idea, availability, and pricing.",
+        plannerPromise:"Just an enquiry. Nothing is confirmed until you agree to the details.",
+        stepTrip:"The idea", stepDetails:"Your details", stepReview:"Review",
+        destinationLabel:"What would you like to see?", destinationPlaceholder:"Pick a place",
+        dateLabel:"When are you thinking?", travellersLabel:"Who’s coming along?",
+        serviceLabel:"What kind of help?", notesLabel:"Anything you’re especially into?",
+        nameLabel:"What should we call you?", phoneLabel:"Phone / WhatsApp", emailLabel:"Email (optional)",
+        next:"Add your details →", back:"← Back", reviewButton:"Check my note →", sendWhatsApp:"Send it on WhatsApp ↗",
+        notConfirmed:"This is an enquiry, not a confirmed booking. We’ll talk through the details with you.",
+        aboutImageTag:"Leave room for detours.", aboutKicker:"A little less rush",
+        aboutTitle:"Make space for the good bits.",
+        aboutText:"Not every great travel moment comes from a famous landmark. Tell us what you enjoy and how you like to travel; we’ll talk through possible routes and practical arrangements.",
+        aboutPoint1:"Ideas based on your interests", aboutPoint2:"Help with practical details",
+        aboutPoint3:"Options for couples and groups", aboutPoint4:"Plans that can be discussed",
+        servicesKicker:"A few ways we can help", servicesTitle:"Think of us as your travel sidekick.",
+        servicesText:"Tell us what kind of support you need. We’ll discuss arrangements, availability, and costs before you decide.",
+        driverTitle:"Private driver", driverText:"Ask about transport for your route and schedule.",
+        guideTitle:"Tour guide", guideText:"Discuss a guided visit and local insight.",
+        itineraryTitle:"A custom route", itineraryText:"Talk through places that fit the time you have.",
+        hotelTitle:"Hotel help", hotelText:"Ask for help comparing accommodation options.",
+        groupTitle:"Group travel", groupText:"Discuss arrangements for your whole crew.",
+        placesKicker:"Little postcards from Holland", placesTitle:"Pick a page to start with.",
+        placesText:"These are just starting ideas, not fixed tour packages. Ask us about routes, availability, what’s included, and prices.",
+        tourAmsterdam:"Amsterdam", tourAmsterdamText:"Wander canals, historic streets, and city landmarks.",
+        tourGiethoorn:"Giethoorn", tourGiethoornText:"Quiet waterways, old houses, and village scenery.",
+        tourUtrecht:"Utrecht", tourUtrechtText:"Explore the old center and distinctive canal wharves.",
+        tourDelft:"Delft", tourDelftText:"Take in historic streets and classic Dutch character.",
+        tourKeukenhof:"Keukenhof", tourKeukenhofText:"Ask about seasonal flower displays and visit details.",
+        tourMaastricht:"Maastricht", tourMaastrichtText:"Discover a historic center and distinctive southern atmosphere.",
+        tourHaarlem:"Haarlem", tourHaarlemText:"Explore the historic center, local culture, and nearby sights.",
+        tourLeiden:"Leiden", tourLeidenText:"Spend time around the canals, old university, and museums.",
+        tourVillages:"Volendam, Marken & windmills", tourVillagesText:"Traditional villages, open countryside, and classic windmills.",
+        tourCities:"The Hague & Rotterdam", tourCitiesText:"Pair historic sights with bold modern architecture.",
+        tourEfteling:"Efteling", tourEftelingText:"Ask about arrangements for a fun day at the park.",
+        tourLeisure:"A day at your own pace", tourLeisureText:"Tell us what you love and discuss places that suit you.",
+        enquire:"Ask about this place ↗",
+        stepsKicker:"No big formalities", stepsTitle:"A few messages, then a plan.",
+        stepsText:"We’ll talk through the details before confirming anything, so you can see whether it feels right.",
+        step1Title:"Send your idea", step1Text:"Share your preferred dates, group size, and interests.",
+        step2Title:"Have a chat", step2Text:"We’ll follow up to learn more and answer questions.",
+        step3Title:"Get the details", step3Text:"Discuss the proposed arrangements, inclusions, and price.",
+        step4Title:"Choose what works", step4Text:"Confirm only if you’re happy with the final details.",
+        reviewsKicker:"Notes from the road", reviewsTitle:"Let real guests tell the story.",
+        reviewsText:"Only publish genuine guest reviews, with permission from the people who wrote them.",
+        review1:"“Add a genuine review here after getting the guest’s permission.”",
+        review2:"“Use the guest’s actual words; don’t invent a testimonial.”",
+        review3:"“You can link to your public review profile instead.”",
+        reviewName:"Replace with guest name",
+        reviewNote:"These are placeholders, not real testimonials. Replace or remove this section before publishing.",
+        faqKicker:"The practical bits", faqTitle:"A few things worth knowing.",
+        faqText:"Have another question? Reach out and ask us directly.",
+        faq1Q:"Does sending an enquiry confirm my booking?",
+        faq1A:"No. It sends an enquiry. We’ll discuss availability, arrangements, and pricing. Your booking is confirmed only after you accept the final details.",
+        faq2Q:"How much does a tour cost?",
+        faq2A:"Prices depend on the service, date, group size, and itinerary. Contact us with your plans to request a price.",
+        faq3Q:"What does the price include?",
+        faq3A:"Inclusions depend on the arrangement. Ask for the agreed services, transport, fees, and exclusions in writing before confirming.",
+        faq4Q:"Can I suggest my own route?",
+        faq4A:"Yes. Include your idea in the enquiry and we’ll discuss what may be possible.",
+        faq5Q:"What’s the cancellation policy?",
+        faq5A:"Cancellation and change terms depend on the service. Ask which terms apply before confirming.",
+        faq6Q:"Can I request accessibility or child-friendly arrangements?",
+        faq6A:"Please mention accessibility or child-related needs in your enquiry. We’ll discuss what can be arranged.",
+        closingKicker:"Your turn to make a postcard",
+        closingTitle:"Tell us what you’d love to remember.",
+        closingText:"Share your travel idea. We’ll talk through the possibilities, availability, and price.",
+        closingButton:"Start with a message ✳",
+        footerText:"Private tours and personal travel planning for discovering the Netherlands your way.",
+        footerExplore:"Flip through", footerContact:"Say hello", footerPlan:"Plan a trip",
+        privacy:"Privacy policy", terms:"Terms and conditions", rights:"All rights reserved.",
+        summaryTitle:"Your travel note", summaryDestination:"Place", summaryDate:"Date",
+        summaryTravellers:"Travellers", summaryService:"Help requested", summaryNotes:"Your notes",
+        summaryName:"Name", summaryPhone:"Phone", summaryEmail:"Email"
+      },
+
+      nl: {
+        announcement:"Een beetje voorbereiding brengt je ver.",
+        announcementLink:"Vertel ons wat je in gedachten hebt →",
+        navAbout:"Onze aanpak", navServices:"Wat we doen", navDestinations:"Ansichtkaarten",
+        navSteps:"Zo werkt het", navFaq:"Vragen", navContact:"Contact", navButton:"Plan een reis ↗",
+        heroLabel:"Een reisplakboek, geen checklist",
+        heroTitle:"Verzamel een paar<br><em>mooie dagen.</em>",
+        heroText:"Een rustige ochtend aan de gracht. Een dorp om doorheen te dwalen. Een lange lunch zonder haast. Maak je reis door Nederland echt van jou.",
+        heroButton:"Vertel ons je idee ✳", heroLink:"Bekijk de plekken",
+        heroNote:"Persoonlijke planning · Privéreizen · Ruimte om te ontdekken",
+        heroSticker:"Neem de<br>mooie route", postcardText:"Was je hier maar.",
+        plannerKicker:"Jouw bericht aan ons", plannerTitle:"Waar zullen we beginnen?",
+        plannerText:"Een paar details zijn genoeg. We nemen via WhatsApp contact op om je idee, beschikbaarheid en prijzen te bespreken.",
+        plannerPromise:"Alleen een aanvraag. Er wordt niets bevestigd voordat je akkoord gaat.",
+        stepTrip:"Het idee", stepDetails:"Je gegevens", stepReview:"Controleren",
+        destinationLabel:"Wat wil je graag zien?", destinationPlaceholder:"Kies een plek",
+        dateLabel:"Wanneer denk je te gaan?", travellersLabel:"Wie gaan er mee?",
+        serviceLabel:"Waarmee kunnen we helpen?", notesLabel:"Waar ben je extra in geïnteresseerd?",
+        nameLabel:"Hoe mogen we je noemen?", phoneLabel:"Telefoon / WhatsApp", emailLabel:"E-mail (optioneel)",
+        next:"Vul je gegevens in →", back:"← Terug", reviewButton:"Controleer je bericht →", sendWhatsApp:"Verstuur via WhatsApp ↗",
+        notConfirmed:"Dit is een aanvraag, geen bevestigde boeking. We bespreken de details met je.",
+        aboutImageTag:"Laat ruimte voor omwegen.", aboutKicker:"Een beetje minder haast",
+        aboutTitle:"Maak ruimte voor de mooie momenten.",
+        aboutText:"Niet elk mooi reismoment draait om een beroemde bezienswaardigheid. Vertel ons wat je leuk vindt en hoe je reist; dan bespreken we mogelijke routes en praktische afspraken.",
+        aboutPoint1:"Ideeën afgestemd op jouw interesses", aboutPoint2:"Hulp bij praktische details",
+        aboutPoint3:"Mogelijkheden voor stellen en groepen", aboutPoint4:"Plannen die we samen bespreken",
+        servicesKicker:"Een paar manieren waarop we helpen", servicesTitle:"Zie ons als je reismaatje.",
+        servicesText:"Vertel ons welke ondersteuning je zoekt. We bespreken afspraken, beschikbaarheid en kosten voordat je beslist.",
+        driverTitle:"Privéchauffeur", driverText:"Vraag naar vervoer voor je route en planning.",
+        guideTitle:"Reisgids", guideText:"Bespreek een rondleiding en lokale informatie.",
+        itineraryTitle:"Een eigen route", itineraryText:"Bespreek plekken die passen bij de tijd die je hebt.",
+        hotelTitle:"Hulp bij hotels", hotelText:"Vraag hulp bij het vergelijken van accommodaties.",
+        groupTitle:"Groepsreizen", groupText:"Bespreek afspraken voor je hele groep.",
+        placesKicker:"Kleine ansichtkaarten uit Nederland", placesTitle:"Kies een plek om te beginnen.",
+        placesText:"Dit zijn ideeën om mee te beginnen, geen vaste pakketten. Vraag naar routes, beschikbaarheid, inbegrepen diensten en prijzen.",
+        tourAmsterdam:"Amsterdam", tourAmsterdamText:"Wandel langs grachten, historische straten en stadsbezienswaardigheden.",
+        tourGiethoorn:"Giethoorn", tourGiethoornText:"Rustige waterwegen, oude huizen en dorpslandschappen.",
+        tourUtrecht:"Utrecht", tourUtrechtText:"Ontdek het oude centrum en de bijzondere werfkelders.",
+        tourDelft:"Delft", tourDelftText:"Geniet van historische straten en typisch Nederlands karakter.",
+        tourKeukenhof:"Keukenhof", tourKeukenhofText:"Vraag naar seizoensbloemen en bezoekmogelijkheden.",
+        tourMaastricht:"Maastricht", tourMaastrichtText:"Ontdek een historisch centrum en de zuidelijke sfeer.",
+        tourHaarlem:"Haarlem", tourHaarlemText:"Ontdek het historische centrum, de lokale cultuur en nabije plekken.",
+        tourLeiden:"Leiden", tourLeidenText:"Ontdek grachten, de oude universiteit en musea.",
+        tourVillages:"Volendam, Marken en molens", tourVillagesText:"Traditionele dorpen, open landschap en klassieke molens.",
+        tourCities:"Den Haag en Rotterdam", tourCitiesText:"Combineer historische bezienswaardigheden met moderne architectuur.",
+        tourEfteling:"Efteling", tourEftelingText:"Vraag naar afspraken voor een leuke dag in het park.",
+        tourLeisure:"Een dag op jouw tempo", tourLeisureText:"Vertel wat je leuk vindt en bespreek passende plekken.",
+        enquire:"Vraag naar deze plek ↗",
+        stepsKicker:"Geen ingewikkeld gedoe", stepsTitle:"Een paar berichten en dan een plan.",
+        stepsText:"We bespreken de details voordat iets wordt bevestigd, zodat je kunt kijken of het goed voelt.",
+        step1Title:"Deel je idee", step1Text:"Deel je gewenste datum, groepsgrootte en interesses.",
+        step2Title:"Praat erover", step2Text:"We nemen contact op en beantwoorden je vragen.",
+        step3Title:"Bekijk de details", step3Text:"Bespreek de afspraken, inbegrepen diensten en prijs.",
+        step4Title:"Kies wat past", step4Text:"Bevestig alleen als je tevreden bent met de details.",
+        reviewsKicker:"Aantekeningen onderweg", reviewsTitle:"Laat echte gasten hun verhaal vertellen.",
+        reviewsText:"Publiceer alleen echte beoordelingen, met toestemming van de schrijver.",
+        review1:"“Voeg een echte beoordeling toe nadat je toestemming hebt gevraagd.”",
+        review2:"“Gebruik de echte woorden van de gast; verzin geen beoordeling.”",
+        review3:"“Je kunt ook naar je openbare beoordelingspagina linken.”",
+        reviewName:"Vervang door de naam van een gast",
+        reviewNote:"Dit zijn voorbeeldteksten, geen echte beoordelingen. Vervang of verwijder deze sectie voor publicatie.",
+        faqKicker:"De praktische zaken", faqTitle:"Een paar dingen om te weten.",
+        faqText:"Staat je vraag er niet bij? Neem gerust contact op.",
+        faq1Q:"Bevestigt een aanvraag mijn boeking?",
+        faq1A:"Nee. Het is een aanvraag. We bespreken beschikbaarheid, afspraken en prijzen. De boeking is pas bevestigd nadat je akkoord bent met de details.",
+        faq2Q:"Wat kost een tour?",
+        faq2A:"De prijs hangt af van de dienst, datum, groepsgrootte en route. Neem contact op voor een prijsaanvraag.",
+        faq3Q:"Wat zit er bij de prijs inbegrepen?",
+        faq3A:"Dat hangt af van de afspraken. Vraag vóór bevestiging schriftelijk om de diensten, het vervoer, de kosten en eventuele uitsluitingen.",
+        faq4Q:"Kan ik zelf een route voorstellen?",
+        faq4A:"Ja. Zet je idee in de aanvraag en we bespreken wat mogelijk is.",
+        faq5Q:"Wat is het annuleringsbeleid?",
+        faq5A:"De voorwaarden verschillen per dienst. Vraag vóór bevestiging welke voorwaarden gelden.",
+        faq6Q:"Kan ik toegankelijkheidswensen of kindvriendelijke afspraken doorgeven?",
+        faq6A:"Vermeld toegankelijkheid of behoeften van kinderen in de aanvraag. We bespreken wat geregeld kan worden.",
+        closingKicker:"Maak jij de volgende ansichtkaart?",
+        closingTitle:"Vertel ons wat je graag wilt onthouden.",
+        closingText:"Deel je reisidee. We bespreken de mogelijkheden, beschikbaarheid en prijzen.",
+        closingButton:"Begin met een bericht ✳",
+        footerText:"Privérondritten en persoonlijke reisplanning om Nederland op jouw manier te ontdekken.",
+        footerExplore:"Bekijk", footerContact:"Zeg hallo", footerPlan:"Plan een reis",
+        privacy:"Privacybeleid", terms:"Voorwaarden", rights:"Alle rechten voorbehouden.",
+        summaryTitle:"Jouw reisbericht", summaryDestination:"Plek", summaryDate:"Datum",
+        summaryTravellers:"Reizigers", summaryService:"Gewenste hulp", summaryNotes:"Je opmerkingen",
+        summaryName:"Naam", summaryPhone:"Telefoon", summaryEmail:"E-mail"
+      },
+
+      ar: {
+        announcement:"القليل من التخطيط يصنع فرقاً كبيراً.",
+        announcementLink:"أخبرنا بما تفكر فيه ←",
+        navAbout:"نهجنا", navServices:"ماذا نقدم", navDestinations:"بطاقات بريدية",
+        navSteps:"كيف تتم الرحلة", navFaq:"الأسئلة", navContact:"اتصل بنا", navButton:"خطط لرحلة ←",
+        heroLabel:"دفتر ذكريات سفر، لا قائمة مهام",
+        heroTitle:"اجمع بعض<br><em>الأيام الجميلة.</em>",
+        heroText:"صباح هادئ قرب القنوات، وقرية تستحق التجول، وغداء طويل بلا استعجال. لنجعل رحلتك في هولندا تشبهك.",
+        heroButton:"أخبرنا بفكرتك ✳", heroLink:"تصفّح الأماكن",
+        heroNote:"تخطيط شخصي · رحلات خاصة · مساحة للاكتشاف",
+        heroSticker:"اختر<br>الطريق الأجمل", postcardText:"ليتك هنا.",
+        plannerKicker:"رسالتك إلينا", plannerTitle:"من أين نبدأ؟",
+        plannerText:"بضعة تفاصيل تكفي. سنتواصل معك عبر واتساب لمناقشة فكرتك والتوفر والأسعار.",
+        plannerPromise:"هذا استفسار فقط. لا يتأكد أي شيء حتى توافق على التفاصيل.",
+        stepTrip:"الفكرة", stepDetails:"بياناتك", stepReview:"مراجعة",
+        destinationLabel:"ماذا ترغب في مشاهدة؟", destinationPlaceholder:"اختر مكاناً",
+        dateLabel:"متى تفكر في السفر؟", travellersLabel:"من سيرافقك؟",
+        serviceLabel:"ما نوع المساعدة؟", notesLabel:"هل لديك اهتمامات خاصة؟",
+        nameLabel:"ما الاسم الذي نستخدمه؟", phoneLabel:"الهاتف / واتساب", emailLabel:"البريد الإلكتروني (اختياري)",
+        next:"أضف بياناتك ←", back:"→ رجوع", reviewButton:"راجع رسالتك ←", sendWhatsApp:"أرسل عبر واتساب ←",
+        notConfirmed:"هذا استفسار وليس حجزاً مؤكداً. سنناقش التفاصيل معك.",
+        aboutImageTag:"اترك مساحة للطرق الجانبية.", aboutKicker:"قليل من الهدوء",
+        aboutTitle:"اترك مساحة للحظات الجميلة.",
+        aboutText:"ليست كل لحظة رائعة مرتبطة بمعلم مشهور. أخبرنا بما تحب وكيف تفضل السفر، وسنناقش المسارات والترتيبات العملية الممكنة.",
+        aboutPoint1:"أفكار تناسب اهتماماتك", aboutPoint2:"مساعدة في التفاصيل العملية",
+        aboutPoint3:"خيارات للأزواج والمجموعات", aboutPoint4:"خطط قابلة للنقاش",
+        servicesKicker:"طرق مختلفة للمساعدة", servicesTitle:"اعتبرنا رفيق رحلتك.",
+        servicesText:"أخبرنا بنوع المساعدة التي تحتاجها. نناقش الترتيبات والتوفر والتكاليف قبل أن تقرر.",
+        driverTitle:"سائق خاص", driverText:"اسأل عن النقل المناسب لمسارك وجدولك.",
+        guideTitle:"مرشد سياحي", guideText:"ناقش جولة إرشادية ومعلومات محلية.",
+        itineraryTitle:"مسار مخصص", itineraryText:"ناقش الأماكن المناسبة للوقت المتاح لديك.",
+        hotelTitle:"مساعدة في الفنادق", hotelText:"اطلب المساعدة في مقارنة أماكن الإقامة.",
+        groupTitle:"رحلات المجموعات", groupText:"ناقش الترتيبات المناسبة لمجموعتك.",
+        placesKicker:"بطاقات بريدية صغيرة من هولندا", placesTitle:"اختر صفحة لتبدأ منها.",
+        placesText:"هذه مجرد أفكار وليست باقات ثابتة. اسألنا عن المسارات والتوفر والخدمات والأسعار.",
+        tourAmsterdam:"أمستردام", tourAmsterdamText:"تجول قرب القنوات والشوارع التاريخية ومعالم المدينة.",
+        tourGiethoorn:"خيتورن", tourGiethoornText:"ممرات مائية هادئة ومنازل قديمة وأجواء قروية.",
+        tourUtrecht:"أوترخت", tourUtrechtText:"اكتشف المركز القديم والأرصفة المميزة على القنوات.",
+        tourDelft:"دلفت", tourDelftText:"استمتع بالشوارع التاريخية والطابع الهولندي التقليدي.",
+        tourKeukenhof:"كوكنهوف", tourKeukenhofText:"اسأل عن الزهور الموسمية وتفاصيل الزيارة.",
+        tourMaastricht:"ماستريخت", tourMaastrichtText:"اكتشف المركز التاريخي والأجواء الجنوبية المميزة.",
+        tourHaarlem:"هارلم", tourHaarlemText:"استكشف المركز التاريخي والثقافة المحلية والأماكن القريبة.",
+        tourLeiden:"لايدن", tourLeidenText:"استمتع بالقنوات والجامعة القديمة والمتاحف.",
+        tourVillages:"فولندام وماركن والطواحين", tourVillagesText:"قرى تقليدية وأرياف مفتوحة وطواحين هولندية.",
+        tourCities:"لاهاي وروتردام", tourCitiesText:"اجمع بين المعالم التاريخية والعمارة الحديثة.",
+        tourEfteling:"إفتلينغ", tourEftelingText:"اسأل عن الترتيبات اللازمة لقضاء يوم ممتع في الحديقة.",
+        tourLeisure:"يوم على وتيرتك", tourLeisureText:"أخبرنا بما تحب وناقش الأماكن التي تناسبك.",
+        enquire:"اسأل عن هذا المكان ←",
+        stepsKicker:"بلا إجراءات معقدة", stepsTitle:"بضع رسائل ثم خطة واضحة.",
+        stepsText:"سنناقش التفاصيل قبل التأكيد حتى تتأكد من أن الخطة مناسبة لك.",
+        step1Title:"أرسل فكرتك", step1Text:"شاركنا الموعد وعدد المسافرين واهتماماتك.",
+        step2Title:"لنتحدث", step2Text:"نتواصل معك لنعرف المزيد ونجيب عن أسئلتك.",
+        step3Title:"احصل على التفاصيل", step3Text:"ناقش الترتيبات والخدمات المشمولة والسعر.",
+        step4Title:"اختر ما يناسبك", step4Text:"أكد الحجز فقط إذا وافقت على التفاصيل النهائية.",
+        reviewsKicker:"ملاحظات من الطريق", reviewsTitle:"دع الضيوف الحقيقيين يروون الحكاية.",
+        reviewsText:"انشر آراء حقيقية فقط وبعد موافقة أصحابها.",
+        review1:"«أضف رأياً حقيقياً بعد الحصول على موافقة صاحبه.»",
+        review2:"«استخدم كلمات الضيف الفعلية، ولا تخترع شهادة.»",
+        review3:"«يمكنك بدلاً من ذلك إضافة رابط صفحة التقييمات العامة.»",
+        reviewName:"استبدل باسم أحد الضيوف",
+        reviewNote:"هذه نصوص مؤقتة وليست آراء حقيقية. استبدلها أو احذف هذا القسم قبل النشر.",
+        faqKicker:"تفاصيل عملية", faqTitle:"بعض الأمور التي يجدر معرفتها.",
+        faqText:"هل لديك سؤال آخر؟ تواصل معنا مباشرة.",
+        faq1Q:"هل إرسال الاستفسار يؤكد الحجز؟",
+        faq1A:"لا. إنه استفسار فقط. سنناقش التوفر والترتيبات والأسعار. يتأكد الحجز بعد موافقتك على التفاصيل النهائية.",
+        faq2Q:"كم تبلغ تكلفة الجولة؟",
+        faq2A:"يعتمد السعر على الخدمة والتاريخ وعدد المسافرين والمسار. تواصل معنا لطلب السعر.",
+        faq3Q:"ماذا يشمل السعر؟",
+        faq3A:"تختلف التفاصيل حسب الاتفاق. اطلب توضيح الخدمات والمواصلات والرسوم والاستثناءات كتابةً قبل التأكيد.",
+        faq4Q:"هل أستطيع اقتراح مساري الخاص؟",
+        faq4A:"نعم. أضف فكرتك إلى الاستفسار وسنناقش الخيارات الممكنة.",
+        faq5Q:"ما سياسة الإلغاء؟",
+        faq5A:"تختلف شروط الإلغاء والتعديل حسب الخدمة. اسأل عن الشروط قبل التأكيد.",
+        faq6Q:"هل يمكن ترتيب احتياجات الوصول أو ترتيبات مناسبة للأطفال؟",
+        faq6A:"اذكر احتياجات الوصول أو الأطفال في استفسارك. سنناقش ما يمكن ترتيبه.",
+        closingKicker:"حان دورك لصنع بطاقة بريدية",
+        closingTitle:"أخبرنا بما تحب أن تتذكره.",
+        closingText:"شاركنا فكرة رحلتك. سنناقش الخيارات والتوفر والأسعار.",
+        closingButton:"ابدأ برسالة ✳",
+        footerText:"جولات خاصة وتخطيط سفر شخصي لاكتشاف هولندا بطريقتك.",
+        footerExplore:"تصفّح", footerContact:"تواصل معنا", footerPlan:"خطط لرحلة",
+        privacy:"سياسة الخصوصية", terms:"الشروط والأحكام", rights:"جميع الحقوق محفوظة.",
+        summaryTitle:"رسالتك عن الرحلة", summaryDestination:"المكان", summaryDate:"التاريخ",
+        summaryTravellers:"المسافرون", summaryService:"المساعدة المطلوبة", summaryNotes:"ملاحظاتك",
+        summaryName:"الاسم", summaryPhone:"الهاتف", summaryEmail:"البريد الإلكتروني"
+      }
+    };
+
+    const languageSelect = document.getElementById("language-select");
+    const form = document.getElementById("trip-form");
+    const summary = document.getElementById("summary");
+    const panels = [...document.querySelectorAll("[data-panel]")];
+    const progressSteps = [...document.querySelectorAll("[data-step]")];
+    const navigation = document.getElementById("navigation");
+    const menuToggle = document.querySelector(".menu-toggle");
+    let currentLanguage = "en";
+
+    function t(key) {
+      return translations[currentLanguage]?.[key] || translations.en[key] || key;
+    }
+
+    function setLanguage(language) {
+      currentLanguage = translations[language] ? language : "en";
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const value = t(element.dataset.i18n);
+
+        if (value.includes("<br>") || value.includes("<em>")) {
+          element.innerHTML = value;
+        } else {
+          element.textContent = value;
+        }
+      });
+
+      document.title = {
+        en: "Holland Way Tours — Postcards from the Netherlands",
+        nl: "Holland Way Tours — Ansichtkaarten uit Nederland",
+        ar: "هولاند واي تورز — بطاقات بريدية من هولندا"
+      }[currentLanguage];
+
+      try {
+        localStorage.setItem("holland-way-language", currentLanguage);
+      } catch (_) {}
+    }
+
+    function showStep(step) {
+      panels.forEach(panel => {
+        panel.hidden = Number(panel.dataset.panel) !== step;
+      });
+
+      progressSteps.forEach(item => {
+        const value = Number(item.dataset.step);
+        item.classList.toggle("active", value === step);
+        item.classList.toggle("complete", value < step);
+      });
+    }
+
+    function escapeHTML(value) {
+      const element = document.createElement("span");
+      element.textContent = value || "—";
+      return element.innerHTML;
+    }
+
+    function updateSummary() {
+      const data = new FormData(form);
+      const rows = [
+        ["summaryDestination", data.get("destination")],
+        ["summaryDate", data.get("date")],
+        ["summaryTravellers", data.get("travellers")],
+        ["summaryService", data.get("service")],
+        ["summaryNotes", data.get("notes")],
+        ["summaryName", data.get("name")],
+        ["summaryPhone", data.get("phone")],
+        ["summaryEmail", data.get("email")]
+      ];
+
+      summary.innerHTML =
+        `<h3>${escapeHTML(t("summaryTitle"))}</h3>` +
+        rows.filter(([, value]) => value)
+          .map(([label, value]) =>
+            `<p><strong>${escapeHTML(t(label))}:</strong> ${escapeHTML(value)}</p>`
+          ).join("");
+    }
+
+    document.querySelectorAll("[data-next]").forEach(button => {
+      button.addEventListener("click", () => {
+        const panel = button.closest("[data-panel]");
+
+        for (const input of panel.querySelectorAll("[required]")) {
+          if (!input.checkValidity()) {
+            input.reportValidity();
+            return;
+          }
+        }
+
+        const nextStep = Number(panel.dataset.panel) + 1;
+        if (nextStep === 3) updateSummary();
+        showStep(nextStep);
+      });
+    });
+
+    document.querySelectorAll("[data-back]").forEach(button => {
+      button.addEventListener("click", () => {
+        showStep(Number(button.closest("[data-panel]").dataset.panel) - 1);
+      });
+    });
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const message = [
+        "Holland Way Tours — Trip enquiry",
+        "",
+        `${t("summaryDestination")}: ${data.get("destination")}`,
+        `${t("summaryDate")}: ${data.get("date")}`,
+        `${t("summaryTravellers")}: ${data.get("travellers")}`,
+        `${t("summaryService")}: ${data.get("service")}`,
+        `${t("summaryNotes")}: ${data.get("notes") || "-"}`,
+        `${t("summaryName")}: ${data.get("name")}`,
+        `${t("summaryPhone")}: ${data.get("phone")}`,
+        `${t("summaryEmail")}: ${data.get("email") || "-"}`
+      ].join("\n");
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    languageSelect.addEventListener("change", () => setLanguage(languageSelect.value));
+
+    menuToggle.addEventListener("click", () => {
+      const open = navigation.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("date").min = new Date().toISOString().split("T")[0];
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    let savedLanguage = "en";
+    try {
+      savedLanguage = localStorage.getItem("holland-way-language") || "en";
+    } catch (_) {}
+
+    languageSelect.value = translations[savedLanguage] ? savedLanguage : "en";
+    setLanguage(languageSelect.value);
+  </script>
+</body>
+</html>
