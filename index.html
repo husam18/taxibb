@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Request private taxi transportation and travel enquiries with Holland Way Tours in the Netherlands.">
-  <meta name="theme-color" content="#10243c">
-  <title>Holland Way Tours | Private Taxi in the Netherlands</title>
+  <meta name="description" content="Persoonlijke ritten en reisaanvragen door heel Nederland.">
+  <meta name="theme-color" content="#081523">
+  <title>Holland Way Tours | Ontdek Nederland</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,25 +13,23 @@
 
   <style>
     :root {
-      --navy: #10243c;
-      --navy-dark: #091727;
-      --navy-light: #1b3858;
-      --gold: #d7ad55;
-      --green: #167248;
+      --forest: #0b1b2b;
+      --forest-deep: #081523;
+      --forest-light: #183149;
+      --orange: #d6ad55;
+      --cream: #f2f0e9;
+      --paper: #fbfaf7;
       --ink: #182638;
       --muted: #687587;
-      --paper: #fbfaf7;
-      --white: #fff;
       --line: #e7e5df;
-      --soft: #f2f0e9;
-      --content: 1160px;
+      --content: 1180px;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 95px;
     }
 
     body {
@@ -46,58 +44,69 @@
 
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
-    button, input, select, textarea { font: inherit; }
+    button, input, textarea, select { font: inherit; }
     button { cursor: pointer; }
-    [hidden] { display: none !important; }
 
     :focus-visible {
-      outline: 3px solid rgba(215,173,85,.85);
+      outline: 3px solid var(--orange);
       outline-offset: 3px;
     }
 
     .container {
-      width: min(var(--content), calc(100% - 44px));
+      width: min(var(--content), calc(100% - 36px));
       margin-inline: auto;
     }
 
-    .announcement {
-      background: var(--navy-dark);
-      color: rgba(255,255,255,.84);
-      font-size: .78rem;
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
-    .announcement-inner {
+    .topbar {
+      background: var(--forest-deep);
+      color: #d6dce3;
+      font-size: .76rem;
+    }
+
+    .topbar-inner {
       display: flex;
-      min-height: 38px;
+      min-height: 37px;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
     }
 
-    .announcement-contact {
+    .topbar-links {
       display: flex;
       flex-wrap: wrap;
       gap: 8px 20px;
     }
 
-    .announcement a:hover { color: var(--gold); }
-    .announcement-note { color: rgba(255,255,255,.64); }
+    .topbar a:hover { color: var(--orange); }
+    .topbar-note { color: rgba(255,255,255,.58); }
 
     .site-header {
       position: sticky;
-      z-index: 20;
+      z-index: 50;
       top: 0;
       border-bottom: 1px solid rgba(16,36,60,.08);
-      background: rgba(251,250,247,.96);
+      background: rgba(251,250,247,.97);
       backdrop-filter: blur(14px);
     }
 
     .header-inner {
       display: flex;
-      min-height: 76px;
+      min-height: 77px;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 18px;
     }
 
     .brand {
@@ -105,881 +114,778 @@
       flex-shrink: 0;
       align-items: center;
       gap: 11px;
-      color: var(--navy);
+      color: var(--forest);
     }
 
-    .brand-mark {
+    .brand-icon {
       display: grid;
-      width: 42px;
-      height: 42px;
+      width: 43px;
+      height: 43px;
       place-items: center;
-      border: 1px solid rgba(215,173,85,.55);
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
+      border: 1px solid rgba(214,173,85,.55);
+      border-radius: 13px 13px 13px 4px;
+      background: var(--forest);
+      color: var(--orange);
       font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
     }
 
     .brand-name {
-      font-size: 1rem;
+      font-size: .98rem;
       font-weight: 800;
-      letter-spacing: -.035em;
-      line-height: 1.2;
+      letter-spacing: -.04em;
+      line-height: 1.1;
     }
 
     .brand-name span {
       display: block;
-      margin-top: 3px;
+      margin-top: 4px;
       color: #a77b27;
-      font-size: .68rem;
-      letter-spacing: .16em;
+      font-size: .65rem;
+      letter-spacing: .19em;
+    }
+
+    .menu-toggle {
+      display: none;
+      min-width: 88px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: white;
+      color: var(--forest);
+      font-size: .82rem;
+      font-weight: 800;
     }
 
     .navigation {
       display: flex;
       align-items: center;
-      gap: 22px;
-      color: #394658;
-      font-size: .84rem;
+      gap: 21px;
+      color: #384658;
+      font-size: .83rem;
       font-weight: 700;
     }
 
-    .navigation > a:not(.button):hover { color: #9f7628; }
+    .navigation > a:not(.button):hover { color: #a97820; }
 
-    .button {
+    .navigation .button {
       display: inline-flex;
-      min-height: 46px;
+      min-height: 44px;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 11px 19px;
-      border: 1px solid transparent;
+      padding: 9px 17px;
       border-radius: 999px;
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-size: .86rem;
+      background: var(--orange);
+      color: var(--forest-deep);
       font-weight: 800;
-      transition: transform .2s ease, background .2s ease;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      background: #e4c474;
+    .navigation .button:hover { background: #e1bd70; }
+
+    /* Language selector is part of the navigation, including on mobile. */
+    .language-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--forest);
+      font-size: .78rem;
+      font-weight: 700;
     }
 
-    .button-dark {
-      background: var(--navy);
-      color: white;
-    }
-
-    .button-dark:hover { background: var(--navy-light); }
-
-    .button-outline {
-      border-color: rgba(255,255,255,.56);
-      background: rgba(255,255,255,.08);
-      color: white;
-    }
-
-    .button-outline:hover { background: rgba(255,255,255,.16); }
-
-    .menu-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      place-items: center;
+    .language-picker select {
+      min-height: 42px;
+      max-width: 145px;
+      padding: 7px 27px 7px 10px;
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 8px;
       background: white;
-      color: var(--navy);
-      font-size: 1.3rem;
+      color: var(--forest);
+      font-size: .78rem;
+      font-weight: 700;
     }
 
     .hero {
       position: relative;
-      min-height: 640px;
       display: flex;
+      min-height: 640px;
       align-items: center;
       overflow: hidden;
       background:
         linear-gradient(90deg, rgba(7,19,33,.88), rgba(7,19,33,.68) 48%, rgba(7,19,33,.15)),
-        url("https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=2200&q=90")
+        url("https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=2200&q=88")
         center 55% / cover no-repeat;
       color: white;
     }
 
-    .hero::after {
-      position: absolute;
-      right: -120px;
-      bottom: -250px;
-      width: 560px;
-      height: 560px;
-      border: 1px solid rgba(215,173,85,.22);
-      border-radius: 50%;
-      content: "";
-      pointer-events: none;
+    .hero-inner {
+      padding-top: 64px;
+      padding-bottom: 100px;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      padding: 85px 0 120px;
-    }
+    .hero-content { max-width: 735px; }
 
-    .eyebrow {
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      color: #9b742d;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: #eed69f;
       font-size: .72rem;
       font-weight: 800;
-      letter-spacing: .15em;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
-    .hero .eyebrow {
-      padding: 9px 14px;
-      border: 1px solid rgba(255,255,255,.32);
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      color: white;
-      letter-spacing: .07em;
+    .hero-kicker::before {
+      width: 29px;
+      height: 2px;
+      background: var(--orange);
+      content: "";
     }
 
     .hero h1 {
-      margin: 25px 0 18px;
+      max-width: 760px;
+      margin: 0;
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(3.4rem, 8vw, 6.1rem);
-      letter-spacing: -.055em;
-      line-height: .99;
+      font-size: clamp(3.7rem, 8vw, 7rem);
+      letter-spacing: -.06em;
+      line-height: .97;
     }
 
-    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero h1 em { color: var(--orange); font-style: normal; }
 
     .hero-copy {
-      max-width: 560px;
-      margin: 0;
+      max-width: 540px;
+      margin: 22px 0 0;
       color: rgba(255,255,255,.83);
-      font-size: 1.03rem;
+      font-size: 1.02rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 11px;
       margin-top: 29px;
     }
 
-    .hero-proof {
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 19px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: var(--orange);
+      color: var(--forest-deep);
+      font-size: .84rem;
+      font-weight: 800;
+    }
+
+    .button:hover { background: #e1bd70; }
+
+    .button-outline {
+      border-color: rgba(255,255,255,.45);
+      background: rgba(255,255,255,.08);
+      color: white;
+    }
+
+    .button-outline:hover { background: rgba(255,255,255,.18); }
+
+    .hero-stats {
       display: flex;
       flex-wrap: wrap;
-      gap: 11px 22px;
-      margin-top: 28px;
-      color: rgba(255,255,255,.88);
-      font-size: .81rem;
+      gap: 9px 20px;
+      margin-top: 31px;
+      color: rgba(255,255,255,.86);
+      font-size: .77rem;
       font-weight: 600;
     }
 
-    .hero-proof span::before {
-      margin-right: 8px;
-      color: var(--gold);
-      content: "✓";
-      font-weight: 900;
+    .hero-stats span::before {
+      margin-right: 7px;
+      color: var(--orange);
+      content: "✦";
     }
 
-    .booking-wrap {
+    .trip-search-wrap {
       position: relative;
-      z-index: 2;
-      margin-top: -67px;
-      margin-bottom: 16px;
+      z-index: 5;
+      margin-top: -56px;
     }
+
+    .trip-search {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      align-items: end;
+      gap: 14px;
+      padding: 22px;
+      border: 1px solid rgba(16,36,60,.08);
+      border-radius: 14px;
+      background: white;
+      box-shadow: 0 18px 45px rgba(9,23,39,.13);
+    }
+
+    .search-field label, .field label, .luggage-field legend {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--forest);
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .search-field input, .field input, .field textarea, .stop-row input {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid #dce1e6;
+      border-radius: 8px;
+      background: white;
+      color: var(--ink);
+      font-size: .85rem;
+    }
+
+    .field textarea { min-height: 75px; resize: vertical; }
+
+    .search-submit, .calculate-button {
+      min-height: 47px;
+      padding: 10px 17px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--forest);
+      color: white;
+      font-size: .81rem;
+      font-weight: 800;
+    }
+
+    .search-submit:hover { background: var(--forest-light); }
+
+    .section { padding: 78px 0; }
+    .section-cream { background: var(--cream); }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #9b742d;
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2, .about-copy h2, .booking-intro h2 {
+      margin: 10px 0 13px;
+      color: var(--forest);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 3.35rem);
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+
+    .section-heading p { margin: 0; color: var(--muted); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .96fr 1.04fr;
+      align-items: center;
+      gap: clamp(30px, 6vw, 72px);
+    }
+
+    .about-image {
+      position: relative;
+      min-height: 370px;
+      padding: 20px 20px 0 0;
+    }
+
+    .about-image::before {
+      position: absolute;
+      inset: 0 0 20px 20px;
+      border-radius: 14px;
+      background: var(--orange);
+      content: "";
+    }
+
+    .about-image img {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      border: 6px solid var(--paper);
+      border-radius: 13px;
+      object-fit: cover;
+    }
+
+    .image-label {
+      position: absolute;
+      right: -5px;
+      bottom: 34px;
+      z-index: 1;
+      padding: 12px 16px;
+      border-radius: 9px 0 0 9px;
+      background: var(--forest);
+      color: white;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .image-label small {
+      display: block;
+      color: rgba(255,255,255,.68);
+      font-size: .68rem;
+      font-weight: 500;
+    }
+
+    .about-copy > p { color: var(--muted); }
+
+    .about-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0 24px;
+    }
+
+    .about-checks span { color: var(--forest); font-size: .82rem; font-weight: 700; }
+    .about-checks span::before { margin-right: 7px; color: #9b742d; content: "✓"; }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .destination-card {
+      position: relative;
+      min-height: 270px;
+      overflow: hidden;
+      grid-column: span 4;
+      border-radius: 12px;
+      background: var(--forest);
+      color: white;
+    }
+
+    .destination-card.wide { grid-column: span 6; min-height: 290px; }
+
+    .destination-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+
+    .destination-card:hover img { transform: scale(1.04); }
+
+    .destination-card::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(9,23,39,.88), transparent 72%);
+      content: "";
+    }
+
+    .destination-content {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    .destination-type {
+      color: #e6cc91;
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .destination-content h3 {
+      margin: 4px 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.6rem;
+    }
+
+    .destination-content p {
+      margin: 0 0 9px;
+      color: rgba(255,255,255,.78);
+      font-size: .78rem;
+    }
+
+    .destination-link {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: .76rem;
+      font-weight: 800;
+    }
+
+    .destination-link:hover { color: var(--orange); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .service-card {
+      min-height: 175px;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+    }
+
+    .service-icon {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 13px;
+      place-items: center;
+      border-radius: 10px;
+      background: #f5efdf;
+      color: #8b6a2e;
+      font-size: 1.1rem;
+    }
+
+    .service-card h3 { margin: 0 0 7px; color: var(--forest); font-size: .96rem; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .81rem; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: steps; }
+
+    .step {
+      min-height: 170px;
+      padding: 19px;
+      border-top: 3px solid var(--orange);
+      border-radius: 0 0 10px 10px;
+      background: white;
+      counter-increment: steps;
+    }
+
+    .step::before {
+      display: block;
+      margin-bottom: 10px;
+      color: #9b742d;
+      content: "0" counter(steps);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .step h3 { margin: 0 0 7px; color: var(--forest); font-size: .92rem; }
+    .step p { margin: 0; color: var(--muted); font-size: .79rem; }
+
+    .booking-section {
+      background: radial-gradient(circle at 6% 20%, rgba(214,173,85,.12), transparent 25%), var(--forest);
+      color: white;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      align-items: start;
+      gap: clamp(26px, 5vw, 60px);
+    }
+
+    .booking-intro { position: sticky; top: 105px; }
+    .booking-intro .eyebrow { color: var(--orange); }
+    .booking-intro h2 { color: white; }
+    .booking-intro > p { color: rgba(255,255,255,.72); }
+
+    .booking-contact {
+      display: grid;
+      gap: 5px;
+      margin-top: 22px;
+      padding: 17px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 11px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .booking-contact a { color: var(--orange); font-size: 1.15rem; font-weight: 800; }
 
     .booking-card {
-      overflow: visible;
-      border: 1px solid rgba(16,36,60,.08);
-      border-radius: 22px;
+      overflow: hidden;
+      border-radius: 14px;
       background: white;
-      box-shadow: 0 26px 65px rgba(9,23,39,.14);
+      color: var(--ink);
+      box-shadow: 0 22px 60px rgba(4,16,10,.2);
     }
 
-    .booking-main {
-      padding: clamp(24px, 4.5vw, 44px);
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at 100% 0, rgba(215,173,85,.12), transparent 33%),
-        white;
-    }
+    .booking-main { padding: clamp(20px, 3.5vw, 32px); }
 
     .booking-heading {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 22px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #ecebe6;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .booking-heading h2 {
+    .booking-heading h3 {
       margin: 0;
-      color: var(--navy);
+      color: var(--forest);
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(1.9rem, 3.5vw, 2.5rem);
-      letter-spacing: -.04em;
-      line-height: 1.15;
+      font-size: 1.75rem;
     }
 
-    .booking-heading p {
-      max-width: 560px;
-      margin: 9px 0 0;
-      color: var(--muted);
-      font-size: .92rem;
-    }
+    .booking-heading p { margin: 5px 0 0; color: var(--muted); font-size: .81rem; }
 
     .booking-tag {
       flex-shrink: 0;
-      padding: 8px 13px;
-      border: 1px solid rgba(215,173,85,.35);
+      padding: 6px 9px;
+      border: 1px solid rgba(214,173,85,.4);
       border-radius: 999px;
       background: #fffaf0;
       color: #765718;
-      font-size: .71rem;
+      font-size: .62rem;
       font-weight: 800;
     }
 
     .taxi-grid {
       display: grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap: 34px;
-      margin-top: 29px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .route-column, .details-column {
       display: flex;
       min-width: 0;
       flex-direction: column;
-      gap: 20px;
+      gap: 14px;
     }
 
     .details-column {
-      padding: 23px;
+      padding: 15px;
       border: 1px solid #ecebe6;
-      border-radius: 17px;
+      border-radius: 11px;
       background: #faf9f6;
     }
 
-    .field {
-      display: flex;
-      min-width: 0;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field label, .luggage-field legend {
-      color: var(--navy);
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .065em;
-      text-transform: uppercase;
-    }
-
-    .field input, .field select, .field textarea, .stop-row input {
-      width: 100%;
-      min-height: 52px;
-      padding: 12px 14px;
-      border: 1px solid #dce1e6;
-      border-radius: 10px;
-      outline: none;
-      background: white;
-      color: var(--ink);
-      font-size: .91rem;
-      transition: border-color .18s ease, box-shadow .18s ease;
-    }
-
-    .field input::placeholder, .field textarea::placeholder,
-    .stop-row input::placeholder { color: #9aa3ad; }
-
-    .field input:focus, .field select:focus, .field textarea:focus,
-    .stop-row input:focus {
-      border-color: var(--green);
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(22,114,72,.1);
-    }
-
-    .field textarea { min-height: 100px; resize: vertical; }
+    .field { display: flex; min-width: 0; flex-direction: column; gap: 6px; }
 
     .address-wrap { position: relative; }
-
     .address-dot {
       position: absolute;
       top: 50%;
-      left: 15px;
-      z-index: 1;
-      color: var(--green);
+      left: 13px;
+      color: #52745f;
       transform: translateY(-50%);
       pointer-events: none;
     }
 
-    .address-wrap > input { padding-left: 41px; }
+    .address-wrap > input { padding-left: 36px; }
 
-    /* Address suggestion dropdown */
     .address-suggestions {
       position: absolute;
       z-index: 1000;
-      top: calc(100% + 8px);
+      top: calc(100% + 6px);
       right: 0;
       left: 0;
-      max-height: 350px;
+      max-height: 280px;
       overflow-y: auto;
-      padding: 8px 0;
-      border: 1px solid #e7e5df;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 18px 40px rgba(16,36,60,.16);
+      padding: 6px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 14px 30px rgba(16,36,60,.16);
     }
-
-    .address-suggestions[hidden] { display: none !important; }
 
     .address-suggestion {
       display: block;
       width: 100%;
-      padding: 13px 16px;
+      padding: 10px 12px;
       border: 0;
-      background: #fff;
-      color: #10243c;
+      background: white;
+      color: var(--forest);
       text-align: left;
-      cursor: pointer;
     }
 
-    .address-suggestion:hover,
-    .address-suggestion:focus {
+    .address-suggestion:hover, .address-suggestion:focus {
       background: #f5f3ed;
       outline: none;
     }
 
-    .address-suggestion-title {
-      display: block;
-      font-weight: 800;
-    }
-
-    .address-suggestion-detail {
-      display: block;
-      margin-top: 2px;
-      color: #687587;
-      font-size: .83rem;
-      line-height: 1.4;
-    }
+    .address-suggestion-title { display: block; font-weight: 800; }
+    .address-suggestion-detail { display: block; color: var(--muted); font-size: .74rem; }
 
     .location-button, .add-stop-button {
       width: fit-content;
       padding: 0;
       border: 0;
       background: transparent;
-      color: var(--green);
-      font-size: .81rem;
+      color: #426d50;
+      font-size: .74rem;
       font-weight: 700;
-      text-align: left;
     }
 
-    .location-button:hover, .add-stop-button:hover {
-      color: var(--navy);
-      text-decoration: underline;
-    }
+    .location-button:hover, .add-stop-button:hover { text-decoration: underline; }
+    .location-status { min-height: 1em; margin: 0; color: var(--muted); font-size: .69rem; }
 
-    .location-button:disabled { cursor: wait; opacity: .65; }
-
-    .location-status {
-      min-height: 1.2em;
-      margin: 0;
-      color: var(--muted);
-      font-size: .76rem;
-    }
-
-    .stops-list { display: grid; gap: 9px; }
-
-    .stop-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 45px;
-      gap: 9px;
-    }
-
-    .stop-row input { min-width: 0; }
+    .stops-list { display: grid; gap: 8px; }
+    .stop-row { display: grid; grid-template-columns: 1fr 40px; gap: 7px; }
 
     .remove-stop {
       border: 1px solid #e5e2dc;
-      border-radius: 10px;
+      border-radius: 8px;
       background: white;
       color: #8b3442;
-      font-size: 1.2rem;
-    }
-
-    .remove-stop:hover {
-      border-color: #edc5ca;
-      background: #fff5f5;
+      font-size: 1.1rem;
     }
 
     .luggage-field {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 17px;
-      margin: 2px 0 0;
-      padding: 16px;
+      gap: 8px 12px;
+      margin: 0;
+      padding: 11px;
       border: 1px solid #ecebe6;
-      border-radius: 12px;
+      border-radius: 9px;
       background: #faf9f6;
     }
 
-    .luggage-field legend {
-      width: 100%;
-      margin-bottom: 2px;
-    }
-
-    .luggage-field label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #394658;
-      font-size: .83rem;
-    }
-
-    .luggage-field input[type="number"] {
-      width: 55px;
-      min-height: 37px;
-      padding: 6px 8px;
-      border: 1px solid #dce1e6;
-      border-radius: 8px;
-      background: white;
-      color: var(--ink);
-    }
-
-    .luggage-field input[type="number"]:focus {
-      border-color: var(--green);
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(22,114,72,.1);
-    }
-
-    .luggage-field input[type="checkbox"], .return-toggle input {
-      width: 18px;
-      height: 18px;
-      margin: 0;
-      accent-color: var(--green);
-    }
+    .luggage-field legend { width: 100%; }
+    .luggage-field label { display: inline-flex; align-items: center; gap: 5px; font-size: .72rem; }
+    .luggage-field input[type="number"] { width: 44px; min-height: 30px; }
 
     .return-toggle {
-      display: inline-flex;
-      width: 100%;
-      min-height: 48px;
+      display: flex;
+      min-height: 42px;
       align-items: center;
-      gap: 10px;
-      padding: 11px 13px;
-      border: 1px solid #e5e3dc;
-      border-radius: 10px;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid #e3e5df;
+      border-radius: 8px;
       background: white;
-      color: var(--ink);
-      font-size: .87rem;
+      font-size: .77rem;
       font-weight: 700;
       cursor: pointer;
     }
 
+    .return-toggle input { width: 17px; height: 17px; margin: 0; }
+
     .passenger-control {
       display: inline-flex;
       width: fit-content;
-      min-height: 47px;
+      min-height: 40px;
       align-items: center;
-      gap: 14px;
-      padding: 4px 7px;
+      gap: 12px;
+      padding: 4px 6px;
       border: 1px solid #dce1e6;
-      border-radius: 10px;
+      border-radius: 8px;
       background: white;
     }
 
     .passenger-control button {
-      width: 31px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       border: 0;
-      border-radius: 8px;
+      border-radius: 6px;
       background: #f1f5f2;
-      color: var(--green);
-      font-size: 1.1rem;
+      color: var(--forest);
     }
 
-    .passenger-control button:hover { background: #e3eee6; }
-
-    .passenger-control output {
-      min-width: 20px;
-      color: var(--navy);
-      font-weight: 800;
-      text-align: center;
-    }
+    .passenger-control output { min-width: 18px; font-weight: 800; text-align: center; }
 
     .booking-footer {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 14px 20px;
-      padding: 21px clamp(24px, 4.5vw, 44px);
-      border-radius: 0 0 22px 22px;
-      background: #f2f0e9;
+      gap: 12px;
+      padding: 15px clamp(20px, 3.5vw, 32px);
+      background: var(--cream);
     }
 
-    .booking-note {
-      flex: 1 1 280px;
-      margin: 0;
-      color: #58675f;
-      font-size: .77rem;
-    }
+    .booking-note { flex: 1 1 230px; margin: 0; color: #58675f; font-size: .69rem; }
 
-    .calculate-button {
-      min-width: 260px;
-      min-height: 52px;
-      border-radius: 10px;
-      background: var(--green);
-      color: white;
-      font-size: .87rem;
-      font-weight: 800;
-    }
-
+    .calculate-button { background: #167248; }
     .calculate-button:hover { background: #125b3a; }
-    .calculate-button:disabled { cursor: wait; opacity: .7; transform: none; }
+    .calculate-button:disabled { cursor: wait; opacity: .7; }
 
     .fare-result {
       flex-basis: 100%;
       margin: 0;
-      padding: 13px 15px;
+      padding: 10px 12px;
       border: 1px solid rgba(22,114,72,.18);
-      border-radius: 10px;
+      border-radius: 8px;
       background: #f2faf5;
-      color: var(--navy);
-      font-size: .85rem;
+      color: var(--forest);
+      font-size: .77rem;
     }
 
     .fare-result.fare-error {
       border-color: rgba(161,38,38,.2);
-      background: #fff5f5;
+      background: #fff3f3;
       color: #a12626;
     }
 
-    .section { padding: 88px 0; }
-    .section-soft { background: var(--soft); }
+    .faq-list { display: grid; max-width: 800px; gap: 10px; margin: 0 auto; }
+    .faq-list details { padding: 15px 17px; border: 1px solid var(--line); border-radius: 9px; background: white; }
+    .faq-list summary { color: var(--forest); font-size: .85rem; font-weight: 800; cursor: pointer; }
+    .faq-list details p { margin: 9px 0 0; color: var(--muted); font-size: .81rem; }
 
-    .split {
-      display: grid;
-      grid-template-columns: .92fr 1.08fr;
-      align-items: center;
-      gap: clamp(35px, 7vw, 82px);
-    }
-
-    .split-image {
-      position: relative;
-      padding: 0 25px 25px 0;
-    }
-
-    .split-image::before {
-      position: absolute;
-      inset: 25px 0 0 25px;
-      border-radius: 18px;
-      background: var(--gold);
-      content: "";
-    }
-
-    .split-image img {
-      position: relative;
-      width: 100%;
-      height: 420px;
-      border: 8px solid var(--paper);
-      border-radius: 17px;
-      object-fit: cover;
-    }
-
-    .image-caption {
-      position: absolute;
-      right: 0;
-      bottom: 43px;
-      z-index: 1;
-      max-width: 225px;
-      padding: 15px 19px;
-      border-radius: 12px 0 0 12px;
-      background: var(--navy);
-      color: white;
-      font-weight: 800;
-    }
-
-    .image-caption small {
-      display: block;
-      color: rgba(255,255,255,.7);
-      font-size: .72rem;
-      font-weight: 500;
-    }
-
-    .split-copy h2, .section-heading h2 {
-      margin: 10px 0 14px;
-      color: var(--navy);
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.15rem, 4vw, 3.35rem);
-      letter-spacing: -.04em;
-      line-height: 1.08;
-    }
-
-    .split-copy > p, .section-heading p { color: var(--muted); }
-
-    .check-list {
-      display: grid;
-      gap: 10px;
-      margin: 22px 0 25px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .check-list li::before {
-      margin-right: 10px;
-      color: var(--green);
-      content: "✓";
-      font-weight: 900;
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin: 0 auto 39px;
-      text-align: center;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      position: relative;
-      min-height: 210px;
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: white;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(16,36,60,.09);
-    }
-
-    .service-card::after {
-      position: absolute;
-      right: 18px;
-      bottom: 12px;
-      color: rgba(215,173,85,.2);
-      content: attr(data-number);
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .service-icon {
-      display: grid;
-      width: 46px;
-      height: 46px;
-      margin-bottom: 16px;
-      place-items: center;
-      border-radius: 13px;
-      background: #f5efdf;
-      color: var(--green);
-      font-size: 1.35rem;
-    }
-
-    .service-card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1rem; }
-    .service-card p { max-width: 300px; margin: 0; color: var(--muted); font-size: .86rem; }
-
-    .destination-section { background: var(--navy); }
-    .destination-section .section-heading h2 { color: white; }
-    .destination-section .section-heading p { color: rgba(255,255,255,.69); }
-    .destination-section .eyebrow { color: var(--gold); }
-
-    .tour-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
-    }
-
-    .tour-card {
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 14px;
-      background: white;
-      transition: transform .2s ease;
-    }
-
-    .tour-card:hover { transform: translateY(-4px); }
-
-    .tour-card img {
-      width: 100%;
-      height: 205px;
-      object-fit: cover;
-    }
-
-    .tour-content { padding: 19px; }
-
-    .tour-meta {
-      margin-bottom: 6px;
-      color: #9b742d;
-      font-size: .7rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .tour-content h3 {
-      margin: 0 0 7px;
-      color: var(--navy);
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.35rem;
-    }
-
-    .tour-content p {
-      min-height: 45px;
-      margin: 0;
-      color: var(--muted);
-      font-size: .83rem;
-    }
-
-    .tour-content .button {
-      min-height: 39px;
-      margin-top: 15px;
-      padding: 8px 15px;
-      font-size: .76rem;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      counter-reset: process;
-    }
-
-    .process-card {
-      position: relative;
-      min-height: 190px;
-      padding: 22px;
-      border-top: 3px solid var(--gold);
-      border-radius: 0 0 13px 13px;
-      background: white;
-      counter-increment: process;
-    }
-
-    .process-card::before {
-      display: block;
-      margin-bottom: 14px;
-      color: var(--green);
-      content: "0" counter(process);
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .process-card h3 { margin: 0 0 7px; color: var(--navy); font-size: .97rem; }
-    .process-card p { margin: 0; color: var(--muted); font-size: .83rem; }
-
-    .faq-list {
-      display: grid;
-      max-width: 850px;
-      gap: 11px;
-      margin: 0 auto;
-    }
-
-    .faq-list details {
-      padding: 17px 19px;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      background: white;
-    }
-
-    .faq-list summary { color: var(--navy); font-weight: 800; cursor: pointer; }
-    .faq-list details p { margin: 11px 0 0; color: var(--muted); font-size: .88rem; }
-
-    .cta {
-      position: relative;
-      overflow: hidden;
-      padding: 76px 0;
-      background: linear-gradient(120deg, var(--navy), #1d3c5d);
-      color: white;
-      text-align: center;
-    }
-
-    .cta::before, .cta::after {
-      position: absolute;
-      width: 270px;
-      height: 270px;
-      border: 1px solid rgba(215,173,85,.24);
-      border-radius: 50%;
-      content: "";
-      pointer-events: none;
-    }
-
-    .cta::before { top: -175px; left: -90px; }
-    .cta::after { right: -100px; bottom: -205px; }
-    .cta-content { position: relative; z-index: 1; }
-
-    .cta h2 {
-      margin: 0;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    .cta p { margin: 12px auto 23px; color: rgba(255,255,255,.73); }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 11px;
-    }
+    .final-cta { padding: 60px 0; background: var(--cream); text-align: center; }
+    .final-cta h2 { margin: 0; color: var(--forest); font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); }
+    .final-cta p { margin: 10px auto 20px; color: var(--muted); }
+    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .dark-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: 9px 16px; border-radius: 8px; background: var(--forest); color: white; font-size: .8rem; font-weight: 800; }
 
     footer {
-      padding: 48px 0 20px;
-      background: var(--navy-dark);
-      color: rgba(255,255,255,.7);
-      font-size: .83rem;
+      padding: 38px 0 18px;
+      background: var(--forest-deep);
+      color: rgba(255,255,255,.68);
+      font-size: .78rem;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 28px;
+      gap: 32px;
+      padding-bottom: 23px;
     }
 
-    footer h4 { margin: 0 0 12px; color: white; }
-    footer p { max-width: 360px; }
-
-    footer a:not(.brand) {
-      display: block;
-      width: fit-content;
-      margin: 7px 0;
-    }
-
-    footer a:hover { color: var(--gold); }
-
-    .footer-bottom {
-      padding-top: 17px;
-      border-top: 1px solid rgba(255,255,255,.13);
-    }
+    .footer-brand p { max-width: 340px; }
+    footer h3 { margin: 0 0 10px; color: white; font-size: .84rem; }
+    footer a:not(.brand) { display: block; width: fit-content; margin: 7px 0; }
+    footer a:hover { color: var(--orange); }
+    .footer-bottom { padding-top: 15px; border-top: 1px solid rgba(255,255,255,.12); }
 
     @media (max-width: 950px) {
-      .navigation { gap: 15px; }
-      .navigation > a:not(.button) { display: none; }
-      .menu-toggle { display: grid; }
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 0 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .menu-toggle { display: inline-flex; }
 
       .navigation {
-        position: fixed;
-        inset: 76px 0 0;
         display: none;
-        align-items: stretch;
+        flex: 0 0 calc(100% + 36px);
+        width: calc(100% + 36px);
+        order: 3;
         flex-direction: column;
+        align-items: stretch;
         gap: 0;
-        padding: 20px 25px;
+        margin: 8px -18px -8px;
+        padding: 8px 18px 18px;
+        border-top: 1px solid var(--line);
         background: var(--paper);
       }
 
@@ -987,63 +893,84 @@
 
       .navigation > a:not(.button) {
         display: block;
-        padding: 15px 0;
+        min-height: 47px;
+        padding: 11px 4px;
         border-bottom: 1px solid var(--line);
       }
 
-      .navigation .button { margin-top: 18px; }
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+      .navigation .button {
+        width: 100%;
+        min-height: 46px;
+        margin-top: 12px;
+        border-radius: 8px;
+      }
 
-    @media (max-width: 760px) {
-      .booking-wrap { margin-top: -48px; }
-      .booking-heading { flex-direction: column; gap: 12px; }
-      .taxi-grid { grid-template-columns: 1fr; gap: 22px; }
-      .details-column { padding: 19px; }
-      .service-grid, .tour-grid { grid-template-columns: repeat(2, 1fr); }
+      .language-picker {
+        justify-content: space-between;
+        padding: 15px 4px 3px;
+        border-top: 1px solid var(--line);
+        margin-top: 12px;
+      }
+
+      .language-picker select { width: min(220px, 60%); max-width: none; }
+
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .booking-layout { grid-template-columns: 1fr; }
+      .booking-intro { position: static; }
     }
 
     @media (max-width: 680px) {
-      .container { width: min(calc(100% - 30px), var(--content)); }
+      .container { width: calc(100% - 30px); }
 
-      .announcement-inner { justify-content: center; padding: 8px 0; }
-      .announcement-contact { justify-content: center; gap: 7px 14px; }
-      .announcement-note { display: none; }
-
-      .header-inner { min-height: 68px; }
-      .navigation { inset-block-start: 68px; }
+      .topbar-inner { justify-content: center; padding: 7px 0; }
+      .topbar-links { justify-content: center; gap: 7px 14px; }
+      .topbar-note { display: none; }
 
       .hero { min-height: 560px; background-position: 58% center; }
-      .hero-content { padding: 65px 0 95px; }
-      .hero h1 { font-size: clamp(3.2rem, 14vw, 4.8rem); }
-      .hero-copy { font-size: .94rem; }
-      .hero-proof { gap: 9px 14px; font-size: .75rem; }
+      .hero-inner { padding-top: 48px; padding-bottom: 95px; }
+      .hero h1 { font-size: clamp(3.3rem, 14vw, 5rem); }
+      .hero-copy { font-size: .92rem; }
+      .hero-actions .button { flex: 1 1 auto; }
 
-      .booking-main { padding: 22px 18px; }
-      .booking-card { border-radius: 17px; }
-      .booking-heading h2 { font-size: 1.8rem; }
-      .section { padding: 67px 0; }
+      .trip-search-wrap { margin-top: -45px; }
+      .trip-search { grid-template-columns: 1fr; padding: 16px; }
+      .search-submit { width: 100%; }
 
-      .split { grid-template-columns: 1fr; gap: 34px; }
-      .split-image img { height: 310px; }
-      .image-caption { right: 0; bottom: 38px; }
+      .section { padding: 60px 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image { min-height: 300px; }
+      .about-image img { height: 280px; }
 
-      .footer-grid { grid-template-columns: 1fr; gap: 23px; }
-    }
-
-    @media (max-width: 520px) {
-      .details-column { padding: 16px; }
-      .luggage-field { gap: 10px; padding: 14px; }
-      .luggage-field label { width: 100%; }
-
-      .booking-footer {
-        align-items: stretch;
-        padding: 19px 18px;
+      .destination-card, .destination-card.wide {
+        grid-column: span 6;
+        min-height: 255px;
       }
 
-      .calculate-button { width: 100%; min-width: 0; }
-      .service-grid, .tour-grid, .process-grid { grid-template-columns: 1fr; }
-      .tour-card img { height: 220px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .taxi-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+    @media (max-width: 490px) {
+      .brand { gap: 7px; }
+      .brand-icon { width: 38px; height: 38px; }
+      .brand-name { font-size: .84rem; }
+      .brand-name span { font-size: .57rem; }
+      .menu-toggle { min-width: 78px; padding-inline: 8px; }
+
+      .destination-grid { grid-template-columns: 1fr; }
+      .destination-card, .destination-card.wide { grid-column: auto; min-height: 250px; }
+      .service-grid, .steps, .about-checks { grid-template-columns: 1fr; }
+      .booking-heading { flex-direction: column; }
+      .booking-footer { align-items: stretch; }
+      .calculate-button { width: 100%; }
+      .luggage-field label { width: 100%; }
+    }
+
+    @media (max-width: 350px) {
+      .container { width: calc(100% - 22px); }
+      .brand-name { font-size: .75rem; }
+      .brand-name span { font-size: .51rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1056,270 +983,328 @@
 </head>
 
 <body>
-  <div class="announcement">
-    <div class="container announcement-inner">
-      <div class="announcement-contact">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-links">
         <a href="mailto:husam48726@gmail.com">✉ husam48726@gmail.com</a>
         <a href="tel:+31681110006">☎ 06 8111 0006</a>
-        <span>Hoofddorp, Netherlands</span>
+        <span data-i18n="location">Hoofddorp, Nederland</span>
       </div>
-      <div class="announcement-note">Private journeys · Personal travel enquiries</div>
+      <span class="topbar-note" data-i18n="topbarNote">Persoonlijke reisaanvragen door heel Nederland</span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Holland Way Tours home">
-        <span class="brand-mark" aria-hidden="true">H</span>
+        <span class="brand-icon" aria-hidden="true">H</span>
         <span class="brand-name">HOLLAND <span>WAY TOURS</span></span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open navigation"
-        aria-expanded="false" aria-controls="navigation">☰</button>
+      <button class="menu-toggle" id="menu-toggle" type="button"
+        aria-label="Menu openen" aria-expanded="false" aria-controls="navigation">
+        <span aria-hidden="true">☰</span>
+        <span id="menu-label">Menu</span>
+      </button>
 
-      <nav class="navigation" id="navigation" aria-label="Main navigation">
+      <nav class="navigation" id="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
+        <a href="services.html" aria-current="page">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a class="button" href="#booking">Request a ride</a>
+        <a class="button" href="index.html#booking">Request a ride</a>
+
+        <label class="language-picker">
+          <span data-i18n="languageLabel">Taal</span>
+          <select id="language-select" aria-label="Kies een taal">
+            <option value="nl">Nederlands</option>
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+          </select>
+        </label>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container">
+      <div class="container hero-inner">
         <div class="hero-content">
-          <span class="eyebrow">Private journeys through the Netherlands</span>
-          <h1>Your Netherlands.<br><em>Your way.</em></h1>
-          <p class="hero-copy">
-            Travel comfortably through the Netherlands. Tell us where you’re going,
-            when you’d like to travel, and what you need.
+          <span class="hero-kicker" data-i18n="heroKicker">Ontdek meer van Nederland</span>
+          <h1 data-i18n="heroTitle">Maak de<br>reis <em>van jou.</em></h1>
+          <p class="hero-copy" data-i18n="heroCopy">
+            Van stadsstraten tot uitstapjes op het platteland: plan je privérit
+            langs de plekken en momenten die jij wilt beleven.
           </p>
           <div class="hero-actions">
-            <a class="button" href="#booking">Request a price <span aria-hidden="true">→</span></a>
-            <a class="button button-outline" href="#destinations">Explore destinations</a>
+            <a class="button" href="#booking"><span data-i18n="heroPlan">Plan je reis</span> <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#destinations" data-i18n="heroDestinations">Ontdek bestemmingen</a>
           </div>
-          <div class="hero-proof">
-            <span>Personal service</span>
-            <span>Flexible travel</span>
-            <span>Simple enquiries</span>
+          <div class="hero-stats">
+            <span data-i18n="stat1">Persoonlijke aanvragen</span>
+            <span data-i18n="stat2">Flexibele tussenstops</span>
+            <span data-i18n="stat3">Duidelijke prijsindicaties</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="container booking-wrap" id="booking" aria-labelledby="booking-title">
-      <div class="booking-card">
-        <div class="booking-main">
-          <div class="booking-heading">
-            <div>
-              <h2 id="booking-title">Request a taxi ride</h2>
-              <p>Calculate an estimated fare, then send your trip enquiry through WhatsApp.</p>
-            </div>
-            <span class="booking-tag">Enquiry only — not yet confirmed</span>
-          </div>
-
-          <form id="taxi-form">
-            <div class="taxi-grid">
-              <div class="route-column">
-                <div class="field">
-                  <label for="pickup">Pickup address</label>
-                  <div class="address-wrap autocomplete-wrap">
-                    <span class="address-dot" aria-hidden="true">○</span>
-                    <input id="pickup" name="pickup" type="text" autocomplete="off"
-                      placeholder="Enter your pickup address" required>
-                  </div>
-                  <button class="location-button" id="use-location" type="button">◎ Use my current location</button>
-                  <p class="location-status" id="location-status" role="status" aria-live="polite"></p>
-                </div>
-
-                <div class="field">
-                  <label for="destination">Destination address</label>
-                  <div class="address-wrap autocomplete-wrap">
-                    <span class="address-dot" aria-hidden="true">●</span>
-                    <input id="destination" name="destination" type="text" autocomplete="off"
-                      placeholder="Destination — street and house number" required>
-                  </div>
-                </div>
-
-                <div class="stops-list" id="stops"></div>
-                <button class="add-stop-button" id="add-stop" type="button">＋ Add a stop</button>
-
-                <fieldset class="luggage-field">
-                  <legend>Luggage</legend>
-                  <label><input type="number" name="largeLuggage" min="0" max="12" value="0"> <span>Large bags</span></label>
-                  <label><input type="number" name="cabinLuggage" min="0" max="12" value="0"> <span>Hand luggage</span></label>
-                  <label><input type="number" name="personalLuggage" min="0" max="12" value="0"> <span>Handbag / backpack</span></label>
-                </fieldset>
-              </div>
-
-              <div class="details-column">
-                <div class="field">
-                  <label for="pickup-time">Pickup date and time</label>
-                  <input id="pickup-time" name="pickupTime" type="datetime-local" required>
-                </div>
-
-                <label class="return-toggle" for="return-trip">
-                  <input id="return-trip" name="returnTrip" type="checkbox">
-                  <span>Return trip</span>
-                </label>
-
-                <div class="field" id="return-time-field" hidden>
-                  <label for="return-time">Return pickup date and time</label>
-                  <input id="return-time" name="returnTime" type="datetime-local">
-                </div>
-
-                <div class="field">
-                  <label for="passengers">Number of passengers</label>
-                  <div class="passenger-control">
-                    <button type="button" id="passenger-minus" aria-label="Remove one passenger">−</button>
-                    <output id="passenger-count" for="passengers" aria-live="polite">1</output>
-                    <button type="button" id="passenger-plus" aria-label="Add one passenger">＋</button>
-                  </div>
-                  <input id="passengers" name="passengers" type="hidden" value="1">
-                  <small class="location-status">Select between 1 and 8 passengers.</small>
-                </div>
-
-                <div class="field">
-                  <label for="customer-name">Your name</label>
-                  <input id="customer-name" name="customerName" autocomplete="name"
-                    placeholder="First and last name" required>
-                </div>
-
-                <div class="field">
-                  <label for="customer-email">Email address</label>
-                  <input id="customer-email" name="customerEmail" type="email"
-                    autocomplete="email" placeholder="you@example.com">
-                </div>
-
-                <div class="field">
-                  <label for="customer-phone">Phone number</label>
-                  <input id="customer-phone" name="customerPhone" type="tel"
-                    autocomplete="tel" placeholder="+31..." required>
-                </div>
-
-                <div class="field">
-                  <label for="note">Notes (optional)</label>
-                  <textarea id="note" name="note"
-                    placeholder="Extra details, accessibility needs, or other requests"></textarea>
-                </div>
-              </div>
-            </div>
-
-            <div class="booking-footer">
-              <p class="booking-note">
-                Estimated fare: €4 start fee + €3 per kilometre + €0.50 per minute.
-                This estimate is not a confirmed quote or booking.
-              </p>
-              <button class="button calculate-button" id="submit-button" type="submit">
-                Calculate price &amp; continue
-              </button>
-              <p class="fare-result" id="fare-result" role="status" aria-live="polite" hidden></p>
-            </div>
-          </form>
+    <section class="container trip-search-wrap">
+      <form class="trip-search" id="quick-search">
+        <div class="search-field">
+          <label for="quick-pickup" data-i18n="quickFrom">Waar vandaan?</label>
+          <input id="quick-pickup" type="text" placeholder="Ophaallocatie" data-i18n-placeholder="pickupPlaceholder" required>
         </div>
-      </div>
+        <div class="search-field">
+          <label for="quick-destination" data-i18n="quickTo">Waarheen?</label>
+          <input id="quick-destination" type="text" placeholder="Je bestemming" data-i18n-placeholder="destinationPlaceholder" required>
+        </div>
+        <button class="search-submit" type="submit" data-i18n="quickSubmit">Aanvraag starten →</button>
+      </form>
     </section>
 
     <section class="section" id="about">
-      <div class="container split">
-        <div class="split-image">
+      <div class="container about-grid">
+        <div class="about-image">
           <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85"
-            alt="Canals and historic buildings in Amsterdam" loading="lazy">
-          <div class="image-caption">
-            Travel comfortably
-            <small>From your pickup point to your destination</small>
+            alt="Gracht en historische gebouwen in Amsterdam" loading="lazy">
+          <div class="image-label">
+            <span data-i18n="imageLabel">Jouw eigen route</span>
+            <small data-i18n="imageLabelSmall">Afgestemd op jouw reisplan</small>
           </div>
         </div>
 
-        <div class="split-copy">
-          <span class="eyebrow">Holland Way Tours</span>
-          <h2>A journey arranged around your plans.</h2>
-          <p>
-            Tell us where you’d like to go and when. Add stops, request a return trip,
-            and share passenger and luggage details in one simple enquiry.
+        <div class="about-copy">
+          <span class="eyebrow" data-i18n="aboutEyebrow">Een persoonlijkere manier van reizen</span>
+          <h2 data-i18n="aboutTitle">Ontdek meer dan de gebruikelijke route.</h2>
+          <p data-i18n="aboutText">
+            Of je nu naar Amsterdam gaat, het platteland bezoekt of een dagje uit plant:
+            stuur ons je reisgegevens. We nemen contact met je op over je reis en beschikbaarheid.
           </p>
-          <ul class="check-list">
-            <li>Enter a pickup point and destination</li>
-            <li>Add one or more stops along the way</li>
-            <li>Include luggage and passenger information</li>
-            <li>Request a return journey if needed</li>
-          </ul>
-          <a class="button button-dark" href="#booking">Plan your journey →</a>
+          <div class="about-checks">
+            <span data-i18n="check1">Kies je vertrekpunt en bestemming</span>
+            <span data-i18n="check2">Voeg tussenstops toe</span>
+            <span data-i18n="check3">Vermeld bagage en passagiers</span>
+            <span data-i18n="check4">Vraag een retourrit aan</span>
+          </div>
+          <a class="button" href="#booking" data-i18n="aboutButton">Vertel ons over je reis →</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft" id="services">
+    <section class="section section-cream" id="destinations">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Our services</span>
-          <h2>Travel support for your plans.</h2>
-          <p>Send us your trip requirements and we’ll contact you to discuss the details.</p>
+          <span class="eyebrow" data-i18n="destinationsEyebrow">Kies je volgende bestemming</span>
+          <h2 data-i18n="destinationsTitle">Nederlandse uitstapjes.</h2>
+          <p data-i18n="destinationsText">Kies een bestemming of vul een ander adres in.</p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Amsterdamse grachten" loading="lazy">
+            <div class="destination-content">
+              <span class="destination-type">Canalen · Cultuur</span>
+              <h3>Amsterdam</h3>
+              <p>Ontdek de grachten, buurten en historische straten.</p>
+              <button class="destination-link" type="button" data-destination="Amsterdam, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Kleurrijke bloementuin" loading="lazy">
+            <div class="destination-content">
+              <span class="destination-type">Bloemen · Seizoen</span>
+              <h3>Keukenhof</h3>
+              <p>Combineer de tuinen met een bezoek aan de bloemenvelden.</p>
+              <button class="destination-link" type="button" data-destination="Keukenhof, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Historische Nederlandse stadsgracht" loading="lazy">
+            <div class="destination-content">
+              <span class="destination-type">Stad · Geschiedenis</span>
+              <h3>Utrecht</h3>
+              <p>Ontdek de oude binnenstad en de grachten.</p>
+              <button class="destination-link" type="button" data-destination="Utrecht, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+            </div>
+          </article>
+
+          <article class="destination-card wide">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Historische architectuur in Delft" loading="lazy">
+            <div class="destination-content">
+              <span class="destination-type">Architectuur · Erfgoed</span>
+              <h3>Delft</h3>
+              <p>Geniet van het historische centrum, de grachten en architectuur.</p>
+              <button class="destination-link" type="button" data-destination="Delft, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+            </div>
+          </article>
+
+          <article class="destination-card wide">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Pretparkuitje in Nederland" loading="lazy">
+            <div class="destination-content">
+              <span class="destination-type">Familie · Attractiepark</span>
+              <h3>Efteling</h3>
+              <p>Vraag een rit aan voor een leuke dag in het attractiepark.</p>
+              <button class="destination-link" type="button" data-destination="Efteling, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="servicesEyebrow">Reis op jouw manier</span>
+          <h2 data-i18n="servicesTitle">Eén rit of een dag vol ontdekkingen.</h2>
+          <p data-i18n="servicesText">Vertel ons je plannen, dan bespreken we de mogelijkheden.</p>
         </div>
 
         <div class="service-grid">
-          <article class="service-card" data-number="01"><span class="service-icon">🚕</span><h3>Private taxi enquiries</h3><p>Request transportation from your chosen pickup point to your destination.</p></article>
-          <article class="service-card" data-number="02"><span class="service-icon">📍</span><h3>Stops along the way</h3><p>Include additional addresses you’d like to visit during your journey.</p></article>
-          <article class="service-card" data-number="03"><span class="service-icon">↔️</span><h3>Return trips</h3><p>Let us know if you need a return journey and provide your preferred time.</p></article>
-          <article class="service-card" data-number="04"><span class="service-icon">🧳</span><h3>Luggage details</h3><p>Tell us what luggage you’ll be travelling with.</p></article>
-          <article class="service-card" data-number="05"><span class="service-icon">👥</span><h3>Passenger information</h3><p>Include your group size so we can review your request.</p></article>
-          <article class="service-card" data-number="06"><span class="service-icon">💬</span><h3>Personal communication</h3><p>Discuss availability and pricing directly with us before confirming a ride.</p></article>
+          <article class="service-card"><span class="service-icon">🚕</span><h3>Privérit aanvragen</h3><p>Vraag een rit aan tussen je gekozen vertrekpunt en bestemming.</p></article>
+          <article class="service-card"><span class="service-icon">✈️</span><h3>Luchthavenritten</h3><p>Vermeld je vlucht- of luchthavengegevens bij je aanvraag.</p></article>
+          <article class="service-card"><span class="service-icon">📍</span><h3>Routes met tussenstops</h3><p>Voeg plaatsen toe die je onderweg wilt bezoeken.</p></article>
+          <article class="service-card"><span class="service-icon">↔</span><h3>Retourritten</h3><p>Vraag een retour aan en geef je gewenste tijd door.</p></article>
+          <article class="service-card"><span class="service-icon">🧳</span><h3>Bagagegegevens</h3><p>Geef aan hoeveel tassen je meeneemt.</p></article>
+          <article class="service-card"><span class="service-icon">💬</span><h3>Persoonlijk contact</h3><p>Bespreek beschikbaarheid en de definitieve prijs vooraf.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section destination-section" id="destinations">
+    <section class="section section-cream" id="how-it-works">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Popular destinations</span>
-          <h2>Where would you like to go?</h2>
-          <p>Choose a destination to add it to your enquiry, or enter a different address.</p>
+          <span class="eyebrow">Eenvoudig van begin tot eind</span>
+          <h2>In vier stappen op weg.</h2>
+          <p>Je aanvraag is nog geen bevestigde boeking. Je rit wordt bevestigd zodra de details zijn afgesproken.</p>
         </div>
 
-        <div class="tour-grid">
-          <article class="tour-card">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Amsterdam canal houses" loading="lazy">
-            <div class="tour-content"><div class="tour-meta">Canals · City</div><h3>Amsterdam</h3><p>Explore the historic canals, streets, and sights of Amsterdam.</p><a class="button button-dark destination-link" href="#booking" data-destination="Amsterdam, Netherlands">Select Amsterdam →</a></div>
-          </article>
-          <article class="tour-card">
-            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Colourful flowers in a garden" loading="lazy">
-            <div class="tour-content"><div class="tour-meta">Flowers · Seasonal</div><h3>Keukenhof</h3><p>Ask us about arranging transportation to the famous flower gardens.</p><a class="button button-dark destination-link" href="#booking" data-destination="Keukenhof, Netherlands">Select Keukenhof →</a></div>
-          </article>
-          <article class="tour-card">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="A historic Dutch city canal" loading="lazy">
-            <div class="tour-content"><div class="tour-meta">City · History</div><h3>Utrecht</h3><p>Visit the historic city centre and its distinctive canals.</p><a class="button button-dark destination-link" href="#booking" data-destination="Utrecht, Netherlands">Select Utrecht →</a></div>
-          </article>
-          <article class="tour-card">
-            <img src="https://www.leshuttle.com/media-library/media/leshuttle/articles/netherlands/delft%20hidden%20gem/0-hero_delft-hidden-gem_ad-977857126.jpg?width=1536&height=824&rmode=crop&format=webp&quality=60&v=202504111444" alt="Historic architecture in Delft" loading="lazy">
-            <div class="tour-content"><div class="tour-meta">History · Architecture</div><h3>Delft</h3><p>Discover Delft’s historic streets, canals, and architecture.</p><a class="button button-dark destination-link" href="#booking" data-destination="Delft, Netherlands">Select Delft →</a></div>
-          </article>
-          <article class="tour-card">
-            <img src="https://www.traveltomtom.net/images/nieuwe_indeling/artikels/netherlands/efteling_hotel/Efteling_entrance_1.jpg" alt="Entrance to Efteling theme park" loading="lazy">
-            <div class="tour-content"><div class="tour-meta">Family · Theme park</div><h3>Efteling</h3><p>Request transportation for a visit to the Efteling theme park.</p><a class="button button-dark destination-link" href="#booking" data-destination="Efteling, Netherlands">Select Efteling →</a></div>
-          </article>
-          <article class="tour-card">
-            <img src="https://res.klook.com/image/upload/w_500,h_313,c_fill,q_85/activities/m0ycjtewv5jwjhzuvpgf.jpg" alt="Traditional Dutch windmills" loading="lazy">
-            <div class="tour-content"><div class="tour-meta">Villages · Countryside</div><h3>Volendam &amp; Marken</h3><p>Ask about transportation to traditional villages and nearby sights.</p><a class="button button-dark destination-link" href="#booking" data-destination="Volendam and Marken, Netherlands">Select destination →</a></div>
-          </article>
+        <div class="steps">
+          <article class="step"><h3>Vul je route in</h3><p>Voer je vertrekpunt, bestemming en tussenstops in.</p></article>
+          <article class="step"><h3>Voeg je gegevens toe</h3><p>Kies een tijd en vermeld passagiers en bagage.</p></article>
+          <article class="step"><h3>Bekijk de schatting</h3><p>Bekijk de geschatte afstand, reistijd en prijs.</p></article>
+          <article class="step"><h3>Stuur je aanvraag</h3><p>Ga verder naar WhatsApp om je aanvraag te bespreken.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft" id="how-it-works">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">How it works</span>
-          <h2>From enquiry to your journey.</h2>
-          <p>Your request is reviewed with you before any ride is confirmed.</p>
-        </div>
-        <div class="process-grid">
-          <article class="process-card"><h3>Share your details</h3><p>Enter your pickup address, destination, date, and passenger information.</p></article>
-          <article class="process-card"><h3>Review your estimate</h3><p>See an estimated fare based on route distance and estimated driving time.</p></article>
-          <article class="process-card"><h3>Send your enquiry</h3><p>Review your request and send it directly through WhatsApp.</p></article>
-          <article class="process-card"><h3>Confirm your ride</h3><p>Your ride is confirmed once the details and fare have been agreed.</p></article>
+    <section class="booking-section section" id="booking">
+      <div class="container booking-layout">
+        <aside class="booking-intro">
+          <span class="eyebrow">Laten we je route plannen</span>
+          <h2>Waar brengt de reis je naartoe?</h2>
+          <p>Vul je reisgegevens in voor een routegebaseerde schatting. We nemen via WhatsApp contact met je op over beschikbaarheid en prijs.</p>
+          <div class="booking-contact">
+            <strong>Liever bellen?</strong>
+            <a href="tel:+31681110006">06 8111 0006</a>
+            <span>Hoofddorp · Nederland</span>
+          </div>
+        </aside>
+
+        <div class="booking-card">
+          <div class="booking-main">
+            <div class="booking-heading">
+              <div>
+                <h3 data-i18n="bookingTitle">Plan je rit</h3>
+                <p data-i18n="bookingDescription">Vul je reisgegevens in om een geschatte ritprijs te berekenen.</p>
+              </div>
+              <span class="booking-tag" data-i18n="bookingTag">Aanvraag — nog niet bevestigd</span>
+            </div>
+
+            <form id="taxi-form">
+              <div class="taxi-grid">
+                <div class="route-column">
+                  <div class="field">
+                    <label for="pickup" data-i18n="pickupLabel">Ophaaladres *</label>
+                    <div class="address-wrap">
+                      <span class="address-dot" aria-hidden="true">○</span>
+                      <input id="pickup" name="pickup" type="text" autocomplete="off" placeholder="Straat, plaats of locatie" data-i18n-placeholder="addressPlaceholder" required>
+                    </div>
+                    <button class="location-button" id="use-location" type="button" data-i18n="useLocation">◎ Gebruik mijn huidige locatie</button>
+                    <p class="location-status" id="location-status" role="status" aria-live="polite"></p>
+                  </div>
+
+                  <div class="field">
+                    <label for="destination" data-i18n="destinationLabel">Bestemming *</label>
+                    <div class="address-wrap">
+                      <span class="address-dot" aria-hidden="true">●</span>
+                      <input id="destination" name="destination" type="text" autocomplete="off" placeholder="Adres, plaats of luchthaven" data-i18n-placeholder="destinationFieldPlaceholder" required>
+                    </div>
+                  </div>
+
+                  <div class="stops-list" id="stops"></div>
+                  <button class="add-stop-button" id="add-stop" type="button" data-i18n="addStop">＋ Tussenstop toevoegen</button>
+
+                  <fieldset class="luggage-field">
+                    <legend data-i18n="luggage">Bagage</legend>
+                    <label><input type="number" name="largeLuggage" min="0" max="12" value="0"> Grote koffers</label>
+                    <label><input type="number" name="cabinLuggage" min="0" max="12" value="0"> Handbagage</label>
+                    <label><input type="number" name="personalLuggage" min="0" max="12" value="0"> Handtas / rugzak</label>
+                  </fieldset>
+                </div>
+
+                <div class="details-column">
+                  <div class="field">
+                    <label for="pickup-time" data-i18n="pickupTimeLabel">Ophaaldatum en -tijd *</label>
+                    <input id="pickup-time" name="pickupTime" type="datetime-local" required>
+                  </div>
+
+                  <label class="return-toggle" for="return-trip">
+                    <input id="return-trip" name="returnTrip" type="checkbox">
+                    <span data-i18n="returnToggle">Ik wil ook een retourrit aanvragen</span>
+                  </label>
+
+                  <div class="field" id="return-time-field" hidden>
+                    <label for="return-time" data-i18n="returnTimeLabel">Datum en tijd retourrit *</label>
+                    <input id="return-time" name="returnTime" type="datetime-local">
+                  </div>
+
+                  <div class="field">
+                    <label data-i18n="passengersLabel">Aantal passagiers</label>
+                    <div class="passenger-control">
+                      <button type="button" id="passenger-minus" aria-label="Remove one passenger">−</button>
+                      <output id="passenger-count" aria-live="polite">1</output>
+                      <button type="button" id="passenger-plus" aria-label="Add one passenger">＋</button>
+                    </div>
+                    <input id="passengers" name="passengers" type="hidden" value="1">
+                  </div>
+
+                  <div class="field">
+                    <label for="customer-name" data-i18n="nameLabel">Je naam *</label>
+                    <input id="customer-name" name="customerName" autocomplete="name" placeholder="Voor- en achternaam" data-i18n-placeholder="namePlaceholder" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="customer-email" data-i18n="emailLabel">E-mailadres</label>
+                    <input id="customer-email" name="customerEmail" type="email" autocomplete="email" placeholder="jij@voorbeeld.nl">
+                  </div>
+
+                  <div class="field">
+                    <label for="customer-phone" data-i18n="phoneLabel">Telefoonnummer *</label>
+                    <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" placeholder="+31..." required>
+                  </div>
+
+                  <div class="field">
+                    <label for="note" data-i18n="noteLabel">Extra informatie</label>
+                    <textarea id="note" name="note" placeholder="Toegankelijkheidswensen of andere verzoeken" data-i18n-placeholder="notePlaceholder"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="booking-footer">
+                <p class="booking-note" data-i18n="fareNote">
+                  Schatting: €4 starttarief + €3 per kilometer + €0,50 per minuut.
+                  De uiteindelijke prijs kan afwijken; dit is geen bevestigde boeking.
+                </p>
+                <button class="calculate-button" id="submit-button" type="submit" data-i18n="calculateButton">Bereken schatting en ga verder →</button>
+                <p class="fare-result" id="fare-result" role="status" aria-live="polite" hidden></p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -1327,27 +1312,26 @@
     <section class="section" id="faq">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Good to know</span>
-          <h2>Frequently asked questions.</h2>
+          <span class="eyebrow">Voordat je vertrekt</span>
+          <h2>Een paar handige antwoorden.</h2>
         </div>
         <div class="faq-list">
-          <details><summary>Is my ride confirmed when I send the form?</summary><p>No. The form sends a price enquiry. Availability, trip details, and pricing should be discussed before your ride is confirmed.</p></details>
-          <details><summary>How is the estimated fare calculated?</summary><p>The estimate uses a €4 start fee, €3 per kilometre, and €0.50 per estimated driving minute. Traffic, waiting time, and route changes may affect the final fare.</p></details>
-          <details><summary>Can I add one or more stops?</summary><p>Yes. Select “Add a stop” to include additional addresses in your enquiry.</p></details>
-          <details><summary>Can I request a return journey?</summary><p>Yes. Select “Return trip” and provide your preferred return pickup date and time.</p></details>
-          <details><summary>Is the online price a confirmed quote?</summary><p>No. It is an estimate based on route information. Please confirm the final fare and ride details with us.</p></details>
+          <details><summary>Is mijn rit bevestigd als ik het formulier verstuur?</summary><p>Nee. Het formulier verstuurt een aanvraag. De rit wordt pas bevestigd nadat beschikbaarheid, details en prijs zijn afgesproken.</p></details>
+          <details><summary>Hoe wordt de online schatting berekend?</summary><p>De schatting gebruikt €4 starttarief, €3 per kilometer en €0,50 per geschatte rijminuut. Verkeer en routewijzigingen kunnen de uiteindelijke prijs beïnvloeden.</p></details>
+          <details><summary>Kan ik tussenstops en een retourrit toevoegen?</summary><p>Ja. Voeg tussenstops toe en vink de optie voor een retourrit aan.</p></details>
         </div>
       </div>
     </section>
 
-    <section class="cta" id="contact">
-      <div class="container cta-content">
-        <h2>Ready to request your ride?</h2>
-        <p>Send your trip details and discuss your enquiry directly with us.</p>
+    <section class="final-cta">
+      <div class="container">
+        <span class="eyebrow">Je volgende reis begint hier</span>
+        <h2>Weet je al waar je heen wilt?</h2>
+        <p>Stuur ons je reisgegevens, dan bespreken we je aanvraag.</p>
         <div class="cta-actions">
-          <a class="button" href="#booking">Request a price <span aria-hidden="true">↓</span></a>
-          <a class="button button-outline" href="mailto:husam48726@gmail.com">Email us</a>
-          <a class="button button-outline" href="tel:+31681110006">Call 06 8111 0006</a>
+          <a class="button" href="#booking">Plan een rit →</a>
+          <a class="dark-button" href="tel:+31681110006">Bel 06 8111 0006</a>
+          <a class="dark-button" href="mailto:husam48726@gmail.com">E-mail ons</a>
         </div>
       </div>
     </section>
@@ -1356,32 +1340,29 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="footer-brand">
           <a class="brand" href="#home" aria-label="Holland Way Tours home">
-            <span class="brand-mark" aria-hidden="true">H</span>
+            <span class="brand-icon" aria-hidden="true">H</span>
             <span class="brand-name" style="color:white">HOLLAND <span>WAY TOURS</span></span>
           </a>
-          <p>Private taxi and travel enquiries in the Netherlands.</p>
-          <p>Hoofddorp, Netherlands</p>
-          <a href="mailto:husam48726@gmail.com">husam48726@gmail.com</a>
+          <p>Persoonlijke taxi- en reisaanvragen in Nederland.</p>
+          <p>Hoofddorp, Nederland</p>
+        </div>
+        <div>
+          <h3>Ontdek</h3>
+          <a href="#destinations">Bestemmingen</a>
+          <a href="#services">Diensten</a>
+          <a href="#how-it-works">Zo werkt het</a>
+          <a href="#booking">Rit aanvragen</a>
+        </div>
+        <div>
+          <h3>Contact</h3>
           <a href="tel:+31681110006">06 8111 0006</a>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#destinations">Destinations</a>
-          <a href="#booking">Request a ride</a>
-        </div>
-        <div>
-          <h4>Information</h4>
-          <a href="#how-it-works">How it works</a>
-          <a href="#faq">Frequently asked questions</a>
-          <a href="privacy.html">Privacy policy</a>
-          <a href="terms.html">Terms and conditions</a>
+          <a href="mailto:husam48726@gmail.com">husam48726@gmail.com</a>
+          <a href="#faq">Veelgestelde vragen</a>
         </div>
       </div>
-      <div class="footer-bottom">© <span id="year"></span> Holland Way Tours. All rights reserved.</div>
+      <div class="footer-bottom">© <span id="year"></span> Holland Way Tours. Alle rechten voorbehouden.</div>
     </div>
   </footer>
 
@@ -1392,6 +1373,385 @@
     const START_FEE = 4;
     const PRICE_PER_KM = 3;
     const PRICE_PER_MINUTE = 0.50;
+
+    const translations = {
+      nl: {
+        title: "Holland Way Tours | Ontdek Nederland",
+        languageLabel: "Taal",
+        navHome: "Home", navServices: "Diensten", navAbout: "Over ons",
+        navContact: "Contact", navRequest: "Rit aanvragen",
+        menu: "Menu", close: "Sluiten", menuOpen: "Menu openen", menuClose: "Menu sluiten",
+        location: "Hoofddorp, Nederland",
+        topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
+        heroKicker: "Ontdek meer van Nederland",
+        heroTitle: "Maak de<br>reis <em>van jou.</em>",
+        heroCopy: "Van stadsstraten tot uitstapjes op het platteland: plan je privérit langs de plekken en momenten die jij wilt beleven.",
+        heroPlan: "Plan je reis",
+        heroDestinations: "Ontdek bestemmingen",
+        stat1: "Persoonlijke aanvragen",
+        stat2: "Flexibele tussenstops",
+        stat3: "Duidelijke prijsindicaties",
+        quickFrom: "Waar vandaan?",
+        quickTo: "Waarheen?",
+        quickSubmit: "Aanvraag starten →",
+        pickupPlaceholder: "Ophaallocatie",
+        destinationPlaceholder: "Je bestemming",
+        imageLabel: "Jouw eigen route",
+        imageLabelSmall: "Afgestemd op jouw reisplan",
+        aboutEyebrow: "Een persoonlijkere manier van reizen",
+        aboutTitle: "Ontdek meer dan de gebruikelijke route.",
+        aboutText: "Of je nu naar Amsterdam gaat, het platteland bezoekt of een dagje uit plant: stuur ons je reisgegevens. We nemen contact met je op over je reis en beschikbaarheid.",
+        check1: "Kies je vertrekpunt en bestemming",
+        check2: "Voeg tussenstops toe",
+        check3: "Vermeld bagage en passagiers",
+        check4: "Vraag een retourrit aan",
+        aboutButton: "Vertel ons over je reis →",
+        destinationsEyebrow: "Kies je volgende bestemming",
+        destinationsTitle: "Nederlandse uitstapjes.",
+        destinationsText: "Kies een bestemming of vul een ander adres in.",
+        planTrip: "Plan deze rit →",
+        servicesEyebrow: "Reis op jouw manier",
+        servicesTitle: "Eén rit of een dag vol ontdekkingen.",
+        servicesText: "Vertel ons je plannen, dan bespreken we de mogelijkheden.",
+        bookingTitle: "Plan je rit",
+        bookingDescription: "Vul je reisgegevens in om een geschatte ritprijs te berekenen.",
+        bookingTag: "Aanvraag — nog niet bevestigd",
+        pickupLabel: "Ophaaladres *",
+        destinationLabel: "Bestemming *",
+        addressPlaceholder: "Straat, plaats of locatie",
+        destinationFieldPlaceholder: "Adres, plaats of luchthaven",
+        useLocation: "◎ Gebruik mijn huidige locatie",
+        addStop: "＋ Tussenstop toevoegen",
+        luggage: "Bagage",
+        pickupTimeLabel: "Ophaaldatum en -tijd *",
+        returnToggle: "Ik wil ook een retourrit aanvragen",
+        returnTimeLabel: "Datum en tijd retourrit *",
+        passengersLabel: "Aantal passagiers",
+        nameLabel: "Je naam *",
+        namePlaceholder: "Voor- en achternaam",
+        emailLabel: "E-mailadres",
+        phoneLabel: "Telefoonnummer *",
+        noteLabel: "Extra informatie",
+        notePlaceholder: "Toegankelijkheidswensen of andere verzoeken",
+        fareNote: "Schatting: €4 starttarief + €3 per kilometer + €0,50 per minuut. De uiteindelijke prijs kan afwijken; dit is geen bevestigde boeking.",
+        calculateButton: "Bereken schatting en ga verder →"
+      },
+      en: {
+        title: "Holland Way Tours | Explore the Netherlands",
+        languageLabel: "Language",
+        navHome: "Home", navServices: "Services", navAbout: "About",
+        navContact: "Contact", navRequest: "Request a ride",
+        menu: "Menu", close: "Close", menuOpen: "Open menu", menuClose: "Close menu",
+        location: "Hoofddorp, Netherlands",
+        topbarNote: "Personal travel enquiries across the Netherlands",
+        heroKicker: "See more of the Netherlands",
+        heroTitle: "Make the<br>journey <em>yours.</em>",
+        heroCopy: "From city streets to countryside escapes, plan your private ride around the places and moments you want to experience.",
+        heroPlan: "Plan your journey",
+        heroDestinations: "Discover destinations",
+        stat1: "Personal enquiries",
+        stat2: "Flexible stops",
+        stat3: "Clear fare estimates",
+        quickFrom: "Where from?",
+        quickTo: "Where to?",
+        quickSubmit: "Start an enquiry →",
+        pickupPlaceholder: "Pickup location",
+        destinationPlaceholder: "Your destination",
+        imageLabel: "Your own route",
+        imageLabelSmall: "Built around your itinerary",
+        aboutEyebrow: "A more personal way to travel",
+        aboutTitle: "Go beyond the usual itinerary.",
+        aboutText: "Whether you’re heading into Amsterdam, visiting the countryside, or planning a day out, send us your trip details. We’ll get in touch about your journey and availability.",
+        check1: "Choose pickup and destination",
+        check2: "Add stops along the way",
+        check3: "Include luggage and passengers",
+        check4: "Request a return journey",
+        aboutButton: "Tell us about your trip →",
+        destinationsEyebrow: "Find your next stop",
+        destinationsTitle: "Little Dutch detours.",
+        destinationsText: "Choose a destination or enter another address.",
+        planTrip: "Plan this trip →",
+        servicesEyebrow: "Travel your way",
+        servicesTitle: "One ride, or a day of discovery.",
+        servicesText: "Send your plans and we’ll discuss what works for your journey.",
+        bookingTitle: "Plan your ride",
+        bookingDescription: "Enter your trip details to calculate an estimated fare.",
+        bookingTag: "Request only — not confirmed",
+        pickupLabel: "Pickup address *",
+        destinationLabel: "Destination *",
+        addressPlaceholder: "Street, town, or location",
+        destinationFieldPlaceholder: "Address, town, or airport",
+        useLocation: "◎ Use my current location",
+        addStop: "＋ Add a stop",
+        luggage: "Luggage",
+        pickupTimeLabel: "Pickup date and time *",
+        returnToggle: "I’d also like to request a return trip",
+        returnTimeLabel: "Return date and time *",
+        passengersLabel: "Number of passengers",
+        nameLabel: "Your name *",
+        namePlaceholder: "First and last name",
+        emailLabel: "Email address",
+        phoneLabel: "Phone number *",
+        noteLabel: "Additional information",
+        notePlaceholder: "Accessibility needs or other requests",
+        fareNote: "Estimate: €4 start fee + €3 per kilometre + €0.50 per minute. Final fare may differ; this is not a confirmed booking.",
+        calculateButton: "Calculate estimate & continue →"
+      },
+      ar: {
+        title: "هولاند واي تورز | اكتشف هولندا",
+        languageLabel: "اللغة",
+        navHome: "الرئيسية", navServices: "الخدمات", navAbout: "من نحن",
+        navContact: "اتصل بنا", navRequest: "اطلب رحلة",
+        menu: "القائمة", close: "إغلاق", menuOpen: "افتح القائمة", menuClose: "أغلق القائمة",
+        location: "هوفدورب، هولندا",
+        topbarNote: "طلبات رحلات شخصية في جميع أنحاء هولندا",
+        heroKicker: "اكتشف المزيد من هولندا",
+        heroTitle: "اجعل<br>الرحلة <em>مميزة لك.</em>",
+        heroCopy: "خطط لرحلتك الخاصة إلى الأماكن التي ترغب في زيارتها، من شوارع المدن إلى الريف.",
+        heroPlan: "خطط لرحلتك",
+        heroDestinations: "اكتشف الوجهات",
+        stat1: "طلبات شخصية",
+        stat2: "محطات مرنة",
+        stat3: "تقديرات واضحة للسعر",
+        quickFrom: "من أين؟",
+        quickTo: "إلى أين؟",
+        quickSubmit: "ابدأ الطلب →",
+        pickupPlaceholder: "موقع الانطلاق",
+        destinationPlaceholder: "وجهتك",
+        imageLabel: "طريقك الخاص",
+        imageLabelSmall: "مصمم حسب خطتك",
+        aboutEyebrow: "طريقة سفر أكثر خصوصية",
+        aboutTitle: "اكتشف ما هو أبعد من المسار المعتاد.",
+        aboutText: "أرسل تفاصيل رحلتك وسنتواصل معك بشأن الرحلة والتوافر.",
+        check1: "اختر نقطة الانطلاق والوجهة",
+        check2: "أضف محطات في الطريق",
+        check3: "أضف الأمتعة وعدد الركاب",
+        check4: "اطلب رحلة ذهاب وعودة",
+        aboutButton: "أخبرنا عن رحلتك →",
+        destinationsEyebrow: "اختر محطتك التالية",
+        destinationsTitle: "وجهات هولندية جميلة.",
+        destinationsText: "اختر وجهة أو أدخل عنواناً آخر.",
+        planTrip: "خطط لهذه الرحلة →",
+        servicesEyebrow: "سافر بطريقتك",
+        servicesTitle: "رحلة واحدة أو يوم من الاكتشاف.",
+        servicesText: "أرسل خطتك وسنناقش ما يناسب رحلتك.",
+        bookingTitle: "خطط لرحلتك",
+        bookingDescription: "أدخل تفاصيل الرحلة للحصول على تقدير للسعر.",
+        bookingTag: "طلب فقط — غير مؤكد",
+        pickupLabel: "عنوان الانطلاق *",
+        destinationLabel: "الوجهة *",
+        addressPlaceholder: "الشارع أو المدينة أو الموقع",
+        destinationFieldPlaceholder: "العنوان أو المدينة أو المطار",
+        useLocation: "◎ استخدم موقعي الحالي",
+        addStop: "＋ أضف محطة",
+        luggage: "الأمتعة",
+        pickupTimeLabel: "تاريخ ووقت الانطلاق *",
+        returnToggle: "أرغب أيضاً في طلب رحلة عودة",
+        returnTimeLabel: "تاريخ ووقت العودة *",
+        passengersLabel: "عدد الركاب",
+        nameLabel: "اسمك *",
+        namePlaceholder: "الاسم الأول والأخير",
+        emailLabel: "البريد الإلكتروني",
+        phoneLabel: "رقم الهاتف *",
+        noteLabel: "معلومات إضافية",
+        notePlaceholder: "احتياجات خاصة أو طلبات أخرى",
+        fareNote: "تقدير: 4 يورو رسوم بدء + 3 يورو لكل كيلومتر + 0.50 يورو لكل دقيقة. السعر النهائي قد يختلف.",
+        calculateButton: "احسب التقدير وتابع ←"
+      },
+      de: {
+        title: "Holland Way Tours | Entdecken Sie die Niederlande",
+        languageLabel: "Sprache",
+        navHome: "Startseite", navServices: "Dienstleistungen", navAbout: "Über uns",
+        navContact: "Kontakt", navRequest: "Fahrt anfragen",
+        menu: "Menü", close: "Schließen", menuOpen: "Menü öffnen", menuClose: "Menü schließen",
+        location: "Hoofddorp, Niederlande",
+        topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
+        heroKicker: "Entdecken Sie mehr von den Niederlanden",
+        heroTitle: "Machen Sie die<br>Reise zu <em>Ihrer.</em>",
+        heroCopy: "Planen Sie Ihre private Fahrt durch Städte und Landschaften zu den Orten, die Sie erleben möchten.",
+        heroPlan: "Reise planen",
+        heroDestinations: "Reiseziele entdecken",
+        stat1: "Persönliche Anfragen",
+        stat2: "Flexible Zwischenstopps",
+        stat3: "Klare Preisschätzungen",
+        quickFrom: "Von wo?",
+        quickTo: "Wohin?",
+        quickSubmit: "Anfrage starten →",
+        pickupPlaceholder: "Abholort",
+        destinationPlaceholder: "Ihr Reiseziel",
+        imageLabel: "Ihre eigene Route",
+        imageLabelSmall: "Nach Ihrem Reiseplan",
+        aboutEyebrow: "Persönlicher reisen",
+        aboutTitle: "Entdecken Sie mehr als die übliche Route.",
+        aboutText: "Senden Sie uns Ihre Reisedaten. Wir melden uns bezüglich Ihrer Fahrt und der Verfügbarkeit.",
+        check1: "Abholort und Ziel wählen",
+        check2: "Zwischenstopps hinzufügen",
+        check3: "Gepäck und Fahrgäste angeben",
+        check4: "Rückfahrt anfragen",
+        aboutButton: "Erzählen Sie uns von Ihrer Reise →",
+        destinationsEyebrow: "Finden Sie Ihr nächstes Ziel",
+        destinationsTitle: "Niederländische Ausflüge.",
+        destinationsText: "Wählen Sie ein Ziel oder geben Sie eine andere Adresse ein.",
+        planTrip: "Diese Fahrt planen →",
+        servicesEyebrow: "Reisen Sie auf Ihre Weise",
+        servicesTitle: "Eine Fahrt oder ein Tag voller Entdeckungen.",
+        servicesText: "Senden Sie uns Ihre Pläne und wir besprechen die Möglichkeiten.",
+        bookingTitle: "Fahrt planen",
+        bookingDescription: "Geben Sie Ihre Reisedaten für eine Preisschätzung ein.",
+        bookingTag: "Anfrage — nicht bestätigt",
+        pickupLabel: "Abholadresse *",
+        destinationLabel: "Ziel *",
+        addressPlaceholder: "Straße, Ort oder Standort",
+        destinationFieldPlaceholder: "Adresse, Ort oder Flughafen",
+        useLocation: "◎ Meinen aktuellen Standort verwenden",
+        addStop: "＋ Zwischenstopp hinzufügen",
+        luggage: "Gepäck",
+        pickupTimeLabel: "Abholdatum und -zeit *",
+        returnToggle: "Ich möchte auch eine Rückfahrt anfragen",
+        returnTimeLabel: "Datum und Uhrzeit der Rückfahrt *",
+        passengersLabel: "Anzahl der Fahrgäste",
+        nameLabel: "Ihr Name *",
+        namePlaceholder: "Vor- und Nachname",
+        emailLabel: "E-Mail-Adresse",
+        phoneLabel: "Telefonnummer *",
+        noteLabel: "Zusätzliche Informationen",
+        notePlaceholder: "Barrierefreiheit oder andere Wünsche",
+        fareNote: "Schätzung: 4 € Grundgebühr + 3 € pro Kilometer + 0,50 € pro Minute. Der Endpreis kann abweichen.",
+        calculateButton: "Schätzung berechnen und fortfahren →"
+      },
+      fr: {
+        title: "Holland Way Tours | Découvrez les Pays-Bas",
+        languageLabel: "Langue",
+        navHome: "Accueil", navServices: "Services", navAbout: "À propos",
+        navContact: "Contact", navRequest: "Demander un trajet",
+        menu: "Menu", close: "Fermer", menuOpen: "Ouvrir le menu", menuClose: "Fermer le menu",
+        location: "Hoofddorp, Pays-Bas",
+        topbarNote: "Demandes de trajets personnalisés aux Pays-Bas",
+        heroKicker: "Découvrez davantage les Pays-Bas",
+        heroTitle: "Faites de ce<br>voyage le <em>vôtre.</em>",
+        heroCopy: "Planifiez un trajet privé selon vos envies, des rues de la ville aux escapades à la campagne.",
+        heroPlan: "Planifier votre trajet",
+        heroDestinations: "Découvrir les destinations",
+        stat1: "Demandes personnalisées",
+        stat2: "Arrêts flexibles",
+        stat3: "Estimations claires",
+        quickFrom: "Départ ?",
+        quickTo: "Destination ?",
+        quickSubmit: "Commencer la demande →",
+        pickupPlaceholder: "Lieu de prise en charge",
+        destinationPlaceholder: "Votre destination",
+        imageLabel: "Votre propre itinéraire",
+        imageLabelSmall: "Adapté à votre programme",
+        aboutEyebrow: "Une façon plus personnelle de voyager",
+        aboutTitle: "Allez au-delà de l’itinéraire habituel.",
+        aboutText: "Envoyez-nous les détails de votre trajet. Nous vous contacterons pour discuter de votre trajet et des disponibilités.",
+        check1: "Choisissez le départ et la destination",
+        check2: "Ajoutez des arrêts",
+        check3: "Indiquez les bagages et passagers",
+        check4: "Demandez un trajet retour",
+        aboutButton: "Parlez-nous de votre trajet →",
+        destinationsEyebrow: "Trouvez votre prochaine étape",
+        destinationsTitle: "Escapades néerlandaises.",
+        destinationsText: "Choisissez une destination ou saisissez une autre adresse.",
+        planTrip: "Planifier ce trajet →",
+        servicesEyebrow: "Voyagez à votre façon",
+        servicesTitle: "Un trajet ou une journée de découverte.",
+        servicesText: "Envoyez-nous vos projets et nous discuterons des possibilités.",
+        bookingTitle: "Planifier votre trajet",
+        bookingDescription: "Saisissez les détails du trajet pour obtenir une estimation.",
+        bookingTag: "Demande — non confirmée",
+        pickupLabel: "Adresse de départ *",
+        destinationLabel: "Destination *",
+        addressPlaceholder: "Rue, ville ou lieu",
+        destinationFieldPlaceholder: "Adresse, ville ou aéroport",
+        useLocation: "◎ Utiliser ma position actuelle",
+        addStop: "＋ Ajouter un arrêt",
+        luggage: "Bagages",
+        pickupTimeLabel: "Date et heure de départ *",
+        returnToggle: "Je souhaite également demander un trajet retour",
+        returnTimeLabel: "Date et heure du retour *",
+        passengersLabel: "Nombre de passagers",
+        nameLabel: "Votre nom *",
+        namePlaceholder: "Prénom et nom",
+        emailLabel: "Adresse e-mail",
+        phoneLabel: "Numéro de téléphone *",
+        noteLabel: "Informations complémentaires",
+        notePlaceholder: "Accessibilité ou autres demandes",
+        fareNote: "Estimation : 4 € de prise en charge + 3 € par kilomètre + 0,50 € par minute. Le tarif final peut varier.",
+        calculateButton: "Calculer l’estimation et continuer →"
+      }
+    };
+
+    const languageSelect = document.getElementById("language-select");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuLabel = document.getElementById("menu-label");
+    const nav = document.getElementById("navigation");
+
+    function applyLanguage(language) {
+      const dict = translations[language] || translations.nl;
+
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      document.title = dict.title;
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const text = dict[element.dataset.i18n];
+        if (text) element.innerHTML = text;
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+        const text = dict[element.dataset.i18nPlaceholder];
+        if (text) element.placeholder = text;
+      });
+
+      menuLabel.textContent = nav.classList.contains("open") ? dict.close : dict.menu;
+      menuToggle.setAttribute("aria-label", nav.classList.contains("open") ? dict.menuClose : dict.menuOpen);
+      languageSelect.value = language;
+
+      try {
+        localStorage.setItem("holland-way-language", language);
+      } catch (_) {}
+    }
+
+    let savedLanguage = "nl";
+    try {
+      savedLanguage = localStorage.getItem("holland-way-language") || "nl";
+    } catch (_) {}
+
+    languageSelect.addEventListener("change", event => applyLanguage(event.target.value));
+    applyLanguage(savedLanguage);
+
+    function closeMenu(restoreFocus = false) {
+      nav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
+      applyLanguage(languageSelect.value);
+      if (restoreFocus) menuToggle.focus();
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const shouldOpen = !nav.classList.contains("open");
+      nav.classList.toggle("open", shouldOpen);
+      menuToggle.setAttribute("aria-expanded", String(shouldOpen));
+      document.body.classList.toggle("menu-open", shouldOpen);
+      applyLanguage(languageSelect.value);
+
+      if (shouldOpen) nav.querySelector("a")?.focus();
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => closeMenu());
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && nav.classList.contains("open")) {
+        closeMenu(true);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 950 && nav.classList.contains("open")) closeMenu();
+    });
 
     const form = document.getElementById("taxi-form");
     const pickupInput = document.getElementById("pickup");
@@ -1407,45 +1767,29 @@
     const locationStatus = document.getElementById("location-status");
     const submitButton = document.getElementById("submit-button");
 
-    function formatEuro(amount) {
-      return new Intl.NumberFormat("nl-NL", {
-        style: "currency",
-        currency: "EUR"
-      }).format(amount);
-    }
-
-    /*
-      OpenStreetMap/Nominatim autocomplete.
-      Search begins after 2 characters and waits until typing pauses.
-    */
     function installAddressAutocomplete(input) {
-      const wrapper = input.closest(".address-wrap") || input.parentElement;
+      const wrapper = input.closest(".address-wrap");
       const dropdown = document.createElement("div");
-
       dropdown.className = "address-suggestions";
       dropdown.hidden = true;
       dropdown.setAttribute("role", "listbox");
       wrapper.appendChild(dropdown);
 
-      let debounceTimer;
+      let timer;
       let controller;
-
-      input.setAttribute("autocomplete", "off");
 
       input.addEventListener("input", () => {
         delete input.dataset.lat;
         delete input.dataset.lon;
-
-        clearTimeout(debounceTimer);
+        window.clearTimeout(timer);
         controller?.abort();
-
         dropdown.replaceChildren();
         dropdown.hidden = true;
 
         const query = input.value.trim();
         if (query.length < 2) return;
 
-        debounceTimer = setTimeout(async () => {
+        timer = window.setTimeout(async () => {
           controller = new AbortController();
 
           try {
@@ -1455,32 +1799,23 @@
               format: "jsonv2",
               addressdetails: "1",
               countrycodes: "nl",
-              limit: "7"
+              limit: "5"
             });
 
             const response = await fetch(url, { signal: controller.signal });
             if (!response.ok) return;
 
             const places = await response.json();
-            dropdown.replaceChildren();
 
-            for (const place of places) {
+            places.forEach(place => {
               const address = place.address || {};
-              const title =
-                address.amenity ||
-                address.shop ||
-                address.tourism ||
-                address.railway ||
-                address.station ||
-                place.name ||
-                place.display_name.split(",")[0];
-
+              const title = address.amenity || address.shop || address.tourism ||
+                address.station || place.name || place.display_name.split(",")[0];
               const details = [
                 address.road,
                 address.house_number,
                 address.postcode,
-                address.city || address.town || address.village ||
-                  address.municipality
+                address.city || address.town || address.village
               ].filter(Boolean).join(", ");
 
               const option = document.createElement("button");
@@ -1488,16 +1823,15 @@
               option.className = "address-suggestion";
               option.setAttribute("role", "option");
 
-              const titleElement = document.createElement("span");
-              titleElement.className = "address-suggestion-title";
-              titleElement.textContent = title;
+              const titleSpan = document.createElement("span");
+              titleSpan.className = "address-suggestion-title";
+              titleSpan.textContent = title;
 
-              const detailElement = document.createElement("span");
-              detailElement.className = "address-suggestion-detail";
-              detailElement.textContent = details || place.display_name;
+              const detailSpan = document.createElement("span");
+              detailSpan.className = "address-suggestion-detail";
+              detailSpan.textContent = details || place.display_name;
 
-              option.append(titleElement, detailElement);
-
+              option.append(titleSpan, detailSpan);
               option.addEventListener("click", () => {
                 input.value = place.display_name;
                 input.dataset.lat = place.lat;
@@ -1506,15 +1840,13 @@
               });
 
               dropdown.appendChild(option);
-            }
+            });
 
             dropdown.hidden = places.length === 0;
           } catch (error) {
-            if (error.name !== "AbortError") {
-              dropdown.hidden = true;
-            }
+            if (error.name !== "AbortError") dropdown.hidden = true;
           }
-        }, 500);
+        }, 450);
       });
 
       document.addEventListener("click", event => {
@@ -1523,7 +1855,6 @@
 
       input.addEventListener("keydown", event => {
         if (event.key === "Escape") dropdown.hidden = true;
-
         if (event.key === "ArrowDown" && !dropdown.hidden) {
           event.preventDefault();
           dropdown.querySelector("button")?.focus();
@@ -1544,13 +1875,12 @@
 
     locationButton.addEventListener("click", () => {
       if (!navigator.geolocation) {
-        locationStatus.textContent =
-          "Location services are not supported. Please enter your address.";
+        locationStatus.textContent = "Locatieservices zijn niet beschikbaar. Vul je adres handmatig in.";
         return;
       }
 
       locationButton.disabled = true;
-      locationStatus.textContent = "Getting your location…";
+      locationStatus.textContent = "Locatie ophalen…";
 
       navigator.geolocation.getCurrentPosition(async ({ coords }) => {
         try {
@@ -1562,49 +1892,34 @@
           });
 
           const response = await fetch(url);
-          if (!response.ok) throw new Error("Address lookup failed.");
+          if (!response.ok) throw new Error("Lookup failed");
 
           const result = await response.json();
-          if (!result.display_name) throw new Error("No address returned.");
+          if (!result.display_name) throw new Error("No address");
 
           pickupInput.value = result.display_name;
           pickupInput.dataset.lat = String(coords.latitude);
           pickupInput.dataset.lon = String(coords.longitude);
-          locationStatus.textContent = "Your current location has been added.";
+          locationStatus.textContent = "Je huidige locatie is toegevoegd.";
         } catch {
-          locationStatus.textContent =
-            "Could not retrieve your address. Please enter it manually.";
+          locationStatus.textContent = "Adres niet gevonden. Vul het handmatig in.";
         } finally {
           locationButton.disabled = false;
         }
       }, error => {
-        const messages = {
-          1: "Location access denied. Please enter your address manually.",
-          2: "Your location is unavailable.",
-          3: "The location request timed out. Please try again."
-        };
-
-        locationStatus.textContent =
-          messages[error.code] ||
-          "Could not get your location. Please enter it manually.";
+        locationStatus.textContent = error.code === 1
+          ? "Locatietoegang geweigerd. Vul je adres handmatig in."
+          : "Locatie kon niet worden opgehaald.";
         locationButton.disabled = false;
-      }, {
-        enableHighAccuracy: true,
-        timeout: 15000,
-        maximumAge: 0
-      });
+      }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
     });
 
     returnCheckbox.addEventListener("change", () => {
       const enabled = returnCheckbox.checked;
       returnTimeField.hidden = !enabled;
       returnTimeInput.required = enabled;
-
-      if (enabled) {
-        setDateTimeMinimum(returnTimeInput);
-      } else {
-        returnTimeInput.value = "";
-      }
+      if (enabled) setDateTimeMinimum(returnTimeInput);
+      else returnTimeInput.value = "";
     });
 
     document.getElementById("add-stop").addEventListener("click", () => {
@@ -1615,20 +1930,19 @@
       const input = document.createElement("input");
       input.type = "text";
       input.name = "stop";
-      input.placeholder = `Stop ${number}`;
-      input.setAttribute("aria-label", `Stop ${number}`);
-      input.setAttribute("autocomplete", "off");
+      input.placeholder = `Tussenstop ${number}`;
+      input.setAttribute("aria-label", `Tussenstop ${number}`);
+      input.autocomplete = "off";
 
       const removeButton = document.createElement("button");
       removeButton.type = "button";
       removeButton.className = "remove-stop";
       removeButton.textContent = "×";
-      removeButton.setAttribute("aria-label", `Remove stop ${number}`);
+      removeButton.setAttribute("aria-label", `Verwijder tussenstop ${number}`);
       removeButton.addEventListener("click", () => row.remove());
 
       row.append(input, removeButton);
       stopsContainer.appendChild(row);
-
       installAddressAutocomplete(input);
       input.focus();
     });
@@ -1639,20 +1953,17 @@
       passengerCount.textContent = String(count);
     }
 
-    document.getElementById("passenger-minus").addEventListener("click", () => {
-      setPassengers(Number(passengerInput.value) - 1);
-    });
+    document.getElementById("passenger-minus").addEventListener("click", () =>
+      setPassengers(Number(passengerInput.value) - 1)
+    );
 
-    document.getElementById("passenger-plus").addEventListener("click", () => {
-      setPassengers(Number(passengerInput.value) + 1);
-    });
+    document.getElementById("passenger-plus").addEventListener("click", () =>
+      setPassengers(Number(passengerInput.value) + 1)
+    );
 
     async function geocode(address, input) {
       if (input?.dataset.lat && input?.dataset.lon) {
-        return {
-          lat: Number(input.dataset.lat),
-          lon: Number(input.dataset.lon)
-        };
+        return { lat: Number(input.dataset.lat), lon: Number(input.dataset.lon) };
       }
 
       const url = new URL("https://nominatim.openstreetmap.org/search");
@@ -1664,42 +1975,30 @@
       });
 
       const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Address lookup is unavailable.");
-      }
+      if (!response.ok) throw new Error("Adres zoeken is tijdelijk niet beschikbaar.");
 
       const results = await response.json();
-
       if (!results.length) {
-        throw new Error(`Address not found: "${address}". Choose a suggestion or add the city.`);
+        throw new Error(`Adres niet gevonden: "${address}". Kies een suggestie of voeg de plaats toe.`);
       }
 
-      return {
-        lat: Number(results[0].lat),
-        lon: Number(results[0].lon)
-      };
+      return { lat: Number(results[0].lat), lon: Number(results[0].lon) };
     }
 
-    async function getDrivingRoute(from, to) {
-      const url =
-        `https://router.project-osrm.org/route/v1/driving/` +
-        `${from.lon},${from.lat};${to.lon},${to.lat}?overview=false`;
-
+    async function drivingRoute(from, to) {
+      const url = `https://router.project-osrm.org/route/v1/driving/${from.lon},${from.lat};${to.lon},${to.lat}?overview=false`;
       const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Could not calculate the driving route.");
-      }
+      if (!response.ok) throw new Error("De autoroute kon niet worden berekend.");
 
       const result = await response.json();
-
       if (result.code !== "Ok" || !result.routes?.length) {
-        throw new Error("No driving route was found for these addresses.");
+        throw new Error("Er is geen autoroute gevonden voor deze adressen.");
       }
 
       return result.routes[0];
     }
 
-    async function calculateFare(inputs, isReturnTrip) {
+    async function calculateFare(inputs, returnTrip) {
       const points = [];
 
       for (const input of inputs) {
@@ -1707,52 +2006,45 @@
         if (address) points.push(await geocode(address, input));
       }
 
-      if (points.length < 2) {
-        throw new Error("Enter a pickup and destination address.");
+      if (points.length < 2) throw new Error("Vul een vertrekpunt en bestemming in.");
+
+      let distance = 0;
+      let duration = 0;
+
+      for (let index = 0; index < points.length - 1; index++) {
+        const route = await drivingRoute(points[index], points[index + 1]);
+        distance += route.distance;
+        duration += route.duration;
       }
 
-      let distanceMeters = 0;
-      let durationSeconds = 0;
+      let distanceKm = distance / 1000;
+      let durationMinutes = duration / 60;
 
-      for (let i = 0; i < points.length - 1; i++) {
-        const route = await getDrivingRoute(points[i], points[i + 1]);
-        distanceMeters += route.distance;
-        durationSeconds += route.duration;
-      }
-
-      let distanceKm = distanceMeters / 1000;
-      let durationMinutes = durationSeconds / 60;
-
-      if (isReturnTrip) {
+      if (returnTrip) {
         distanceKm *= 2;
         durationMinutes *= 2;
       }
 
-      const price =
-        START_FEE +
-        distanceKm * PRICE_PER_KM +
-        durationMinutes * PRICE_PER_MINUTE;
+      const price = Math.round(
+        (START_FEE + distanceKm * PRICE_PER_KM + durationMinutes * PRICE_PER_MINUTE) * 100
+      ) / 100;
 
-      return {
-        distanceKm,
-        durationMinutes,
-        price: Math.round(price * 100) / 100
-      };
+      return { distanceKm, durationMinutes, price };
     }
 
-    function getStops() {
-      return [...stopsContainer.querySelectorAll('input[name="stop"]')]
-        .map(input => input.value.trim())
-        .filter(Boolean);
+    function formatEuro(amount) {
+      const locale = document.documentElement.lang === "nl" ? "nl-NL" : "en-IE";
+      return new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: "EUR"
+      }).format(amount);
     }
 
     function formatDate(value) {
       if (!value) return "Not provided";
-
       const date = new Date(value);
       if (Number.isNaN(date.getTime())) return value;
-
-      return new Intl.DateTimeFormat("en-GB", {
+      return new Intl.DateTimeFormat(document.documentElement.lang, {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
@@ -1761,51 +2053,68 @@
       }).format(date);
     }
 
+    document.getElementById("quick-search").addEventListener("submit", event => {
+      event.preventDefault();
+
+      pickupInput.value = document.getElementById("quick-pickup").value.trim();
+      destinationInput.value = document.getElementById("quick-destination").value.trim();
+
+      delete pickupInput.dataset.lat;
+      delete pickupInput.dataset.lon;
+      delete destinationInput.dataset.lat;
+      delete destinationInput.dataset.lon;
+
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+      window.setTimeout(() => document.getElementById("pickup-time").focus({ preventScroll: true }), 500);
+    });
+
+    document.querySelectorAll(".destination-link").forEach(button => {
+      button.addEventListener("click", () => {
+        destinationInput.value = button.dataset.destination;
+        delete destinationInput.dataset.lat;
+        delete destinationInput.dataset.lon;
+
+        document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+        window.setTimeout(() => pickupInput.focus({ preventScroll: true }), 500);
+      });
+    });
+
     form.addEventListener("submit", async event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
 
       const data = new FormData(form);
-      const pickup = pickupInput.value.trim();
-      const destination = destinationInput.value.trim();
-      const stops = getStops();
-      const returnRequested = returnCheckbox.checked;
-
-      const routeInputs = [
-        pickupInput,
-        ...stopsContainer.querySelectorAll('input[name="stop"]'),
-        destinationInput
-      ];
+      const stopInputs = [...stopsContainer.querySelectorAll('input[name="stop"]')];
+      const stops = stopInputs.map(input => input.value.trim()).filter(Boolean);
+      const returnTrip = returnCheckbox.checked;
+      const routeInputs = [pickupInput, ...stopInputs, destinationInput];
 
       submitButton.disabled = true;
-      submitButton.textContent = "Calculating estimated fare…";
+      submitButton.textContent = "Berekening wordt gemaakt…";
       fareResult.hidden = true;
       fareResult.classList.remove("fare-error");
 
       try {
-        const fare = await calculateFare(routeInputs, returnRequested);
-        const largeBags = Number(data.get("largeLuggage") || 0);
-        const cabinBags = Number(data.get("cabinLuggage") || 0);
-        const personalBags = Number(data.get("personalLuggage") || 0);
+        const fare = await calculateFare(routeInputs, returnTrip);
 
-        const lines = [
-          "Holland Way Tours — Taxi price enquiry",
+        const message = [
+          "Holland Way Tours — taxi price enquiry",
           "",
           `Name: ${data.get("customerName")}`,
           `Email: ${data.get("customerEmail") || "Not provided"}`,
           `Phone: ${data.get("customerPhone")}`,
           "",
-          `Pickup: ${pickup}`,
+          `Pickup: ${pickupInput.value.trim()}`,
           ...stops.map((stop, index) => `Stop ${index + 1}: ${stop}`),
-          `Destination: ${destination}`,
+          `Destination: ${destinationInput.value.trim()}`,
           `Pickup date/time: ${formatDate(data.get("pickupTime"))}`,
           `Passengers: ${data.get("passengers")}`,
-          `Large luggage: ${largeBags}`,
-          `Hand luggage: ${cabinBags}`,
-          `Handbag/backpack: ${personalBags}`,
-          `Return trip: ${returnRequested ? "Yes" : "No"}`,
-          returnRequested ? `Return pickup: ${formatDate(data.get("returnTime"))}` : "",
-          `Estimated route distance: ${fare.distanceKm.toFixed(1)} km`,
+          `Large bags: ${data.get("largeLuggage") || 0}`,
+          `Hand luggage: ${data.get("cabinLuggage") || 0}`,
+          `Handbags/backpacks: ${data.get("personalLuggage") || 0}`,
+          `Return trip: ${returnTrip ? "Yes" : "No"}`,
+          returnTrip ? `Return pickup: ${formatDate(data.get("returnTime"))}` : "",
+          `Estimated distance: ${fare.distanceKm.toFixed(1)} km`,
           `Estimated driving time: ${Math.round(fare.durationMinutes)} minutes`,
           `Estimated fare: ${formatEuro(fare.price)}`,
           data.get("note") ? `Notes: ${data.get("note")}` : "",
@@ -1815,66 +2124,20 @@
 
         fareResult.hidden = false;
         fareResult.textContent =
-          `Estimated fare: ${formatEuro(fare.price)} ` +
-          `(${fare.distanceKm.toFixed(1)} km, approximately ` +
-          `${Math.round(fare.durationMinutes)} minutes). Opening WhatsApp.`;
+          `Geschatte prijs: ${formatEuro(fare.price)} (${fare.distanceKm.toFixed(1)} km, ongeveer ${Math.round(fare.durationMinutes)} minuten). WhatsApp wordt geopend.`;
 
-        const whatsappUrl =
-          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.join("\n"))}`;
+        const windowRef = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-        const whatsappWindow = window.open(
-          whatsappUrl,
-          "_blank",
-          "noopener,noreferrer"
-        );
-
-        if (!whatsappWindow) {
-          fareResult.textContent += " If WhatsApp did not open, allow pop-ups and try again.";
-        }
+        if (!windowRef) fareResult.textContent += " Sta pop-ups toe als WhatsApp niet opent.";
       } catch (error) {
         fareResult.hidden = false;
         fareResult.classList.add("fare-error");
-        fareResult.textContent =
-          error.message ||
-          "Could not calculate the fare. Check your addresses and try again.";
+        fareResult.textContent = error.message || "De prijs kon niet worden berekend. Controleer de adressen.";
       } finally {
         submitButton.disabled = false;
-        submitButton.textContent = "Calculate price & continue";
+        submitButton.textContent = translations[languageSelect.value].calculateButton;
       }
-    });
-
-    document.querySelectorAll(".destination-link").forEach(link => {
-      link.addEventListener("click", () => {
-        destinationInput.value = link.dataset.destination;
-        delete destinationInput.dataset.lat;
-        delete destinationInput.dataset.lon;
-      });
-    });
-
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navigation = document.getElementById("navigation");
-
-    function closeMenu() {
-      navigation.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation");
-      menuToggle.textContent = "☰";
-      document.body.classList.remove("menu-open");
-    }
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
-      );
-      menuToggle.textContent = isOpen ? "×" : "☰";
-      document.body.classList.toggle("menu-open", isOpen);
-    });
-
-    navigation.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();

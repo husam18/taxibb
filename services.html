@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,8 @@
     body.menu-open { overflow: hidden; }
 
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; }
+    button, select { font: inherit; }
+    button { cursor: pointer; }
 
     :focus-visible {
       outline: 3px solid rgba(215, 173, 85, .85);
@@ -54,7 +55,6 @@
       margin-inline: auto;
     }
 
-    /* Top contact strip */
     .announcement {
       background: var(--navy-dark);
       color: rgba(255,255,255,.82);
@@ -78,7 +78,6 @@
     .announcement a:hover { color: var(--gold); }
     .announcement-note { color: rgba(255,255,255,.6); }
 
-    /* Navigation */
     .site-header {
       position: sticky;
       z-index: 20;
@@ -174,23 +173,45 @@
       color: white;
     }
 
-    .button-ghost:hover {
-      background: rgba(255,255,255,.12);
-    }
+    .button-ghost:hover { background: rgba(255,255,255,.12); }
 
     .menu-toggle {
       display: none;
-      width: 44px;
-      height: 44px;
-      place-items: center;
+      min-width: 88px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 12px;
       border: 1px solid var(--line);
       border-radius: 12px;
       background: white;
       color: var(--navy);
-      font-size: 1.3rem;
+      font-size: .82rem;
+      font-weight: 800;
     }
 
-    /* Distinctive split hero */
+    .language-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .language-picker select {
+      min-height: 40px;
+      max-width: 150px;
+      padding: 7px 30px 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
     .hero {
       display: grid;
       min-height: 620px;
@@ -289,7 +310,6 @@
       text-transform: uppercase;
     }
 
-    /* Small feature bar */
     .feature-bar {
       position: relative;
       z-index: 2;
@@ -337,7 +357,6 @@
       font-size: .75rem;
     }
 
-    /* Services */
     .services-section { padding: 100px 0 105px; }
 
     .section-heading {
@@ -440,7 +459,6 @@
       font-size: .78rem;
     }
 
-    /* Custom journey banner */
     .custom-journey {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -489,7 +507,6 @@
 
     .button-line:hover { background: white; }
 
-    /* Footer */
     footer {
       padding: 48px 0 20px;
       background: var(--navy-dark);
@@ -534,28 +551,61 @@
       .service-card { min-height: 260px; }
     }
 
+    /* Mobile/tablet dropdown navigation */
     @media (max-width: 850px) {
-      .menu-toggle { display: grid; }
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 0 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .menu-toggle { display: inline-flex; }
 
       .navigation {
-        position: fixed;
-        inset: 76px 0 0;
+        position: static;
+        order: 3;
         display: none;
+        flex: 0 0 calc(100% + 44px);
+        width: calc(100% + 44px);
+        overflow-y: auto;
         align-items: stretch;
         flex-direction: column;
         gap: 0;
-        padding: 18px 24px;
+        margin: 8px -22px -8px;
+        padding: 8px 22px 18px;
+        border-top: 1px solid var(--line);
         background: var(--paper);
       }
 
       .navigation.open { display: flex; }
 
       .navigation > a:not(.button) {
-        padding: 15px 0;
+        display: block;
+        min-height: 47px;
+        padding: 11px 4px;
         border-bottom: 1px solid var(--line);
       }
 
-      .navigation .button { margin-top: 18px; }
+      .navigation .button {
+        width: 100%;
+        min-height: 46px;
+        margin-top: 12px;
+        border-radius: 8px;
+      }
+
+      .language-picker {
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 12px;
+        padding: 15px 4px 3px;
+        border-top: 1px solid var(--line);
+      }
+
+      .language-picker select {
+        width: min(220px, 60%);
+        max-width: none;
+      }
     }
 
     @media (max-width: 700px) {
@@ -575,9 +625,6 @@
       }
 
       .announcement-note { display: none; }
-
-      .header-inner { min-height: 68px; }
-      .navigation { inset-block-start: 68px; }
 
       .hero { grid-template-columns: 1fr; }
 
@@ -634,6 +681,31 @@
       }
     }
 
+    @media (max-width: 490px) {
+      .container,
+      .feature-bar {
+        width: calc(100% - 30px);
+      }
+
+      .brand { gap: 7px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .brand-name { font-size: .84rem; }
+      .brand-name span { font-size: .57rem; }
+      .menu-toggle { min-width: 78px; padding-inline: 8px; }
+
+      .hero-actions .button { flex: 1 1 auto; }
+    }
+
+    @media (max-width: 350px) {
+      .container,
+      .feature-bar {
+        width: calc(100% - 22px);
+      }
+
+      .brand-name { font-size: .75rem; }
+      .brand-name span { font-size: .51rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -649,9 +721,9 @@
       <div class="announcement-contact">
         <a href="mailto:husam48726@gmail.com">✉ husam48726@gmail.com</a>
         <a href="tel:+31681110006">☎ 06 8111 0006</a>
-        <span>Hoofddorp, Netherlands</span>
+        <span data-i18n="location">Hoofddorp, Netherlands</span>
       </div>
-      <div class="announcement-note">Private journeys · Personal travel enquiries</div>
+      <div class="announcement-note" data-i18n="announcementNote">Private journeys · Personal travel enquiries</div>
     </div>
   </div>
 
@@ -662,15 +734,29 @@
         <span class="brand-name">HOLLAND <span>WAY TOURS</span></span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open navigation"
-        aria-expanded="false" aria-controls="navigation">☰</button>
+      <button class="menu-toggle" id="menu-toggle" type="button"
+        aria-label="Open navigation" aria-expanded="false" aria-controls="navigation">
+        <span aria-hidden="true">☰</span>
+        <span id="menu-label">Menu</span>
+      </button>
 
       <nav class="navigation" id="navigation" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="services.html" aria-current="page">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a class="button" href="index.html#booking">Request a ride</a>
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="services.html" aria-current="page" data-i18n="navServices">Services</a>
+        <a href="about.html" data-i18n="navAbout">About</a>
+        <a href="contact.html" data-i18n="navContact">Contact</a>
+        <a class="button" href="index.html#booking" data-i18n="navRequest">Request a ride</a>
+
+        <label class="language-picker">
+          <span data-i18n="languageLabel">Language</span>
+          <select id="language-select" aria-label="Choose language">
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="ar">العربية</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+          </select>
+        </label>
       </nav>
     </div>
   </header>
@@ -679,24 +765,24 @@
     <section class="hero">
       <div class="hero-copy-wrap">
         <div class="hero-copy">
-          <p class="eyebrow">Private transport in the Netherlands</p>
-          <h1>Your way.<br><span>Your journey.</span></h1>
-          <p>
+          <p class="eyebrow" data-i18n="heroEyebrow">Private transport in the Netherlands</p>
+          <h1 data-i18n="heroTitle">Your way.<br><span>Your journey.</span></h1>
+          <p data-i18n="heroText">
             Airport pickups, private trips, and comfortable rides between
             destinations. Tell us about your plans and we’ll help you explore
             your options.
           </p>
           <div class="hero-actions">
-            <a class="button" href="index.html#booking">Plan your journey →</a>
-            <a class="button button-ghost" href="index.html#services">Explore services</a>
+            <a class="button" href="index.html#booking" data-i18n="heroPlan">Plan your journey →</a>
+            <a class="button button-ghost" href="index.html#services" data-i18n="heroExplore">Explore services</a>
           </div>
         </div>
       </div>
 
       <div class="hero-image" role="img" aria-label="Canal and historic buildings in the Netherlands">
         <div class="hero-image-caption">
-          <strong>See more, at your own pace.</strong>
-          <span>Hoofddorp · The Netherlands</span>
+          <strong data-i18n="heroCaption">See more, at your own pace.</strong>
+          <span data-i18n="heroLocation">Hoofddorp · The Netherlands</span>
         </div>
       </div>
     </section>
@@ -705,22 +791,24 @@
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">✈</span>
         <div>
-          <strong>Airport transfers</strong>
-          <span>Plan a pickup around your flight</span>
+          <strong data-i18n="feature1Title">Airport transfers</strong>
+          <span data-i18n="feature1Text">Plan a pickup around your flight</span>
         </div>
       </div>
+
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">⌖</span>
         <div>
-          <strong>Private travel</strong>
-          <span>Flexible routes and destinations</span>
+          <strong data-i18n="feature2Title">Private travel</strong>
+          <span data-i18n="feature2Text">Flexible routes and destinations</span>
         </div>
       </div>
+
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">✉</span>
         <div>
-          <strong>Personal enquiries</strong>
-          <span>Discuss your plans directly</span>
+          <strong data-i18n="feature3Title">Personal enquiries</strong>
+          <span data-i18n="feature3Text">Discuss your plans directly</span>
         </div>
       </div>
     </section>
@@ -729,75 +817,82 @@
       <div class="container">
         <div class="section-heading">
           <div class="section-heading-copy">
-            <span class="eyebrow">Choose your journey</span>
-            <h2>Travel plans, made personal.</h2>
-            <p>
+            <span class="eyebrow" data-i18n="servicesEyebrow">Choose your journey</span>
+            <h2 data-i18n="servicesTitle">Travel plans, made personal.</h2>
+            <p data-i18n="servicesIntro">
               From airport arrivals to a full day exploring, tell us where
               you’re going and what you have in mind. We’ll discuss the details
               with you before anything is confirmed.
             </p>
           </div>
-          <a class="text-link" href="contact.html">Ask us a question →</a>
+          <a class="text-link" href="contact.html" data-i18n="askQuestion">Ask us a question →</a>
         </div>
 
         <div class="service-grid">
           <article class="service-card">
             <span class="service-icon" aria-hidden="true">✈</span>
-            <h3>Airport Transfers</h3>
-            <p>
+            <h3 data-i18n="service1Title">Airport Transfers</h3>
+            <p data-i18n="service1Text">
               Arrange private transport to or from Schiphol Airport. Include
               your flight details, destination, and passenger numbers in your
               enquiry.
             </p>
-            <a class="text-link" href="contact.html">Ask about a transfer <span>→</span></a>
+            <a class="text-link" href="contact.html">
+              <span data-i18n="service1Link">Ask about a transfer</span> <span>→</span>
+            </a>
           </article>
 
           <article class="service-card">
             <span class="service-icon" aria-hidden="true">⌖</span>
-            <h3>Private Day Trips</h3>
-            <p>
+            <h3 data-i18n="service2Title">Private Day Trips</h3>
+            <p data-i18n="service2Text">
               Plan a day visiting places across the Netherlands with private
               transport and an itinerary shaped around your interests.
             </p>
-
-            <a class="text-link" href="destinations.html">Explore destinations <span>→</span></a>
+            <a class="text-link" href="destinations.html">
+              <span data-i18n="service2Link">Explore destinations</span> <span>→</span>
+            </a>
           </article>
 
           <article class="service-card">
             <span class="service-icon" aria-hidden="true">↗</span>
-            <h3>Point-to-Point</h3>
-            <p>
+            <h3 data-i18n="service3Title">Point-to-Point</h3>
+            <p data-i18n="service3Text">
               Need to travel between towns, hotels, attractions, or meeting
               locations? Send your pickup and drop-off details.
             </p>
-            <a class="text-link" href="contact.html">Plan your route <span>→</span></a>
+            <a class="text-link" href="contact.html">
+              <span data-i18n="service3Link">Plan your route</span> <span>→</span>
+            </a>
           </article>
 
           <article class="service-card">
             <span class="service-icon" aria-hidden="true">✦</span>
-            <h3>Custom Travel</h3>
-            <p>
+            <h3 data-i18n="service4Title">Custom Travel</h3>
+            <p data-i18n="service4Text">
               Have a special request or several stops in mind? Share your
               plans and discuss a travel arrangement that suits your day.
             </p>
-            <a class="text-link" href="contact.html">Discuss your plans <span>→</span></a>
+            <a class="text-link" href="contact.html">
+              <span data-i18n="service4Link">Discuss your plans</span> <span>→</span>
+            </a>
           </article>
         </div>
 
         <section class="custom-journey">
           <div>
-            <span class="eyebrow">Start with your plans</span>
-            <h2>Where would you like to go?</h2>
+            <span class="eyebrow" data-i18n="customEyebrow">Start with your plans</span>
+            <h2 data-i18n="customTitle">Where would you like to go?</h2>
           </div>
           <div>
-            <p>
+            <p data-i18n="customText">
               Include your travel date, pickup and drop-off locations,
               passenger numbers, and any stops you have in mind. We’ll get
               back to you to discuss your enquiry.
             </p>
             <div class="custom-actions">
-            <a class="button" href="index.html#booking">Plan your journey →</a>
-              <a class="button button-line" href="mailto:husam48726@gmail.com">Email us</a>
+              <a class="button" href="index.html#booking" data-i18n="customPlan">Plan your journey →</a>
+              <a class="button button-line" href="mailto:husam48726@gmail.com" data-i18n="emailUs">Email us</a>
             </div>
           </div>
         </section>
@@ -813,62 +908,393 @@
             <span class="brand-mark" aria-hidden="true">H</span>
             <span class="brand-name">HOLLAND <span>WAY TOURS</span></span>
           </a>
-          <p>Private taxi and travel enquiries in the Netherlands.</p>
-          <p>Hoofddorp, Netherlands</p>
+          <p data-i18n="footerDescription">Private taxi and travel enquiries in the Netherlands.</p>
+          <p data-i18n="location">Hoofddorp, Netherlands</p>
           <a href="mailto:husam48726@gmail.com">husam48726@gmail.com</a>
           <a href="tel:+31681110006">06 8111 0006</a>
         </div>
 
         <div>
-          <h2>Explore</h2>
-          <a href="index.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="destinations.html">Destinations</a>
-          <a href="about.html">About</a>
+          <h2 data-i18n="footerExplore">Explore</h2>
+          <a href="index.html" data-i18n="navHome">Home</a>
+          <a href="services.html" data-i18n="navServices">Services</a>
+          <a href="destinations.html" data-i18n="footerDestinations">Destinations</a>
+          <a href="about.html" data-i18n="navAbout">About</a>
         </div>
 
         <div>
-          <h2>Information</h2>
-          <a href="contact.html">Contact</a>
-          <a href="privacy.html">Privacy policy</a>
-          <a href="terms.html">Terms and conditions</a>
+          <h2 data-i18n="footerInformation">Information</h2>
+          <a href="contact.html" data-i18n="navContact">Contact</a>
+          <a href="privacy.html" data-i18n="privacy">Privacy policy</a>
+          <a href="terms.html" data-i18n="terms">Terms and conditions</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        © <span id="year"></span> Holland Way Tours. All rights reserved.
+        © <span id="year"></span> Holland Way Tours.
+        <span data-i18n="copyright">All rights reserved.</span>
       </div>
     </div>
   </footer>
 
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navigation = document.getElementById("navigation");
+    const translations = {
+      en: {
+        pageTitle: "Private Travel Services | Holland Way Tours",
+        languageLabel: "Language",
+        navHome: "Home",
+        navServices: "Services",
+        navAbout: "About",
+        navContact: "Contact",
+        navRequest: "Request a ride",
+        location: "Hoofddorp, Netherlands",
+        announcementNote: "Private journeys · Personal travel enquiries",
+        heroEyebrow: "Private transport in the Netherlands",
+        heroTitle: "Your way.<br><span>Your journey.</span>",
+        heroText: "Airport pickups, private trips, and comfortable rides between destinations. Tell us about your plans and we’ll help you explore your options.",
+        heroPlan: "Plan your journey →",
+        heroExplore: "Explore services",
+        heroCaption: "See more, at your own pace.",
+        heroLocation: "Hoofddorp · The Netherlands",
+        feature1Title: "Airport transfers",
+        feature1Text: "Plan a pickup around your flight",
+        feature2Title: "Private travel",
+        feature2Text: "Flexible routes and destinations",
+        feature3Title: "Personal enquiries",
+        feature3Text: "Discuss your plans directly",
+        servicesEyebrow: "Choose your journey",
+        servicesTitle: "Travel plans, made personal.",
+        servicesIntro: "From airport arrivals to a full day exploring, tell us where you’re going and what you have in mind. We’ll discuss the details with you before anything is confirmed.",
+        askQuestion: "Ask us a question →",
+        service1Title: "Airport Transfers",
+        service1Text: "Arrange private transport to or from Schiphol Airport. Include your flight details, destination, and passenger numbers in your enquiry.",
+        service1Link: "Ask about a transfer",
+        service2Title: "Private Day Trips",
+        service2Text: "Plan a day visiting places across the Netherlands with private transport and an itinerary shaped around your interests.",
+        service2Link: "Explore destinations",
+        service3Title: "Point-to-Point",
+        service3Text: "Need to travel between towns, hotels, attractions, or meeting locations? Send your pickup and drop-off details.",
+        service3Link: "Plan your route",
+        service4Title: "Custom Travel",
+        service4Text: "Have a special request or several stops in mind? Share your plans and discuss a travel arrangement that suits your day.",
+        service4Link: "Discuss your plans",
+        customEyebrow: "Start with your plans",
+        customTitle: "Where would you like to go?",
+        customText: "Include your travel date, pickup and drop-off locations, passenger numbers, and any stops you have in mind. We’ll get back to you to discuss your enquiry.",
+        customPlan: "Plan your journey →",
+        emailUs: "Email us",
+        footerDescription: "Private taxi and travel enquiries in the Netherlands.",
+        footerExplore: "Explore",
+        footerDestinations: "Destinations",
+        footerInformation: "Information",
+        privacy: "Privacy policy",
+        terms: "Terms and conditions",
+        copyright: "All rights reserved.",
+        menuOpen: "Open navigation",
+        menuClose: "Close navigation"
+      },
 
-    function closeMenu() {
+      nl: {
+        pageTitle: "Privévervoer en reisdiensten | Holland Way Tours",
+        languageLabel: "Taal",
+        navHome: "Home",
+        navServices: "Diensten",
+        navAbout: "Over ons",
+        navContact: "Contact",
+        navRequest: "Rit aanvragen",
+        location: "Hoofddorp, Nederland",
+        announcementNote: "Privéreizen · Persoonlijke reisaanvragen",
+        heroEyebrow: "Privévervoer in Nederland",
+        heroTitle: "Op jouw manier.<br><span>Jouw reis.</span>",
+        heroText: "Ophaalritten vanaf de luchthaven, privéreizen en comfortabele ritten tussen bestemmingen. Vertel ons over je plannen en we bespreken de mogelijkheden.",
+        heroPlan: "Plan je reis →",
+        heroExplore: "Bekijk diensten",
+        heroCaption: "Ontdek meer, in je eigen tempo.",
+        heroLocation: "Hoofddorp · Nederland",
+        feature1Title: "Luchthavenvervoer",
+        feature1Text: "Plan een ophaalrit rond je vlucht",
+        feature2Title: "Privéreizen",
+        feature2Text: "Flexibele routes en bestemmingen",
+        feature3Title: "Persoonlijke aanvragen",
+        feature3Text: "Bespreek je plannen rechtstreeks",
+        servicesEyebrow: "Kies je reis",
+        servicesTitle: "Reisplannen op maat.",
+        servicesIntro: "Van aankomst op de luchthaven tot een hele dag op pad: vertel ons waar je heen wilt. We bespreken de details voordat iets wordt bevestigd.",
+        askQuestion: "Stel ons een vraag →",
+        service1Title: "Luchthavenvervoer",
+        service1Text: "Regel privévervoer van of naar Schiphol. Vermeld je vluchtgegevens, bestemming en aantal passagiers.",
+        service1Link: "Vraag naar vervoer",
+        service2Title: "Privédagtochten",
+        service2Text: "Plan een dagtocht langs plekken in Nederland met privévervoer en een route die bij je interesses past.",
+        service2Link: "Ontdek bestemmingen",
+        service3Title: "Van A naar B",
+        service3Text: "Reis tussen steden, hotels, attracties of vergaderlocaties. Stuur je ophaal- en aflevergegevens.",
+        service3Link: "Plan je route",
+        service4Title: "Reizen op maat",
+        service4Text: "Heb je een speciaal verzoek of meerdere tussenstops? Deel je plannen en bespreek de mogelijkheden.",
+        service4Link: "Bespreek je plannen",
+        customEyebrow: "Begin met je plannen",
+        customTitle: "Waar wil je naartoe?",
+        customText: "Vermeld je reisdatum, ophaal- en afleverlocaties, het aantal passagiers en eventuele tussenstops. We nemen contact met je op om je aanvraag te bespreken.",
+        customPlan: "Plan je reis →",
+        emailUs: "E-mail ons",
+        footerDescription: "Aanvragen voor privévervoer en reizen in Nederland.",
+        footerExplore: "Ontdek",
+        footerDestinations: "Bestemmingen",
+        footerInformation: "Informatie",
+        privacy: "Privacybeleid",
+        terms: "Algemene voorwaarden",
+        copyright: "Alle rechten voorbehouden.",
+        menuOpen: "Navigatie openen",
+        menuClose: "Navigatie sluiten"
+      },
+
+      ar: {
+        pageTitle: "خدمات السفر الخاص | هولاند واي تورز",
+        languageLabel: "اللغة",
+        navHome: "الرئيسية",
+        navServices: "الخدمات",
+        navAbout: "من نحن",
+        navContact: "اتصل بنا",
+        navRequest: "اطلب رحلة",
+        location: "هوفدورب، هولندا",
+        announcementNote: "رحلات خاصة · طلبات سفر شخصية",
+        heroEyebrow: "نقل خاص في هولندا",
+        heroTitle: "على طريقتك.<br><span>رحلتك.</span>",
+        heroText: "رحلات من وإلى المطار، ورحلات خاصة، وتنقل مريح بين الوجهات. أخبرنا بخططك لنناقش الخيارات المناسبة.",
+        heroPlan: "خطط لرحلتك ←",
+        heroExplore: "اكتشف الخدمات",
+        heroCaption: "اكتشف المزيد، على وتيرتك.",
+        heroLocation: "هوفدورب · هولندا",
+        feature1Title: "النقل من وإلى المطار",
+        feature1Text: "خطط للاستقبال بما يتناسب مع رحلتك",
+        feature2Title: "رحلات خاصة",
+        feature2Text: "مسارات ووجهات مرنة",
+        feature3Title: "طلبات شخصية",
+        feature3Text: "ناقش خططك مباشرة",
+        servicesEyebrow: "اختر رحلتك",
+        servicesTitle: "خطط سفر تناسبك.",
+        servicesIntro: "من الاستقبال في المطار إلى قضاء يوم كامل في الاستكشاف، أخبرنا بوجهتك وخططك. سنناقش التفاصيل قبل تأكيد أي شيء.",
+        askQuestion: "أرسل لنا سؤالاً ←",
+        service1Title: "النقل من وإلى المطار",
+        service1Text: "رتّب نقلاً خاصاً من مطار سخيبول أو إليه. أضف تفاصيل الرحلة والوجهة وعدد الركاب.",
+        service1Link: "استفسر عن النقل",
+        service2Title: "رحلات يومية خاصة",
+        service2Text: "خطط ليوم تزور فيه أماكن مختلفة في هولندا مع مسار يناسب اهتماماتك.",
+        service2Link: "اكتشف الوجهات",
+        service3Title: "رحلات بين المواقع",
+        service3Text: "أرسل تفاصيل الانطلاق والوصول للتنقل بين المدن أو الفنادق أو المعالم.",
+        service3Link: "خطط لمسارك",
+        service4Title: "رحلات مخصصة",
+        service4Text: "شاركنا طلبك الخاص أو المحطات التي ترغب في زيارتها لمناقشة الترتيبات المناسبة.",
+        service4Link: "ناقش خططك",
+        customEyebrow: "ابدأ بخططك",
+        customTitle: "إلى أين ترغب في الذهاب؟",
+        customText: "أرسل تاريخ السفر ومواقع الانطلاق والوصول وعدد الركاب وأي محطات ترغب بها. سنتواصل معك لمناقشة طلبك.",
+        customPlan: "خطط لرحلتك ←",
+        emailUs: "راسلنا",
+        footerDescription: "طلبات سيارات الأجرة والسفر الخاص في هولندا.",
+        footerExplore: "استكشف",
+        footerDestinations: "الوجهات",
+        footerInformation: "معلومات",
+        privacy: "سياسة الخصوصية",
+        terms: "الشروط والأحكام",
+        copyright: "جميع الحقوق محفوظة.",
+        menuOpen: "افتح القائمة",
+        menuClose: "أغلق القائمة"
+      },
+
+      de: {
+        pageTitle: "Private Reisedienste | Holland Way Tours",
+        languageLabel: "Sprache",
+        navHome: "Startseite",
+        navServices: "Dienstleistungen",
+        navAbout: "Über uns",
+        navContact: "Kontakt",
+        navRequest: "Fahrt anfragen",
+        location: "Hoofddorp, Niederlande",
+        announcementNote: "Privatfahrten · Persönliche Reiseanfragen",
+        heroEyebrow: "Privater Transport in den Niederlanden",
+        heroTitle: "Auf Ihre Art.<br><span>Ihre Reise.</span>",
+        heroText: "Flughafenabholungen, private Ausflüge und bequeme Fahrten zwischen Reisezielen. Erzählen Sie uns von Ihren Plänen und wir besprechen die Möglichkeiten.",
+        heroPlan: "Reise planen →",
+        heroExplore: "Services entdecken",
+        heroCaption: "Entdecken Sie mehr, in Ihrem eigenen Tempo.",
+        heroLocation: "Hoofddorp · Niederlande",
+        feature1Title: "Flughafentransfers",
+        feature1Text: "Abholung passend zu Ihrem Flug planen",
+        feature2Title: "Privatreisen",
+        feature2Text: "Flexible Routen und Reiseziele",
+        feature3Title: "Persönliche Anfragen",
+        feature3Text: "Besprechen Sie Ihre Pläne direkt",
+        servicesEyebrow: "Wählen Sie Ihre Reise",
+        servicesTitle: "Reisepläne ganz persönlich.",
+        servicesIntro: "Von der Ankunft am Flughafen bis zu einem ganzen Tag voller Entdeckungen: Teilen Sie uns Ihre Pläne mit. Wir besprechen die Details, bevor etwas bestätigt wird.",
+        askQuestion: "Stellen Sie uns eine Frage →",
+        service1Title: "Flughafentransfers",
+        service1Text: "Organisieren Sie einen privaten Transfer zum oder vom Flughafen Schiphol. Geben Sie Flugdaten, Ziel und Fahrgastzahl an.",
+        service1Link: "Transfer anfragen",
+        service2Title: "Private Tagesausflüge",
+        service2Text: "Planen Sie einen Ausflug mit privatem Transport und einer Route nach Ihren Interessen.",
+        service2Link: "Reiseziele entdecken",
+        service3Title: "Fahrten zwischen Orten",
+        service3Text: "Senden Sie Abhol- und Zielort für Fahrten zwischen Städten, Hotels oder Sehenswürdigkeiten.",
+        service3Link: "Route planen",
+        service4Title: "Individuelle Reisen",
+        service4Text: "Teilen Sie besondere Wünsche oder geplante Zwischenstopps mit, damit wir passende Möglichkeiten besprechen können.",
+        service4Link: "Pläne besprechen",
+        customEyebrow: "Beginnen Sie mit Ihren Plänen",
+        customTitle: "Wohin möchten Sie reisen?",
+        customText: "Geben Sie Reisedatum, Abhol- und Zielort, Fahrgastzahl und gewünschte Zwischenstopps an. Wir melden uns, um Ihre Anfrage zu besprechen.",
+        customPlan: "Reise planen →",
+        emailUs: "E-Mail schreiben",
+        footerDescription: "Anfragen für private Fahrten und Reisen in den Niederlanden.",
+        footerExplore: "Entdecken",
+        footerDestinations: "Reiseziele",
+        footerInformation: "Informationen",
+        privacy: "Datenschutzerklärung",
+        terms: "Allgemeine Geschäftsbedingungen",
+        copyright: "Alle Rechte vorbehalten.",
+        menuOpen: "Navigation öffnen",
+        menuClose: "Navigation schließen"
+      },
+
+      fr: {
+        pageTitle: "Services de transport privé | Holland Way Tours",
+        languageLabel: "Langue",
+        navHome: "Accueil",
+        navServices: "Services",
+        navAbout: "À propos",
+        navContact: "Contact",
+        navRequest: "Demander un trajet",
+        location: "Hoofddorp, Pays-Bas",
+        announcementNote: "Trajets privés · Demandes personnalisées",
+        heroEyebrow: "Transport privé aux Pays-Bas",
+        heroTitle: "À votre façon.<br><span>Votre voyage.</span>",
+        heroText: "Transferts aéroport, trajets privés et déplacements confortables entre destinations. Parlez-nous de vos projets pour découvrir les options possibles.",
+        heroPlan: "Planifier votre trajet →",
+        heroExplore: "Découvrir les services",
+        heroCaption: "Découvrez davantage, à votre rythme.",
+        heroLocation: "Hoofddorp · Les Pays-Bas",
+        feature1Title: "Transferts aéroport",
+        feature1Text: "Planifiez une prise en charge selon votre vol",
+        feature2Title: "Voyages privés",
+        feature2Text: "Itinéraires et destinations flexibles",
+        feature3Title: "Demandes personnalisées",
+        feature3Text: "Discutez directement de vos projets",
+        servicesEyebrow: "Choisissez votre voyage",
+        servicesTitle: "Des voyages qui vous ressemblent.",
+        servicesIntro: "De l’arrivée à l’aéroport à une journée complète de découverte, indiquez-nous vos projets. Nous discuterons des détails avant toute confirmation.",
+        askQuestion: "Posez-nous une question →",
+        service1Title: "Transferts aéroport",
+        service1Text: "Organisez un transport privé vers ou depuis l’aéroport de Schiphol. Indiquez votre vol, votre destination et le nombre de passagers.",
+        service1Link: "Demander un transfert",
+        service2Title: "Excursions privées",
+        service2Text: "Organisez une journée de visites aux Pays-Bas avec un itinéraire adapté à vos envies.",
+        service2Link: "Découvrir les destinations",
+        service3Title: "Trajets entre destinations",
+        service3Text: "Envoyez vos adresses de départ et d’arrivée pour voyager entre villes, hôtels ou attractions.",
+        service3Link: "Planifier votre trajet",
+        service4Title: "Voyages personnalisés",
+        service4Text: "Partagez vos demandes particulières ou vos étapes pour discuter d’une formule adaptée à votre journée.",
+        service4Link: "Discuter de vos projets",
+        customEyebrow: "Commencez par vos projets",
+        customTitle: "Où souhaitez-vous aller ?",
+        customText: "Indiquez la date, les lieux de départ et d’arrivée, le nombre de passagers et les éventuels arrêts. Nous vous contacterons pour discuter de votre demande.",
+        customPlan: "Planifier votre trajet →",
+        emailUs: "Écrivez-nous",
+        footerDescription: "Demandes de transport privé et de voyage aux Pays-Bas.",
+        footerExplore: "Découvrir",
+        footerDestinations: "Destinations",
+        footerInformation: "Informations",
+        privacy: "Politique de confidentialité",
+        terms: "Conditions générales",
+        copyright: "Tous droits réservés.",
+        menuOpen: "Ouvrir la navigation",
+        menuClose: "Fermer la navigation"
+      }
+    };
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuLabel = document.getElementById("menu-label");
+    const navigation = document.getElementById("navigation");
+    const languageSelect = document.getElementById("language-select");
+
+    function getLanguage() {
+      try {
+        return localStorage.getItem("holland-way-language") || "en";
+      } catch {
+        return "en";
+      }
+    }
+
+    function setLanguage(language) {
+      const selectedLanguage = translations[language] ? language : "en";
+      const dictionary = translations[selectedLanguage];
+
+      document.documentElement.lang = selectedLanguage;
+      document.documentElement.dir = selectedLanguage === "ar" ? "rtl" : "ltr";
+      document.title = dictionary.pageTitle;
+      languageSelect.value = selectedLanguage;
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const translation = dictionary[element.dataset.i18n];
+        if (translation) element.innerHTML = translation;
+      });
+
+      const isOpen = navigation.classList.contains("open");
+      menuLabel.textContent = isOpen ? "Close" : "Menu";
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? dictionary.menuClose : dictionary.menuOpen
+      );
+
+      try {
+        localStorage.setItem("holland-way-language", selectedLanguage);
+      } catch {}
+    }
+
+    function closeMenu(returnFocus = false) {
       navigation.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation");
-      menuToggle.textContent = "☰";
       document.body.classList.remove("menu-open");
+      setLanguage(languageSelect.value);
+
+      if (returnFocus) menuToggle.focus();
     }
 
     menuToggle.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
+      const isOpen = !navigation.classList.contains("open");
 
+      navigation.classList.toggle("open", isOpen);
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
-      );
-      menuToggle.textContent = isOpen ? "×" : "☰";
       document.body.classList.toggle("menu-open", isOpen);
+      setLanguage(languageSelect.value);
+
+      if (isOpen) navigation.querySelector("a")?.focus();
+    });
+
+    languageSelect.addEventListener("change", event => {
+      setLanguage(event.target.value);
     });
 
     navigation.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
+      link.addEventListener("click", () => closeMenu());
     });
 
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && navigation.classList.contains("open")) {
+        closeMenu(true);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 850 && navigation.classList.contains("open")) {
+        closeMenu();
+      }
+    });
+
+    setLanguage(getLanguage());
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
