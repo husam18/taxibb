@@ -981,16 +981,15 @@
     }
   </style>
 </head>
-
 <body>
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-links">
         <a href="mailto:husam48726@gmail.com">✉ husam48726@gmail.com</a>
         <a href="tel:+31681110006">☎ 06 8111 0006</a>
-        <span data-i18n="location">Hoofddorp, Nederland</span>
+        <span data-i18n="location">Hoofddorp, Netherlands</span>
       </div>
-      <span class="topbar-note" data-i18n="topbarNote">Persoonlijke reisaanvragen door heel Nederland</span>
+      <span class="topbar-note" data-i18n="topbarNote">Personal travel enquiries throughout the Netherlands</span>
     </div>
   </div>
 
@@ -1002,23 +1001,23 @@
       </a>
 
       <button class="menu-toggle" id="menu-toggle" type="button"
-        aria-label="Menu openen" aria-expanded="false" aria-controls="navigation">
+        aria-label="Open menu" aria-expanded="false" aria-controls="navigation">
         <span aria-hidden="true">☰</span>
         <span id="menu-label">Menu</span>
       </button>
 
-      <nav class="navigation" id="navigation" aria-label="Hoofdnavigatie">
-        <a href="index.html">Home</a>
-        <a href="services.html" aria-current="page">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a class="button" href="index.html#booking">Request a ride</a>
+      <nav class="navigation" id="navigation" aria-label="Main navigation">
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="services.html" aria-current="page" data-i18n="services">Services</a>
+        <a href="about.html" data-i18n="about">About</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
+        <a class="button" href="index.html#booking" data-i18n="request">Request a ride</a>
 
         <label class="language-picker">
-          <span data-i18n="languageLabel">Taal</span>
-          <select id="language-select" aria-label="Kies een taal">
+          <span data-i18n="language">Language</span>
+          <select id="language-select" aria-label="Choose a language">
             <option value="nl">Nederlands</option>
-            <option value="en">English</option>
+            <option value="en" selected>English</option>
             <option value="ar">العربية</option>
             <option value="de">Deutsch</option>
             <option value="fr">Français</option>
@@ -1032,20 +1031,20 @@
     <section class="hero" id="home">
       <div class="container hero-inner">
         <div class="hero-content">
-          <span class="hero-kicker" data-i18n="heroKicker">Ontdek meer van Nederland</span>
-          <h1 data-i18n="heroTitle">Maak de<br>reis <em>van jou.</em></h1>
+          <span class="hero-kicker" data-i18n="heroKicker">Discover more of the Netherlands</span>
+          <h1 data-i18n="heroTitle">Make the<br>journey <em>yours.</em></h1>
           <p class="hero-copy" data-i18n="heroCopy">
-            Van stadsstraten tot uitstapjes op het platteland: plan je privérit
-            langs de plekken en momenten die jij wilt beleven.
+            From city streets to countryside escapes, plan a private ride around
+            the places and moments you want to experience.
           </p>
           <div class="hero-actions">
-            <a class="button" href="#booking"><span data-i18n="heroPlan">Plan je reis</span> <span aria-hidden="true">→</span></a>
-            <a class="button button-outline" href="#destinations" data-i18n="heroDestinations">Ontdek bestemmingen</a>
+            <a class="button" href="#booking"><span data-i18n="heroPlan">Plan your journey</span> <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#destinations" data-i18n="heroDestinations">Explore destinations</a>
           </div>
           <div class="hero-stats">
-            <span data-i18n="stat1">Persoonlijke aanvragen</span>
-            <span data-i18n="stat2">Flexibele tussenstops</span>
-            <span data-i18n="stat3">Duidelijke prijsindicaties</span>
+            <span data-i18n="stat1">Personal enquiries</span>
+            <span data-i18n="stat2">Flexible stops</span>
+            <span data-i18n="stat3">Clear fare estimates</span>
           </div>
         </div>
       </div>
@@ -1054,14 +1053,14 @@
     <section class="container trip-search-wrap">
       <form class="trip-search" id="quick-search">
         <div class="search-field">
-          <label for="quick-pickup" data-i18n="quickFrom">Waar vandaan?</label>
-          <input id="quick-pickup" type="text" placeholder="Ophaallocatie" data-i18n-placeholder="pickupPlaceholder" required>
+          <label for="quick-pickup" data-i18n="quickFrom">Where from?</label>
+          <input id="quick-pickup" type="text" placeholder="Pickup location" data-i18n-placeholder="pickupPlaceholder" required>
         </div>
         <div class="search-field">
-          <label for="quick-destination" data-i18n="quickTo">Waarheen?</label>
-          <input id="quick-destination" type="text" placeholder="Je bestemming" data-i18n-placeholder="destinationPlaceholder" required>
+          <label for="quick-destination" data-i18n="quickTo">Where to?</label>
+          <input id="quick-destination" type="text" placeholder="Your destination" data-i18n-placeholder="destinationPlaceholder" required>
         </div>
-        <button class="search-submit" type="submit" data-i18n="quickSubmit">Aanvraag starten →</button>
+        <button class="search-submit" type="submit" data-i18n="quickSubmit">Start an enquiry →</button>
       </form>
     </section>
 
@@ -1069,27 +1068,27 @@
       <div class="container about-grid">
         <div class="about-image">
           <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85"
-            alt="Gracht en historische gebouwen in Amsterdam" loading="lazy">
+            alt="Canal and historic buildings in Amsterdam" loading="lazy">
           <div class="image-label">
-            <span data-i18n="imageLabel">Jouw eigen route</span>
-            <small data-i18n="imageLabelSmall">Afgestemd op jouw reisplan</small>
+            <span data-i18n="imageLabel">Your own route</span>
+            <small data-i18n="imageLabelSmall">Tailored to your travel plans</small>
           </div>
         </div>
 
         <div class="about-copy">
-          <span class="eyebrow" data-i18n="aboutEyebrow">Een persoonlijkere manier van reizen</span>
-          <h2 data-i18n="aboutTitle">Ontdek meer dan de gebruikelijke route.</h2>
+          <span class="eyebrow" data-i18n="aboutEyebrow">A more personal way to travel</span>
+          <h2 data-i18n="aboutTitle">Discover more than the usual route.</h2>
           <p data-i18n="aboutText">
-            Of je nu naar Amsterdam gaat, het platteland bezoekt of een dagje uit plant:
-            stuur ons je reisgegevens. We nemen contact met je op over je reis en beschikbaarheid.
+            Whether you are heading to Amsterdam, visiting the countryside or planning a day out,
+            send us your travel details. We will contact you to discuss your journey and availability.
           </p>
           <div class="about-checks">
-            <span data-i18n="check1">Kies je vertrekpunt en bestemming</span>
-            <span data-i18n="check2">Voeg tussenstops toe</span>
-            <span data-i18n="check3">Vermeld bagage en passagiers</span>
-            <span data-i18n="check4">Vraag een retourrit aan</span>
+            <span data-i18n="check1">Choose your pickup and destination</span>
+            <span data-i18n="check2">Add stops along the way</span>
+            <span data-i18n="check3">Tell us about luggage and passengers</span>
+            <span data-i18n="check4">Request a return ride</span>
           </div>
-          <a class="button" href="#booking" data-i18n="aboutButton">Vertel ons over je reis →</a>
+          <a class="button" href="#booking" data-i18n="aboutButton">Tell us about your trip →</a>
         </div>
       </div>
     </section>
@@ -1097,59 +1096,59 @@
     <section class="section section-cream" id="destinations">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow" data-i18n="destinationsEyebrow">Kies je volgende bestemming</span>
-          <h2 data-i18n="destinationsTitle">Nederlandse uitstapjes.</h2>
-          <p data-i18n="destinationsText">Kies een bestemming of vul een ander adres in.</p>
+          <span class="eyebrow" data-i18n="destinationsEyebrow">Choose your next destination</span>
+          <h2 data-i18n="destinationsTitle">Dutch escapes.</h2>
+          <p data-i18n="destinationsText">Choose a destination or enter another address.</p>
         </div>
 
         <div class="destination-grid">
           <article class="destination-card">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Amsterdamse grachten" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Amsterdam canals" loading="lazy">
             <div class="destination-content">
-              <span class="destination-type">Canalen · Cultuur</span>
+              <span class="destination-type" data-i18n="typeAmsterdam">Canals · Culture</span>
               <h3>Amsterdam</h3>
-              <p>Ontdek de grachten, buurten en historische straten.</p>
-              <button class="destination-link" type="button" data-destination="Amsterdam, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+              <p data-i18n="textAmsterdam">Explore the canals, neighbourhoods and historic streets.</p>
+              <button class="destination-link" type="button" data-destination="Amsterdam, Netherlands" data-i18n="planTrip">Plan this ride →</button>
             </div>
           </article>
 
           <article class="destination-card">
-            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Kleurrijke bloementuin" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Colourful flower garden" loading="lazy">
             <div class="destination-content">
-              <span class="destination-type">Bloemen · Seizoen</span>
+              <span class="destination-type" data-i18n="typeKeukenhof">Flowers · Seasonal</span>
               <h3>Keukenhof</h3>
-              <p>Combineer de tuinen met een bezoek aan de bloemenvelden.</p>
-              <button class="destination-link" type="button" data-destination="Keukenhof, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+              <p data-i18n="textKeukenhof">Combine the gardens with a visit to the flower fields.</p>
+              <button class="destination-link" type="button" data-destination="Keukenhof, Netherlands" data-i18n="planTrip">Plan this ride →</button>
             </div>
           </article>
 
           <article class="destination-card">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Historische Nederlandse stadsgracht" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=900&q=85" alt="Historic Dutch city canal" loading="lazy">
             <div class="destination-content">
-              <span class="destination-type">Stad · Geschiedenis</span>
+              <span class="destination-type" data-i18n="typeUtrecht">City · History</span>
               <h3>Utrecht</h3>
-              <p>Ontdek de oude binnenstad en de grachten.</p>
-              <button class="destination-link" type="button" data-destination="Utrecht, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+              <p data-i18n="textUtrecht">Explore the old town and its canals.</p>
+              <button class="destination-link" type="button" data-destination="Utrecht, Netherlands" data-i18n="planTrip">Plan this ride →</button>
             </div>
           </article>
 
           <article class="destination-card wide">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Historische architectuur in Delft" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Historic architecture in Delft" loading="lazy">
             <div class="destination-content">
-              <span class="destination-type">Architectuur · Erfgoed</span>
+              <span class="destination-type" data-i18n="typeDelft">Architecture · Heritage</span>
               <h3>Delft</h3>
-              <p>Geniet van het historische centrum, de grachten en architectuur.</p>
-              <button class="destination-link" type="button" data-destination="Delft, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+              <p data-i18n="textDelft">Enjoy the historic centre, canals and architecture.</p>
+              <button class="destination-link" type="button" data-destination="Delft, Netherlands" data-i18n="planTrip">Plan this ride →</button>
             </div>
           </article>
 
           <article class="destination-card wide">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Pretparkuitje in Nederland" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Theme park outing in the Netherlands" loading="lazy">
             <div class="destination-content">
-              <span class="destination-type">Familie · Attractiepark</span>
+              <span class="destination-type" data-i18n="typeEfteling">Family · Theme park</span>
               <h3>Efteling</h3>
-              <p>Vraag een rit aan voor een leuke dag in het attractiepark.</p>
-              <button class="destination-link" type="button" data-destination="Efteling, Netherlands" data-i18n="planTrip">Plan deze rit →</button>
+              <p data-i18n="textEfteling">Request a ride for a fun day at the theme park.</p>
+              <button class="destination-link" type="button" data-destination="Efteling, Netherlands" data-i18n="planTrip">Plan this ride →</button>
             </div>
           </article>
         </div>
@@ -1159,18 +1158,18 @@
     <section class="section" id="services">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow" data-i18n="servicesEyebrow">Reis op jouw manier</span>
-          <h2 data-i18n="servicesTitle">Eén rit of een dag vol ontdekkingen.</h2>
-          <p data-i18n="servicesText">Vertel ons je plannen, dan bespreken we de mogelijkheden.</p>
+          <span class="eyebrow" data-i18n="servicesEyebrow">Travel your way</span>
+          <h2 data-i18n="servicesTitle">One ride or a day of discovery.</h2>
+          <p data-i18n="servicesText">Tell us your plans and we will discuss the options.</p>
         </div>
 
         <div class="service-grid">
-          <article class="service-card"><span class="service-icon">🚕</span><h3>Privérit aanvragen</h3><p>Vraag een rit aan tussen je gekozen vertrekpunt en bestemming.</p></article>
-          <article class="service-card"><span class="service-icon">✈️</span><h3>Luchthavenritten</h3><p>Vermeld je vlucht- of luchthavengegevens bij je aanvraag.</p></article>
-          <article class="service-card"><span class="service-icon">📍</span><h3>Routes met tussenstops</h3><p>Voeg plaatsen toe die je onderweg wilt bezoeken.</p></article>
-          <article class="service-card"><span class="service-icon">↔</span><h3>Retourritten</h3><p>Vraag een retour aan en geef je gewenste tijd door.</p></article>
-          <article class="service-card"><span class="service-icon">🧳</span><h3>Bagagegegevens</h3><p>Geef aan hoeveel tassen je meeneemt.</p></article>
-          <article class="service-card"><span class="service-icon">💬</span><h3>Persoonlijk contact</h3><p>Bespreek beschikbaarheid en de definitieve prijs vooraf.</p></article>
+          <article class="service-card"><span class="service-icon">🚕</span><h3 data-i18n="service1">Private ride enquiries</h3><p data-i18n="service1Text">Request a ride between your chosen pickup and destination.</p></article>
+          <article class="service-card"><span class="service-icon">✈️</span><h3 data-i18n="service2">Airport transfers</h3><p data-i18n="service2Text">Include your flight or airport details in your enquiry.</p></article>
+          <article class="service-card"><span class="service-icon">📍</span><h3 data-i18n="service3">Routes with stops</h3><p data-i18n="service3Text">Add places you would like to visit along the way.</p></article>
+          <article class="service-card"><span class="service-icon">↔</span><h3 data-i18n="service4">Return journeys</h3><p data-i18n="service4Text">Request a return and let us know your preferred time.</p></article>
+          <article class="service-card"><span class="service-icon">🧳</span><h3 data-i18n="service5">Luggage details</h3><p data-i18n="service5Text">Tell us how many bags you will bring.</p></article>
+          <article class="service-card"><span class="service-icon">💬</span><h3 data-i18n="service6">Personal contact</h3><p data-i18n="service6Text">Discuss availability and the final price in advance.</p></article>
         </div>
       </div>
     </section>
@@ -1178,16 +1177,16 @@
     <section class="section section-cream" id="how-it-works">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Eenvoudig van begin tot eind</span>
-          <h2>In vier stappen op weg.</h2>
-          <p>Je aanvraag is nog geen bevestigde boeking. Je rit wordt bevestigd zodra de details zijn afgesproken.</p>
+          <span class="eyebrow" data-i18n="howEyebrow">Simple from start to finish</span>
+          <h2 data-i18n="howTitle">On your way in four steps.</h2>
+          <p data-i18n="howText">Your enquiry is not a confirmed booking. Your ride is confirmed once the details have been agreed.</p>
         </div>
 
         <div class="steps">
-          <article class="step"><h3>Vul je route in</h3><p>Voer je vertrekpunt, bestemming en tussenstops in.</p></article>
-          <article class="step"><h3>Voeg je gegevens toe</h3><p>Kies een tijd en vermeld passagiers en bagage.</p></article>
-          <article class="step"><h3>Bekijk de schatting</h3><p>Bekijk de geschatte afstand, reistijd en prijs.</p></article>
-          <article class="step"><h3>Stuur je aanvraag</h3><p>Ga verder naar WhatsApp om je aanvraag te bespreken.</p></article>
+          <article class="step"><h3 data-i18n="step1">Enter your route</h3><p data-i18n="step1Text">Enter your pickup, destination and any stops.</p></article>
+          <article class="step"><h3 data-i18n="step2">Add your details</h3><p data-i18n="step2Text">Choose a time and tell us about passengers and luggage.</p></article>
+          <article class="step"><h3 data-i18n="step3">View the estimate</h3><p data-i18n="step3Text">Review the estimated distance, journey time and fare.</p></article>
+          <article class="step"><h3 data-i18n="step4">Send your enquiry</h3><p data-i18n="step4Text">Continue to WhatsApp to discuss your enquiry.</p></article>
         </div>
       </div>
     </section>
@@ -1195,13 +1194,13 @@
     <section class="booking-section section" id="booking">
       <div class="container booking-layout">
         <aside class="booking-intro">
-          <span class="eyebrow">Laten we je route plannen</span>
-          <h2>Waar brengt de reis je naartoe?</h2>
-          <p>Vul je reisgegevens in voor een routegebaseerde schatting. We nemen via WhatsApp contact met je op over beschikbaarheid en prijs.</p>
+          <span class="eyebrow" data-i18n="bookingEyebrow">Let’s plan your route</span>
+          <h2 data-i18n="bookingIntroTitle">Where will your journey take you?</h2>
+          <p data-i18n="bookingIntroText">Enter your travel details for a route-based estimate. We will contact you on WhatsApp about availability and pricing.</p>
           <div class="booking-contact">
-            <strong>Liever bellen?</strong>
+            <strong data-i18n="preferCall">Prefer to call?</strong>
             <a href="tel:+31681110006">06 8111 0006</a>
-            <span>Hoofddorp · Nederland</span>
+            <span data-i18n="location">Hoofddorp, Netherlands</span>
           </div>
         </aside>
 
@@ -1209,62 +1208,62 @@
           <div class="booking-main">
             <div class="booking-heading">
               <div>
-                <h3 data-i18n="bookingTitle">Plan je rit</h3>
-                <p data-i18n="bookingDescription">Vul je reisgegevens in om een geschatte ritprijs te berekenen.</p>
+                <h3 data-i18n="bookingTitle">Plan your ride</h3>
+                <p data-i18n="bookingDescription">Enter your travel details to calculate an estimated fare.</p>
               </div>
-              <span class="booking-tag" data-i18n="bookingTag">Aanvraag — nog niet bevestigd</span>
+              <span class="booking-tag" data-i18n="bookingTag">Enquiry — not confirmed</span>
             </div>
 
             <form id="taxi-form">
               <div class="taxi-grid">
                 <div class="route-column">
                   <div class="field">
-                    <label for="pickup" data-i18n="pickupLabel">Ophaaladres *</label>
+                    <label for="pickup" data-i18n="pickupLabel">Pickup address *</label>
                     <div class="address-wrap">
                       <span class="address-dot" aria-hidden="true">○</span>
-                      <input id="pickup" name="pickup" type="text" autocomplete="off" placeholder="Straat, plaats of locatie" data-i18n-placeholder="addressPlaceholder" required>
+                      <input id="pickup" name="pickup" type="text" autocomplete="off" placeholder="Street, town or location" data-i18n-placeholder="addressPlaceholder" required>
                     </div>
-                    <button class="location-button" id="use-location" type="button" data-i18n="useLocation">◎ Gebruik mijn huidige locatie</button>
+                    <button class="location-button" id="use-location" type="button" data-i18n="useLocation">◎ Use my current location</button>
                     <p class="location-status" id="location-status" role="status" aria-live="polite"></p>
                   </div>
 
                   <div class="field">
-                    <label for="destination" data-i18n="destinationLabel">Bestemming *</label>
+                    <label for="destination" data-i18n="destinationLabel">Destination *</label>
                     <div class="address-wrap">
                       <span class="address-dot" aria-hidden="true">●</span>
-                      <input id="destination" name="destination" type="text" autocomplete="off" placeholder="Adres, plaats of luchthaven" data-i18n-placeholder="destinationFieldPlaceholder" required>
+                      <input id="destination" name="destination" type="text" autocomplete="off" placeholder="Address, town or airport" data-i18n-placeholder="destinationFieldPlaceholder" required>
                     </div>
                   </div>
 
                   <div class="stops-list" id="stops"></div>
-                  <button class="add-stop-button" id="add-stop" type="button" data-i18n="addStop">＋ Tussenstop toevoegen</button>
+                  <button class="add-stop-button" id="add-stop" type="button" data-i18n="addStop">＋ Add a stop</button>
 
                   <fieldset class="luggage-field">
-                    <legend data-i18n="luggage">Bagage</legend>
-                    <label><input type="number" name="largeLuggage" min="0" max="12" value="0"> Grote koffers</label>
-                    <label><input type="number" name="cabinLuggage" min="0" max="12" value="0"> Handbagage</label>
-                    <label><input type="number" name="personalLuggage" min="0" max="12" value="0"> Handtas / rugzak</label>
+                    <legend data-i18n="luggage">Luggage</legend>
+                    <label><input type="number" name="largeLuggage" min="0" max="12" value="0"> <span data-i18n="large">Large suitcases</span></label>
+                    <label><input type="number" name="cabinLuggage" min="0" max="12" value="0"> <span data-i18n="cabin">Cabin bags</span></label>
+                    <label><input type="number" name="personalLuggage" min="0" max="12" value="0"> <span data-i18n="personal">Handbag / backpack</span></label>
                   </fieldset>
                 </div>
 
                 <div class="details-column">
                   <div class="field">
-                    <label for="pickup-time" data-i18n="pickupTimeLabel">Ophaaldatum en -tijd *</label>
+                    <label for="pickup-time" data-i18n="pickupTimeLabel">Pickup date and time *</label>
                     <input id="pickup-time" name="pickupTime" type="datetime-local" required>
                   </div>
 
                   <label class="return-toggle" for="return-trip">
                     <input id="return-trip" name="returnTrip" type="checkbox">
-                    <span data-i18n="returnToggle">Ik wil ook een retourrit aanvragen</span>
+                    <span data-i18n="returnToggle">I would also like to request a return ride</span>
                   </label>
 
                   <div class="field" id="return-time-field" hidden>
-                    <label for="return-time" data-i18n="returnTimeLabel">Datum en tijd retourrit *</label>
+                    <label for="return-time" data-i18n="returnTimeLabel">Return date and time *</label>
                     <input id="return-time" name="returnTime" type="datetime-local">
                   </div>
 
                   <div class="field">
-                    <label data-i18n="passengersLabel">Aantal passagiers</label>
+                    <label data-i18n="passengersLabel">Number of passengers</label>
                     <div class="passenger-control">
                       <button type="button" id="passenger-minus" aria-label="Remove one passenger">−</button>
                       <output id="passenger-count" aria-live="polite">1</output>
@@ -1274,33 +1273,33 @@
                   </div>
 
                   <div class="field">
-                    <label for="customer-name" data-i18n="nameLabel">Je naam *</label>
-                    <input id="customer-name" name="customerName" autocomplete="name" placeholder="Voor- en achternaam" data-i18n-placeholder="namePlaceholder" required>
+                    <label for="customer-name" data-i18n="nameLabel">Your name *</label>
+                    <input id="customer-name" name="customerName" autocomplete="name" placeholder="First and last name" data-i18n-placeholder="namePlaceholder" required>
                   </div>
 
                   <div class="field">
-                    <label for="customer-email" data-i18n="emailLabel">E-mailadres</label>
-                    <input id="customer-email" name="customerEmail" type="email" autocomplete="email" placeholder="jij@voorbeeld.nl">
+                    <label for="customer-email" data-i18n="emailLabel">Email address</label>
+                    <input id="customer-email" name="customerEmail" type="email" autocomplete="email" placeholder="you@example.com">
                   </div>
 
                   <div class="field">
-                    <label for="customer-phone" data-i18n="phoneLabel">Telefoonnummer *</label>
+                    <label for="customer-phone" data-i18n="phoneLabel">Phone number *</label>
                     <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" placeholder="+31..." required>
                   </div>
 
                   <div class="field">
-                    <label for="note" data-i18n="noteLabel">Extra informatie</label>
-                    <textarea id="note" name="note" placeholder="Toegankelijkheidswensen of andere verzoeken" data-i18n-placeholder="notePlaceholder"></textarea>
+                    <label for="note" data-i18n="noteLabel">Additional information</label>
+                    <textarea id="note" name="note" placeholder="Accessibility needs or other requests" data-i18n-placeholder="notePlaceholder"></textarea>
                   </div>
                 </div>
               </div>
 
               <div class="booking-footer">
                 <p class="booking-note" data-i18n="fareNote">
-                  Schatting: €4 starttarief + €3 per kilometer + €0,50 per minuut.
-                  De uiteindelijke prijs kan afwijken; dit is geen bevestigde boeking.
+                  Estimate: €4 start fee + €3 per kilometre + €0.50 per minute.
+                  The final fare may differ; this is not a confirmed booking.
                 </p>
-                <button class="calculate-button" id="submit-button" type="submit" data-i18n="calculateButton">Bereken schatting en ga verder →</button>
+                <button class="calculate-button" id="submit-button" type="submit" data-i18n="calculateButton">Calculate estimate and continue →</button>
                 <p class="fare-result" id="fare-result" role="status" aria-live="polite" hidden></p>
               </div>
             </form>
@@ -1312,26 +1311,26 @@
     <section class="section" id="faq">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Voordat je vertrekt</span>
-          <h2>Een paar handige antwoorden.</h2>
+          <span class="eyebrow" data-i18n="faqEyebrow">Before you go</span>
+          <h2 data-i18n="faqTitle">A few helpful answers.</h2>
         </div>
         <div class="faq-list">
-          <details><summary>Is mijn rit bevestigd als ik het formulier verstuur?</summary><p>Nee. Het formulier verstuurt een aanvraag. De rit wordt pas bevestigd nadat beschikbaarheid, details en prijs zijn afgesproken.</p></details>
-          <details><summary>Hoe wordt de online schatting berekend?</summary><p>De schatting gebruikt €4 starttarief, €3 per kilometer en €0,50 per geschatte rijminuut. Verkeer en routewijzigingen kunnen de uiteindelijke prijs beïnvloeden.</p></details>
-          <details><summary>Kan ik tussenstops en een retourrit toevoegen?</summary><p>Ja. Voeg tussenstops toe en vink de optie voor een retourrit aan.</p></details>
+          <details><summary data-i18n="faq1">Is my ride confirmed when I submit the form?</summary><p data-i18n="faq1Text">No. The form sends an enquiry. The ride is confirmed only after availability, details and pricing have been agreed.</p></details>
+          <details><summary data-i18n="faq2">How is the online estimate calculated?</summary><p data-i18n="faq2Text">The estimate uses a €4 start fee, €3 per kilometre and €0.50 per estimated driving minute. Traffic and route changes may affect the final fare.</p></details>
+          <details><summary data-i18n="faq3">Can I add stops and request a return ride?</summary><p data-i18n="faq3Text">Yes. Add stops and select the return ride option.</p></details>
         </div>
       </div>
     </section>
 
     <section class="final-cta">
       <div class="container">
-        <span class="eyebrow">Je volgende reis begint hier</span>
-        <h2>Weet je al waar je heen wilt?</h2>
-        <p>Stuur ons je reisgegevens, dan bespreken we je aanvraag.</p>
+        <span class="eyebrow" data-i18n="ctaEyebrow">Your next journey starts here</span>
+        <h2 data-i18n="ctaTitle">Already know where you want to go?</h2>
+        <p data-i18n="ctaText">Send us your travel details and we will discuss your enquiry.</p>
         <div class="cta-actions">
-          <a class="button" href="#booking">Plan een rit →</a>
-          <a class="dark-button" href="tel:+31681110006">Bel 06 8111 0006</a>
-          <a class="dark-button" href="mailto:husam48726@gmail.com">E-mail ons</a>
+          <a class="button" href="#booking" data-i18n="planRide">Plan a ride →</a>
+          <a class="dark-button" href="tel:+31681110006" data-i18n="call">Call 06 8111 0006</a>
+          <a class="dark-button" href="mailto:husam48726@gmail.com" data-i18n="emailUs">Email us</a>
         </div>
       </div>
     </section>
@@ -1345,802 +1344,1530 @@
             <span class="brand-icon" aria-hidden="true">H</span>
             <span class="brand-name" style="color:white">HOLLAND <span>WAY TOURS</span></span>
           </a>
-          <p>Persoonlijke taxi- en reisaanvragen in Nederland.</p>
-          <p>Hoofddorp, Nederland</p>
+          <p data-i18n="footerDescription">Personal taxi and travel enquiries in the Netherlands.</p>
+          <p data-i18n="location">Hoofddorp, Netherlands</p>
         </div>
         <div>
-          <h3>Ontdek</h3>
-          <a href="#destinations">Bestemmingen</a>
-          <a href="#services">Diensten</a>
-          <a href="#how-it-works">Zo werkt het</a>
-          <a href="#booking">Rit aanvragen</a>
+          <h3 data-i18n="footerDiscover">Explore</h3>
+          <a href="#destinations" data-i18n="footerDestinations">Destinations</a>
+          <a href="#services" data-i18n="services">Services</a>
+          <a href="#how-it-works" data-i18n="footerHow">How it works</a>
+          <a href="#booking" data-i18n="request">Request a ride</a>
         </div>
         <div>
-          <h3>Contact</h3>
+          <h3 data-i18n="footerContact">Contact</h3>
           <a href="tel:+31681110006">06 8111 0006</a>
           <a href="mailto:husam48726@gmail.com">husam48726@gmail.com</a>
-          <a href="#faq">Veelgestelde vragen</a>
+          <a href="#faq" data-i18n="footerFaq">Frequently asked questions</a>
         </div>
       </div>
-      <div class="footer-bottom">© <span id="year"></span> Holland Way Tours. Alle rechten voorbehouden.</div>
+      <div class="footer-bottom">© <span id="year"></span> Holland Way Tours. <span data-i18n="footerRights">All rights reserved.</span></div>
     </div>
   </footer>
 
+
   <script>
-    "use strict";
+"use strict";
 
-    const WHATSAPP_NUMBER = "31681110006";
-    const START_FEE = 4;
-    const PRICE_PER_KM = 3;
-    const PRICE_PER_MINUTE = 0.50;
+const WHATSAPP_NUMBER = "31681110006";
+const START_FEE = 4;
+const PRICE_PER_KM = 3;
+const PRICE_PER_MINUTE = 0.50;
 
-    const translations = {
-      nl: {
-        title: "Holland Way Tours | Ontdek Nederland",
-        languageLabel: "Taal",
-        navHome: "Home", navServices: "Diensten", navAbout: "Over ons",
-        navContact: "Contact", navRequest: "Rit aanvragen",
-        menu: "Menu", close: "Sluiten", menuOpen: "Menu openen", menuClose: "Menu sluiten",
-        location: "Hoofddorp, Nederland",
-        topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
-        heroKicker: "Ontdek meer van Nederland",
-        heroTitle: "Maak de<br>reis <em>van jou.</em>",
-        heroCopy: "Van stadsstraten tot uitstapjes op het platteland: plan je privérit langs de plekken en momenten die jij wilt beleven.",
-        heroPlan: "Plan je reis",
-        heroDestinations: "Ontdek bestemmingen",
-        stat1: "Persoonlijke aanvragen",
-        stat2: "Flexibele tussenstops",
-        stat3: "Duidelijke prijsindicaties",
-        quickFrom: "Waar vandaan?",
-        quickTo: "Waarheen?",
-        quickSubmit: "Aanvraag starten →",
-        pickupPlaceholder: "Ophaallocatie",
-        destinationPlaceholder: "Je bestemming",
-        imageLabel: "Jouw eigen route",
-        imageLabelSmall: "Afgestemd op jouw reisplan",
-        aboutEyebrow: "Een persoonlijkere manier van reizen",
-        aboutTitle: "Ontdek meer dan de gebruikelijke route.",
-        aboutText: "Of je nu naar Amsterdam gaat, het platteland bezoekt of een dagje uit plant: stuur ons je reisgegevens. We nemen contact met je op over je reis en beschikbaarheid.",
-        check1: "Kies je vertrekpunt en bestemming",
-        check2: "Voeg tussenstops toe",
-        check3: "Vermeld bagage en passagiers",
-        check4: "Vraag een retourrit aan",
-        aboutButton: "Vertel ons over je reis →",
-        destinationsEyebrow: "Kies je volgende bestemming",
-        destinationsTitle: "Nederlandse uitstapjes.",
-        destinationsText: "Kies een bestemming of vul een ander adres in.",
-        planTrip: "Plan deze rit →",
-        servicesEyebrow: "Reis op jouw manier",
-        servicesTitle: "Eén rit of een dag vol ontdekkingen.",
-        servicesText: "Vertel ons je plannen, dan bespreken we de mogelijkheden.",
-        bookingTitle: "Plan je rit",
-        bookingDescription: "Vul je reisgegevens in om een geschatte ritprijs te berekenen.",
-        bookingTag: "Aanvraag — nog niet bevestigd",
-        pickupLabel: "Ophaaladres *",
-        destinationLabel: "Bestemming *",
-        addressPlaceholder: "Straat, plaats of locatie",
-        destinationFieldPlaceholder: "Adres, plaats of luchthaven",
-        useLocation: "◎ Gebruik mijn huidige locatie",
-        addStop: "＋ Tussenstop toevoegen",
-        luggage: "Bagage",
-        pickupTimeLabel: "Ophaaldatum en -tijd *",
-        returnToggle: "Ik wil ook een retourrit aanvragen",
-        returnTimeLabel: "Datum en tijd retourrit *",
-        passengersLabel: "Aantal passagiers",
-        nameLabel: "Je naam *",
-        namePlaceholder: "Voor- en achternaam",
-        emailLabel: "E-mailadres",
-        phoneLabel: "Telefoonnummer *",
-        noteLabel: "Extra informatie",
-        notePlaceholder: "Toegankelijkheidswensen of andere verzoeken",
-        fareNote: "Schatting: €4 starttarief + €3 per kilometer + €0,50 per minuut. De uiteindelijke prijs kan afwijken; dit is geen bevestigde boeking.",
-        calculateButton: "Bereken schatting en ga verder →"
-      },
-      en: {
-        title: "Holland Way Tours | Explore the Netherlands",
-        languageLabel: "Language",
-        navHome: "Home", navServices: "Services", navAbout: "About",
-        navContact: "Contact", navRequest: "Request a ride",
-        menu: "Menu", close: "Close", menuOpen: "Open menu", menuClose: "Close menu",
-        location: "Hoofddorp, Netherlands",
-        topbarNote: "Personal travel enquiries across the Netherlands",
-        heroKicker: "See more of the Netherlands",
-        heroTitle: "Make the<br>journey <em>yours.</em>",
-        heroCopy: "From city streets to countryside escapes, plan your private ride around the places and moments you want to experience.",
-        heroPlan: "Plan your journey",
-        heroDestinations: "Discover destinations",
-        stat1: "Personal enquiries",
-        stat2: "Flexible stops",
-        stat3: "Clear fare estimates",
-        quickFrom: "Where from?",
-        quickTo: "Where to?",
-        quickSubmit: "Start an enquiry →",
-        pickupPlaceholder: "Pickup location",
-        destinationPlaceholder: "Your destination",
-        imageLabel: "Your own route",
-        imageLabelSmall: "Built around your itinerary",
-        aboutEyebrow: "A more personal way to travel",
-        aboutTitle: "Go beyond the usual itinerary.",
-        aboutText: "Whether you’re heading into Amsterdam, visiting the countryside, or planning a day out, send us your trip details. We’ll get in touch about your journey and availability.",
-        check1: "Choose pickup and destination",
-        check2: "Add stops along the way",
-        check3: "Include luggage and passengers",
-        check4: "Request a return journey",
-        aboutButton: "Tell us about your trip →",
-        destinationsEyebrow: "Find your next stop",
-        destinationsTitle: "Little Dutch detours.",
-        destinationsText: "Choose a destination or enter another address.",
-        planTrip: "Plan this trip →",
-        servicesEyebrow: "Travel your way",
-        servicesTitle: "One ride, or a day of discovery.",
-        servicesText: "Send your plans and we’ll discuss what works for your journey.",
-        bookingTitle: "Plan your ride",
-        bookingDescription: "Enter your trip details to calculate an estimated fare.",
-        bookingTag: "Request only — not confirmed",
-        pickupLabel: "Pickup address *",
-        destinationLabel: "Destination *",
-        addressPlaceholder: "Street, town, or location",
-        destinationFieldPlaceholder: "Address, town, or airport",
-        useLocation: "◎ Use my current location",
-        addStop: "＋ Add a stop",
-        luggage: "Luggage",
-        pickupTimeLabel: "Pickup date and time *",
-        returnToggle: "I’d also like to request a return trip",
-        returnTimeLabel: "Return date and time *",
-        passengersLabel: "Number of passengers",
-        nameLabel: "Your name *",
-        namePlaceholder: "First and last name",
-        emailLabel: "Email address",
-        phoneLabel: "Phone number *",
-        noteLabel: "Additional information",
-        notePlaceholder: "Accessibility needs or other requests",
-        fareNote: "Estimate: €4 start fee + €3 per kilometre + €0.50 per minute. Final fare may differ; this is not a confirmed booking.",
-        calculateButton: "Calculate estimate & continue →"
-      },
-      ar: {
-        title: "هولاند واي تورز | اكتشف هولندا",
-        languageLabel: "اللغة",
-        navHome: "الرئيسية", navServices: "الخدمات", navAbout: "من نحن",
-        navContact: "اتصل بنا", navRequest: "اطلب رحلة",
-        menu: "القائمة", close: "إغلاق", menuOpen: "افتح القائمة", menuClose: "أغلق القائمة",
-        location: "هوفدورب، هولندا",
-        topbarNote: "طلبات رحلات شخصية في جميع أنحاء هولندا",
-        heroKicker: "اكتشف المزيد من هولندا",
-        heroTitle: "اجعل<br>الرحلة <em>مميزة لك.</em>",
-        heroCopy: "خطط لرحلتك الخاصة إلى الأماكن التي ترغب في زيارتها، من شوارع المدن إلى الريف.",
-        heroPlan: "خطط لرحلتك",
-        heroDestinations: "اكتشف الوجهات",
-        stat1: "طلبات شخصية",
-        stat2: "محطات مرنة",
-        stat3: "تقديرات واضحة للسعر",
-        quickFrom: "من أين؟",
-        quickTo: "إلى أين؟",
-        quickSubmit: "ابدأ الطلب →",
-        pickupPlaceholder: "موقع الانطلاق",
-        destinationPlaceholder: "وجهتك",
-        imageLabel: "طريقك الخاص",
-        imageLabelSmall: "مصمم حسب خطتك",
-        aboutEyebrow: "طريقة سفر أكثر خصوصية",
-        aboutTitle: "اكتشف ما هو أبعد من المسار المعتاد.",
-        aboutText: "أرسل تفاصيل رحلتك وسنتواصل معك بشأن الرحلة والتوافر.",
-        check1: "اختر نقطة الانطلاق والوجهة",
-        check2: "أضف محطات في الطريق",
-        check3: "أضف الأمتعة وعدد الركاب",
-        check4: "اطلب رحلة ذهاب وعودة",
-        aboutButton: "أخبرنا عن رحلتك →",
-        destinationsEyebrow: "اختر محطتك التالية",
-        destinationsTitle: "وجهات هولندية جميلة.",
-        destinationsText: "اختر وجهة أو أدخل عنواناً آخر.",
-        planTrip: "خطط لهذه الرحلة →",
-        servicesEyebrow: "سافر بطريقتك",
-        servicesTitle: "رحلة واحدة أو يوم من الاكتشاف.",
-        servicesText: "أرسل خطتك وسنناقش ما يناسب رحلتك.",
-        bookingTitle: "خطط لرحلتك",
-        bookingDescription: "أدخل تفاصيل الرحلة للحصول على تقدير للسعر.",
-        bookingTag: "طلب فقط — غير مؤكد",
-        pickupLabel: "عنوان الانطلاق *",
-        destinationLabel: "الوجهة *",
-        addressPlaceholder: "الشارع أو المدينة أو الموقع",
-        destinationFieldPlaceholder: "العنوان أو المدينة أو المطار",
-        useLocation: "◎ استخدم موقعي الحالي",
-        addStop: "＋ أضف محطة",
-        luggage: "الأمتعة",
-        pickupTimeLabel: "تاريخ ووقت الانطلاق *",
-        returnToggle: "أرغب أيضاً في طلب رحلة عودة",
-        returnTimeLabel: "تاريخ ووقت العودة *",
-        passengersLabel: "عدد الركاب",
-        nameLabel: "اسمك *",
-        namePlaceholder: "الاسم الأول والأخير",
-        emailLabel: "البريد الإلكتروني",
-        phoneLabel: "رقم الهاتف *",
-        noteLabel: "معلومات إضافية",
-        notePlaceholder: "احتياجات خاصة أو طلبات أخرى",
-        fareNote: "تقدير: 4 يورو رسوم بدء + 3 يورو لكل كيلومتر + 0.50 يورو لكل دقيقة. السعر النهائي قد يختلف.",
-        calculateButton: "احسب التقدير وتابع ←"
-      },
-      de: {
-        title: "Holland Way Tours | Entdecken Sie die Niederlande",
-        languageLabel: "Sprache",
-        navHome: "Startseite", navServices: "Dienstleistungen", navAbout: "Über uns",
-        navContact: "Kontakt", navRequest: "Fahrt anfragen",
-        menu: "Menü", close: "Schließen", menuOpen: "Menü öffnen", menuClose: "Menü schließen",
-        location: "Hoofddorp, Niederlande",
-        topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
-        heroKicker: "Entdecken Sie mehr von den Niederlanden",
-        heroTitle: "Machen Sie die<br>Reise zu <em>Ihrer.</em>",
-        heroCopy: "Planen Sie Ihre private Fahrt durch Städte und Landschaften zu den Orten, die Sie erleben möchten.",
-        heroPlan: "Reise planen",
-        heroDestinations: "Reiseziele entdecken",
-        stat1: "Persönliche Anfragen",
-        stat2: "Flexible Zwischenstopps",
-        stat3: "Klare Preisschätzungen",
-        quickFrom: "Von wo?",
-        quickTo: "Wohin?",
-        quickSubmit: "Anfrage starten →",
-        pickupPlaceholder: "Abholort",
-        destinationPlaceholder: "Ihr Reiseziel",
-        imageLabel: "Ihre eigene Route",
-        imageLabelSmall: "Nach Ihrem Reiseplan",
-        aboutEyebrow: "Persönlicher reisen",
-        aboutTitle: "Entdecken Sie mehr als die übliche Route.",
-        aboutText: "Senden Sie uns Ihre Reisedaten. Wir melden uns bezüglich Ihrer Fahrt und der Verfügbarkeit.",
-        check1: "Abholort und Ziel wählen",
-        check2: "Zwischenstopps hinzufügen",
-        check3: "Gepäck und Fahrgäste angeben",
-        check4: "Rückfahrt anfragen",
-        aboutButton: "Erzählen Sie uns von Ihrer Reise →",
-        destinationsEyebrow: "Finden Sie Ihr nächstes Ziel",
-        destinationsTitle: "Niederländische Ausflüge.",
-        destinationsText: "Wählen Sie ein Ziel oder geben Sie eine andere Adresse ein.",
-        planTrip: "Diese Fahrt planen →",
-        servicesEyebrow: "Reisen Sie auf Ihre Weise",
-        servicesTitle: "Eine Fahrt oder ein Tag voller Entdeckungen.",
-        servicesText: "Senden Sie uns Ihre Pläne und wir besprechen die Möglichkeiten.",
-        bookingTitle: "Fahrt planen",
-        bookingDescription: "Geben Sie Ihre Reisedaten für eine Preisschätzung ein.",
-        bookingTag: "Anfrage — nicht bestätigt",
-        pickupLabel: "Abholadresse *",
-        destinationLabel: "Ziel *",
-        addressPlaceholder: "Straße, Ort oder Standort",
-        destinationFieldPlaceholder: "Adresse, Ort oder Flughafen",
-        useLocation: "◎ Meinen aktuellen Standort verwenden",
-        addStop: "＋ Zwischenstopp hinzufügen",
-        luggage: "Gepäck",
-        pickupTimeLabel: "Abholdatum und -zeit *",
-        returnToggle: "Ich möchte auch eine Rückfahrt anfragen",
-        returnTimeLabel: "Datum und Uhrzeit der Rückfahrt *",
-        passengersLabel: "Anzahl der Fahrgäste",
-        nameLabel: "Ihr Name *",
-        namePlaceholder: "Vor- und Nachname",
-        emailLabel: "E-Mail-Adresse",
-        phoneLabel: "Telefonnummer *",
-        noteLabel: "Zusätzliche Informationen",
-        notePlaceholder: "Barrierefreiheit oder andere Wünsche",
-        fareNote: "Schätzung: 4 € Grundgebühr + 3 € pro Kilometer + 0,50 € pro Minute. Der Endpreis kann abweichen.",
-        calculateButton: "Schätzung berechnen und fortfahren →"
-      },
-      fr: {
-        title: "Holland Way Tours | Découvrez les Pays-Bas",
-        languageLabel: "Langue",
-        navHome: "Accueil", navServices: "Services", navAbout: "À propos",
-        navContact: "Contact", navRequest: "Demander un trajet",
-        menu: "Menu", close: "Fermer", menuOpen: "Ouvrir le menu", menuClose: "Fermer le menu",
-        location: "Hoofddorp, Pays-Bas",
-        topbarNote: "Demandes de trajets personnalisés aux Pays-Bas",
-        heroKicker: "Découvrez davantage les Pays-Bas",
-        heroTitle: "Faites de ce<br>voyage le <em>vôtre.</em>",
-        heroCopy: "Planifiez un trajet privé selon vos envies, des rues de la ville aux escapades à la campagne.",
-        heroPlan: "Planifier votre trajet",
-        heroDestinations: "Découvrir les destinations",
-        stat1: "Demandes personnalisées",
-        stat2: "Arrêts flexibles",
-        stat3: "Estimations claires",
-        quickFrom: "Départ ?",
-        quickTo: "Destination ?",
-        quickSubmit: "Commencer la demande →",
-        pickupPlaceholder: "Lieu de prise en charge",
-        destinationPlaceholder: "Votre destination",
-        imageLabel: "Votre propre itinéraire",
-        imageLabelSmall: "Adapté à votre programme",
-        aboutEyebrow: "Une façon plus personnelle de voyager",
-        aboutTitle: "Allez au-delà de l’itinéraire habituel.",
-        aboutText: "Envoyez-nous les détails de votre trajet. Nous vous contacterons pour discuter de votre trajet et des disponibilités.",
-        check1: "Choisissez le départ et la destination",
-        check2: "Ajoutez des arrêts",
-        check3: "Indiquez les bagages et passagers",
-        check4: "Demandez un trajet retour",
-        aboutButton: "Parlez-nous de votre trajet →",
-        destinationsEyebrow: "Trouvez votre prochaine étape",
-        destinationsTitle: "Escapades néerlandaises.",
-        destinationsText: "Choisissez une destination ou saisissez une autre adresse.",
-        planTrip: "Planifier ce trajet →",
-        servicesEyebrow: "Voyagez à votre façon",
-        servicesTitle: "Un trajet ou une journée de découverte.",
-        servicesText: "Envoyez-nous vos projets et nous discuterons des possibilités.",
-        bookingTitle: "Planifier votre trajet",
-        bookingDescription: "Saisissez les détails du trajet pour obtenir une estimation.",
-        bookingTag: "Demande — non confirmée",
-        pickupLabel: "Adresse de départ *",
-        destinationLabel: "Destination *",
-        addressPlaceholder: "Rue, ville ou lieu",
-        destinationFieldPlaceholder: "Adresse, ville ou aéroport",
-        useLocation: "◎ Utiliser ma position actuelle",
-        addStop: "＋ Ajouter un arrêt",
-        luggage: "Bagages",
-        pickupTimeLabel: "Date et heure de départ *",
-        returnToggle: "Je souhaite également demander un trajet retour",
-        returnTimeLabel: "Date et heure du retour *",
-        passengersLabel: "Nombre de passagers",
-        nameLabel: "Votre nom *",
-        namePlaceholder: "Prénom et nom",
-        emailLabel: "Adresse e-mail",
-        phoneLabel: "Numéro de téléphone *",
-        noteLabel: "Informations complémentaires",
-        notePlaceholder: "Accessibilité ou autres demandes",
-        fareNote: "Estimation : 4 € de prise en charge + 3 € par kilomètre + 0,50 € par minute. Le tarif final peut varier.",
-        calculateButton: "Calculer l’estimation et continuer →"
-      }
-    };
+const translations = {
+  nl: {
+    title: "Holland Way Tours | Ontdek Nederland",
+    direction: "ltr",
+    location: "Hoofddorp, Nederland",
+    topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
+    navLabel: "Hoofdnavigatie",
+    home: "Home",
+    services: "Diensten",
+    about: "Over ons",
+    contact: "Contact",
+    request: "Rit aanvragen",
+    menu: "Menu",
+    close: "Sluiten",
+    menuOpen: "Menu openen",
+    menuClose: "Menu sluiten",
+    language: "Taal",
+    chooseLanguage: "Kies een taal",
+    heroKicker: "Ontdek meer van Nederland",
+    heroTitle: "Maak de<br>reis <em>van jou.</em>",
+    heroCopy: "Van stadsstraten tot uitstapjes op het platteland: plan je privérit langs de plekken en momenten die jij wilt beleven.",
+    heroPlan: "Plan je reis",
+    heroDestinations: "Ontdek bestemmingen",
+    stat1: "Persoonlijke aanvragen",
+    stat2: "Flexibele tussenstops",
+    stat3: "Duidelijke prijsindicaties",
+    quickFrom: "Waar vandaan?",
+    quickTo: "Waarheen?",
+    pickupPlaceholder: "Ophaallocatie",
+    destinationPlaceholder: "Je bestemming",
+    quickSubmit: "Aanvraag starten →",
+    imageAlt: "Gracht en historische gebouwen in Amsterdam",
+    imageLabel: "Jouw eigen route",
+    imageLabelSmall: "Afgestemd op jouw reisplan",
+    aboutEyebrow: "Een persoonlijkere manier van reizen",
+    aboutTitle: "Ontdek meer dan de gebruikelijke route.",
+    aboutText: "Of je nu naar Amsterdam gaat, het platteland bezoekt of een dagje uit plant: stuur ons je reisgegevens. We nemen contact met je op over je reis en beschikbaarheid.",
+    check1: "Kies je vertrekpunt en bestemming",
+    check2: "Voeg tussenstops toe",
+    check3: "Vermeld bagage en passagiers",
+    check4: "Vraag een retourrit aan",
+    aboutButton: "Vertel ons over je reis →",
+    destinationsEyebrow: "Kies je volgende bestemming",
+    destinationsTitle: "Nederlandse uitstapjes.",
+    destinationsText: "Kies een bestemming of vul een ander adres in.",
+    typeAmsterdam: "Grachten · Cultuur",
+    textAmsterdam: "Ontdek de grachten, buurten en historische straten.",
+    typeKeukenhof: "Bloemen · Seizoen",
+    textKeukenhof: "Combineer de tuinen met een bezoek aan de bloemenvelden.",
+    typeUtrecht: "Stad · Geschiedenis",
+    textUtrecht: "Ontdek de oude binnenstad en de grachten.",
+    typeDelft: "Architectuur · Erfgoed",
+    textDelft: "Geniet van het historische centrum, de grachten en architectuur.",
+    typeEfteling: "Familie · Attractiepark",
+    textEfteling: "Vraag een rit aan voor een leuke dag in het attractiepark.",
+    planTrip: "Plan deze rit →",
+    servicesEyebrow: "Reis op jouw manier",
+    servicesTitle: "Eén rit of een dag vol ontdekkingen.",
+    servicesText: "Vertel ons je plannen, dan bespreken we de mogelijkheden.",
+    service1: "Privérit aanvragen",
+    service1Text: "Vraag een rit aan tussen je gekozen vertrekpunt en bestemming.",
+    service2: "Luchthavenritten",
+    service2Text: "Vermeld je vlucht- of luchthavengegevens bij je aanvraag.",
+    service3: "Routes met tussenstops",
+    service3Text: "Voeg plaatsen toe die je onderweg wilt bezoeken.",
+    service4: "Retourritten",
+    service4Text: "Vraag een retour aan en geef je gewenste tijd door.",
+    service5: "Bagagegegevens",
+    service5Text: "Geef aan hoeveel tassen je meeneemt.",
+    service6: "Persoonlijk contact",
+    service6Text: "Bespreek beschikbaarheid en de definitieve prijs vooraf.",
+    howEyebrow: "Eenvoudig van begin tot eind",
+    howTitle: "In vier stappen op weg.",
+    howText: "Je aanvraag is nog geen bevestigde boeking. Je rit wordt bevestigd zodra de details zijn afgesproken.",
+    step1: "Vul je route in",
+    step1Text: "Voer je vertrekpunt, bestemming en tussenstops in.",
+    step2: "Voeg je gegevens toe",
+    step2Text: "Kies een tijd en vermeld passagiers en bagage.",
+    step3: "Bekijk de schatting",
+    step3Text: "Bekijk de geschatte afstand, reistijd en prijs.",
+    step4: "Stuur je aanvraag",
+    step4Text: "Ga verder naar WhatsApp om je aanvraag te bespreken.",
+    bookingEyebrow: "Laten we je route plannen",
+    bookingIntroTitle: "Waar brengt de reis je naartoe?",
+    bookingIntroText: "Vul je reisgegevens in voor een routegebaseerde schatting. We nemen via WhatsApp contact met je op over beschikbaarheid en prijs.",
+    preferCall: "Liever bellen?",
+    bookingTitle: "Plan je rit",
+    bookingDescription: "Vul je reisgegevens in om een geschatte ritprijs te berekenen.",
+    bookingTag: "Aanvraag — nog niet bevestigd",
+    pickupLabel: "Ophaaladres *",
+    destinationLabel: "Bestemming *",
+    addressPlaceholder: "Straat, plaats of locatie",
+    destinationFieldPlaceholder: "Adres, plaats of luchthaven",
+    useLocation: "◎ Gebruik mijn huidige locatie",
+    addStop: "＋ Tussenstop toevoegen",
+    luggage: "Bagage",
+    large: "Grote koffers",
+    cabin: "Handbagage",
+    personal: "Handtas / rugzak",
+    pickupTimeLabel: "Ophaaldatum en -tijd *",
+    returnToggle: "Ik wil ook een retourrit aanvragen",
+    returnTimeLabel: "Datum en tijd retourrit *",
+    passengersLabel: "Aantal passagiers",
+    removePassenger: "Eén passagier verwijderen",
+    addPassenger: "Eén passagier toevoegen",
+    nameLabel: "Je naam *",
+    namePlaceholder: "Voor- en achternaam",
+    emailLabel: "E-mailadres",
+    phoneLabel: "Telefoonnummer *",
+    noteLabel: "Extra informatie",
+    notePlaceholder: "Toegankelijkheidswensen of andere verzoeken",
+    fareNote: "Schatting: €4 starttarief + €3 per kilometer + €0,50 per minuut. De uiteindelijke prijs kan afwijken; dit is geen bevestigde boeking.",
+    calculateButton: "Bereken schatting en ga verder →",
+    faqEyebrow: "Voordat je vertrekt",
+    faqTitle: "Een paar handige antwoorden.",
+    faq1: "Is mijn rit bevestigd als ik het formulier verstuur?",
+    faq1Text: "Nee. Het formulier verstuurt een aanvraag. De rit wordt pas bevestigd nadat beschikbaarheid, details en prijs zijn afgesproken.",
+    faq2: "Hoe wordt de online schatting berekend?",
+    faq2Text: "De schatting gebruikt €4 starttarief, €3 per kilometer en €0,50 per geschatte rijminuut. Verkeer en routewijzigingen kunnen de uiteindelijke prijs beïnvloeden.",
+    faq3: "Kan ik tussenstops en een retourrit toevoegen?",
+    faq3Text: "Ja. Voeg tussenstops toe en vink de optie voor een retourrit aan.",
+    ctaEyebrow: "Je volgende reis begint hier",
+    ctaTitle: "Weet je al waar je heen wilt?",
+    ctaText: "Stuur ons je reisgegevens, dan bespreken we je aanvraag.",
+    planRide: "Plan een rit →",
+    call: "Bel 06 8111 0006",
+    emailUs: "E-mail ons",
+    footerDescription: "Persoonlijke taxi- en reisaanvragen in Nederland.",
+    footerDiscover: "Ontdek",
+    footerDestinations: "Bestemmingen",
+    footerHow: "Zo werkt het",
+    footerContact: "Contact",
+    footerFaq: "Veelgestelde vragen",
+    footerRights: "Alle rechten voorbehouden.",
+    stopPlaceholder: "Tussenstop {number}",
+    removeStop: "Verwijder tussenstop {number}",
+    locationUnavailable: "Locatieservices zijn niet beschikbaar. Vul je adres handmatig in.",
+    locationLoading: "Locatie ophalen…",
+    locationSuccess: "Je huidige locatie is toegevoegd.",
+    locationAddressError: "Adres niet gevonden. Vul het handmatig in.",
+    locationDenied: "Locatietoegang geweigerd. Vul je adres handmatig in.",
+    locationError: "Locatie kon niet worden opgehaald.",
+    addressServiceError: "Adres zoeken is tijdelijk niet beschikbaar.",
+    addressNotFound: "Adres niet gevonden: “{address}”. Kies een suggestie of voeg de plaats toe.",
+    routeError: "De autoroute kon niet worden berekend.",
+    noRoute: "Er is geen autoroute gevonden voor deze adressen.",
+    fillRoute: "Vul een vertrekpunt en bestemming in.",
+    calculating: "Berekening wordt gemaakt…",
+    estimateMessage: "Geschatte prijs: {price} ({distance} km, ongeveer {minutes} minuten). WhatsApp wordt geopend.",
+    popupMessage: "Sta pop-ups toe als WhatsApp niet opent.",
+    formError: "Controleer je ingevulde gegevens.",
+    estimateError: "De prijs kon niet worden berekend. Controleer de adressen.",
+    notProvided: "Niet opgegeven",
+    yes: "Ja",
+    no: "Nee",
+    enquiryTitle: "Holland Way Tours — ritprijs aanvragen",
+    whatsappName: "Naam",
+    whatsappEmail: "E-mail",
+    whatsappPhone: "Telefoon",
+    whatsappPickup: "Vertrek",
+    whatsappStop: "Tussenstop {number}",
+    whatsappDestination: "Bestemming",
+    whatsappDate: "Vertrektijd",
+    whatsappPassengers: "Passagiers",
+    whatsappLarge: "Grote koffers",
+    whatsappCabin: "Handbagage",
+    whatsappPersonal: "Handtassen/rugzakken",
+    whatsappReturn: "Retourrit",
+    whatsappReturnTime: "Tijd retourrit",
+    whatsappDistance: "Geschatte afstand",
+    whatsappDuration: "Geschatte reistijd",
+    whatsappFare: "Geschatte prijs",
+    whatsappNotes: "Opmerkingen",
+    whatsappDisclaimer: "Dit is een schatting en aanvraag, geen bevestigde boeking."
+  },
 
-    const languageSelect = document.getElementById("language-select");
-    const menuToggle = document.getElementById("menu-toggle");
-    const menuLabel = document.getElementById("menu-label");
-    const nav = document.getElementById("navigation");
+  en: {
+    title: "Holland Way Tours | Explore the Netherlands",
+    direction: "ltr",
+    location: "Hoofddorp, Netherlands",
+    topbarNote: "Personal travel enquiries throughout the Netherlands",
+    navLabel: "Main navigation",
+    home: "Home",
+    services: "Services",
+    about: "About",
+    contact: "Contact",
+    request: "Request a ride",
+    menu: "Menu",
+    close: "Close",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    language: "Language",
+    chooseLanguage: "Choose a language",
+    heroKicker: "Discover more of the Netherlands",
+    heroTitle: "Make the<br>journey <em>yours.</em>",
+    heroCopy: "From city streets to countryside escapes, plan a private ride around the places and moments you want to experience.",
+    heroPlan: "Plan your journey",
+    heroDestinations: "Explore destinations",
+    stat1: "Personal enquiries",
+    stat2: "Flexible stops",
+    stat3: "Clear fare estimates",
+    quickFrom: "Where from?",
+    quickTo: "Where to?",
+    pickupPlaceholder: "Pickup location",
+    destinationPlaceholder: "Your destination",
+    quickSubmit: "Start an enquiry →",
+    imageAlt: "Canal and historic buildings in Amsterdam",
+    imageLabel: "Your own route",
+    imageLabelSmall: "Tailored to your travel plans",
+    aboutEyebrow: "A more personal way to travel",
+    aboutTitle: "Discover more than the usual route.",
+    aboutText: "Whether you are heading to Amsterdam, visiting the countryside or planning a day out, send us your travel details. We will contact you to discuss your journey and availability.",
+    check1: "Choose your pickup and destination",
+    check2: "Add stops along the way",
+    check3: "Tell us about luggage and passengers",
+    check4: "Request a return ride",
+    aboutButton: "Tell us about your trip →",
+    destinationsEyebrow: "Choose your next destination",
+    destinationsTitle: "Dutch escapes.",
+    destinationsText: "Choose a destination or enter another address.",
+    typeAmsterdam: "Canals · Culture",
+    textAmsterdam: "Explore the canals, neighbourhoods and historic streets.",
+    typeKeukenhof: "Flowers · Seasonal",
+    textKeukenhof: "Combine the gardens with a visit to the flower fields.",
+    typeUtrecht: "City · History",
+    textUtrecht: "Explore the old town and its canals.",
+    typeDelft: "Architecture · Heritage",
+    textDelft: "Enjoy the historic centre, canals and architecture.",
+    typeEfteling: "Family · Theme park",
+    textEfteling: "Request a ride for a fun day at the theme park.",
+    planTrip: "Plan this ride →",
+    servicesEyebrow: "Travel your way",
+    servicesTitle: "One ride or a day of discovery.",
+    servicesText: "Tell us your plans and we will discuss the options.",
+    service1: "Private ride enquiries",
+    service1Text: "Request a ride between your chosen pickup and destination.",
+    service2: "Airport transfers",
+    service2Text: "Include your flight or airport details in your enquiry.",
+    service3: "Routes with stops",
+    service3Text: "Add places you would like to visit along the way.",
+    service4: "Return journeys",
+    service4Text: "Request a return and let us know your preferred time.",
+    service5: "Luggage details",
+    service5Text: "Tell us how many bags you will bring.",
+    service6: "Personal contact",
+    service6Text: "Discuss availability and the final price in advance.",
+    howEyebrow: "Simple from start to finish",
+    howTitle: "On your way in four steps.",
+    howText: "Your enquiry is not a confirmed booking. Your ride is confirmed once the details have been agreed.",
+    step1: "Enter your route",
+    step1Text: "Enter your pickup, destination and any stops.",
+    step2: "Add your details",
+    step2Text: "Choose a time and tell us about passengers and luggage.",
+    step3: "View the estimate",
+    step3Text: "Review the estimated distance, journey time and fare.",
+    step4: "Send your enquiry",
+    step4Text: "Continue to WhatsApp to discuss your enquiry.",
+    bookingEyebrow: "Let’s plan your route",
+    bookingIntroTitle: "Where will your journey take you?",
+    bookingIntroText: "Enter your travel details for a route-based estimate. We will contact you on WhatsApp about availability and pricing.",
+    preferCall: "Prefer to call?",
+    bookingTitle: "Plan your ride",
+    bookingDescription: "Enter your travel details to calculate an estimated fare.",
+    bookingTag: "Enquiry — not confirmed",
+    pickupLabel: "Pickup address *",
+    destinationLabel: "Destination *",
+    addressPlaceholder: "Street, town or location",
+    destinationFieldPlaceholder: "Address, town or airport",
+    useLocation: "◎ Use my current location",
+    addStop: "＋ Add a stop",
+    luggage: "Luggage",
+    large: "Large suitcases",
+    cabin: "Cabin bags",
+    personal: "Handbag / backpack",
+    pickupTimeLabel: "Pickup date and time *",
+    returnToggle: "I would also like to request a return ride",
+    returnTimeLabel: "Return date and time *",
+    passengersLabel: "Number of passengers",
+    removePassenger: "Remove one passenger",
+    addPassenger: "Add one passenger",
+    nameLabel: "Your name *",
+    namePlaceholder: "First and last name",
+    emailLabel: "Email address",
+    phoneLabel: "Phone number *",
+    noteLabel: "Additional information",
+    notePlaceholder: "Accessibility needs or other requests",
+    fareNote: "Estimate: €4 start fee + €3 per kilometre + €0.50 per minute. The final fare may differ; this is not a confirmed booking.",
+    calculateButton: "Calculate estimate and continue →",
+    faqEyebrow: "Before you go",
+    faqTitle: "A few helpful answers.",
+    faq1: "Is my ride confirmed when I submit the form?",
+    faq1Text: "No. The form sends an enquiry. The ride is confirmed only after availability, details and pricing have been agreed.",
+    faq2: "How is the online estimate calculated?",
+    faq2Text: "The estimate uses a €4 start fee, €3 per kilometre and €0.50 per estimated driving minute. Traffic and route changes may affect the final fare.",
+    faq3: "Can I add stops and request a return ride?",
+    faq3Text: "Yes. Add stops and select the return ride option.",
+    ctaEyebrow: "Your next journey starts here",
+    ctaTitle: "Already know where you want to go?",
+    ctaText: "Send us your travel details and we will discuss your enquiry.",
+    planRide: "Plan a ride →",
+    call: "Call 06 8111 0006",
+    emailUs: "Email us",
+    footerDescription: "Personal taxi and travel enquiries in the Netherlands.",
+    footerDiscover: "Explore",
+    footerDestinations: "Destinations",
+    footerHow: "How it works",
+    footerContact: "Contact",
+    footerFaq: "Frequently asked questions",
+    footerRights: "All rights reserved.",
+    stopPlaceholder: "Stop {number}",
+    removeStop: "Remove stop {number}",
+    locationUnavailable: "Location services are unavailable. Enter your address manually.",
+    locationLoading: "Getting your location…",
+    locationSuccess: "Your current location has been added.",
+    locationAddressError: "Address not found. Enter it manually.",
+    locationDenied: "Location access denied. Enter your address manually.",
+    locationError: "Could not retrieve your location.",
+    addressServiceError: "Address search is temporarily unavailable.",
+    addressNotFound: "Address not found: “{address}”. Choose a suggestion or add the town.",
+    routeError: "Could not calculate the driving route.",
+    noRoute: "No driving route was found for these addresses.",
+    fillRoute: "Enter a pickup location and destination.",
+    calculating: "Calculating…",
+    estimateMessage: "Estimated fare: {price} ({distance} km, approximately {minutes} minutes). Opening WhatsApp.",
+    popupMessage: "Allow pop-ups if WhatsApp does not open.",
+    formError: "Please check your information.",
+    estimateError: "Could not calculate the fare. Please check the addresses.",
+    notProvided: "Not provided",
+    yes: "Yes",
+    no: "No",
+    enquiryTitle: "Holland Way Tours — ride fare enquiry",
+    whatsappName: "Name",
+    whatsappEmail: "Email",
+    whatsappPhone: "Phone",
+    whatsappPickup: "Pickup",
+    whatsappStop: "Stop {number}",
+    whatsappDestination: "Destination",
+    whatsappDate: "Pickup time",
+    whatsappPassengers: "Passengers",
+    whatsappLarge: "Large suitcases",
+    whatsappCabin: "Cabin bags",
+    whatsappPersonal: "Handbags/backpacks",
+    whatsappReturn: "Return ride",
+    whatsappReturnTime: "Return time",
+    whatsappDistance: "Estimated distance",
+    whatsappDuration: "Estimated journey time",
+    whatsappFare: "Estimated fare",
+    whatsappNotes: "Notes",
+    whatsappDisclaimer: "This is an estimate and enquiry, not a confirmed booking."
+  },
 
-    function applyLanguage(language) {
-      const dict = translations[language] || translations.nl;
+  ar: {
+    title: "هولاند واي تورز | اكتشف هولندا",
+    direction: "rtl",
+    location: "هوفدورب، هولندا",
+    topbarNote: "طلبات رحلات شخصية في جميع أنحاء هولندا",
+    navLabel: "التنقل الرئيسي",
+    home: "الرئيسية",
+    services: "الخدمات",
+    about: "من نحن",
+    contact: "اتصل بنا",
+    request: "اطلب رحلة",
+    menu: "القائمة",
+    close: "إغلاق",
+    menuOpen: "فتح القائمة",
+    menuClose: "إغلاق القائمة",
+    language: "اللغة",
+    chooseLanguage: "اختر لغة",
+    heroKicker: "اكتشف المزيد من هولندا",
+    heroTitle: "اجعل<br>الرحلة <em>رحلتك.</em>",
+    heroCopy: "من شوارع المدينة إلى رحلات الريف، خطط لرحلتك الخاصة إلى الأماكن والتجارب التي تريد اكتشافها.",
+    heroPlan: "خطط لرحلتك",
+    heroDestinations: "اكتشف الوجهات",
+    stat1: "طلبات شخصية",
+    stat2: "محطات مرنة",
+    stat3: "تقديرات واضحة للأسعار",
+    quickFrom: "من أين؟",
+    quickTo: "إلى أين؟",
+    pickupPlaceholder: "موقع الانطلاق",
+    destinationPlaceholder: "وجهتك",
+    quickSubmit: "ابدأ الطلب →",
+    imageAlt: "قناة ومبانٍ تاريخية في أمستردام",
+    imageLabel: "مسارك الخاص",
+    imageLabelSmall: "مصمم وفقاً لخطط رحلتك",
+    aboutEyebrow: "طريقة أكثر خصوصية للسفر",
+    aboutTitle: "اكتشف ما هو أبعد من المسار المعتاد.",
+    aboutText: "سواء كنت متجهاً إلى أمستردام أو تزور الريف أو تخطط لنزهة، أرسل إلينا تفاصيل رحلتك. سنتواصل معك لمناقشة الرحلة والتوافر.",
+    check1: "اختر نقطة الانطلاق والوجهة",
+    check2: "أضف محطات على الطريق",
+    check3: "أخبرنا عن الأمتعة والركاب",
+    check4: "اطلب رحلة ذهاب وعودة",
+    aboutButton: "أخبرنا عن رحلتك →",
+    destinationsEyebrow: "اختر وجهتك التالية",
+    destinationsTitle: "رحلات مميزة في هولندا.",
+    destinationsText: "اختر وجهة أو أدخل عنواناً آخر.",
+    typeAmsterdam: "قنوات · ثقافة",
+    textAmsterdam: "اكتشف القنوات والأحياء والشوارع التاريخية.",
+    typeKeukenhof: "زهور · موسمية",
+    textKeukenhof: "اجمع بين زيارة الحدائق وحقول الزهور.",
+    typeUtrecht: "مدينة · تاريخ",
+    textUtrecht: "اكتشف البلدة القديمة والقنوات.",
+    typeDelft: "عمارة · تراث",
+    textDelft: "استمتع بالمركز التاريخي والقنوات والهندسة المعمارية.",
+    typeEfteling: "عائلة · مدينة ملاهٍ",
+    textEfteling: "اطلب رحلة لقضاء يوم ممتع في مدينة الملاهي.",
+    planTrip: "خطط لهذه الرحلة →",
+    servicesEyebrow: "سافر على طريقتك",
+    servicesTitle: "رحلة واحدة أو يوم مليء بالاكتشاف.",
+    servicesText: "أخبرنا بخططك وسنناقش الخيارات المتاحة.",
+    service1: "طلبات الرحلات الخاصة",
+    service1Text: "اطلب رحلة بين نقطة الانطلاق والوجهة التي تختارها.",
+    service2: "النقل من وإلى المطار",
+    service2Text: "أضف تفاصيل رحلتك الجوية أو المطار إلى طلبك.",
+    service3: "مسارات مع محطات",
+    service3Text: "أضف الأماكن التي ترغب بزيارتها في الطريق.",
+    service4: "رحلات العودة",
+    service4Text: "اطلب رحلة عودة وأخبرنا بالوقت المناسب لك.",
+    service5: "تفاصيل الأمتعة",
+    service5Text: "أخبرنا بعدد الحقائب التي ستصطحبها.",
+    service6: "تواصل شخصي",
+    service6Text: "ناقش التوافر والسعر النهائي معنا مسبقاً.",
+    howEyebrow: "سهولة من البداية إلى النهاية",
+    howTitle: "انطلق في أربع خطوات.",
+    howText: "طلبك ليس حجزاً مؤكداً. يتم تأكيد الرحلة بعد الاتفاق على التفاصيل.",
+    step1: "أدخل مسارك",
+    step1Text: "أدخل نقطة الانطلاق والوجهة وأي محطات.",
+    step2: "أضف بياناتك",
+    step2Text: "اختر الوقت وأدخل معلومات الركاب والأمتعة.",
+    step3: "راجع التقدير",
+    step3Text: "راجع المسافة ومدة الرحلة والسعر التقديري.",
+    step4: "أرسل طلبك",
+    step4Text: "تابع إلى واتساب لمناقشة طلبك.",
+    bookingEyebrow: "لنخطط لمسارك",
+    bookingIntroTitle: "إلى أين ستأخذك الرحلة؟",
+    bookingIntroText: "أدخل تفاصيل رحلتك للحصول على تقدير يعتمد على المسار. سنتواصل معك عبر واتساب بشأن التوافر والسعر.",
+    preferCall: "هل تفضل الاتصال؟",
+    bookingTitle: "خطط لرحلتك",
+    bookingDescription: "أدخل تفاصيل رحلتك لحساب السعر التقديري.",
+    bookingTag: "طلب — غير مؤكد",
+    pickupLabel: "عنوان الانطلاق *",
+    destinationLabel: "الوجهة *",
+    addressPlaceholder: "الشارع أو المدينة أو الموقع",
+    destinationFieldPlaceholder: "العنوان أو المدينة أو المطار",
+    useLocation: "◎ استخدم موقعي الحالي",
+    addStop: "＋ أضف محطة",
+    luggage: "الأمتعة",
+    large: "حقائب كبيرة",
+    cabin: "حقائب مقصورة",
+    personal: "حقيبة يد / حقيبة ظهر",
+    pickupTimeLabel: "تاريخ ووقت الانطلاق *",
+    returnToggle: "أرغب أيضاً في طلب رحلة عودة",
+    returnTimeLabel: "تاريخ ووقت رحلة العودة *",
+    passengersLabel: "عدد الركاب",
+    removePassenger: "إزالة راكب",
+    addPassenger: "إضافة راكب",
+    nameLabel: "اسمك *",
+    namePlaceholder: "الاسم الأول واسم العائلة",
+    emailLabel: "البريد الإلكتروني",
+    phoneLabel: "رقم الهاتف *",
+    noteLabel: "معلومات إضافية",
+    notePlaceholder: "احتياجات الوصول أو طلبات أخرى",
+    fareNote: "التقدير: 4 يورو رسوم بدء + 3 يورو لكل كيلومتر + 0.50 يورو لكل دقيقة. قد يختلف السعر النهائي؛ وهذا ليس حجزاً مؤكداً.",
+    calculateButton: "احسب التقدير وتابع →",
+    faqEyebrow: "قبل الانطلاق",
+    faqTitle: "إجابات مفيدة لبعض الأسئلة.",
+    faq1: "هل يتم تأكيد رحلتي عند إرسال النموذج؟",
+    faq1Text: "لا. يرسل النموذج طلب استفسار. يتم تأكيد الرحلة بعد الاتفاق على التوافر والتفاصيل والسعر.",
+    faq2: "كيف يُحسب التقدير عبر الإنترنت؟",
+    faq2Text: "يعتمد التقدير على 4 يورو رسوم بدء و3 يورو لكل كيلومتر و0.50 يورو لكل دقيقة قيادة تقديرية. قد تؤثر حركة المرور وتغييرات المسار على السعر النهائي.",
+    faq3: "هل يمكنني إضافة محطات وطلب رحلة عودة؟",
+    faq3Text: "نعم. أضف المحطات وحدد خيار رحلة العودة.",
+    ctaEyebrow: "رحلتك التالية تبدأ هنا",
+    ctaTitle: "هل تعرف إلى أين تريد الذهاب؟",
+    ctaText: "أرسل تفاصيل رحلتك وسنناقش طلبك.",
+    planRide: "خطط لرحلة →",
+    call: "اتصل على 06 8111 0006",
+    emailUs: "راسلنا",
+    footerDescription: "طلبات سيارات الأجرة والرحلات الشخصية في هولندا.",
+    footerDiscover: "اكتشف",
+    footerDestinations: "الوجهات",
+    footerHow: "كيف تعمل الخدمة",
+    footerContact: "اتصل بنا",
+    footerFaq: "الأسئلة الشائعة",
+    footerRights: "جميع الحقوق محفوظة.",
+    stopPlaceholder: "المحطة {number}",
+    removeStop: "إزالة المحطة {number}",
+    locationUnavailable: "خدمات الموقع غير متاحة. أدخل عنوانك يدوياً.",
+    locationLoading: "جارٍ تحديد موقعك…",
+    locationSuccess: "تمت إضافة موقعك الحالي.",
+    locationAddressError: "لم يتم العثور على العنوان. أدخله يدوياً.",
+    locationDenied: "تم رفض الوصول إلى الموقع. أدخل عنوانك يدوياً.",
+    locationError: "تعذر الحصول على موقعك.",
+    addressServiceError: "البحث عن العنوان غير متاح مؤقتاً.",
+    addressNotFound: "لم يتم العثور على العنوان: «{address}». اختر اقتراحاً أو أضف اسم المدينة.",
+    routeError: "تعذر حساب مسار القيادة.",
+    noRoute: "لم يتم العثور على مسار قيادة لهذه العناوين.",
+    fillRoute: "أدخل نقطة الانطلاق والوجهة.",
+    calculating: "جارٍ الحساب…",
+    estimateMessage: "السعر التقديري: {price} ({distance} كم، حوالي {minutes} دقيقة). جارٍ فتح واتساب.",
+    popupMessage: "اسمح بالنوافذ المنبثقة إذا لم يفتح واتساب.",
+    formError: "يرجى التحقق من المعلومات المدخلة.",
+    estimateError: "تعذر حساب السعر. يرجى التحقق من العناوين.",
+    notProvided: "غير محدد",
+    yes: "نعم",
+    no: "لا",
+    enquiryTitle: "هولاند واي تورز — طلب تقدير سعر رحلة",
+    whatsappName: "الاسم",
+    whatsappEmail: "البريد الإلكتروني",
+    whatsappPhone: "الهاتف",
+    whatsappPickup: "الانطلاق",
+    whatsappStop: "المحطة {number}",
+    whatsappDestination: "الوجهة",
+    whatsappDate: "وقت الانطلاق",
+    whatsappPassengers: "الركاب",
+    whatsappLarge: "حقائب كبيرة",
+    whatsappCabin: "حقائب المقصورة",
+    whatsappPersonal: "حقائب اليد والظهر",
+    whatsappReturn: "رحلة عودة",
+    whatsappReturnTime: "وقت العودة",
+    whatsappDistance: "المسافة التقديرية",
+    whatsappDuration: "مدة الرحلة التقديرية",
+    whatsappFare: "السعر التقديري",
+    whatsappNotes: "ملاحظات",
+    whatsappDisclaimer: "هذا تقدير وطلب استفسار، وليس حجزاً مؤكداً."
+  },
 
-      document.documentElement.lang = language;
-      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-      document.title = dict.title;
+  de: {
+    title: "Holland Way Tours | Die Niederlande entdecken",
+    direction: "ltr",
+    location: "Hoofddorp, Niederlande",
+    topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
+    navLabel: "Hauptnavigation",
+    home: "Startseite",
+    services: "Dienstleistungen",
+    about: "Über uns",
+    contact: "Kontakt",
+    request: "Fahrt anfragen",
+    menu: "Menü",
+    close: "Schließen",
+    menuOpen: "Menü öffnen",
+    menuClose: "Menü schließen",
+    language: "Sprache",
+    chooseLanguage: "Sprache auswählen",
+    heroKicker: "Entdecken Sie mehr von den Niederlanden",
+    heroTitle: "Machen Sie die<br>Reise <em zu Ihrer.</em>",
+    heroCopy: "Planen Sie Ihre private Fahrt durch Stadt oder Land und entdecken Sie die Orte und Erlebnisse, die Sie interessieren.",
+    heroPlan: "Reise planen",
+    heroDestinations: "Reiseziele entdecken",
+    stat1: "Persönliche Anfragen",
+    stat2: "Flexible Zwischenstopps",
+    stat3: "Klare Preisschätzungen",
+    quickFrom: "Von wo?",
+    quickTo: "Wohin?",
+    pickupPlaceholder: "Abholort",
+    destinationPlaceholder: "Ihr Reiseziel",
+    quickSubmit: "Anfrage starten →",
+    imageAlt: "Gracht und historische Gebäude in Amsterdam",
+    imageLabel: "Ihre eigene Route",
+    imageLabelSmall: "Auf Ihre Reisepläne abgestimmt",
+    aboutEyebrow: "Eine persönlichere Art zu reisen",
+    aboutTitle: "Entdecken Sie mehr als die übliche Route.",
+    aboutText: "Ob Amsterdam, ein Ausflug aufs Land oder ein Tagesausflug: Senden Sie uns Ihre Reisedaten. Wir melden uns, um Ihre Fahrt und die Verfügbarkeit zu besprechen.",
+    check1: "Abholort und Ziel auswählen",
+    check2: "Zwischenstopps hinzufügen",
+    check3: "Gepäck und Fahrgäste angeben",
+    check4: "Rückfahrt anfragen",
+    aboutButton: "Erzählen Sie uns von Ihrer Reise →",
+    destinationsEyebrow: "Wählen Sie Ihr nächstes Reiseziel",
+    destinationsTitle: "Ausflüge in den Niederlanden.",
+    destinationsText: "Wählen Sie ein Ziel oder geben Sie eine andere Adresse ein.",
+    typeAmsterdam: "Grachten · Kultur",
+    textAmsterdam: "Entdecken Sie Grachten, Viertel und historische Straßen.",
+    typeKeukenhof: "Blumen · Saison",
+    textKeukenhof: "Verbinden Sie den Gartenbesuch mit den Blumenfeldern.",
+    typeUtrecht: "Stadt · Geschichte",
+    textUtrecht: "Entdecken Sie die Altstadt und die Grachten.",
+    typeDelft: "Architektur · Kulturerbe",
+    textDelft: "Genießen Sie die historische Altstadt, Grachten und Architektur.",
+    typeEfteling: "Familie · Freizeitpark",
+    textEfteling: "Fragen Sie eine Fahrt für einen schönen Tag im Freizeitpark an.",
+    planTrip: "Diese Fahrt planen →",
+    servicesEyebrow: "Reisen Sie auf Ihre Art",
+    servicesTitle: "Eine Fahrt oder ein Tag voller Entdeckungen.",
+    servicesText: "Erzählen Sie uns von Ihren Plänen, dann besprechen wir die Möglichkeiten.",
+    service1: "Privatfahrten anfragen",
+    service1Text: "Fragen Sie eine Fahrt zwischen Abholort und Ziel an.",
+    service2: "Flughafentransfers",
+    service2Text: "Nennen Sie bei Ihrer Anfrage Ihre Flug- oder Flughafendaten.",
+    service3: "Routen mit Zwischenstopps",
+    service3Text: "Fügen Sie Orte hinzu, die Sie unterwegs besuchen möchten.",
+    service4: "Rückfahrten",
+    service4Text: "Fragen Sie eine Rückfahrt an und nennen Sie Ihre Wunschzeit.",
+    service5: "Gepäckangaben",
+    service5Text: "Geben Sie an, wie viele Taschen Sie mitbringen.",
+    service6: "Persönlicher Kontakt",
+    service6Text: "Besprechen Sie Verfügbarkeit und Endpreis im Voraus.",
+    howEyebrow: "Einfach von Anfang bis Ende",
+    howTitle: "In vier Schritten unterwegs.",
+    howText: "Ihre Anfrage ist keine bestätigte Buchung. Die Fahrt wird bestätigt, sobald alle Einzelheiten vereinbart sind.",
+    step1: "Route eingeben",
+    step1Text: "Geben Sie Abholort, Ziel und Zwischenstopps ein.",
+    step2: "Angaben ergänzen",
+    step2Text: "Wählen Sie eine Zeit und nennen Sie Fahrgäste und Gepäck.",
+    step3: "Schätzung ansehen",
+    step3Text: "Prüfen Sie die geschätzte Entfernung, Fahrzeit und den Preis.",
+    step4: "Anfrage senden",
+    step4Text: "Besprechen Sie Ihre Anfrage anschließend über WhatsApp.",
+    bookingEyebrow: "Planen wir Ihre Route",
+    bookingIntroTitle: "Wohin führt Sie Ihre Reise?",
+    bookingIntroText: "Geben Sie Ihre Reisedaten für eine routenbasierte Schätzung ein. Wir kontaktieren Sie über WhatsApp zu Verfügbarkeit und Preis.",
+    preferCall: "Lieber anrufen?",
+    bookingTitle: "Fahrt planen",
+    bookingDescription: "Geben Sie Ihre Reisedaten ein, um den geschätzten Fahrpreis zu berechnen.",
+    bookingTag: "Anfrage — nicht bestätigt",
+    pickupLabel: "Abholadresse *",
+    destinationLabel: "Ziel *",
+    addressPlaceholder: "Straße, Ort oder Standort",
+    destinationFieldPlaceholder: "Adresse, Ort oder Flughafen",
+    useLocation: "◎ Meinen aktuellen Standort verwenden",
+    addStop: "＋ Zwischenstopp hinzufügen",
+    luggage: "Gepäck",
+    large: "Große Koffer",
+    cabin: "Handgepäck",
+    personal: "Handtasche / Rucksack",
+    pickupTimeLabel: "Abholdatum und -zeit *",
+    returnToggle: "Ich möchte auch eine Rückfahrt anfragen",
+    returnTimeLabel: "Datum und Uhrzeit der Rückfahrt *",
+    passengersLabel: "Anzahl der Fahrgäste",
+    removePassenger: "Einen Fahrgast entfernen",
+    addPassenger: "Einen Fahrgast hinzufügen",
+    nameLabel: "Ihr Name *",
+    namePlaceholder: "Vor- und Nachname",
+    emailLabel: "E-Mail-Adresse",
+    phoneLabel: "Telefonnummer *",
+    noteLabel: "Zusätzliche Informationen",
+    notePlaceholder: "Barrierefreiheit oder weitere Wünsche",
+    fareNote: "Schätzung: 4 € Grundgebühr + 3 € pro Kilometer + 0,50 € pro Minute. Der Endpreis kann abweichen; dies ist keine bestätigte Buchung.",
+    calculateButton: "Schätzung berechnen und fortfahren →",
+    faqEyebrow: "Bevor Sie losfahren",
+    faqTitle: "Einige hilfreiche Antworten.",
+    faq1: "Ist meine Fahrt nach dem Absenden des Formulars bestätigt?",
+    faq1Text: "Nein. Das Formular sendet eine Anfrage. Bestätigt wird die Fahrt erst, nachdem Verfügbarkeit, Details und Preis vereinbart wurden.",
+    faq2: "Wie wird die Online-Schätzung berechnet?",
+    faq2Text: "Die Schätzung basiert auf 4 € Grundgebühr, 3 € pro Kilometer und 0,50 € pro geschätzter Fahrminute. Verkehr und Routenänderungen können den Endpreis beeinflussen.",
+    faq3: "Kann ich Zwischenstopps und eine Rückfahrt hinzufügen?",
+    faq3Text: "Ja. Fügen Sie Zwischenstopps hinzu und wählen Sie die Rückfahrt aus.",
+    ctaEyebrow: "Ihre nächste Reise beginnt hier",
+    ctaTitle: "Wissen Sie schon, wohin Sie möchten?",
+    ctaText: "Senden Sie uns Ihre Reisedaten, damit wir Ihre Anfrage besprechen können.",
+    planRide: "Fahrt planen →",
+    call: "Anrufen: 06 8111 0006",
+    emailUs: "E-Mail senden",
+    footerDescription: "Persönliche Taxi- und Reiseanfragen in den Niederlanden.",
+    footerDiscover: "Entdecken",
+    footerDestinations: "Reiseziele",
+    footerHow: "So funktioniert es",
+    footerContact: "Kontakt",
+    footerFaq: "Häufig gestellte Fragen",
+    footerRights: "Alle Rechte vorbehalten.",
+    stopPlaceholder: "Zwischenstopp {number}",
+    removeStop: "Zwischenstopp {number} entfernen",
+    locationUnavailable: "Standortdienste sind nicht verfügbar. Geben Sie Ihre Adresse manuell ein.",
+    locationLoading: "Standort wird abgerufen…",
+    locationSuccess: "Ihr aktueller Standort wurde hinzugefügt.",
+    locationAddressError: "Adresse nicht gefunden. Geben Sie sie manuell ein.",
+    locationDenied: "Standortzugriff verweigert. Geben Sie Ihre Adresse manuell ein.",
+    locationError: "Standort konnte nicht abgerufen werden.",
+    addressServiceError: "Die Adresssuche ist vorübergehend nicht verfügbar.",
+    addressNotFound: "Adresse nicht gefunden: „{address}“. Wählen Sie einen Vorschlag oder ergänzen Sie den Ort.",
+    routeError: "Die Fahrstrecke konnte nicht berechnet werden.",
+    noRoute: "Für diese Adressen wurde keine Fahrstrecke gefunden.",
+    fillRoute: "Geben Sie Abholort und Ziel ein.",
+    calculating: "Berechnung läuft…",
+    estimateMessage: "Geschätzter Preis: {price} ({distance} km, etwa {minutes} Minuten). WhatsApp wird geöffnet.",
+    popupMessage: "Erlauben Sie Pop-ups, wenn WhatsApp nicht geöffnet wird.",
+    formError: "Bitte überprüfen Sie Ihre Angaben.",
+    estimateError: "Der Preis konnte nicht berechnet werden. Bitte überprüfen Sie die Adressen.",
+    notProvided: "Nicht angegeben",
+    yes: "Ja",
+    no: "Nein",
+    enquiryTitle: "Holland Way Tours — Fahrpreisanfrage",
+    whatsappName: "Name",
+    whatsappEmail: "E-Mail",
+    whatsappPhone: "Telefon",
+    whatsappPickup: "Abholung",
+    whatsappStop: "Zwischenstopp {number}",
+    whatsappDestination: "Ziel",
+    whatsappDate: "Abholzeit",
+    whatsappPassengers: "Fahrgäste",
+    whatsappLarge: "Große Koffer",
+    whatsappCabin: "Handgepäck",
+    whatsappPersonal: "Handtaschen/Rucksäcke",
+    whatsappReturn: "Rückfahrt",
+    whatsappReturnTime: "Zeit der Rückfahrt",
+    whatsappDistance: "Geschätzte Entfernung",
+    whatsappDuration: "Geschätzte Fahrzeit",
+    whatsappFare: "Geschätzter Preis",
+    whatsappNotes: "Anmerkungen",
+    whatsappDisclaimer: "Dies ist eine Schätzung und Anfrage, keine bestätigte Buchung."
+  },
 
-      document.querySelectorAll("[data-i18n]").forEach(element => {
-        const text = dict[element.dataset.i18n];
-        if (text) element.innerHTML = text;
-      });
+  fr: {
+    title: "Holland Way Tours | Découvrez les Pays-Bas",
+    direction: "ltr",
+    location: "Hoofddorp, Pays-Bas",
+    topbarNote: "Demandes de trajets personnalisées dans tous les Pays-Bas",
+    navLabel: "Navigation principale",
+    home: "Accueil",
+    services: "Services",
+    about: "À propos",
+    contact: "Contact",
+    request: "Demander un trajet",
+    menu: "Menu",
+    close: "Fermer",
+    menuOpen: "Ouvrir le menu",
+    menuClose: "Fermer le menu",
+    language: "Langue",
+    chooseLanguage: "Choisir une langue",
+    heroKicker: "Découvrez davantage les Pays-Bas",
+    heroTitle: "Faites de ce<br>voyage <em>le vôtre.</em>",
+    heroCopy: "Des rues citadines aux escapades à la campagne, planifiez un trajet privé selon vos envies et vos découvertes.",
+    heroPlan: "Planifier votre trajet",
+    heroDestinations: "Découvrir les destinations",
+    stat1: "Demandes personnalisées",
+    stat2: "Arrêts flexibles",
+    stat3: "Estimations claires",
+    quickFrom: "Départ ?",
+    quickTo: "Destination ?",
+    pickupPlaceholder: "Lieu de départ",
+    destinationPlaceholder: "Votre destination",
+    quickSubmit: "Commencer la demande →",
+    imageAlt: "Canal et bâtiments historiques à Amsterdam",
+    imageLabel: "Votre itinéraire",
+    imageLabelSmall: "Adapté à votre programme",
+    aboutEyebrow: "Une manière plus personnelle de voyager",
+    aboutTitle: "Découvrez plus que l’itinéraire habituel.",
+    aboutText: "Que vous partiez à Amsterdam, visitiez la campagne ou organisiez une sortie, envoyez-nous les détails de votre voyage. Nous vous contacterons pour discuter de votre trajet et des disponibilités.",
+    check1: "Choisissez le départ et la destination",
+    check2: "Ajoutez des arrêts en chemin",
+    check3: "Indiquez les bagages et les passagers",
+    check4: "Demandez un trajet retour",
+    aboutButton: "Parlez-nous de votre voyage →",
+    destinationsEyebrow: "Choisissez votre prochaine destination",
+    destinationsTitle: "Escapades aux Pays-Bas.",
+    destinationsText: "Choisissez une destination ou saisissez une autre adresse.",
+    typeAmsterdam: "Canaux · Culture",
+    textAmsterdam: "Découvrez les canaux, les quartiers et les rues historiques.",
+    typeKeukenhof: "Fleurs · Saison",
+    textKeukenhof: "Combinez les jardins avec une visite des champs de fleurs.",
+    typeUtrecht: "Ville · Histoire",
+    textUtrecht: "Découvrez la vieille ville et ses canaux.",
+    typeDelft: "Architecture · Patrimoine",
+    textDelft: "Profitez du centre historique, des canaux et de l’architecture.",
+    typeEfteling: "Famille · Parc à thème",
+    textEfteling: "Demandez un trajet pour une belle journée au parc à thème.",
+    planTrip: "Planifier ce trajet →",
+    servicesEyebrow: "Voyagez à votre façon",
+    servicesTitle: "Un trajet ou une journée de découvertes.",
+    servicesText: "Parlez-nous de vos projets et nous étudierons les possibilités.",
+    service1: "Demandes de trajets privés",
+    service1Text: "Demandez un trajet entre le départ et la destination de votre choix.",
+    service2: "Transferts aéroport",
+    service2Text: "Indiquez les détails de votre vol ou de l’aéroport.",
+    service3: "Trajets avec arrêts",
+    service3Text: "Ajoutez les lieux que vous souhaitez visiter en chemin.",
+    service4: "Trajets retour",
+    service4Text: "Demandez un retour et indiquez l’heure souhaitée.",
+    service5: "Détails des bagages",
+    service5Text: "Indiquez le nombre de bagages que vous emportez.",
+    service6: "Contact personnalisé",
+    service6Text: "Discutez à l’avance des disponibilités et du prix final.",
+    howEyebrow: "Simple du début à la fin",
+    howTitle: "En route en quatre étapes.",
+    howText: "Votre demande ne constitue pas une réservation confirmée. Le trajet sera confirmé une fois les détails convenus.",
+    step1: "Saisissez votre itinéraire",
+    step1Text: "Indiquez le départ, la destination et les arrêts.",
+    step2: "Ajoutez vos informations",
+    step2Text: "Choisissez une heure et indiquez les passagers et les bagages.",
+    step3: "Consultez l’estimation",
+    step3Text: "Consultez la distance, la durée et le tarif estimés.",
+    step4: "Envoyez votre demande",
+    step4Text: "Continuez sur WhatsApp pour discuter de votre demande.",
+    bookingEyebrow: "Planifions votre itinéraire",
+    bookingIntroTitle: "Où votre voyage vous mènera-t-il ?",
+    bookingIntroText: "Saisissez vos informations pour obtenir une estimation calculée selon l’itinéraire. Nous vous contacterons sur WhatsApp concernant les disponibilités et le tarif.",
+    preferCall: "Vous préférez appeler ?",
+    bookingTitle: "Planifier votre trajet",
+    bookingDescription: "Saisissez vos informations pour calculer une estimation du tarif.",
+    bookingTag: "Demande — non confirmée",
+    pickupLabel: "Adresse de départ *",
+    destinationLabel: "Destination *",
+    addressPlaceholder: "Rue, ville ou lieu",
+    destinationFieldPlaceholder: "Adresse, ville ou aéroport",
+    useLocation: "◎ Utiliser ma position actuelle",
+    addStop: "＋ Ajouter un arrêt",
+    luggage: "Bagages",
+    large: "Grandes valises",
+    cabin: "Bagages cabine",
+    personal: "Sac à main / sac à dos",
+    pickupTimeLabel: "Date et heure de départ *",
+    returnToggle: "Je souhaite également demander un trajet retour",
+    returnTimeLabel: "Date et heure du retour *",
+    passengersLabel: "Nombre de passagers",
+    removePassenger: "Retirer un passager",
+    addPassenger: "Ajouter un passager",
+    nameLabel: "Votre nom *",
+    namePlaceholder: "Prénom et nom",
+    emailLabel: "Adresse e-mail",
+    phoneLabel: "Numéro de téléphone *",
+    noteLabel: "Informations complémentaires",
+    notePlaceholder: "Besoins d’accessibilité ou autres demandes",
+    fareNote: "Estimation : 4 € de prise en charge + 3 € par kilomètre + 0,50 € par minute. Le tarif final peut varier ; il ne s’agit pas d’une réservation confirmée.",
+    calculateButton: "Calculer l’estimation et continuer →",
+    faqEyebrow: "Avant le départ",
+    faqTitle: "Quelques réponses utiles.",
+    faq1: "Mon trajet est-il confirmé lorsque j’envoie le formulaire ?",
+    faq1Text: "Non. Le formulaire envoie une demande. Le trajet est confirmé uniquement après accord sur les disponibilités, les détails et le tarif.",
+    faq2: "Comment l’estimation en ligne est-elle calculée ?",
+    faq2Text: "L’estimation comprend 4 € de prise en charge, 3 € par kilomètre et 0,50 € par minute de conduite estimée. La circulation et les changements d’itinéraire peuvent modifier le tarif final.",
+    faq3: "Puis-je ajouter des arrêts et demander un trajet retour ?",
+    faq3Text: "Oui. Ajoutez des arrêts et cochez l’option de trajet retour.",
+    ctaEyebrow: "Votre prochain voyage commence ici",
+    ctaTitle: "Vous savez déjà où vous voulez aller ?",
+    ctaText: "Envoyez-nous les détails de votre voyage afin que nous puissions étudier votre demande.",
+    planRide: "Planifier un trajet →",
+    call: "Appeler le 06 8111 0006",
+    emailUs: "Envoyez-nous un e-mail",
+    footerDescription: "Demandes personnalisées de taxi et de trajets aux Pays-Bas.",
+    footerDiscover: "Découvrir",
+    footerDestinations: "Destinations",
+    footerHow: "Comment ça marche",
+    footerContact: "Contact",
+    footerFaq: "Questions fréquentes",
+    footerRights: "Tous droits réservés.",
+    stopPlaceholder: "Arrêt {number}",
+    removeStop: "Supprimer l’arrêt {number}",
+    locationUnavailable: "Les services de localisation ne sont pas disponibles. Saisissez votre adresse manuellement.",
+    locationLoading: "Recherche de votre position…",
+    locationSuccess: "Votre position actuelle a été ajoutée.",
+    locationAddressError: "Adresse introuvable. Saisissez-la manuellement.",
+    locationDenied: "Accès à la position refusé. Saisissez votre adresse manuellement.",
+    locationError: "Impossible de récupérer votre position.",
+    addressServiceError: "La recherche d’adresse est temporairement indisponible.",
+    addressNotFound: "Adresse introuvable : « {address} ». Choisissez une suggestion ou ajoutez la ville.",
+    routeError: "Impossible de calculer l’itinéraire.",
+    noRoute: "Aucun itinéraire routier n’a été trouvé pour ces adresses.",
+    fillRoute: "Saisissez un lieu de départ et une destination.",
+    calculating: "Calcul en cours…",
+    estimateMessage: "Tarif estimé : {price} ({distance} km, environ {minutes} minutes). Ouverture de WhatsApp.",
+    popupMessage: "Autorisez les fenêtres pop-up si WhatsApp ne s’ouvre pas.",
+    formError: "Veuillez vérifier les informations saisies.",
+    estimateError: "Impossible de calculer le tarif. Vérifiez les adresses.",
+    notProvided: "Non renseigné",
+    yes: "Oui",
+    no: "Non",
+    enquiryTitle: "Holland Way Tours — demande d’estimation de trajet",
+    whatsappName: "Nom",
+    whatsappEmail: "E-mail",
+    whatsappPhone: "Téléphone",
+    whatsappPickup: "Départ",
+    whatsappStop: "Arrêt {number}",
+    whatsappDestination: "Destination",
+    whatsappDate: "Heure de départ",
+    whatsappPassengers: "Passagers",
+    whatsappLarge: "Grandes valises",
+    whatsappCabin: "Bagages cabine",
+    whatsappPersonal: "Sacs à main / sacs à dos",
+    whatsappReturn: "Trajet retour",
+    whatsappReturnTime: "Heure du retour",
+    whatsappDistance: "Distance estimée",
+    whatsappDuration: "Durée estimée",
+    whatsappFare: "Tarif estimé",
+    whatsappNotes: "Remarques",
+    whatsappDisclaimer: "Il s’agit d’une estimation et d’une demande, pas d’une réservation confirmée."
+  }
+};
 
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
-        const text = dict[element.dataset.i18nPlaceholder];
-        if (text) element.placeholder = text;
-      });
+const languageSelect = document.getElementById("language-select");
+const menuToggle = document.getElementById("menu-toggle");
+const menuLabel = document.getElementById("menu-label");
+const nav = document.getElementById("navigation");
 
-      menuLabel.textContent = nav.classList.contains("open") ? dict.close : dict.menu;
-      menuToggle.setAttribute("aria-label", nav.classList.contains("open") ? dict.menuClose : dict.menuOpen);
-      languageSelect.value = language;
+function currentLanguage() {
+  return translations[languageSelect.value] ? languageSelect.value : "nl";
+}
+
+function translate(key, replacements = {}, language = currentLanguage()) {
+  const dictionary = translations[language] || translations.nl;
+  let text = dictionary[key] ?? translations.nl[key] ?? key;
+
+  for (const [name, value] of Object.entries(replacements)) {
+    text = text.replaceAll(`{${name}}`, String(value));
+  }
+
+  return text;
+}
+
+function applyLanguage(language) {
+  if (!translations[language]) language = "nl";
+
+  const dictionary = translations[language];
+
+  document.documentElement.lang = language;
+  document.documentElement.dir = dictionary.direction;
+  document.title = dictionary.title;
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.dataset.i18n;
+    if (dictionary[key] !== undefined) element.innerHTML = dictionary[key];
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+    const key = element.dataset.i18nPlaceholder;
+    if (dictionary[key] !== undefined) element.placeholder = dictionary[key];
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach(element => {
+    const key = element.dataset.i18nAlt;
+    if (dictionary[key] !== undefined) element.alt = dictionary[key];
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach(element => {
+    const key = element.dataset.i18nAriaLabel;
+    if (dictionary[key] !== undefined) element.setAttribute("aria-label", dictionary[key]);
+  });
+
+  document.querySelectorAll("[data-i18n-title]").forEach(element => {
+    const key = element.dataset.i18nTitle;
+    if (dictionary[key] !== undefined) element.title = dictionary[key];
+  });
+
+  menuLabel.textContent = nav.classList.contains("open")
+    ? dictionary.close
+    : dictionary.menu;
+
+  menuToggle.setAttribute(
+    "aria-label",
+    nav.classList.contains("open") ? dictionary.menuClose : dictionary.menuOpen
+  );
+
+  nav.setAttribute("aria-label", dictionary.navLabel);
+  languageSelect.setAttribute("aria-label", dictionary.chooseLanguage);
+
+  document.querySelectorAll(".brand").forEach(brand => {
+    brand.setAttribute("aria-label", `${dictionary.title.split("|")[0].trim()} ${dictionary.home}`);
+  });
+
+  updateDynamicTranslations();
+
+  try {
+    localStorage.setItem("holland-way-language", language);
+  } catch (_) {}
+}
+
+function updateDynamicTranslations() {
+  document.querySelectorAll(".stop-row").forEach((row, index) => {
+    const number = index + 1;
+    const input = row.querySelector('input[name="stop"]');
+    const button = row.querySelector(".remove-stop");
+
+    if (input) {
+      input.placeholder = translate("stopPlaceholder", { number });
+      input.setAttribute("aria-label", translate("stopPlaceholder", { number }));
+    }
+
+    if (button) {
+      button.setAttribute("aria-label", translate("removeStop", { number }));
+    }
+  });
+
+  document.getElementById("passenger-minus").setAttribute(
+    "aria-label",
+    translate("removePassenger")
+  );
+
+  document.getElementById("passenger-plus").setAttribute(
+    "aria-label",
+    translate("addPassenger")
+  );
+}
+
+let savedLanguage = "nl";
+try {
+  savedLanguage = localStorage.getItem("holland-way-language") || "nl";
+} catch (_) {}
+
+languageSelect.addEventListener("change", event => {
+  applyLanguage(event.target.value);
+});
+
+applyLanguage(translations[savedLanguage] ? savedLanguage : "nl");
+
+function closeMenu(restoreFocus = false) {
+  nav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("menu-open");
+  applyLanguage(currentLanguage());
+
+  if (restoreFocus) menuToggle.focus();
+}
+
+menuToggle.addEventListener("click", () => {
+  const shouldOpen = !nav.classList.contains("open");
+
+  nav.classList.toggle("open", shouldOpen);
+  menuToggle.setAttribute("aria-expanded", String(shouldOpen));
+  document.body.classList.toggle("menu-open", shouldOpen);
+
+  applyLanguage(currentLanguage());
+
+  if (shouldOpen) nav.querySelector("a")?.focus();
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => closeMenu());
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && nav.classList.contains("open")) {
+    closeMenu(true);
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 950 && nav.classList.contains("open")) {
+    closeMenu();
+  }
+});
+
+const form = document.getElementById("taxi-form");
+const pickupInput = document.getElementById("pickup");
+const destinationInput = document.getElementById("destination");
+const stopsContainer = document.getElementById("stops");
+const returnCheckbox = document.getElementById("return-trip");
+const returnTimeField = document.getElementById("return-time-field");
+const returnTimeInput = document.getElementById("return-time");
+const fareResult = document.getElementById("fare-result");
+const passengerInput = document.getElementById("passengers");
+const passengerCount = document.getElementById("passenger-count");
+const locationButton = document.getElementById("use-location");
+const locationStatus = document.getElementById("location-status");
+const submitButton = document.getElementById("submit-button");
+
+function installAddressAutocomplete(input) {
+  const wrapper = input.closest(".address-wrap");
+  const dropdown = document.createElement("div");
+
+  dropdown.className = "address-suggestions";
+  dropdown.hidden = true;
+  dropdown.setAttribute("role", "listbox");
+  wrapper.appendChild(dropdown);
+
+  let timer;
+  let controller;
+
+  input.addEventListener("input", () => {
+    delete input.dataset.lat;
+    delete input.dataset.lon;
+
+    window.clearTimeout(timer);
+    controller?.abort();
+
+    dropdown.replaceChildren();
+    dropdown.hidden = true;
+
+    const query = input.value.trim();
+    if (query.length < 2) return;
+
+    timer = window.setTimeout(async () => {
+      controller = new AbortController();
 
       try {
-        localStorage.setItem("holland-way-language", language);
-      } catch (_) {}
-    }
+        const url = new URL("https://nominatim.openstreetmap.org/search");
 
-    let savedLanguage = "nl";
-    try {
-      savedLanguage = localStorage.getItem("holland-way-language") || "nl";
-    } catch (_) {}
+        url.search = new URLSearchParams({
+          q: query,
+          format: "jsonv2",
+          addressdetails: "1",
+          countrycodes: "nl",
+          limit: "5"
+        });
 
-    languageSelect.addEventListener("change", event => applyLanguage(event.target.value));
-    applyLanguage(savedLanguage);
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) return;
 
-    function closeMenu(restoreFocus = false) {
-      nav.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
-      applyLanguage(languageSelect.value);
-      if (restoreFocus) menuToggle.focus();
-    }
+        const places = await response.json();
 
-    menuToggle.addEventListener("click", () => {
-      const shouldOpen = !nav.classList.contains("open");
-      nav.classList.toggle("open", shouldOpen);
-      menuToggle.setAttribute("aria-expanded", String(shouldOpen));
-      document.body.classList.toggle("menu-open", shouldOpen);
-      applyLanguage(languageSelect.value);
+        places.forEach(place => {
+          const address = place.address || {};
+          const title = address.amenity ||
+            address.shop ||
+            address.tourism ||
+            address.station ||
+            place.name ||
+            place.display_name.split(",")[0];
 
-      if (shouldOpen) nav.querySelector("a")?.focus();
-    });
+          const details = [
+            address.road,
+            address.house_number,
+            address.postcode,
+            address.city || address.town || address.village
+          ].filter(Boolean).join(", ");
 
-    nav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => closeMenu());
-    });
+          const option = document.createElement("button");
+          option.type = "button";
+          option.className = "address-suggestion";
+          option.setAttribute("role", "option");
 
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && nav.classList.contains("open")) {
-        closeMenu(true);
-      }
-    });
+          const titleSpan = document.createElement("span");
+          titleSpan.className = "address-suggestion-title";
+          titleSpan.textContent = title;
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 950 && nav.classList.contains("open")) closeMenu();
-    });
+          const detailSpan = document.createElement("span");
+          detailSpan.className = "address-suggestion-detail";
+          detailSpan.textContent = details || place.display_name;
 
-    const form = document.getElementById("taxi-form");
-    const pickupInput = document.getElementById("pickup");
-    const destinationInput = document.getElementById("destination");
-    const stopsContainer = document.getElementById("stops");
-    const returnCheckbox = document.getElementById("return-trip");
-    const returnTimeField = document.getElementById("return-time-field");
-    const returnTimeInput = document.getElementById("return-time");
-    const fareResult = document.getElementById("fare-result");
-    const passengerInput = document.getElementById("passengers");
-    const passengerCount = document.getElementById("passenger-count");
-    const locationButton = document.getElementById("use-location");
-    const locationStatus = document.getElementById("location-status");
-    const submitButton = document.getElementById("submit-button");
+          option.append(titleSpan, detailSpan);
 
-    function installAddressAutocomplete(input) {
-      const wrapper = input.closest(".address-wrap");
-      const dropdown = document.createElement("div");
-      dropdown.className = "address-suggestions";
-      dropdown.hidden = true;
-      dropdown.setAttribute("role", "listbox");
-      wrapper.appendChild(dropdown);
-
-      let timer;
-      let controller;
-
-      input.addEventListener("input", () => {
-        delete input.dataset.lat;
-        delete input.dataset.lon;
-        window.clearTimeout(timer);
-        controller?.abort();
-        dropdown.replaceChildren();
-        dropdown.hidden = true;
-
-        const query = input.value.trim();
-        if (query.length < 2) return;
-
-        timer = window.setTimeout(async () => {
-          controller = new AbortController();
-
-          try {
-            const url = new URL("https://nominatim.openstreetmap.org/search");
-            url.search = new URLSearchParams({
-              q: query,
-              format: "jsonv2",
-              addressdetails: "1",
-              countrycodes: "nl",
-              limit: "5"
-            });
-
-            const response = await fetch(url, { signal: controller.signal });
-            if (!response.ok) return;
-
-            const places = await response.json();
-
-            places.forEach(place => {
-              const address = place.address || {};
-              const title = address.amenity || address.shop || address.tourism ||
-                address.station || place.name || place.display_name.split(",")[0];
-              const details = [
-                address.road,
-                address.house_number,
-                address.postcode,
-                address.city || address.town || address.village
-              ].filter(Boolean).join(", ");
-
-              const option = document.createElement("button");
-              option.type = "button";
-              option.className = "address-suggestion";
-              option.setAttribute("role", "option");
-
-              const titleSpan = document.createElement("span");
-              titleSpan.className = "address-suggestion-title";
-              titleSpan.textContent = title;
-
-              const detailSpan = document.createElement("span");
-              detailSpan.className = "address-suggestion-detail";
-              detailSpan.textContent = details || place.display_name;
-
-              option.append(titleSpan, detailSpan);
-              option.addEventListener("click", () => {
-                input.value = place.display_name;
-                input.dataset.lat = place.lat;
-                input.dataset.lon = place.lon;
-                dropdown.hidden = true;
-              });
-
-              dropdown.appendChild(option);
-            });
-
-            dropdown.hidden = places.length === 0;
-          } catch (error) {
-            if (error.name !== "AbortError") dropdown.hidden = true;
-          }
-        }, 450);
-      });
-
-      document.addEventListener("click", event => {
-        if (!wrapper.contains(event.target)) dropdown.hidden = true;
-      });
-
-      input.addEventListener("keydown", event => {
-        if (event.key === "Escape") dropdown.hidden = true;
-        if (event.key === "ArrowDown" && !dropdown.hidden) {
-          event.preventDefault();
-          dropdown.querySelector("button")?.focus();
-        }
-      });
-    }
-
-    installAddressAutocomplete(pickupInput);
-    installAddressAutocomplete(destinationInput);
-
-    function setDateTimeMinimum(input) {
-      const now = new Date();
-      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-      input.min = now.toISOString().slice(0, 16);
-    }
-
-    setDateTimeMinimum(document.getElementById("pickup-time"));
-
-    locationButton.addEventListener("click", () => {
-      if (!navigator.geolocation) {
-        locationStatus.textContent = "Locatieservices zijn niet beschikbaar. Vul je adres handmatig in.";
-        return;
-      }
-
-      locationButton.disabled = true;
-      locationStatus.textContent = "Locatie ophalen…";
-
-      navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-        try {
-          const url = new URL("https://nominatim.openstreetmap.org/reverse");
-          url.search = new URLSearchParams({
-            format: "jsonv2",
-            lat: String(coords.latitude),
-            lon: String(coords.longitude)
+          option.addEventListener("click", () => {
+            input.value = place.display_name;
+            input.dataset.lat = place.lat;
+            input.dataset.lon = place.lon;
+            dropdown.hidden = true;
           });
 
-          const response = await fetch(url);
-          if (!response.ok) throw new Error("Lookup failed");
+          dropdown.appendChild(option);
+        });
 
-          const result = await response.json();
-          if (!result.display_name) throw new Error("No address");
-
-          pickupInput.value = result.display_name;
-          pickupInput.dataset.lat = String(coords.latitude);
-          pickupInput.dataset.lon = String(coords.longitude);
-          locationStatus.textContent = "Je huidige locatie is toegevoegd.";
-        } catch {
-          locationStatus.textContent = "Adres niet gevonden. Vul het handmatig in.";
-        } finally {
-          locationButton.disabled = false;
-        }
-      }, error => {
-        locationStatus.textContent = error.code === 1
-          ? "Locatietoegang geweigerd. Vul je adres handmatig in."
-          : "Locatie kon niet worden opgehaald.";
-        locationButton.disabled = false;
-      }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
-    });
-
-    returnCheckbox.addEventListener("change", () => {
-      const enabled = returnCheckbox.checked;
-      returnTimeField.hidden = !enabled;
-      returnTimeInput.required = enabled;
-      if (enabled) setDateTimeMinimum(returnTimeInput);
-      else returnTimeInput.value = "";
-    });
-
-    document.getElementById("add-stop").addEventListener("click", () => {
-      const number = stopsContainer.querySelectorAll(".stop-row").length + 1;
-      const row = document.createElement("div");
-      row.className = "stop-row";
-
-      const input = document.createElement("input");
-      input.type = "text";
-      input.name = "stop";
-      input.placeholder = `Tussenstop ${number}`;
-      input.setAttribute("aria-label", `Tussenstop ${number}`);
-      input.autocomplete = "off";
-
-      const removeButton = document.createElement("button");
-      removeButton.type = "button";
-      removeButton.className = "remove-stop";
-      removeButton.textContent = "×";
-      removeButton.setAttribute("aria-label", `Verwijder tussenstop ${number}`);
-      removeButton.addEventListener("click", () => row.remove());
-
-      row.append(input, removeButton);
-      stopsContainer.appendChild(row);
-      installAddressAutocomplete(input);
-      input.focus();
-    });
-
-    function setPassengers(value) {
-      const count = Math.max(1, Math.min(8, value));
-      passengerInput.value = String(count);
-      passengerCount.textContent = String(count);
-    }
-
-    document.getElementById("passenger-minus").addEventListener("click", () =>
-      setPassengers(Number(passengerInput.value) - 1)
-    );
-
-    document.getElementById("passenger-plus").addEventListener("click", () =>
-      setPassengers(Number(passengerInput.value) + 1)
-    );
-
-    async function geocode(address, input) {
-      if (input?.dataset.lat && input?.dataset.lon) {
-        return { lat: Number(input.dataset.lat), lon: Number(input.dataset.lon) };
+        dropdown.hidden = places.length === 0;
+      } catch (error) {
+        if (error.name !== "AbortError") dropdown.hidden = true;
       }
+    }, 450);
+  });
 
-      const url = new URL("https://nominatim.openstreetmap.org/search");
+  document.addEventListener("click", event => {
+    if (!wrapper.contains(event.target)) dropdown.hidden = true;
+  });
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Escape") dropdown.hidden = true;
+
+    if (event.key === "ArrowDown" && !dropdown.hidden) {
+      event.preventDefault();
+      dropdown.querySelector("button")?.focus();
+    }
+  });
+}
+
+installAddressAutocomplete(pickupInput);
+installAddressAutocomplete(destinationInput);
+
+function setDateTimeMinimum(input) {
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  input.min = now.toISOString().slice(0, 16);
+}
+
+setDateTimeMinimum(document.getElementById("pickup-time"));
+
+locationButton.addEventListener("click", () => {
+  if (!navigator.geolocation) {
+    locationStatus.textContent = translate("locationUnavailable");
+    return;
+  }
+
+  locationButton.disabled = true;
+  locationStatus.textContent = translate("locationLoading");
+
+  navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+    try {
+      const url = new URL("https://nominatim.openstreetmap.org/reverse");
+
       url.search = new URLSearchParams({
-        q: address,
         format: "jsonv2",
-        limit: "1",
-        countrycodes: "nl"
+        lat: String(coords.latitude),
+        lon: String(coords.longitude)
       });
 
       const response = await fetch(url);
-      if (!response.ok) throw new Error("Adres zoeken is tijdelijk niet beschikbaar.");
-
-      const results = await response.json();
-      if (!results.length) {
-        throw new Error(`Adres niet gevonden: "${address}". Kies een suggestie of voeg de plaats toe.`);
-      }
-
-      return { lat: Number(results[0].lat), lon: Number(results[0].lon) };
-    }
-
-    async function drivingRoute(from, to) {
-      const url = `https://router.project-osrm.org/route/v1/driving/${from.lon},${from.lat};${to.lon},${to.lat}?overview=false`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error("De autoroute kon niet worden berekend.");
+      if (!response.ok) throw new Error("Lookup failed");
 
       const result = await response.json();
-      if (result.code !== "Ok" || !result.routes?.length) {
-        throw new Error("Er is geen autoroute gevonden voor deze adressen.");
-      }
+      if (!result.display_name) throw new Error("No address");
 
-      return result.routes[0];
+      pickupInput.value = result.display_name;
+      pickupInput.dataset.lat = String(coords.latitude);
+      pickupInput.dataset.lon = String(coords.longitude);
+      locationStatus.textContent = translate("locationSuccess");
+    } catch {
+      locationStatus.textContent = translate("locationAddressError");
+    } finally {
+      locationButton.disabled = false;
     }
+  }, error => {
+    locationStatus.textContent = error.code === 1
+      ? translate("locationDenied")
+      : translate("locationError");
 
-    async function calculateFare(inputs, returnTrip) {
-      const points = [];
+    locationButton.disabled = false;
+  }, {
+    enableHighAccuracy: true,
+    timeout: 15000,
+    maximumAge: 0
+  });
+});
 
-      for (const input of inputs) {
-        const address = input.value.trim();
-        if (address) points.push(await geocode(address, input));
-      }
+returnCheckbox.addEventListener("change", () => {
+  const enabled = returnCheckbox.checked;
 
-      if (points.length < 2) throw new Error("Vul een vertrekpunt en bestemming in.");
+  returnTimeField.hidden = !enabled;
+  returnTimeInput.required = enabled;
 
-      let distance = 0;
-      let duration = 0;
+  if (enabled) {
+    setDateTimeMinimum(returnTimeInput);
+  } else {
+    returnTimeInput.value = "";
+  }
+});
 
-      for (let index = 0; index < points.length - 1; index++) {
-        const route = await drivingRoute(points[index], points[index + 1]);
-        distance += route.distance;
-        duration += route.duration;
-      }
+document.getElementById("add-stop").addEventListener("click", () => {
+  const number = stopsContainer.querySelectorAll(".stop-row").length + 1;
+  const row = document.createElement("div");
 
-      let distanceKm = distance / 1000;
-      let durationMinutes = duration / 60;
+  row.className = "stop-row";
 
-      if (returnTrip) {
-        distanceKm *= 2;
-        durationMinutes *= 2;
-      }
+  const input = document.createElement("input");
+  input.type = "text";
+  input.name = "stop";
+  input.autocomplete = "off";
 
-      const price = Math.round(
-        (START_FEE + distanceKm * PRICE_PER_KM + durationMinutes * PRICE_PER_MINUTE) * 100
-      ) / 100;
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.className = "remove-stop";
+  removeButton.textContent = "×";
 
-      return { distanceKm, durationMinutes, price };
-    }
+  removeButton.addEventListener("click", () => {
+    row.remove();
+    updateDynamicTranslations();
+  });
 
-    function formatEuro(amount) {
-      const locale = document.documentElement.lang === "nl" ? "nl-NL" : "en-IE";
-      return new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency: "EUR"
-      }).format(amount);
-    }
+  row.append(input, removeButton);
+  stopsContainer.appendChild(row);
 
-    function formatDate(value) {
-      if (!value) return "Not provided";
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return value;
-      return new Intl.DateTimeFormat(document.documentElement.lang, {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
-      }).format(date);
-    }
+  installAddressAutocomplete(input);
+  updateDynamicTranslations();
+  input.focus();
+});
 
-    document.getElementById("quick-search").addEventListener("submit", event => {
-      event.preventDefault();
+function setPassengers(value) {
+  const count = Math.max(1, Math.min(8, value));
+  passengerInput.value = String(count);
+  passengerCount.textContent = String(count);
+}
 
-      pickupInput.value = document.getElementById("quick-pickup").value.trim();
-      destinationInput.value = document.getElementById("quick-destination").value.trim();
+document.getElementById("passenger-minus").addEventListener("click", () => {
+  setPassengers(Number(passengerInput.value) - 1);
+});
 
-      delete pickupInput.dataset.lat;
-      delete pickupInput.dataset.lon;
-      delete destinationInput.dataset.lat;
-      delete destinationInput.dataset.lon;
+document.getElementById("passenger-plus").addEventListener("click", () => {
+  setPassengers(Number(passengerInput.value) + 1);
+});
 
-      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
-      window.setTimeout(() => document.getElementById("pickup-time").focus({ preventScroll: true }), 500);
+async function geocode(address, input) {
+  if (input?.dataset.lat && input?.dataset.lon) {
+    return {
+      lat: Number(input.dataset.lat),
+      lon: Number(input.dataset.lon)
+    };
+  }
+
+  const url = new URL("https://nominatim.openstreetmap.org/search");
+
+  url.search = new URLSearchParams({
+    q: address,
+    format: "jsonv2",
+    limit: "1",
+    countrycodes: "nl"
+  });
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(translate("addressServiceError"));
+  }
+
+  const results = await response.json();
+
+  if (!results.length) {
+    throw new Error(
+      translate("addressNotFound", { address })
+    );
+  }
+
+  return {
+    lat: Number(results[0].lat),
+    lon: Number(results[0].lon)
+  };
+}
+
+async function drivingRoute(from, to) {
+  const url =
+    `https://router.project-osrm.org/route/v1/driving/` +
+    `${from.lon},${from.lat};${to.lon},${to.lat}?overview=false`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(translate("routeError"));
+  }
+
+  const result = await response.json();
+
+  if (result.code !== "Ok" || !result.routes?.length) {
+    throw new Error(translate("noRoute"));
+  }
+
+  return result.routes[0];
+}
+
+async function calculateFare(inputs, returnTrip) {
+  const points = [];
+
+  for (const input of inputs) {
+    const address = input.value.trim();
+    if (address) points.push(await geocode(address, input));
+  }
+
+  if (points.length < 2) {
+    throw new Error(translate("fillRoute"));
+  }
+
+  let distance = 0;
+  let duration = 0;
+
+  for (let index = 0; index < points.length - 1; index++) {
+    const route = await drivingRoute(points[index], points[index + 1]);
+    distance += route.distance;
+    duration += route.duration;
+  }
+
+  let distanceKm = distance / 1000;
+  let durationMinutes = duration / 60;
+
+  if (returnTrip) {
+    distanceKm *= 2;
+    durationMinutes *= 2;
+  }
+
+  const price = Math.round(
+    (START_FEE + distanceKm * PRICE_PER_KM + durationMinutes * PRICE_PER_MINUTE) * 100
+  ) / 100;
+
+  return { distanceKm, durationMinutes, price };
+}
+
+function formatEuro(amount) {
+  const language = currentLanguage();
+  const locale = language === "nl" ? "nl-NL" :
+    language === "de" ? "de-DE" :
+    language === "fr" ? "fr-FR" :
+    language === "ar" ? "ar" : "en-IE";
+
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "EUR"
+  }).format(amount);
+}
+
+function formatDate(value) {
+  if (!value) return translate("notProvided");
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+
+  return new Intl.DateTimeFormat(currentLanguage(), {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(date);
+}
+
+document.getElementById("quick-search").addEventListener("submit", event => {
+  event.preventDefault();
+
+  pickupInput.value = document.getElementById("quick-pickup").value.trim();
+  destinationInput.value = document.getElementById("quick-destination").value.trim();
+
+  delete pickupInput.dataset.lat;
+  delete pickupInput.dataset.lon;
+  delete destinationInput.dataset.lat;
+  delete destinationInput.dataset.lon;
+
+  document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+
+  window.setTimeout(() => {
+    document.getElementById("pickup-time").focus({ preventScroll: true });
+  }, 500);
+});
+
+document.querySelectorAll(".destination-link").forEach(button => {
+  button.addEventListener("click", () => {
+    destinationInput.value = button.dataset.destination;
+
+    delete destinationInput.dataset.lat;
+    delete destinationInput.dataset.lon;
+
+    document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+
+    window.setTimeout(() => {
+      pickupInput.focus({ preventScroll: true });
+    }, 500);
+  });
+});
+
+form.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  if (!form.reportValidity()) return;
+
+  const data = new FormData(form);
+  const stopInputs = [...stopsContainer.querySelectorAll('input[name="stop"]')];
+  const stops = stopInputs.map(input => input.value.trim()).filter(Boolean);
+  const returnTrip = returnCheckbox.checked;
+  const routeInputs = [pickupInput, ...stopInputs, destinationInput];
+
+  submitButton.disabled = true;
+  submitButton.textContent = translate("calculating");
+  fareResult.hidden = true;
+  fareResult.classList.remove("fare-error");
+
+  try {
+    const fare = await calculateFare(routeInputs, returnTrip);
+    const dictionary = translations[currentLanguage()];
+
+    const message = [
+      dictionary.enquiryTitle,
+      "",
+      `${dictionary.whatsappName}: ${data.get("customerName")}`,
+      `${dictionary.whatsappEmail}: ${data.get("customerEmail") || dictionary.notProvided}`,
+      `${dictionary.whatsappPhone}: ${data.get("customerPhone")}`,
+      "",
+      `${dictionary.whatsappPickup}: ${pickupInput.value.trim()}`,
+      ...stops.map((stop, index) =>
+        `${translate("whatsappStop", { number: index + 1 })}: ${stop}`
+      ),
+      `${dictionary.whatsappDestination}: ${destinationInput.value.trim()}`,
+      `${dictionary.whatsappDate}: ${formatDate(data.get("pickupTime"))}`,
+      `${dictionary.whatsappPassengers}: ${data.get("passengers")}`,
+      `${dictionary.whatsappLarge}: ${data.get("largeLuggage") || 0}`,
+      `${dictionary.whatsappCabin}: ${data.get("cabinLuggage") || 0}`,
+      `${dictionary.whatsappPersonal}: ${data.get("personalLuggage") || 0}`,
+      `${dictionary.whatsappReturn}: ${returnTrip ? dictionary.yes : dictionary.no}`,
+      returnTrip
+        ? `${dictionary.whatsappReturnTime}: ${formatDate(data.get("returnTime"))}`
+        : "",
+      `${dictionary.whatsappDistance}: ${fare.distanceKm.toFixed(1)} km`,
+      `${dictionary.whatsappDuration}: ${Math.round(fare.durationMinutes)} ${dictionary.minutes || "minutes"}`,
+      `${dictionary.whatsappFare}: ${formatEuro(fare.price)}`,
+      data.get("note")
+        ? `${dictionary.whatsappNotes}: ${data.get("note")}`
+        : "",
+      "",
+      dictionary.whatsappDisclaimer
+    ].filter(Boolean);
+
+    fareResult.hidden = false;
+    fareResult.textContent = translate("estimateMessage", {
+      price: formatEuro(fare.price),
+      distance: fare.distanceKm.toFixed(1),
+      minutes: Math.round(fare.durationMinutes)
     });
 
-    document.querySelectorAll(".destination-link").forEach(button => {
-      button.addEventListener("click", () => {
-        destinationInput.value = button.dataset.destination;
-        delete destinationInput.dataset.lat;
-        delete destinationInput.dataset.lon;
+    const whatsappUrl =
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.join("\n"))}`;
 
-        document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
-        window.setTimeout(() => pickupInput.focus({ preventScroll: true }), 500);
-      });
-    });
+    const windowRef = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-    form.addEventListener("submit", async event => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
+    if (!windowRef) {
+      fareResult.textContent += ` ${translate("popupMessage")}`;
+    }
+  } catch (error) {
+    fareResult.hidden = false;
+    fareResult.classList.add("fare-error");
+    fareResult.textContent = error.message || translate("estimateError");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = translate("calculateButton");
+  }
+});
 
-      const data = new FormData(form);
-      const stopInputs = [...stopsContainer.querySelectorAll('input[name="stop"]')];
-      const stops = stopInputs.map(input => input.value.trim()).filter(Boolean);
-      const returnTrip = returnCheckbox.checked;
-      const routeInputs = [pickupInput, ...stopInputs, destinationInput];
-
-      submitButton.disabled = true;
-      submitButton.textContent = "Berekening wordt gemaakt…";
-      fareResult.hidden = true;
-      fareResult.classList.remove("fare-error");
-
-      try {
-        const fare = await calculateFare(routeInputs, returnTrip);
-
-        const message = [
-          "Holland Way Tours — taxi price enquiry",
-          "",
-          `Name: ${data.get("customerName")}`,
-          `Email: ${data.get("customerEmail") || "Not provided"}`,
-          `Phone: ${data.get("customerPhone")}`,
-          "",
-          `Pickup: ${pickupInput.value.trim()}`,
-          ...stops.map((stop, index) => `Stop ${index + 1}: ${stop}`),
-          `Destination: ${destinationInput.value.trim()}`,
-          `Pickup date/time: ${formatDate(data.get("pickupTime"))}`,
-          `Passengers: ${data.get("passengers")}`,
-          `Large bags: ${data.get("largeLuggage") || 0}`,
-          `Hand luggage: ${data.get("cabinLuggage") || 0}`,
-          `Handbags/backpacks: ${data.get("personalLuggage") || 0}`,
-          `Return trip: ${returnTrip ? "Yes" : "No"}`,
-          returnTrip ? `Return pickup: ${formatDate(data.get("returnTime"))}` : "",
-          `Estimated distance: ${fare.distanceKm.toFixed(1)} km`,
-          `Estimated driving time: ${Math.round(fare.durationMinutes)} minutes`,
-          `Estimated fare: ${formatEuro(fare.price)}`,
-          data.get("note") ? `Notes: ${data.get("note")}` : "",
-          "",
-          "This is an estimate and enquiry, not a confirmed booking."
-        ].filter(Boolean);
-
-        fareResult.hidden = false;
-        fareResult.textContent =
-          `Geschatte prijs: ${formatEuro(fare.price)} (${fare.distanceKm.toFixed(1)} km, ongeveer ${Math.round(fare.durationMinutes)} minuten). WhatsApp wordt geopend.`;
-
-        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.join("\n"))}`;
-        const windowRef = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-
-        if (!windowRef) fareResult.textContent += " Sta pop-ups toe als WhatsApp niet opent.";
-      } catch (error) {
-        fareResult.hidden = false;
-        fareResult.classList.add("fare-error");
-        fareResult.textContent = error.message || "De prijs kon niet worden berekend. Controleer de adressen.";
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = translations[languageSelect.value].calculateButton;
-      }
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
