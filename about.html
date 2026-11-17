@@ -98,37 +98,15 @@
       display: inline-flex;
       flex-shrink: 0;
       align-items: center;
-      gap: 11px;
       color: var(--forest);
     }
 
-    .brand-icon {
-      display: grid;
-      width: 43px;
-      height: 43px;
-      place-items: center;
-      border: 1px solid rgba(214,173,85,.55);
-      border-radius: 13px 13px 13px 4px;
-      background: var(--forest);
-      color: var(--gold);
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 800;
-    }
-
-    .brand-name {
-      font-size: .98rem;
-      font-weight: 800;
-      letter-spacing: -.04em;
-      line-height: 1.1;
-    }
-
-    .brand-name span {
+    .brand-logo {
       display: block;
-      margin-top: 4px;
-      color: #a77b27;
-      font-size: .65rem;
-      letter-spacing: .19em;
+      width: 175px;
+      height: 58px;
+      object-fit: contain;
+      object-position: left center;
     }
 
     .menu-toggle {
@@ -162,7 +140,6 @@
       color: #a97820;
     }
 
-    .navigation .button,
     .button {
       display: inline-flex;
       min-height: 44px;
@@ -177,10 +154,13 @@
       font-size: .84rem;
       font-weight: 800;
       cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
     }
 
-    .navigation .button:hover,
-    .button:hover { background: #e1bd70; }
+    .button:hover {
+      transform: translateY(-2px);
+      background: #e1bd70;
+    }
 
     .button-outline {
       border-color: rgba(16,36,60,.25);
@@ -532,56 +512,135 @@
       font-weight: 800;
     }
 
-    footer {
-      padding: 40px 0 18px;
+    /* Footer */
+    .site-footer {
+      padding: 48px 0 20px;
       background: var(--forest-deep);
-      color: rgba(255,255,255,.7);
-      font-size: .8rem;
+      color: rgba(255,255,255,.74);
+      font-size: .83rem;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 32px;
-      padding-bottom: 23px;
+      grid-template-columns: 1.6fr 1fr 1.2fr;
+      gap: 48px;
+      padding-bottom: 30px;
     }
 
-    .footer-brand {
+    .footer-about { max-width: 400px; }
+
+    .footer-logo {
       display: inline-flex;
+      min-height: 62px;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      color: white;
+      margin-bottom: 13px;
     }
 
-    .footer-mark {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      place-items: center;
-      border: 1px solid rgba(214,173,85,.55);
-      border-radius: 12px 12px 12px 4px;
-      background: var(--forest);
-      color: var(--gold);
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.2rem;
+    .footer-logo img {
+      display: block;
+      width: 165px;
+      height: 58px;
+      object-fit: contain;
+      object-position: left center;
+      background: transparent;
+    }
+
+    .footer-about > p,
+    .footer-column > p {
+      max-width: 370px;
+      margin: 0 0 15px;
+      color: rgba(255,255,255,.66);
+      line-height: 1.75;
+    }
+
+    .footer-column h3 {
+      margin: 7px 0 15px;
+      color: white;
+      font-size: .9rem;
       font-weight: 800;
     }
 
-    .footer-brand-name { font-size: .92rem; font-weight: 800; }
-    .footer-brand-name span { display: block; color: var(--gold); font-size: .62rem; letter-spacing: .17em; }
-    footer h3 { margin: 0 0 10px; color: white; font-size: .85rem; }
-    footer p { max-width: 350px; }
-    footer a:not(.footer-brand) { display: block; width: fit-content; margin: 7px 0; }
-    footer a:hover { color: var(--gold); }
-    .footer-bottom { padding-top: 15px; border-top: 1px solid rgba(255,255,255,.12); }
+    .footer-details,
+    .footer-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-details li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 9px 0;
+      line-height: 1.6;
+    }
+
+    .footer-detail-icon {
+      flex: 0 0 18px;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    .site-footer .footer-links a {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: 9px 0;
+      color: rgba(255,255,255,.74);
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+      transition: color .2s ease;
+    }
+
+    .site-footer a:hover { color: var(--gold); }
+
+    .footer-contact-button {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+      padding: 9px 17px;
+      border: 1px solid rgba(214,173,85,.7);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: .82rem;
+      font-weight: 800;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .footer-contact-button:hover {
+      background: var(--gold);
+      color: var(--forest-deep) !important;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.56);
+      font-size: .77rem;
+    }
+
+    .footer-bottom p { margin: 0; }
+    .footer-bottom a { color: rgba(255,255,255,.7); }
 
     [dir="rtl"] .hero-copy-wrap { justify-content: flex-start; }
-    [dir="rtl"] .highlight { border-right: 0; border-left: 1px solid rgba(255,255,255,.18); }
+
+    [dir="rtl"] .highlight {
+      border-right: 0;
+      border-left: 1px solid rgba(255,255,255,.18);
+    }
+
     [dir="rtl"] .highlight:last-child { border-left: 0; }
     [dir="rtl"] .welcome-photo::before { inset: 16px 16px -16px -16px; }
     [dir="rtl"] .welcome-label { right: -18px; left: auto; }
     [dir="rtl"] .footer-grid { direction: rtl; }
+    [dir="rtl"] .footer-logo img { object-position: right center; }
 
     @media (max-width: 950px) {
       .header-inner {
@@ -618,9 +677,7 @@
 
       .navigation .button {
         width: 100%;
-        min-height: 46px;
         margin-top: 12px;
-        border-radius: 8px;
       }
 
       .language-picker {
@@ -657,8 +714,10 @@
       .values-grid,
       .contact-grid { grid-template-columns: 1fr; }
 
-      .booking-inner { align-items: flex-start; flex-direction: column; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .booking-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
 
       [dir="rtl"] .highlight {
         border-left: 0;
@@ -669,7 +728,9 @@
     }
 
     @media (max-width: 680px) {
-      .container, .highlights { width: calc(100% - 30px); }
+      .container,
+      .highlights { width: calc(100% - 30px); }
+
       .topbar-inner { justify-content: center; padding: 7px 0; }
       .topbar-links { justify-content: center; gap: 7px 14px; }
       .topbar-note { display: none; }
@@ -695,22 +756,32 @@
         font-size: clamp(2.5rem, 11vw, 3.6rem);
       }
 
-      .footer-grid { grid-template-columns: 1fr; gap: 18px; }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 20px;
+      }
+
+      .footer-about { grid-column: 1 / -1; }
     }
 
     @media (max-width: 490px) {
-      .brand { gap: 7px; }
-      .brand-icon { width: 38px; height: 38px; }
-      .brand-name { font-size: .84rem; }
-      .brand-name span { font-size: .57rem; }
+      .brand-logo { width: 140px; height: 48px; }
       .menu-toggle { min-width: 78px; padding-inline: 8px; }
       .hero-actions .button { flex: 1 1 auto; }
     }
 
+    @media (max-width: 420px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .footer-about { grid-column: auto; }
+    }
+
     @media (max-width: 350px) {
       .container { width: calc(100% - 22px); }
-      .brand-name { font-size: .75rem; }
-      .brand-name span { font-size: .51rem; }
+      .brand-logo { width: 125px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -726,8 +797,8 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-links">
-        <a href="mailto:husam48726@gmail.com">✉ husam48726@gmail.com</a>
-        <a href="tel:+31681110006">☎ 06 8111 0006</a>
+        <a href="mailto:Aimanalabsi30@gmail.com">✉ Aimanalabsi30@gmail.com</a>
+        <a href="tel:+31618275727">☎ 06 1827 5727</a>
         <span data-i18n="location">Hoofddorp, Nederland</span>
       </div>
       <span class="topbar-note" data-i18n="topbarNote">Persoonlijke reisaanvragen door heel Nederland</span>
@@ -736,9 +807,8 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Holland Way Tours">
-        <span class="brand-icon" aria-hidden="true">H</span>
-        <span class="brand-name">HOLLAND <span>WAY TOURS</span></span>
+      <a class="brand" href="index.html" aria-label="Masar Taxi home">
+        <img class="brand-logo" src="./images/masar-logo.jpeg" alt="Masar Taxi">
       </a>
 
       <button class="menu-toggle" id="menu-toggle" type="button"
@@ -749,7 +819,7 @@
 
       <nav class="navigation" id="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" data-i18n="navHome">Home</a>
-        <a href="services.html" data-i18n="navServices">Services</a>
+        <a href="services.html" data-i18n="navServices">Diensten</a>
         <a href="about.html" aria-current="page" data-i18n="navAbout">Over ons</a>
         <a href="contact.html" data-i18n="navContact">Contact</a>
         <a class="button" href="index.html#booking" data-i18n="requestRide">Rit aanvragen</a>
@@ -774,9 +844,7 @@
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="heroEyebrow">Over Holland Way Tours</p>
           <h1 data-i18n="heroTitle">Een persoonlijkere manier om te <em>reizen.</em></h1>
-          <p data-i18n="heroDescription">
-            We maken reizen door Nederland comfortabel en eenvoudig, met privéritten die aansluiten op uw plannen.
-          </p>
+          <p data-i18n="heroDescription">We maken reizen door Nederland comfortabel en eenvoudig, met privéritten die aansluiten op uw plannen.</p>
           <div class="hero-actions">
             <a class="button" href="index.html#booking" data-i18n="planJourney">Plan uw reis →</a>
             <a class="button button-outline" href="#our-approach" data-i18n="getToKnowUs">Leer ons kennen</a>
@@ -801,7 +869,6 @@
             <span data-i18n="highlightOneText">Handige inzichten onderweg</span>
           </div>
         </div>
-
         <div class="highlight">
           <span class="highlight-icon" aria-hidden="true">↗</span>
           <div>
@@ -809,7 +876,6 @@
             <span data-i18n="highlightTwoText">Reizen volgens uw planning</span>
           </div>
         </div>
-
         <div class="highlight">
           <span class="highlight-icon" aria-hidden="true">✦</span>
           <div>
@@ -825,12 +891,8 @@
         <div class="welcome-copy">
           <p class="eyebrow" data-i18n="welcomeEyebrow">Welkom bij Holland Way Tours</p>
           <h2 data-i18n="aboutTitle">Reizen moet vanaf het begin ontspannen voelen.</h2>
-          <p data-i18n="aboutParagraphOne">
-            Holland Way Tours biedt privéritten voor bezoekers die Nederland comfortabel en persoonlijk willen ontdekken. Van eenvoudige transfers tot dagtochten op maat: wij helpen u op uw bestemming te komen.
-          </p>
-          <p data-i18n="aboutParagraphTwo">
-            Elke reis begint met uw plannen. Vertel ons waar u naartoe wilt, wanneer u wilt reizen en wat voor u belangrijk is. Dan bespreken we samen de mogelijkheden.
-          </p>
+          <p data-i18n="aboutParagraphOne">Holland Way Tours biedt privéritten voor bezoekers die Nederland comfortabel en persoonlijk willen ontdekken. Van eenvoudige transfers tot dagtochten op maat: wij helpen u op uw bestemming te komen.</p>
+          <p data-i18n="aboutParagraphTwo">Elke reis begint met uw plannen. Vertel ons waar u naartoe wilt, wanneer u wilt reizen en wat voor u belangrijk is. Dan bespreken we samen de mogelijkheden.</p>
           <a class="button" href="contact.html" data-i18n="contactUs">Neem contact op →</a>
         </div>
 
@@ -845,9 +907,7 @@
         <div class="section-heading">
           <p class="eyebrow" data-i18n="approachEyebrow">Onze aanpak</p>
           <h2 data-i18n="valuesTitle">Eenvoudige reizen. Persoonlijke service.</h2>
-          <p data-i18n="valuesDescription">
-            We richten ons op heldere communicatie, flexibele planning en een comfortabele reiservaring.
-          </p>
+          <p data-i18n="valuesDescription">We richten ons op heldere communicatie, flexibele planning en een comfortabele reiservaring.</p>
         </div>
 
         <div class="values-grid">
@@ -856,13 +916,11 @@
             <h3 data-i18n="valueOneTitle">Afgestemd op u</h3>
             <p data-i18n="valueOneText">Deel uw bestemmingen, planning en wensen. We bespreken de details en helpen u een passende reis te plannen.</p>
           </article>
-
           <article class="value-card">
             <span class="value-number" aria-hidden="true">02</span>
             <h3 data-i18n="valueTwoTitle">Comfortabel reizen</h3>
             <p data-i18n="valueTwoText">Reis privé tussen de door u gekozen locaties, zonder zelf de route te hoeven regelen.</p>
           </article>
-
           <article class="value-card">
             <span class="value-number" aria-hidden="true">03</span>
             <h3 data-i18n="valueThreeTitle">Heldere communicatie</h3>
@@ -877,9 +935,7 @@
         <div>
           <p class="eyebrow" data-i18n="bookingEyebrow">Begin met plannen</p>
           <h2 data-i18n="bookingTitle">Waar wilt u naartoe?</h2>
-          <p class="booking-copy" data-i18n="bookingDescription">
-            Stuur ons uw datum, ophaallocatie, bestemming en groepsgrootte. We nemen contact met u op om uw reis te bespreken.
-          </p>
+          <p class="booking-copy" data-i18n="bookingDescription">Stuur ons uw datum, ophaallocatie, bestemming en groepsgrootte. We nemen contact met u op om uw reis te bespreken.</p>
         </div>
         <a class="button" href="index.html#booking" data-i18n="planYourRide">Plan uw rit →</a>
       </div>
@@ -890,30 +946,26 @@
         <div class="section-heading">
           <p class="eyebrow" data-i18n="contactEyebrow">Neem contact op</p>
           <h2 data-i18n="contactTitle">Vertel ons over uw reisplannen.</h2>
-          <p data-i18n="contactDescription">
-            Heeft u een vraag over een privétour, transfer of reis op maat? Neem contact met ons op en vertel ons iets over uw plannen.
-          </p>
+          <p data-i18n="contactDescription">Heeft u een vraag over een privétour, transfer of reis op maat? Neem contact met ons op en vertel ons iets over uw plannen.</p>
         </div>
 
         <div class="contact-grid">
-          <a class="contact-card" href="mailto:husam48726@gmail.com">
+          <a class="contact-card" href="mailto:Aimanalabsi30@gmail.com">
             <span class="contact-icon" aria-hidden="true">✉</span>
             <h3 data-i18n="emailTitle">E-mail</h3>
-            <p>husam48726@gmail.com</p>
+            <p>Aimanalabsi30@gmail.com</p>
             <span class="contact-action" data-i18n="sendEmail">Stuur een e-mail →</span>
           </a>
-
-          <a class="contact-card" href="tel:+31681110006">
+          <a class="contact-card" href="tel:+31618275727">
             <span class="contact-icon" aria-hidden="true">☎</span>
             <h3 data-i18n="phoneTitle">Telefoon</h3>
-            <p>06 8111 0006</p>
+            <p>06 1827 5727</p>
             <span class="contact-action" data-i18n="callUs">Bel ons →</span>
           </a>
-
-          <a class="contact-card" href="https://wa.me/31681110006" target="_blank" rel="noopener noreferrer">
+          <a class="contact-card" href="https://wa.me/31618275727" target="_blank" rel="noopener noreferrer">
             <span class="contact-icon" aria-hidden="true">◉</span>
             <h3>WhatsApp</h3>
-            <p>+31 6 8111 0006</p>
+            <p>+31 6 1827 5727</p>
             <span class="contact-action" data-i18n="chatWithUs">Chat met ons →</span>
           </a>
         </div>
@@ -921,40 +973,65 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <a class="footer-brand" href="index.html" aria-label="Holland Way Tours">
-            <span class="footer-mark" aria-hidden="true">H</span>
-            <span class="footer-brand-name">HOLLAND <span>WAY TOURS</span></span>
+        <div class="footer-about">
+          <a class="footer-logo" href="index.html" aria-label="Masar Taxi home">
+            <img src="./images/image.png" alt="Masar Taxi">
           </a>
+
           <p data-i18n="footerDescription">Privétours en comfortabele ritten door heel Nederland.</p>
-          <p data-i18n="location">Hoofddorp, Nederland</p>
-          <a href="mailto:husam48726@gmail.com">husam48726@gmail.com</a>
-          <a href="tel:+31681110006">06 8111 0006</a>
+
+          <ul class="footer-details">
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">⌖</span>
+              <span>Opaallaan 238, 2132 LC Hoofddorp</span>
+            </li>
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">✉</span>
+              <a href="mailto:Aimanalabsi30@gmail.com">Aimanalabsi30@gmail.com</a>
+            </li>
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">☎</span>
+              <a href="tel:+31618275727">06 1827 5727</a>
+            </li>
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">▤</span>
+              <span>KvK-nummer: 376323</span>
+            </li>
+          </ul>
         </div>
 
-        <div>
-          <h3 data-i18n="explore">Ontdek</h3>
-          <a href="index.html" data-i18n="navHome">Home</a>
-          <a href="services.html" data-i18n="navServices">Diensten</a>
-          <a href="about.html" data-i18n="navAbout">Over ons</a>
-          <a href="contact.html" data-i18n="navContact">Contact</a>
+        <div class="footer-column">
+          <h3 data-i18n="footerDiscover">Ontdek</h3>
+          <div class="footer-links">
+            <a href="index.html#destinations" data-i18n="footerDestinations">Bestemmingen</a>
+            <a href="services.html" data-i18n="navServices">Diensten</a>
+            <a href="index.html#how-it-works" data-i18n="footerHow">Hoe het werkt</a>
+            <a href="about.html" data-i18n="navAbout">Over ons</a>
+          </div>
         </div>
 
-        <div>
-          <h3 data-i18n="planJourneyHeading">Plan uw reis</h3>
-          <a href="index.html#booking" data-i18n="requestRide">Rit aanvragen</a>
-          <a href="mailto:husam48726@gmail.com" data-i18n="emailUs">E-mail ons</a>
-          <a href="tel:+31681110006" data-i18n="callUsPlain">Bel ons</a>
-          <a href="https://wa.me/31681110006">WhatsApp</a>
+        <div class="footer-column">
+          <h3 data-i18n="footerContact">Contact</h3>
+          <p data-i18n="footerContactNote">Heeft u plannen voor een rit of tour? Neem contact met ons op.</p>
+          <div class="footer-links">
+            <a href="mailto:Aimanalabsi30@gmail.com">Aimanalabsi30@gmail.com</a>
+            <a href="tel:+31618275727">06 1827 5727</a>
+            <a href="https://wa.me/31618275727" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="contact.html" data-i18n="footerFaq">Veelgestelde vragen</a>
+          </div>
+          <a class="footer-contact-button" href="contact.html">
+            <span data-i18n="contactUs">Neem contact op</span>
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        © <span id="year"></span> Holland Way Tours.
-        <span data-i18n="rights">Alle rechten voorbehouden.</span>
+        <p>© <span id="year"></span> Masar Taxi. <span data-i18n="footerRights">Alle rechten voorbehouden.</span></p>
+        <a href="mailto:Aimanalabsi30@gmail.com" data-i18n="footerQuestions">Vragen? Stuur ons een e-mail</a>
       </div>
     </div>
   </footer>
@@ -964,9 +1041,9 @@
       nl: {
         title: "Over ons | Holland Way Tours",
         description: "Lees meer over Holland Way Tours en onze privéritten door Nederland.",
+        topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
         languageLabel: "Taal",
         location: "Hoofddorp, Nederland",
-        announcement: "Privéritten · Persoonlijke reisaanvragen",
         navHome: "Home",
         navServices: "Diensten",
         navAbout: "Over ons",
@@ -1017,19 +1094,21 @@
         callUs: "Bel ons →",
         chatWithUs: "Chat met ons →",
         footerDescription: "Privétours en comfortabele ritten door heel Nederland.",
-        explore: "Ontdek",
-        planJourneyHeading: "Plan uw reis",
-        emailUs: "E-mail ons",
-        callUsPlain: "Bel ons",
-        rights: "Alle rechten voorbehouden."
+        footerDiscover: "Ontdek",
+        footerDestinations: "Bestemmingen",
+        footerHow: "Hoe het werkt",
+        footerContact: "Contact",
+        footerContactNote: "Heeft u plannen voor een rit of tour? Neem contact met ons op.",
+        footerFaq: "Veelgestelde vragen",
+        footerRights: "Alle rechten voorbehouden.",
+        footerQuestions: "Vragen? Stuur ons een e-mail"
       },
-
       en: {
         title: "About | Holland Way Tours",
         description: "Learn about Holland Way Tours and our private journeys across the Netherlands.",
+        topbarNote: "Personal travel enquiries throughout the Netherlands",
         languageLabel: "Language",
         location: "Hoofddorp, Netherlands",
-        announcement: "Private journeys · Personal travel enquiries",
         navHome: "Home",
         navServices: "Services",
         navAbout: "About",
@@ -1051,7 +1130,7 @@
         highlightTwoTitle: "Flexible journeys",
         highlightTwoText: "Travel that fits your itinerary",
         highlightThreeTitle: "Personal service",
-        highlightThreeText: "A thoughtful ride from start to finish",
+        highlightThreeText: "Thoughtful service from start to finish",
         welcomeEyebrow: "Welcome to Holland Way Tours",
         aboutTitle: "Travel should feel easy from the start.",
         aboutParagraphOne: "Holland Way Tours offers private journeys for visitors who want a comfortable and personal way to explore the Netherlands. From straightforward transfers to custom day trips, we help you get where you want to go.",
@@ -1060,13 +1139,13 @@
         aboutLabel: "A comfortable way to see more.",
         approachEyebrow: "Our approach",
         valuesTitle: "Simple journeys. Personal service.",
-        valuesDescription: "We focus on clear communication, flexible planning, and making your time on the road a comfortable part of your trip.",
+        valuesDescription: "We focus on clear communication, flexible planning, and a comfortable travel experience.",
         valueOneTitle: "Made around you",
         valueOneText: "Share your destinations, schedule, and preferences. We’ll talk through the details and help plan a journey that fits.",
         valueTwoTitle: "Comfortable travel",
         valueTwoText: "Enjoy a private ride between your chosen locations, without needing to manage the route yourself.",
         valueThreeTitle: "Clear communication",
-        valueThreeText: "We’ll discuss your request, confirm the details, and let you know about availability before your journey.",
+        valueThreeText: "We’ll discuss your request, confirm the details, and let you know about availability.",
         bookingEyebrow: "Start planning",
         bookingTitle: "Where would you like to go?",
         bookingDescription: "Send us your date, pickup location, destination, and group size. We’ll get back to you to discuss your journey.",
@@ -1080,19 +1159,21 @@
         callUs: "Call us →",
         chatWithUs: "Chat with us →",
         footerDescription: "Private tours and comfortable journeys across the Netherlands.",
-        explore: "Explore",
-        planJourneyHeading: "Plan your journey",
-        emailUs: "Email us",
-        callUsPlain: "Call us",
-        rights: "All rights reserved."
+        footerDiscover: "Explore",
+        footerDestinations: "Destinations",
+        footerHow: "How it works",
+        footerContact: "Contact",
+        footerContactNote: "Planning a ride or tour? Get in touch with us.",
+        footerFaq: "Frequently asked questions",
+        footerRights: "All rights reserved.",
+        footerQuestions: "Questions? Email us"
       },
-
       ar: {
         title: "من نحن | هولاند واي تورز",
         description: "تعرّف على هولاند واي تورز ورحلاتنا الخاصة في هولندا.",
+        topbarNote: "استفسارات سفر شخصية في جميع أنحاء هولندا",
         languageLabel: "اللغة",
         location: "هوفدورب، هولندا",
-        announcement: "رحلات خاصة · استفسارات سفر شخصية",
         navHome: "الرئيسية",
         navServices: "الخدمات",
         navAbout: "من نحن",
@@ -1123,13 +1204,13 @@
         aboutLabel: "طريقة مريحة لاكتشاف المزيد.",
         approachEyebrow: "نهجنا",
         valuesTitle: "رحلات سهلة. خدمة شخصية.",
-        valuesDescription: "نركز على التواصل الواضح والتخطيط المرن وجعل وقتك على الطريق جزءاً مريحاً من رحلتك.",
+        valuesDescription: "نركز على التواصل الواضح والتخطيط المرن وتجربة سفر مريحة.",
         valueOneTitle: "مصممة حسب رغبتك",
         valueOneText: "شاركنا وجهاتك وجدولك وتفضيلاتك. سنناقش التفاصيل ونساعدك في تخطيط رحلة مناسبة.",
         valueTwoTitle: "تنقل مريح",
         valueTwoText: "استمتع برحلة خاصة بين المواقع التي تختارها دون الحاجة إلى إدارة المسار بنفسك.",
         valueThreeTitle: "تواصل واضح",
-        valueThreeText: "سنناقش طلبك ونؤكد التفاصيل ونخبرك بالتوافر قبل موعد الرحلة.",
+        valueThreeText: "سنناقش طلبك ونؤكد التفاصيل ونخبرك بالتوافر.",
         bookingEyebrow: "ابدأ التخطيط",
         bookingTitle: "إلى أين ترغب في الذهاب؟",
         bookingDescription: "أرسل لنا التاريخ وموقع الانطلاق والوجهة وعدد المسافرين. سنتواصل معك لمناقشة الرحلة.",
@@ -1143,19 +1224,21 @@
         callUs: "اتصل بنا ←",
         chatWithUs: "تحدث معنا ←",
         footerDescription: "جولات خاصة ورحلات مريحة في هولندا.",
-        explore: "استكشف",
-        planJourneyHeading: "خطط لرحلتك",
-        emailUs: "راسلنا",
-        callUsPlain: "اتصل بنا",
-        rights: "جميع الحقوق محفوظة."
+        footerDiscover: "استكشف",
+        footerDestinations: "الوجهات",
+        footerHow: "كيف تعمل الخدمة",
+        footerContact: "اتصل بنا",
+        footerContactNote: "هل تخطط لرحلة أو جولة؟ تواصل معنا.",
+        footerFaq: "الأسئلة الشائعة",
+        footerRights: "جميع الحقوق محفوظة.",
+        footerQuestions: "هل لديك سؤال؟ راسلنا عبر البريد الإلكتروني"
       },
-
       fr: {
         title: "À propos | Holland Way Tours",
         description: "Découvrez Holland Way Tours et nos trajets privés aux Pays-Bas.",
+        topbarNote: "Demandes de voyage personnalisées aux Pays-Bas",
         languageLabel: "Langue",
         location: "Hoofddorp, Pays-Bas",
-        announcement: "Trajets privés · Demandes de voyage personnalisées",
         navHome: "Accueil",
         navServices: "Services",
         navAbout: "À propos",
@@ -1206,19 +1289,21 @@
         callUs: "Appelez-nous →",
         chatWithUs: "Discutez avec nous →",
         footerDescription: "Visites privées et trajets confortables aux Pays-Bas.",
-        explore: "Explorer",
-        planJourneyHeading: "Planifier votre trajet",
-        emailUs: "Écrivez-nous",
-        callUsPlain: "Appelez-nous",
-        rights: "Tous droits réservés."
+        footerDiscover: "Découvrir",
+        footerDestinations: "Destinations",
+        footerHow: "Comment ça marche",
+        footerContact: "Contact",
+        footerContactNote: "Vous prévoyez un trajet ou une excursion ? Contactez-nous.",
+        footerFaq: "Questions fréquentes",
+        footerRights: "Tous droits réservés.",
+        footerQuestions: "Une question ? Écrivez-nous"
       },
-
       de: {
         title: "Über uns | Holland Way Tours",
         description: "Erfahren Sie mehr über Holland Way Tours und unsere privaten Fahrten durch die Niederlande.",
+        topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
         languageLabel: "Sprache",
         location: "Hoofddorp, Niederlande",
-        announcement: "Privatfahrten · Persönliche Reiseanfragen",
         navHome: "Startseite",
         navServices: "Dienstleistungen",
         navAbout: "Über uns",
@@ -1269,14 +1354,18 @@
         callUs: "Jetzt anrufen →",
         chatWithUs: "Nachricht senden →",
         footerDescription: "Private Touren und komfortable Fahrten in den Niederlanden.",
-        explore: "Entdecken",
-        planJourneyHeading: "Reise planen",
-        emailUs: "E-Mail schreiben",
-        callUsPlain: "Anrufen",
-        rights: "Alle Rechte vorbehalten."
+        footerDiscover: "Entdecken",
+        footerDestinations: "Reiseziele",
+        footerHow: "So funktioniert es",
+        footerContact: "Kontakt",
+        footerContactNote: "Planen Sie eine Fahrt oder Tour? Kontaktieren Sie uns.",
+        footerFaq: "Häufig gestellte Fragen",
+        footerRights: "Alle Rechte vorbehalten.",
+        footerQuestions: "Fragen? Schreiben Sie uns eine E-Mail"
       }
     };
 
+    const STORAGE_KEY = "holland-way-language";
     const languageSelect = document.getElementById("language-select");
     const menuToggle = document.getElementById("menu-toggle");
     const menuLabel = document.getElementById("menu-label");
@@ -1294,8 +1383,8 @@
       if (description) description.content = dictionary.description;
 
       document.querySelectorAll("[data-i18n]").forEach(element => {
-        const translation = dictionary[element.dataset.i18n];
-        if (translation !== undefined) element.innerHTML = translation;
+        const text = dictionary[element.dataset.i18n];
+        if (text !== undefined) element.innerHTML = text;
       });
 
       languageSelect.value = selected;
@@ -1308,7 +1397,7 @@
       );
 
       try {
-        localStorage.setItem("holland-way-language", selected);
+        localStorage.setItem(STORAGE_KEY, selected);
       } catch (_) {}
     }
 
@@ -1356,7 +1445,7 @@
 
     let savedLanguage = "nl";
     try {
-      savedLanguage = localStorage.getItem("holland-way-language") || "nl";
+      savedLanguage = localStorage.getItem(STORAGE_KEY) || "nl";
     } catch (_) {}
 
     applyLanguage(savedLanguage);

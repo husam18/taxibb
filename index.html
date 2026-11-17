@@ -25,15 +25,15 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+:root {
   --forest: #0b1b2b;
-  --forest-light: #183149;
+  --forest-deep: #081523;
   --gold: #d6ad55;
-  --paper: #fbfaf7;
   --cream: #f2f0e9;
+  --paper: #fbfaf7;
   --ink: #182638;
   --muted: #687587;
-  --line: #e5e5df;
+  --line: #e7e5df;
   --content: 1180px;
 }
 
@@ -88,7 +88,7 @@ button {
 
 /* Top bar */
 .topbar {
-  background: #081523;
+  background: var(--forest-deep);
   color: #d6dce3;
   font-size: 0.76rem;
 }
@@ -137,37 +137,14 @@ button {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
-  gap: 11px;
-  color: var(--forest);
 }
 
-.brand-icon {
-  display: grid;
-  width: 43px;
-  height: 43px;
-  place-items: center;
-  border: 1px solid rgb(214 173 85 / 55%);
-  border-radius: 13px 13px 13px 4px;
-  background: var(--forest);
-  color: var(--gold);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-
-.brand-name {
-  font-size: 0.98rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-}
-
-.brand-name span {
+.brand-logo {
   display: block;
-  margin-top: 4px;
-  color: #a77b27;
-  font-size: 0.65rem;
-  letter-spacing: 0.19em;
+  width: 210px;
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .menu-toggle {
@@ -444,7 +421,7 @@ button {
 
 .search-submit:hover {
   transform: translateY(-1px);
-  background: var(--forest-light);
+  background: #183753;
 }
 
 /* General sections */
@@ -1108,46 +1085,131 @@ button {
 }
 
 /* Footer */
-footer {
-  padding: 38px 0 18px;
-  background: #081523;
-  color: rgb(255 255 255 / 68%);
-  font-size: 0.78rem;
+.site-footer {
+  padding: 48px 0 20px;
+  background: var(--forest-deep);
+  color: rgb(255 255 255 / 74%);
+  font-size: 0.83rem;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 32px;
-  padding-bottom: 23px;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 30px;
 }
 
-.footer-brand p {
-  max-width: 340px;
+.footer-about {
+  max-width: 400px;
 }
 
-footer h3 {
-  margin: 0 0 10px;
+.footer-logo {
+  display: inline-flex;
+  min-height: 62px;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.footer-logo img {
+  display: block;
+  width: 165px;
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.footer-about > p,
+.footer-column > p {
+  max-width: 370px;
+  margin: 0 0 15px;
+  color: rgb(255 255 255 / 66%);
+  line-height: 1.75;
+}
+
+.footer-column h3 {
+  margin: 7px 0 15px;
   color: white;
-  font-size: 0.84rem;
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
-footer a:not(.brand) {
+.footer-details,
+.footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-details li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 9px 0;
+  line-height: 1.6;
+}
+
+.footer-detail-icon {
+  flex: 0 0 18px;
+  color: var(--gold);
+  text-align: center;
+}
+
+.site-footer .footer-links a {
   display: block;
   width: fit-content;
-  margin: 7px 0;
+  max-width: 100%;
+  margin: 9px 0;
+  color: rgb(255 255 255 / 74%);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
 }
 
-footer a:hover {
+.site-footer a:hover {
   color: var(--gold);
 }
 
-.footer-bottom {
-  padding-top: 15px;
-  border-top: 1px solid rgb(255 255 255 / 12%);
+.footer-contact-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 9px 17px;
+  border: 1px solid rgb(214 173 85 / 70%);
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* Tablet and smaller screens */
+.footer-contact-button:hover {
+  background: var(--gold);
+  color: var(--forest-deep) !important;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  color: rgb(255 255 255 / 56%);
+  font-size: 0.77rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom a {
+  color: rgb(255 255 255 / 70%);
+}
+
+/* Tablet and mobile navigation */
 @media (max-width: 950px) {
   .header-inner {
     flex-wrap: wrap;
@@ -1157,15 +1219,12 @@ footer a:hover {
 
   .menu-toggle {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
   }
 
   .navigation {
     display: none;
-    width: calc(100% + 36px);
     flex: 0 0 calc(100% + 36px);
+    width: calc(100% + 36px);
     order: 3;
     flex-direction: column;
     align-items: stretch;
@@ -1180,15 +1239,16 @@ footer a:hover {
     display: flex;
   }
 
-  .navigation > a:not(.nav-button) {
-    min-height: 46px;
+  .navigation > a:not(.button) {
+    display: block;
+    min-height: 47px;
     padding: 11px 4px;
     border-bottom: 1px solid var(--line);
   }
 
-  .navigation .nav-button {
+  .navigation .button {
+    width: 100%;
     margin-top: 12px;
-    border-radius: 8px;
   }
 
   .language-picker {
@@ -1198,8 +1258,9 @@ footer a:hover {
     border-top: 1px solid var(--line);
   }
 
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
+  .language-picker select {
+    width: min(220px, 60%);
+    max-width: none;
   }
 
   .booking-layout {
@@ -1211,15 +1272,104 @@ footer a:hover {
   }
 }
 
-/* Mobile */
-@media (max-width: 680px) {
+/* Small screens */
+@media (max-width: 760px) {
   .container {
-    width: calc(100% - 30px);
+    width: min(100% - 30px, var(--content));
   }
 
+  .hero {
+    min-height: 540px;
+    background-position: 58% center;
+  }
+
+  .hero-inner {
+    padding-top: 50px;
+    padding-bottom: 85px;
+  }
+
+  .hero-content {
+    max-width: 620px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 12vw, 5.5rem);
+  }
+
+  .trip-search-wrap {
+    margin-top: -42px;
+  }
+
+  .trip-search {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .search-field {
+    padding-bottom: 20px;
+  }
+
+  .search-submit {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .section {
+    padding: 58px 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-image {
+    min-height: 320px;
+  }
+
+  .about-image img {
+    height: 300px;
+  }
+
+  .destination-card,
+  .destination-card.wide {
+    min-height: 250px;
+    grid-column: span 6;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .booking-intro {
+    position: static;
+  }
+
+  .taxi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+}
+
+/* Phones */
+@media (max-width: 520px) {
   .topbar-inner {
     justify-content: center;
-    padding: 7px 0;
+    padding-block: 7px;
   }
 
   .topbar-links {
@@ -1231,143 +1381,97 @@ footer a:hover {
     display: none;
   }
 
-  .hero {
-    min-height: 550px;
-    background-position: 58% center;
+  .brand-logo {
+    width: 140px;
+    height: 48px;
   }
 
-  .hero-inner {
-    padding-top: 48px;
-    padding-bottom: 90px;
+  .hero {
+    min-height: 500px;
   }
 
   .hero h1 {
-    font-size: clamp(3.3rem, 14vw, 5rem);
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
   }
 
   .hero-copy {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
   }
 
   .hero-actions .button {
-    flex: 1 1 auto;
+    flex: 1 1 100%;
   }
 
-  .trip-search-wrap {
-    margin-top: -45px;
+  .hero-stats {
+    gap: 8px 14px;
   }
 
-  .trip-search {
-    grid-template-columns: 1fr;
-    align-items: stretch;
-    gap: 15px;
-    padding: 18px;
-    border-radius: 13px;
-  }
-
-  .search-field {
-    padding-bottom: 0;
-  }
-
-  .use-current-location {
-    position: static;
-    margin-top: 9px;
-  }
-
-  .search-submit {
-    width: 100%;
-    align-self: stretch;
-    margin-top: 0;
-  }
-
-  .section {
-    padding: 58px 0;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image {
-    min-height: 300px;
-  }
-
-  .about-image img {
-    height: 280px;
-  }
-
-  .destination-card,
-  .destination-card.wide {
-    min-height: 255px;
-    grid-column: span 6;
-  }
-
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .taxi-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 490px) {
-  .brand {
-    gap: 7px;
-  }
-
-  .brand-icon {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-name {
-    font-size: 0.84rem;
-  }
-
-  .brand-name span {
-    font-size: 0.57rem;
-  }
-
-  .destination-grid {
+  .about-checks {
     grid-template-columns: 1fr;
   }
 
   .destination-card,
   .destination-card.wide {
-    min-height: 250px;
-    grid-column: auto;
+    min-height: 245px;
+    grid-column: 1 / -1;
   }
 
   .service-grid,
-  .steps,
-  .about-checks {
+  .steps {
     grid-template-columns: 1fr;
+  }
+
+  .booking-main {
+    padding: 18px;
   }
 
   .booking-heading {
     flex-direction: column;
   }
 
+  .booking-tag {
+    white-space: normal;
+  }
+
   .booking-footer {
-    align-items: stretch;
+    padding: 15px 18px;
   }
 
   .calculate-button {
     width: 100%;
   }
 
-  .luggage-field label {
-    width: 100%;
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
-/* Accessibility */
+/* Very narrow phones */
+@media (max-width: 350px) {
+  .container {
+    width: calc(100% - 22px);
+  }
+
+  .brand-logo {
+    width: 125px;
+  }
+
+  .menu-toggle {
+    min-width: 72px;
+    padding-inline: 8px;
+  }
+
+  .trip-search {
+    padding: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1376,29 +1480,35 @@ footer a:hover {
     transition-duration: 0.01ms !important;
   }
 }
-  </style>
+</style>
 </head>
 <body>
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-links">
-        <a href="mailto:husam48726@gmail.com">✉ husam48726@gmail.com</a>
-        <a href="tel:+31681110006">☎ 06 8111 0006</a>
-        <span data-i18n="location">Hoofddorp, Netherlands</span>
+        <a href="mailto:Aimanalabsi30@gmail.com">✉ Aimanalabsi30@gmail.com</a>
+        <a href="tel:+31618275727">☎ 06 1827 5727</a>
+        <span data-i18n="location">Opaallaan 238, 2132 LC Hoofddorp</span>
       </div>
-      <span class="topbar-note" data-i18n="topbarNote">Personal travel enquiries throughout the Netherlands</span>
+      <span class="topbar-note" data-i18n="topbarNote">
+        Personal travel enquiries throughout the Netherlands
+      </span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home" aria-label="Holland Way Tours home">
-        <span class="brand-icon" aria-hidden="true">H</span>
-        <span class="brand-name">HOLLAND <span>WAY TOURS</span></span>
-      </a>
+      <a class="brand" href="index.html" aria-label="Masar Taxi home">
+<img class="brand-logo" src="./images/masar-logo.jpeg" alt="Masar Taxi">      </a>
 
-      <button class="menu-toggle" id="menu-toggle" type="button"
-        aria-label="Open menu" aria-expanded="false" aria-controls="navigation">
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
         <span aria-hidden="true">☰</span>
         <span id="menu-label">Menu</span>
       </button>
@@ -1428,16 +1538,33 @@ footer a:hover {
     <section class="hero" id="home">
       <div class="container hero-inner">
         <div class="hero-content">
-          <span class="hero-kicker" data-i18n="heroKicker">Discover more of the Netherlands</span>
-          <h1 data-i18n="heroTitle">Make the<br>journey <em>yours.</em></h1>
+          <span class="hero-kicker" data-i18n="heroKicker">
+            Discover more of the Netherlands
+          </span>
+
+          <h1 data-i18n="heroTitle">
+            Make the<br>journey <em>yours.</em>
+          </h1>
+
           <p class="hero-copy" data-i18n="heroCopy">
             From city streets to countryside escapes, plan a private ride around
             the places and moments you want to experience.
           </p>
+
           <div class="hero-actions">
-            <a class="button" href="#booking"><span data-i18n="heroPlan">Plan your journey</span> <span aria-hidden="true">→</span></a>
-            <a class="button button-outline" href="#destinations" data-i18n="heroDestinations">Explore destinations</a>
+            <a class="button" href="#booking">
+              <span data-i18n="heroPlan">Plan your journey</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              class="button button-outline"
+              href="#destinations"
+              data-i18n="heroDestinations"
+            >
+              Explore destinations
+            </a>
           </div>
+
           <div class="hero-stats">
             <span data-i18n="stat1">Personal enquiries</span>
             <span data-i18n="stat2">Flexible stops</span>
@@ -1448,47 +1575,48 @@ footer a:hover {
     </section>
 
     <section class="container trip-search-wrap">
-  <form class="trip-search" id="quick-search">
+      <form class="trip-search" id="quick-search">
+        <div class="search-field address-wrap">
+          <label for="quick-pickup" data-i18n="quickFrom">Where from?</label>
+          <input
+            id="quick-pickup"
+            type="text"
+            placeholder="Pickup location"
+            data-i18n-placeholder="pickupPlaceholder"
+            autocomplete="off"
+            required
+          >
+          <button type="button" class="use-current-location">
+            Use my current location
+          </button>
+        </div>
 
-    <div class="search-field address-wrap">
-      <label for="quick-pickup" data-i18n="quickFrom">Where from?</label>
-      <input
-        id="quick-pickup"
-        type="text"
-        placeholder="Pickup location"
-        data-i18n-placeholder="pickupPlaceholder"
-        autocomplete="off"
-        required
-      >
-      <button type="button" class="use-current-location">
-        Use my current location
-      </button>
-    </div>
+        <div class="search-field address-wrap">
+          <label for="quick-destination" data-i18n="quickTo">Where to?</label>
+          <input
+            id="quick-destination"
+            type="text"
+            placeholder="Your destination"
+            data-i18n-placeholder="destinationPlaceholder"
+            autocomplete="off"
+            required
+          >
+        </div>
 
-    <div class="search-field address-wrap">
-      <label for="quick-destination" data-i18n="quickTo">Where to?</label>
-      <input
-        id="quick-destination"
-        type="text"
-        placeholder="Your destination"
-        data-i18n-placeholder="destinationPlaceholder"
-        autocomplete="off"
-        required
-      >
-    </div>
-
-    <button class="search-submit" type="submit" data-i18n="quickSubmit">
-      Start an enquiry →
-    </button>
-
-  </form>
-</section>
+        <button class="search-submit" type="submit" data-i18n="quickSubmit">
+          Start an enquiry →
+        </button>
+      </form>
+    </section>
 
     <section class="section" id="about">
       <div class="container about-grid">
         <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85"
-            alt="Canal and historic buildings in Amsterdam" loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85"
+            alt="Canal and historic buildings in Amsterdam"
+            loading="lazy"
+          >
           <div class="image-label">
             <span data-i18n="imageLabel">Your own route</span>
             <small data-i18n="imageLabelSmall">Tailored to your travel plans</small>
@@ -1502,13 +1630,17 @@ footer a:hover {
             Whether you are heading to Amsterdam, visiting the countryside or planning a day out,
             send us your travel details. We will contact you to discuss your journey and availability.
           </p>
+
           <div class="about-checks">
             <span data-i18n="check1">Choose your pickup and destination</span>
             <span data-i18n="check2">Add stops along the way</span>
             <span data-i18n="check3">Tell us about luggage and passengers</span>
             <span data-i18n="check4">Request a return ride</span>
           </div>
-          <a class="button" href="#booking" data-i18n="aboutButton">Tell us about your trip →</a>
+
+          <a class="button" href="#booking" data-i18n="aboutButton">
+            Tell us about your trip →
+          </a>
         </div>
       </div>
     </section>
@@ -1516,59 +1648,132 @@ footer a:hover {
     <section class="section section-cream" id="destinations">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow" data-i18n="destinationsEyebrow">Choose your next destination</span>
+          <span class="eyebrow" data-i18n="destinationsEyebrow">
+            Choose your next destination
+          </span>
           <h2 data-i18n="destinationsTitle">Dutch escapes.</h2>
-          <p data-i18n="destinationsText">Choose a destination or enter another address.</p>
+          <p data-i18n="destinationsText">
+            Choose a destination or enter another address.
+          </p>
         </div>
 
         <div class="destination-grid">
           <article class="destination-card">
-            <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85" alt="Amsterdam canals" loading="lazy">
+            <img
+              src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1000&q=85"
+              alt="Amsterdam canals"
+              loading="lazy"
+            >
             <div class="destination-content">
               <span class="destination-type" data-i18n="typeAmsterdam">Canals · Culture</span>
               <h3>Amsterdam</h3>
-              <p data-i18n="textAmsterdam">Explore the canals, neighbourhoods and historic streets.</p>
-              <button class="destination-link" type="button" data-destination="Amsterdam, Netherlands" data-i18n="planTrip">Plan this ride →</button>
+              <p data-i18n="textAmsterdam">
+                Explore the canals, neighbourhoods and historic streets.
+              </p>
+              <button
+                class="destination-link"
+                type="button"
+                data-destination="Amsterdam, Netherlands"
+                data-i18n="planTrip"
+              >
+                Plan this ride →
+              </button>
             </div>
           </article>
 
           <article class="destination-card">
-            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85" alt="Colourful flower garden" loading="lazy">
+            <img
+              src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=900&q=85"
+              alt="Colourful flower garden"
+              loading="lazy"
+            >
             <div class="destination-content">
-              <span class="destination-type" data-i18n="typeKeukenhof">Flowers · Seasonal</span>
+              <span class="destination-type" data-i18n="typeKeukenhof">
+                Flowers · Seasonal
+              </span>
               <h3>Keukenhof</h3>
-              <p data-i18n="textKeukenhof">Combine the gardens with a visit to the flower fields.</p>
-              <button class="destination-link" type="button" data-destination="Keukenhof, Netherlands" data-i18n="planTrip">Plan this ride →</button>
+              <p data-i18n="textKeukenhof">
+                Combine the gardens with a visit to the flower fields.
+              </p>
+              <button
+                class="destination-link"
+                type="button"
+                data-destination="Keukenhof, Netherlands"
+                data-i18n="planTrip"
+              >
+                Plan this ride →
+              </button>
             </div>
           </article>
 
           <article class="destination-card">
-            <img src="https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=60%2Cwidth=375%2Cheight=375%2Cdpr=2/tour_img/2ab3026d27b9cd0977e074549e1e0ba359cd6d9f635de018600a1fbeb8c9f3c9.jpg" alt="Historic Dutch city canal" loading="lazy">
+            <img
+              src="https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=60%2Cwidth=375%2Cheight=375%2Cdpr=2/tour_img/2ab3026d27b9cd0977e074549e1e0ba359cd6d9f635de018600a1fbeb8c9f3c9.jpg"
+              alt="Historic Dutch city canal"
+              loading="lazy"
+            >
             <div class="destination-content">
               <span class="destination-type" data-i18n="typeUtrecht">City · History</span>
               <h3>Utrecht</h3>
               <p data-i18n="textUtrecht">Explore the old town and its canals.</p>
-              <button class="destination-link" type="button" data-destination="Utrecht, Netherlands" data-i18n="planTrip">Plan this ride →</button>
+              <button
+                class="destination-link"
+                type="button"
+                data-destination="Utrecht, Netherlands"
+                data-i18n="planTrip"
+              >
+                Plan this ride →
+              </button>
             </div>
           </article>
 
           <article class="destination-card wide">
-            <img src="https://www.leshuttle.com/getmedia/bb803782-0eed-47ca-9490-8f9c19d6ad0a/0-Hero_delft-hidden-gem_ad-977857126.jpg?width=3200&height=1800&ext=.jpg" alt="Historic architecture in Delft" loading="lazy">
+            <img
+              src="https://www.leshuttle.com/getmedia/bb803782-0eed-47ca-9490-8f9c19d6ad0a/0-Hero_delft-hidden-gem_ad-977857126.jpg?width=3200&height=1800&ext=.jpg"
+              alt="Historic architecture in Delft"
+              loading="lazy"
+            >
             <div class="destination-content">
-              <span class="destination-type" data-i18n="typeDelft">Architecture · Heritage</span>
+              <span class="destination-type" data-i18n="typeDelft">
+                Architecture · Heritage
+              </span>
               <h3>Delft</h3>
-              <p data-i18n="textDelft">Enjoy the historic centre, canals and architecture.</p>
-              <button class="destination-link" type="button" data-destination="Delft, Netherlands" data-i18n="planTrip">Plan this ride →</button>
+              <p data-i18n="textDelft">
+                Enjoy the historic centre, canals and architecture.
+              </p>
+              <button
+                class="destination-link"
+                type="button"
+                data-destination="Delft, Netherlands"
+                data-i18n="planTrip"
+              >
+                Plan this ride →
+              </button>
             </div>
           </article>
 
           <article class="destination-card wide">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ53zYkCSG34ZR0A0DnkydubRkZpa93cgnwJ_B550WxtGuiLGSV_p8pwRs&s=10" alt="Theme park outing in the Netherlands" loading="lazy">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ53zYkCSG34ZR0A0DnkydubRkZpa93cgnwJ_B550WxtGuiLGSV_p8pwRs&s=10"
+              alt="Theme park outing in the Netherlands"
+              loading="lazy"
+            >
             <div class="destination-content">
-              <span class="destination-type" data-i18n="typeEfteling">Family · Theme park</span>
+              <span class="destination-type" data-i18n="typeEfteling">
+                Family · Theme park
+              </span>
               <h3>Efteling</h3>
-              <p data-i18n="textEfteling">Request a ride for a fun day at the theme park.</p>
-              <button class="destination-link" type="button" data-destination="Efteling, Netherlands" data-i18n="planTrip">Plan this ride →</button>
+              <p data-i18n="textEfteling">
+                Request a ride for a fun day at the theme park.
+              </p>
+              <button
+                class="destination-link"
+                type="button"
+                data-destination="Efteling, Netherlands"
+                data-i18n="planTrip"
+              >
+                Plan this ride →
+              </button>
             </div>
           </article>
         </div>
@@ -1580,16 +1785,57 @@ footer a:hover {
         <div class="section-heading">
           <span class="eyebrow" data-i18n="servicesEyebrow">Travel your way</span>
           <h2 data-i18n="servicesTitle">One ride or a day of discovery.</h2>
-          <p data-i18n="servicesText">Tell us your plans and we will discuss the options.</p>
+          <p data-i18n="servicesText">
+            Tell us your plans and we will discuss the options.
+          </p>
         </div>
 
         <div class="service-grid">
-          <article class="service-card"><span class="service-icon">🚕</span><h3 data-i18n="service1">Private ride enquiries</h3><p data-i18n="service1Text">Request a ride between your chosen pickup and destination.</p></article>
-          <article class="service-card"><span class="service-icon">✈️</span><h3 data-i18n="service2">Airport transfers</h3><p data-i18n="service2Text">Include your flight or airport details in your enquiry.</p></article>
-          <article class="service-card"><span class="service-icon">📍</span><h3 data-i18n="service3">Routes with stops</h3><p data-i18n="service3Text">Add places you would like to visit along the way.</p></article>
-          <article class="service-card"><span class="service-icon">↔</span><h3 data-i18n="service4">Return journeys</h3><p data-i18n="service4Text">Request a return and let us know your preferred time.</p></article>
-          <article class="service-card"><span class="service-icon">🧳</span><h3 data-i18n="service5">Luggage details</h3><p data-i18n="service5Text">Tell us how many bags you will bring.</p></article>
-          <article class="service-card"><span class="service-icon">💬</span><h3 data-i18n="service6">Personal contact</h3><p data-i18n="service6Text">Discuss availability and the final price in advance.</p></article>
+          <article class="service-card">
+            <span class="service-icon">🚕</span>
+            <h3 data-i18n="service1">Private ride enquiries</h3>
+            <p data-i18n="service1Text">
+              Request a ride between your chosen pickup and destination.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">✈️</span>
+            <h3 data-i18n="service2">Airport transfers</h3>
+            <p data-i18n="service2Text">
+              Include your flight or airport details in your enquiry.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">📍</span>
+            <h3 data-i18n="service3">Routes with stops</h3>
+            <p data-i18n="service3Text">
+              Add places you would like to visit along the way.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">↔</span>
+            <h3 data-i18n="service4">Return journeys</h3>
+            <p data-i18n="service4Text">
+              Request a return and let us know your preferred time.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">🧳</span>
+            <h3 data-i18n="service5">Luggage details</h3>
+            <p data-i18n="service5Text">Tell us how many bags you will bring.</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">💬</span>
+            <h3 data-i18n="service6">Personal contact</h3>
+            <p data-i18n="service6Text">
+              Discuss availability and the final price in advance.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -1597,16 +1843,38 @@ footer a:hover {
     <section class="section section-cream" id="how-it-works">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow" data-i18n="howEyebrow">Simple from start to finish</span>
+          <span class="eyebrow" data-i18n="howEyebrow">
+            Simple from start to finish
+          </span>
           <h2 data-i18n="howTitle">On your way in four steps.</h2>
-          <p data-i18n="howText">Your enquiry is not a confirmed booking. Your ride is confirmed once the details have been agreed.</p>
+          <p data-i18n="howText">
+            Your enquiry is not a confirmed booking. Your ride is confirmed once the details have been agreed.
+          </p>
         </div>
 
         <div class="steps">
-          <article class="step"><h3 data-i18n="step1">Enter your route</h3><p data-i18n="step1Text">Enter your pickup, destination and any stops.</p></article>
-          <article class="step"><h3 data-i18n="step2">Add your details</h3><p data-i18n="step2Text">Choose a time and tell us about passengers and luggage.</p></article>
-          <article class="step"><h3 data-i18n="step3">View the estimate</h3><p data-i18n="step3Text">Review the estimated distance, journey time and fare.</p></article>
-          <article class="step"><h3 data-i18n="step4">Send your enquiry</h3><p data-i18n="step4Text">Continue to WhatsApp to discuss your enquiry.</p></article>
+          <article class="step">
+            <h3 data-i18n="step1">Enter your route</h3>
+            <p data-i18n="step1Text">Enter your pickup, destination and any stops.</p>
+          </article>
+          <article class="step">
+            <h3 data-i18n="step2">Add your details</h3>
+            <p data-i18n="step2Text">
+              Choose a time and tell us about passengers and luggage.
+            </p>
+          </article>
+          <article class="step">
+            <h3 data-i18n="step3">View the estimate</h3>
+            <p data-i18n="step3Text">
+              Review the estimated distance, journey time and fare.
+            </p>
+          </article>
+          <article class="step">
+            <h3 data-i18n="step4">Send your enquiry</h3>
+            <p data-i18n="step4Text">
+              Continue to WhatsApp to discuss your enquiry.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -1615,12 +1883,17 @@ footer a:hover {
       <div class="container booking-layout">
         <aside class="booking-intro">
           <span class="eyebrow" data-i18n="bookingEyebrow">Let’s plan your route</span>
-          <h2 data-i18n="bookingIntroTitle">Where will your journey take you?</h2>
-          <p data-i18n="bookingIntroText">Enter your travel details for a route-based estimate. We will contact you on WhatsApp about availability and pricing.</p>
+          <h2 data-i18n="bookingIntroTitle">
+            Where will your journey take you?
+          </h2>
+          <p data-i18n="bookingIntroText">
+            Enter your travel details for a route-based estimate. We will contact you on WhatsApp about availability and pricing.
+          </p>
+
           <div class="booking-contact">
             <strong data-i18n="preferCall">Prefer to call?</strong>
-            <a href="tel:+31681110006">06 8111 0006</a>
-            <span data-i18n="location">Hoofddorp, Netherlands</span>
+            <a href="tel:+31618275727">06 1827 5727</a>
+            <span>Opaallaan 238, 2132 LC Hoofddorp</span>
           </div>
         </aside>
 
@@ -1629,98 +1902,247 @@ footer a:hover {
             <div class="booking-heading">
               <div>
                 <h3 data-i18n="bookingTitle">Plan your ride</h3>
-                <p data-i18n="bookingDescription">Enter your travel details to calculate an estimated fare.</p>
+                <p data-i18n="bookingDescription">
+                  Enter your travel details to calculate an estimated fare.
+                </p>
               </div>
-              <span class="booking-tag" data-i18n="bookingTag">Enquiry — not confirmed</span>
+              <span class="booking-tag" data-i18n="bookingTag">
+                Enquiry — not confirmed
+              </span>
             </div>
 
             <form id="taxi-form">
               <div class="taxi-grid">
                 <div class="route-column">
                   <div class="field">
-                    <label for="pickup" data-i18n="pickupLabel">Pickup address *</label>
+                    <label for="pickup" data-i18n="pickupLabel">
+                      Pickup address *
+                    </label>
                     <div class="address-wrap">
                       <span class="address-dot" aria-hidden="true">○</span>
-                      <input id="pickup" name="pickup" type="text" autocomplete="off" placeholder="Street, town or location" data-i18n-placeholder="addressPlaceholder" required>
+                      <input
+                        id="pickup"
+                        name="pickup"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="Street, town or location"
+                        data-i18n-placeholder="addressPlaceholder"
+                        required
+                      >
                     </div>
-                    <button class="location-button" id="use-location" type="button" data-i18n="useLocation">◎ Use my current location</button>
-                    <p class="location-status" id="location-status" role="status" aria-live="polite"></p>
+                    <button
+                      class="location-button"
+                      id="use-location"
+                      type="button"
+                      data-i18n="useLocation"
+                    >
+                      ◎ Use my current location
+                    </button>
+                    <p
+                      class="location-status"
+                      id="location-status"
+                      role="status"
+                      aria-live="polite"
+                    ></p>
                   </div>
 
                   <div class="field">
-                    <label for="destination" data-i18n="destinationLabel">Destination *</label>
+                    <label for="destination" data-i18n="destinationLabel">
+                      Destination *
+                    </label>
                     <div class="address-wrap">
                       <span class="address-dot" aria-hidden="true">●</span>
-                      <input id="destination" name="destination" type="text" autocomplete="off" placeholder="Address, town or airport" data-i18n-placeholder="destinationFieldPlaceholder" required>
+                      <input
+                        id="destination"
+                        name="destination"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="Address, town or airport"
+                        data-i18n-placeholder="destinationFieldPlaceholder"
+                        required
+                      >
                     </div>
                   </div>
 
                   <div class="stops-list" id="stops"></div>
-                  <button class="add-stop-button" id="add-stop" type="button" data-i18n="addStop">＋ Add a stop</button>
+
+                  <button
+                    class="add-stop-button"
+                    id="add-stop"
+                    type="button"
+                    data-i18n="addStop"
+                  >
+                    ＋ Add a stop
+                  </button>
 
                   <fieldset class="luggage-field">
                     <legend data-i18n="luggage">Luggage</legend>
-                    <label><input type="number" name="largeLuggage" min="0" max="12" value="0"> <span data-i18n="large">Large suitcases</span></label>
-                    <label><input type="number" name="cabinLuggage" min="0" max="12" value="0"> <span data-i18n="cabin">Cabin bags</span></label>
-                    <label><input type="number" name="personalLuggage" min="0" max="12" value="0"> <span data-i18n="personal">Handbag / backpack</span></label>
+                    <label>
+                      <input
+                        type="number"
+                        name="largeLuggage"
+                        min="0"
+                        max="12"
+                        value="0"
+                      >
+                      <span data-i18n="large">Large suitcases</span>
+                    </label>
+                    <label>
+                      <input
+                        type="number"
+                        name="cabinLuggage"
+                        min="0"
+                        max="12"
+                        value="0"
+                      >
+                      <span data-i18n="cabin">Cabin bags</span>
+                    </label>
+                    <label>
+                      <input
+                        type="number"
+                        name="personalLuggage"
+                        min="0"
+                        max="12"
+                        value="0"
+                      >
+                      <span data-i18n="personal">Handbag / backpack</span>
+                    </label>
                   </fieldset>
                 </div>
 
                 <div class="details-column">
                   <div class="field">
-                    <label for="pickup-time" data-i18n="pickupTimeLabel">Pickup date and time *</label>
-                    <input id="pickup-time" name="pickupTime" type="datetime-local" required>
+                    <label for="pickup-time" data-i18n="pickupTimeLabel">
+                      Pickup date and time *
+                    </label>
+                    <input
+                      id="pickup-time"
+                      name="pickupTime"
+                      type="datetime-local"
+                      required
+                    >
                   </div>
 
                   <label class="return-toggle" for="return-trip">
-                    <input id="return-trip" name="returnTrip" type="checkbox">
-                    <span data-i18n="returnToggle">I would also like to request a return ride</span>
+                    <input
+                      id="return-trip"
+                      name="returnTrip"
+                      type="checkbox"
+                    >
+                    <span data-i18n="returnToggle">
+                      I would also like to request a return ride
+                    </span>
                   </label>
 
                   <div class="field" id="return-time-field" hidden>
-                    <label for="return-time" data-i18n="returnTimeLabel">Return date and time *</label>
-                    <input id="return-time" name="returnTime" type="datetime-local">
+                    <label for="return-time" data-i18n="returnTimeLabel">
+                      Return date and time *
+                    </label>
+                    <input
+                      id="return-time"
+                      name="returnTime"
+                      type="datetime-local"
+                    >
                   </div>
 
                   <div class="field">
-                    <label data-i18n="passengersLabel">Number of passengers</label>
+                    <label data-i18n="passengersLabel">
+                      Number of passengers
+                    </label>
                     <div class="passenger-control">
-                      <button type="button" id="passenger-minus" aria-label="Remove one passenger">−</button>
+                      <button
+                        type="button"
+                        id="passenger-minus"
+                        aria-label="Remove one passenger"
+                      >−</button>
                       <output id="passenger-count" aria-live="polite">1</output>
-                      <button type="button" id="passenger-plus" aria-label="Add one passenger">＋</button>
+                      <button
+                        type="button"
+                        id="passenger-plus"
+                        aria-label="Add one passenger"
+                      >＋</button>
                     </div>
-                    <input id="passengers" name="passengers" type="hidden" value="1">
+                    <input
+                      id="passengers"
+                      name="passengers"
+                      type="hidden"
+                      value="1"
+                    >
                   </div>
 
                   <div class="field">
-                    <label for="customer-name" data-i18n="nameLabel">Your name *</label>
-                    <input id="customer-name" name="customerName" autocomplete="name" placeholder="First and last name" data-i18n-placeholder="namePlaceholder" required>
+                    <label for="customer-name" data-i18n="nameLabel">
+                      Your name *
+                    </label>
+                    <input
+                      id="customer-name"
+                      name="customerName"
+                      autocomplete="name"
+                      placeholder="First and last name"
+                      data-i18n-placeholder="namePlaceholder"
+                      required
+                    >
                   </div>
 
                   <div class="field">
-                    <label for="customer-email" data-i18n="emailLabel">Email address</label>
-                    <input id="customer-email" name="customerEmail" type="email" autocomplete="email" placeholder="you@example.com">
+                    <label for="customer-email" data-i18n="emailLabel">
+                      Email address
+                    </label>
+                    <input
+                      id="customer-email"
+                      name="customerEmail"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="you@example.com"
+                    >
                   </div>
 
                   <div class="field">
-                    <label for="customer-phone" data-i18n="phoneLabel">Phone number *</label>
-                    <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" placeholder="+31..." required>
+                    <label for="customer-phone" data-i18n="phoneLabel">
+                      Phone number *
+                    </label>
+                    <input
+                      id="customer-phone"
+                      name="customerPhone"
+                      type="tel"
+                      autocomplete="tel"
+                      placeholder="+31..."
+                      required
+                    >
                   </div>
 
                   <div class="field">
-                    <label for="note" data-i18n="noteLabel">Additional information</label>
-                    <textarea id="note" name="note" placeholder="Accessibility needs or other requests" data-i18n-placeholder="notePlaceholder"></textarea>
+                    <label for="note" data-i18n="noteLabel">
+                      Additional information
+                    </label>
+                    <textarea
+                      id="note"
+                      name="note"
+                      placeholder="Accessibility needs or other requests"
+                      data-i18n-placeholder="notePlaceholder"
+                    ></textarea>
                   </div>
                 </div>
               </div>
 
               <div class="booking-footer">
-                <p class="booking-note" data-i18n="fareNote">
-                  Estimate: €4 start fee + €3 per kilometre + €0.50 per minute.
-                  The final fare may differ; this is not a confirmed booking.
-                </p>
-                <button class="calculate-button" id="submit-button" type="submit" data-i18n="calculateButton">Calculate estimate and continue →</button>
-                <p class="fare-result" id="fare-result" role="status" aria-live="polite" hidden></p>
+                
+                <button
+                  class="calculate-button"
+                  id="submit-button"
+                  type="submit"
+                  data-i18n="calculateButton"
+                >
+                  Calculate estimate and continue →
+                </button>
+
+                <p
+                  class="fare-result"
+                  id="fare-result"
+                  role="status"
+                  aria-live="polite"
+                  hidden
+                ></p>
               </div>
             </form>
           </div>
@@ -1734,62 +2156,132 @@ footer a:hover {
           <span class="eyebrow" data-i18n="faqEyebrow">Before you go</span>
           <h2 data-i18n="faqTitle">A few helpful answers.</h2>
         </div>
+
         <div class="faq-list">
-          <details><summary data-i18n="faq1">Is my ride confirmed when I submit the form?</summary><p data-i18n="faq1Text">No. The form sends an enquiry. The ride is confirmed only after availability, details and pricing have been agreed.</p></details>
-          <details><summary data-i18n="faq2">How is the online estimate calculated?</summary><p data-i18n="faq2Text">The estimate uses a €4 start fee, €3 per kilometre and €0.50 per estimated driving minute. Traffic and route changes may affect the final fare.</p></details>
-          <details><summary data-i18n="faq3">Can I add stops and request a return ride?</summary><p data-i18n="faq3Text">Yes. Add stops and select the return ride option.</p></details>
+          <details>
+            <summary data-i18n="faq1">
+              Is my ride confirmed when I submit the form?
+            </summary>
+            <p data-i18n="faq1Text">
+              No. The form sends an enquiry. The ride is confirmed only after availability, details and pricing have been agreed.
+            </p>
+          </details>
+
+          <details>
+            <summary data-i18n="faq2">
+              How is the online estimate calculated?
+            </summary>
+            <p data-i18n="faq2Text">
+              The estimate uses a €4 start fee, €3 per kilometre and €0.50 per estimated driving minute. Traffic and route changes may affect the final fare.
+            </p>
+          </details>
+
+          <details>
+            <summary data-i18n="faq3">
+              Can I add stops and request a return ride?
+            </summary>
+            <p data-i18n="faq3Text">
+              Yes. Add stops and select the return ride option.
+            </p>
+          </details>
         </div>
       </div>
     </section>
 
     <section class="final-cta">
       <div class="container">
-        <span class="eyebrow" data-i18n="ctaEyebrow">Your next journey starts here</span>
+        <span class="eyebrow" data-i18n="ctaEyebrow">
+          Your next journey starts here
+        </span>
         <h2 data-i18n="ctaTitle">Already know where you want to go?</h2>
-        <p data-i18n="ctaText">Send us your travel details and we will discuss your enquiry.</p>
+        <p data-i18n="ctaText">
+          Send us your travel details and we will discuss your enquiry.
+        </p>
+
         <div class="cta-actions">
-          <a class="button" href="#booking" data-i18n="planRide">Plan a ride →</a>
-          <a class="dark-button" href="tel:+31681110006" data-i18n="call">Call 06 8111 0006</a>
-          <a class="dark-button" href="mailto:husam48726@gmail.com" data-i18n="emailUs">Email us</a>
+          <a class="button" href="#booking" data-i18n="planRide">
+            Plan a ride →
+          </a>
+          <a class="dark-button" href="tel:+31618275727">
+            Call 06 1827 5727
+          </a>
+          <a class="dark-button" href="mailto:Aimanalabsi30@gmail.com" data-i18n="emailUs">
+            Email us
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+ <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#home" aria-label="Holland Way Tours home">
-            <span class="brand-icon" aria-hidden="true">H</span>
-            <span class="brand-name" style="color:white">HOLLAND <span>WAY TOURS</span></span>
+        <div class="footer-about">
+          <a class="footer-logo" href="index.html" aria-label="Masar Taxi home">
+            <img src="./images/image.png" alt="Masar Taxi">
           </a>
-          <p data-i18n="footerDescription">Personal taxi and travel enquiries in the Netherlands.</p>
-          <p data-i18n="location">Hoofddorp, Netherlands</p>
+
+          <p data-i18n="footerDescription">Privétours en comfortabele ritten door heel Nederland.</p>
+
+          <ul class="footer-details">
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">⌖</span>
+              <span>Opaallaan 238, 2132 LC Hoofddorp</span>
+            </li>
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">✉</span>
+              <a href="mailto:Aimanalabsi30@gmail.com">Aimanalabsi30@gmail.com</a>
+            </li>
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">☎</span>
+              <a href="tel:+31618275727">06 1827 5727</a>
+            </li>
+            <li>
+              <span class="footer-detail-icon" aria-hidden="true">▤</span>
+              <span>KvK-nummer: 376323</span>
+            </li>
+          </ul>
         </div>
-        <div>
-          <h3 data-i18n="footerDiscover">Explore</h3>
-          <a href="#destinations" data-i18n="footerDestinations">Destinations</a>
-          <a href="#services" data-i18n="services">Services</a>
-          <a href="#how-it-works" data-i18n="footerHow">How it works</a>
-          <a href="#booking" data-i18n="request">Request a ride</a>
+
+        <div class="footer-column">
+          <h3 data-i18n="footerDiscover">Ontdek</h3>
+          <div class="footer-links">
+            <a href="index.html#destinations" data-i18n="footerDestinations">Bestemmingen</a>
+            <a href="services.html" data-i18n="navServices">Diensten</a>
+            <a href="index.html#how-it-works" data-i18n="footerHow">Hoe het werkt</a>
+            <a href="about.html" data-i18n="navAbout">Over ons</a>
+          </div>
         </div>
-        <div>
+
+        <div class="footer-column">
           <h3 data-i18n="footerContact">Contact</h3>
-          <a href="tel:+31681110006">06 8111 0006</a>
-          <a href="mailto:husam48726@gmail.com">husam48726@gmail.com</a>
-          <a href="#faq" data-i18n="footerFaq">Frequently asked questions</a>
+          <p data-i18n="footerContactNote">Heeft u plannen voor een rit of tour? Neem contact met ons op.</p>
+          <div class="footer-links">
+            <a href="mailto:Aimanalabsi30@gmail.com">Aimanalabsi30@gmail.com</a>
+            <a href="tel:+31618275727">06 1827 5727</a>
+            <a href="https://wa.me/31618275727" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="contact.html" data-i18n="footerFaq">Veelgestelde vragen</a>
+          </div>
+          <a class="footer-contact-button" href="contact.html">
+            <span data-i18n="contactUs">Neem contact op</span>
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
-      <div class="footer-bottom">© <span id="year"></span> Holland Way Tours. <span data-i18n="footerRights">All rights reserved.</span></div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Masar Taxi. <span data-i18n="footerRights">Alle rechten voorbehouden.</span></p>
+        <a href="mailto:Aimanalabsi30@gmail.com" data-i18n="footerQuestions">Vragen? Stuur ons een e-mail</a>
+      </div>
     </div>
   </footer>
+
 
 
   <script>
 "use strict";
 
-const WHATSAPP_NUMBER = "31681110006";
+const WHATSAPP_NUMBER = "31618275727";
 const START_FEE = 4;
 const PRICE_PER_KM = 3;
 const PRICE_PER_MINUTE = 0.50;
@@ -1919,7 +2411,7 @@ const translations = {
     ctaTitle: "Weet je al waar je heen wilt?",
     ctaText: "Stuur ons je reisgegevens, dan bespreken we je aanvraag.",
     planRide: "Plan een rit →",
-    call: "Bel 06 8111 0006",
+    call: "Bel 06 1827 5727",
     emailUs: "E-mail ons",
     footerDescription: "Persoonlijke taxi- en reisaanvragen in Nederland.",
     footerDiscover: "Ontdek",
@@ -2094,7 +2586,7 @@ const translations = {
     ctaTitle: "Already know where you want to go?",
     ctaText: "Send us your travel details and we will discuss your enquiry.",
     planRide: "Plan a ride →",
-    call: "Call 06 8111 0006",
+    call: "Call 06 1827 5727",
     emailUs: "Email us",
     footerDescription: "Personal taxi and travel enquiries in the Netherlands.",
     footerDiscover: "Explore",
@@ -2269,7 +2761,7 @@ const translations = {
     ctaTitle: "هل تعرف إلى أين تريد الذهاب؟",
     ctaText: "أرسل تفاصيل رحلتك وسنناقش طلبك.",
     planRide: "خطط لرحلة →",
-    call: "اتصل على 06 8111 0006",
+    call: "اتصل على 06 1827 5727",
     emailUs: "راسلنا",
     footerDescription: "طلبات سيارات الأجرة والرحلات الشخصية في هولندا.",
     footerDiscover: "اكتشف",
@@ -2444,7 +2936,7 @@ const translations = {
     ctaTitle: "Wissen Sie schon, wohin Sie möchten?",
     ctaText: "Senden Sie uns Ihre Reisedaten, damit wir Ihre Anfrage besprechen können.",
     planRide: "Fahrt planen →",
-    call: "Anrufen: 06 8111 0006",
+    call: "Anrufen: 06 1827 5727",
     emailUs: "E-Mail senden",
     footerDescription: "Persönliche Taxi- und Reiseanfragen in den Niederlanden.",
     footerDiscover: "Entdecken",
@@ -2619,7 +3111,7 @@ const translations = {
     ctaTitle: "Vous savez déjà où vous voulez aller ?",
     ctaText: "Envoyez-nous les détails de votre voyage afin que nous puissions étudier votre demande.",
     planRide: "Planifier un trajet →",
-    call: "Appeler le 06 8111 0006",
+    call: "Appeler le 06 1827 5727",
     emailUs: "Envoyez-nous un e-mail",
     footerDescription: "Demandes personnalisées de taxi et de trajets aux Pays-Bas.",
     footerDiscover: "Découvrir",
