@@ -11,18 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!DOCTYPE html>
-<html lang="nl" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Persoonlijke ritten en reisaanvragen door heel Nederland.">
-  <meta name="theme-color" content="#081523">
-  <title>Holland Way Tours | Ontdek Nederland</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
 :root {
@@ -2288,7 +2276,7 @@ const PRICE_PER_MINUTE = 0.50;
 
 const translations = {
   nl: {
-    title: "Holland Way Tours | Ontdek Nederland",
+    title: "Masar Taxi | Ontdek Nederland",
     direction: "ltr",
     location: "Hoofddorp, Nederland",
     topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
@@ -2441,7 +2429,7 @@ const translations = {
     notProvided: "Niet opgegeven",
     yes: "Ja",
     no: "Nee",
-    enquiryTitle: "Holland Way Tours — ritprijs aanvragen",
+    enquiryTitle: "Masar Taxi — ritprijs aanvragen",
     whatsappName: "Naam",
     whatsappEmail: "E-mail",
     whatsappPhone: "Telefoon",
@@ -2463,7 +2451,7 @@ const translations = {
   },
 
   en: {
-    title: "Holland Way Tours | Explore the Netherlands",
+    title: "Masar Taxi | Explore the Netherlands",
     direction: "ltr",
     location: "Hoofddorp, Netherlands",
     topbarNote: "Personal travel enquiries throughout the Netherlands",
@@ -2616,7 +2604,7 @@ const translations = {
     notProvided: "Not provided",
     yes: "Yes",
     no: "No",
-    enquiryTitle: "Holland Way Tours — ride fare enquiry",
+    enquiryTitle: "Masar Taxi— ride fare enquiry",
     whatsappName: "Name",
     whatsappEmail: "Email",
     whatsappPhone: "Phone",
@@ -2813,7 +2801,7 @@ const translations = {
   },
 
   de: {
-    title: "Holland Way Tours | Die Niederlande entdecken",
+    title: "Masar Taxi | Die Niederlande entdecken",
     direction: "ltr",
     location: "Hoofddorp, Niederlande",
     topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
@@ -2966,7 +2954,7 @@ const translations = {
     notProvided: "Nicht angegeben",
     yes: "Ja",
     no: "Nein",
-    enquiryTitle: "Holland Way Tours — Fahrpreisanfrage",
+    enquiryTitle: "Masar Taxi — Fahrpreisanfrage",
     whatsappName: "Name",
     whatsappEmail: "E-Mail",
     whatsappPhone: "Telefon",
@@ -2988,7 +2976,7 @@ const translations = {
   },
 
   fr: {
-    title: "Holland Way Tours | Découvrez les Pays-Bas",
+    title: "Masar Taxi | Découvrez les Pays-Bas",
     direction: "ltr",
     location: "Hoofddorp, Pays-Bas",
     topbarNote: "Demandes de trajets personnalisées dans tous les Pays-Bas",
@@ -3141,7 +3129,7 @@ const translations = {
     notProvided: "Non renseigné",
     yes: "Oui",
     no: "Non",
-    enquiryTitle: "Holland Way Tours — demande d’estimation de trajet",
+    enquiryTitle: "Masar Taxi — demande d’estimation de trajet",
     whatsappName: "Nom",
     whatsappEmail: "E-mail",
     whatsappPhone: "Téléphone",
@@ -3236,7 +3224,7 @@ function applyLanguage(language) {
   updateDynamicTranslations();
 
   try {
-    localStorage.setItem("holland-way-language", language);
+    localStorage.setItem("masar-taxi-language", language);
   } catch (_) {}
 }
 
@@ -3269,7 +3257,7 @@ function updateDynamicTranslations() {
 
 let savedLanguage = "nl";
 try {
-  savedLanguage = localStorage.getItem("holland-way-language") || "nl";
+  savedLanguage = localStorage.getItem("masar-taxi-language") || "nl";
 } catch (_) {}
 
 languageSelect.addEventListener("change", event => {
