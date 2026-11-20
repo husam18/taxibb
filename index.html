@@ -2226,7 +2226,7 @@ button {
             </li>
             <li>
               <span class="footer-detail-icon" aria-hidden="true">▤</span>
-              <span>KvK-nummer: 376323</span>
+              <span><span data-i18n="businessRegistrationLabel">KvK-nummer</span>: 376323</span>
             </li>
           </ul>
         </div>
@@ -2235,9 +2235,9 @@ button {
           <h3 data-i18n="footerDiscover">Ontdek</h3>
           <div class="footer-links">
             <a href="index.html#destinations" data-i18n="footerDestinations">Bestemmingen</a>
-            <a href="services.html" data-i18n="navServices">Diensten</a>
+            <a href="services.html" data-i18n="services">Diensten</a>
             <a href="index.html#how-it-works" data-i18n="footerHow">Hoe het werkt</a>
-            <a href="about.html" data-i18n="navAbout">Over ons</a>
+            <a href="about.html" data-i18n="about">Over ons</a>
           </div>
         </div>
 
@@ -2277,6 +2277,7 @@ const PRICE_PER_MINUTE = 0.50;
 const translations = {
   nl: {
     title: "Masar Taxi | Ontdek Nederland",
+    description: "Persoonlijke ritten en reisaanvragen door heel Nederland.",
     direction: "ltr",
     location: "Hoofddorp, Nederland",
     topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
@@ -2406,6 +2407,10 @@ const translations = {
     footerDestinations: "Bestemmingen",
     footerHow: "Zo werkt het",
     footerContact: "Contact",
+    contactUs: "Neem contact op",
+    footerContactNote: "Heeft u plannen voor een rit of tour? Neem contact met ons op.",
+    footerQuestions: "Vragen? Stuur ons een e-mail",
+    businessRegistrationLabel: "KvK-nummer",
     footerFaq: "Veelgestelde vragen",
     footerRights: "Alle rechten voorbehouden.",
     stopPlaceholder: "Tussenstop {number}",
@@ -2452,6 +2457,7 @@ const translations = {
 
   en: {
     title: "Masar Taxi | Explore the Netherlands",
+    description: "Private rides and travel enquiries throughout the Netherlands.",
     direction: "ltr",
     location: "Hoofddorp, Netherlands",
     topbarNote: "Personal travel enquiries throughout the Netherlands",
@@ -2581,6 +2587,10 @@ const translations = {
     footerDestinations: "Destinations",
     footerHow: "How it works",
     footerContact: "Contact",
+    contactUs: "Contact us",
+    footerContactNote: "Planning a ride or tour? Get in touch with us.",
+    footerQuestions: "Questions? Email us",
+    businessRegistrationLabel: "Chamber of Commerce no.",
     footerFaq: "Frequently asked questions",
     footerRights: "All rights reserved.",
     stopPlaceholder: "Stop {number}",
@@ -2627,6 +2637,7 @@ const translations = {
 
   ar: {
     title: "هولاند واي تورز | اكتشف هولندا",
+    description: "رحلات خاصة واستفسارات سفر في جميع أنحاء هولندا.",
     direction: "rtl",
     location: "هوفدورب، هولندا",
     topbarNote: "طلبات رحلات شخصية في جميع أنحاء هولندا",
@@ -2756,6 +2767,10 @@ const translations = {
     footerDestinations: "الوجهات",
     footerHow: "كيف تعمل الخدمة",
     footerContact: "اتصل بنا",
+    contactUs: "اتصل بنا",
+    footerContactNote: "هل تخطط لرحلة أو جولة؟ تواصل معنا.",
+    footerQuestions: "هل لديك أسئلة؟ راسلنا عبر البريد الإلكتروني",
+    businessRegistrationLabel: "رقم غرفة التجارة",
     footerFaq: "الأسئلة الشائعة",
     footerRights: "جميع الحقوق محفوظة.",
     stopPlaceholder: "المحطة {number}",
@@ -2802,6 +2817,7 @@ const translations = {
 
   de: {
     title: "Masar Taxi | Die Niederlande entdecken",
+    description: "Private Fahrten und Reiseanfragen in den gesamten Niederlanden.",
     direction: "ltr",
     location: "Hoofddorp, Niederlande",
     topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
@@ -2931,6 +2947,10 @@ const translations = {
     footerDestinations: "Reiseziele",
     footerHow: "So funktioniert es",
     footerContact: "Kontakt",
+    contactUs: "Kontaktieren Sie uns",
+    footerContactNote: "Planen Sie eine Fahrt oder Tour? Kontaktieren Sie uns.",
+    footerQuestions: "Fragen? Schreiben Sie uns eine E-Mail",
+    businessRegistrationLabel: "Handelsregisternummer",
     footerFaq: "Häufig gestellte Fragen",
     footerRights: "Alle Rechte vorbehalten.",
     stopPlaceholder: "Zwischenstopp {number}",
@@ -2977,6 +2997,7 @@ const translations = {
 
   fr: {
     title: "Masar Taxi | Découvrez les Pays-Bas",
+    description: "Trajets privés et demandes de voyage aux Pays-Bas.",
     direction: "ltr",
     location: "Hoofddorp, Pays-Bas",
     topbarNote: "Demandes de trajets personnalisées dans tous les Pays-Bas",
@@ -3106,6 +3127,10 @@ const translations = {
     footerDestinations: "Destinations",
     footerHow: "Comment ça marche",
     footerContact: "Contact",
+    contactUs: "Contactez-nous",
+    footerContactNote: "Vous prévoyez un trajet ou une excursion ? Contactez-nous.",
+    footerQuestions: "Une question ? Écrivez-nous par e-mail",
+    businessRegistrationLabel: "N° d’immatriculation au registre du commerce",
     footerFaq: "Questions fréquentes",
     footerRights: "Tous droits réservés.",
     stopPlaceholder: "Arrêt {number}",
@@ -3179,6 +3204,9 @@ function applyLanguage(language) {
   document.documentElement.lang = language;
   document.documentElement.dir = dictionary.direction;
   document.title = dictionary.title;
+
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.content = dictionary.description;
 
   document.querySelectorAll("[data-i18n]").forEach(element => {
     const key = element.dataset.i18n;
