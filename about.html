@@ -807,7 +807,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Masar Taxi home">
+      <a class="brand" href="index.html" data-i18n-aria-label="brandHome" aria-label="Masar Taxi startpagina">
         <img class="brand-logo" src="./images/masar-logo.jpeg" alt="Masar Taxi">
       </a>
 
@@ -817,7 +817,7 @@
         <span id="menu-label">Menu</span>
       </button>
 
-      <nav class="navigation" id="navigation" aria-label="Hoofdnavigatie">
+      <nav class="navigation" id="navigation" data-i18n-aria-label="mainNavigation" aria-label="Hoofdnavigatie">
         <a href="index.html" data-i18n="navHome">Home</a>
         <a href="services.html" data-i18n="navServices">Diensten</a>
         <a href="about.html" aria-current="page" data-i18n="navAbout">Over ons</a>
@@ -826,7 +826,7 @@
 
         <label class="language-picker">
           <span data-i18n="languageLabel">Taal</span>
-          <select id="language-select" aria-label="Kies een taal">
+          <select id="language-select" data-i18n-aria-label="chooseLanguage" aria-label="Kies een taal">
             <option value="nl">Nederlands</option>
             <option value="en">English</option>
             <option value="ar">العربية</option>
@@ -852,7 +852,7 @@
         </div>
       </div>
 
-      <div class="hero-photo" role="img" aria-label="Gracht en historische gebouwen in Nederland">
+      <div class="hero-photo" role="img" data-i18n-aria-label="heroImageLabel" aria-label="Gracht en historische gebouwen in Nederland">
         <div class="photo-caption">
           <strong data-i18n="photoCaption">Ontdek Nederland op uw manier.</strong>
           <span data-i18n="photoSubcaption">Uw reis, in uw eigen tempo</span>
@@ -860,7 +860,7 @@
       </div>
     </section>
 
-    <section class="highlights" aria-label="Wat u kunt verwachten">
+    <section class="highlights" data-i18n-aria-label="highlightsLabel" aria-label="Wat u kunt verwachten">
       <div class="highlight-grid">
         <div class="highlight">
           <span class="highlight-icon" aria-hidden="true">⌖</span>
@@ -896,7 +896,7 @@
           <a class="button" href="contact.html" data-i18n="contactUs">Neem contact op →</a>
         </div>
 
-        <div class="welcome-photo" role="img" aria-label="Gracht in Amsterdam">
+        <div class="welcome-photo" role="img" data-i18n-aria-label="welcomeImageLabel" aria-label="Gracht in Amsterdam">
           <div class="welcome-label" data-i18n="aboutLabel">Een comfortabele manier om meer te zien.</div>
         </div>
       </div>
@@ -977,7 +977,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="footer-logo" href="index.html" aria-label="Masar Taxi home">
+          <a class="footer-logo" href="index.html" data-i18n-aria-label="brandHome" aria-label="Masar Taxi startpagina">
             <img src="./images/image.png" alt="Masar Taxi">
           </a>
 
@@ -998,7 +998,7 @@
             </li>
             <li>
               <span class="footer-detail-icon" aria-hidden="true">▤</span>
-              <span>KvK-nummer: 376323</span>
+              <span><span data-i18n="businessRegistrationLabel">KvK-nummer</span>: 376323</span>
             </li>
           </ul>
         </div>
@@ -1041,6 +1041,13 @@
       nl: {
         title: "Over ons | Masar Taxi",
         description: "Lees meer over Masar Taxi en onze privéritten door Nederland.",
+        brandHome: "Masar Taxi startpagina",
+        mainNavigation: "Hoofdnavigatie",
+        chooseLanguage: "Kies een taal",
+        heroImageLabel: "Gracht en historische gebouwen in Nederland",
+        highlightsLabel: "Wat u kunt verwachten",
+        welcomeImageLabel: "Gracht in Amsterdam",
+        businessRegistrationLabel: "KvK-nummer",
         topbarNote: "Persoonlijke reisaanvragen door heel Nederland",
         languageLabel: "Taal",
         location: "Hoofddorp, Nederland",
@@ -1106,6 +1113,13 @@
       en: {
         title: "About | Masar Taxi",
         description: "Learn about Masar Taxi and our private journeys across the Netherlands.",
+        brandHome: "Masar Taxi home",
+        mainNavigation: "Main navigation",
+        chooseLanguage: "Choose a language",
+        heroImageLabel: "Canal and historic buildings in the Netherlands",
+        highlightsLabel: "What to expect",
+        welcomeImageLabel: "Canal in Amsterdam",
+        businessRegistrationLabel: "Chamber of Commerce no.",
         topbarNote: "Personal travel enquiries throughout the Netherlands",
         languageLabel: "Language",
         location: "Hoofddorp, Netherlands",
@@ -1169,8 +1183,15 @@
         footerQuestions: "Questions? Email us"
       },
       ar: {
-        title: "من نحن | هولاند واي تورز",
-        description: "تعرّف على هولاند واي تورز ورحلاتنا الخاصة في هولندا.",
+        title: "من نحن | Masar Taxi",
+        description: "تعرّف على Masar Taxi ورحلاتنا الخاصة في هولندا.",
+        brandHome: "الصفحة الرئيسية لـ Masar Taxi",
+        mainNavigation: "التنقل الرئيسي",
+        chooseLanguage: "اختر لغة",
+        heroImageLabel: "قناة مائية ومبانٍ تاريخية في هولندا",
+        highlightsLabel: "ما يمكنكم توقعه",
+        welcomeImageLabel: "قناة مائية في أمستردام",
+        businessRegistrationLabel: "رقم غرفة التجارة",
         topbarNote: "استفسارات سفر شخصية في جميع أنحاء هولندا",
         languageLabel: "اللغة",
         location: "هوفدورب، هولندا",
@@ -1183,7 +1204,7 @@
         close: "إغلاق",
         menuOpen: "افتح القائمة",
         menuClose: "أغلق القائمة",
-        heroEyebrow: "عن هولاند واي تورز",
+        heroEyebrow: "عن Masar Taxi",
         heroTitle: "طريقة أكثر خصوصية <em>للسفر.</em>",
         heroDescription: "نجعل التنقل في هولندا مريحاً وسهلاً من خلال رحلات خاصة تناسب خططك.",
         planJourney: "خطط لرحلتك ←",
@@ -1196,9 +1217,9 @@
         highlightTwoText: "تنقل يناسب جدولك",
         highlightThreeTitle: "خدمة شخصية",
         highlightThreeText: "اهتمام من البداية حتى النهاية",
-        welcomeEyebrow: "مرحباً بك في هولاند واي تورز",
+        welcomeEyebrow: "مرحباً بك في Masar Taxi",
         aboutTitle: "يجب أن تبدأ رحلتك بسهولة وراحة.",
-        aboutParagraphOne: "تقدم هولاند واي تورز رحلات خاصة للزوار الذين يرغبون في استكشاف هولندا بطريقة مريحة وشخصية. نساعدك في الوصول إلى وجهتك، من التنقلات المباشرة إلى الرحلات اليومية المصممة حسب رغبتك.",
+        aboutParagraphOne: "تقدم Masar Taxi رحلات خاصة للزوار الذين يرغبون في استكشاف هولندا بطريقة مريحة وشخصية. نساعدك في الوصول إلى وجهتك، من التنقلات المباشرة إلى الرحلات اليومية المصممة حسب رغبتك.",
         aboutParagraphTwo: "تبدأ كل رحلة بخططك. أخبرنا إلى أين تريد الذهاب ومتى ترغب في السفر وما يهمك، وسنناقش تفاصيل الرحلة معك.",
         contactUs: "اتصل بنا ←",
         aboutLabel: "طريقة مريحة لاكتشاف المزيد.",
@@ -1236,6 +1257,13 @@
       fr: {
         title: "À propos | Masar Taxi",
         description: "Découvrez Masar Taxi et nos trajets privés aux Pays-Bas.",
+        brandHome: "Accueil de Masar Taxi",
+        mainNavigation: "Navigation principale",
+        chooseLanguage: "Choisir une langue",
+        heroImageLabel: "Canal et bâtiments historiques aux Pays-Bas",
+        highlightsLabel: "À quoi vous attendre",
+        welcomeImageLabel: "Canal à Amsterdam",
+        businessRegistrationLabel: "N° d’immatriculation à la Chambre de commerce",
         topbarNote: "Demandes de voyage personnalisées aux Pays-Bas",
         languageLabel: "Langue",
         location: "Hoofddorp, Pays-Bas",
@@ -1301,6 +1329,13 @@
       de: {
         title: "Über uns | Masar Taxi",
         description: "Erfahren Sie mehr über Masar Taxi und unsere privaten Fahrten durch die Niederlande.",
+        brandHome: "Masar Taxi Startseite",
+        mainNavigation: "Hauptnavigation",
+        chooseLanguage: "Sprache auswählen",
+        heroImageLabel: "Kanal und historische Gebäude in den Niederlanden",
+        highlightsLabel: "Das erwartet Sie",
+        welcomeImageLabel: "Kanal in Amsterdam",
+        businessRegistrationLabel: "Handelsregisternummer",
         topbarNote: "Persönliche Reiseanfragen in den gesamten Niederlanden",
         languageLabel: "Sprache",
         location: "Hoofddorp, Niederlande",
@@ -1385,6 +1420,11 @@
       document.querySelectorAll("[data-i18n]").forEach(element => {
         const text = dictionary[element.dataset.i18n];
         if (text !== undefined) element.innerHTML = text;
+      });
+
+      document.querySelectorAll("[data-i18n-aria-label]").forEach(element => {
+        const label = dictionary[element.dataset.i18nAriaLabel];
+        if (label !== undefined) element.setAttribute("aria-label", label);
       });
 
       languageSelect.value = selected;
